@@ -1,0 +1,17 @@
+- [Home](/)
+- [Before you start coding](/account/)
+- [Tools](/environment/tools/)
+- [Authentication](/oauth/)
+- [View your models](tutorials/viewmodels.md)
+  - Create a server
+    - [NodeJS](/environment/setup/nodejs)
+    - [.NET](/environment/setup/net)
+  - Authenticate
+    - [NodeJS](/oauth/2legged/nodejs)
+    - [.NET](/oauth/2legged/net)
+  - Upload file to OSS
+    - [NodeJS](/datamanagement/oss/nodejs)
+    - [.NET](/datamanagement/oss/net)
+  - [Translate the file](/modelderivative/)
+  - [Show on Viewer](/viewer/)
+- [Deployment](/deployment/)
