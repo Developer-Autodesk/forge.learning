@@ -198,7 +198,7 @@ function createNewBucket() {
     var bucketKey = $('#newBucketKey').val();
     var policyKey = $('#newBucketPolicyKey').val();
     jQuery.post({
-        url: '/api/forge/buckets/createBucket',
+        url: '/api/forge/oss',
         data: { 'bucketKey': bucketKey, 'policyKey': policyKey },
         success: function (res) {
             $('#appBuckets').jstree(true).refresh();
@@ -212,7 +212,7 @@ function prepareAppBucketTree() {
         'core': {
             'themes': { "icons": true },
             'data': {
-                "url": '/api/forge/tree',
+                "url": '/api/forge/oss',
                 "dataType": "json",
                 'multiple': false,
                 "data": function (node) {

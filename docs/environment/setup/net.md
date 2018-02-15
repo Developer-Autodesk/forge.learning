@@ -11,3 +11,5 @@ PM> Install-Package Autodesk.Forge
 ```
 
 At this point, the webapp is not doing anything, but you can always test it with menu **Debug >> Run**.
+
+Next: [Authenticate](oauth/2legged/net)

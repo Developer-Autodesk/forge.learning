@@ -1,0 +1,9 @@
+# Data Management (OSS)
+
+In OSS, files are stored as objects in buckets. In addition to providing your app the ability to download data from the broader Forge ecosystem, it also provides the functionality to manage your app’s own buckets and objects (including creation, listing, deleting, uploading, and downloading). To avoid arbitrarily long API responses, OSS paginates when listing buckets and objects.
+
+Each bucket also has a [retention policy](https://developer.autodesk.com/en/docs/data/v2/overview/retention-policy/) that determines object retention time:
+
+ - **transient**: Cache-like storage that persists for only 24 hours, ideal for ephemeral objects
+ - **temporary**: Storage that persists for 30 days, good for data that is uploaded and accessed, but not needed permanently
+ - **persistent**: Storage that persists until it’s deleted
