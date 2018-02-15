@@ -12,13 +12,19 @@ A scope is a permission that is set on a token, a context in which that token ma
 
 Scopes serve two principal functions:
 
-- Privacy and Control: In a three-legged context, they act as a mechanism for requesting and securing permission to act on an end user’s behalf in specified ways.
-- Security: In both two- and three-legged contexts, they ensure that if you lose control of your token, it cannot be misused to access resources for which it was not intended.
+- **Privacy and Control**: In a three-legged context, they act as a mechanism for requesting and securing permission to act on an end user’s behalf in specified ways.
+- **Security**: In both two- and three-legged contexts, they ensure that if you lose control of your token, it cannot be misused to access resources for which it was not intended.
 
 [Learn more](https://developer.autodesk.com/en/docs/oauth/v2/overview/scopes/)
 
-## Public and Secret keys
+## Public and Internal tokens
+
+This tutorial will use the 2 types of access tokens: public and internal. The **public** is used for Viewer, which runs and requires a access token on the client. There is a special scope for this scenario: **viewables:read**. 
+
+Now on the server-side we need it write-enabled, so the **internal** will use **bucket:create**, **bucket:read**, **data:read** and **data:create**.
 
 ## Security
+
+ToDo
 
 Next: [View your models](tutorials/viewmodels)

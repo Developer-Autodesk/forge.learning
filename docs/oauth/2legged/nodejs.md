@@ -1,4 +1,4 @@
-# NodeJS
+# Authenticate (NodeJS)
 
 For a basic *OAuth* implementation we need 2 files:
 

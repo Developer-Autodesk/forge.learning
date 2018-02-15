@@ -20,11 +20,11 @@ namespace forgesample.Controllers
     public class TranslateObjectModel
     {
       public string bucketKey { get; set; }
-      public string objectKey { get; set; }
+      public string objectName { get; set; }
     }
 
     [HttpPost]
-    [Route("api/forge/modelderivate/translate")]
+    [Route("api/forge/modelderivative/jobs")]
     public async Task<dynamic> TranslateObject([FromBody]TranslateObjectModel objModel)
     {
       dynamic oauth = await OAuthController.GetInternalAsync();
@@ -40,7 +40,7 @@ namespace forgesample.Controllers
          })
       };
       JobPayload job;
-      job = new JobPayload(new JobPayloadInput(objModel.objectKey), new JobPayloadOutput(outputs));
+      job = new JobPayload(new JobPayloadInput(objModel.objectName), new JobPayloadOutput(outputs));
 
       DerivativesApi derivative = new DerivativesApi();
       derivative.Configuration.AccessToken = oauth.access_token;

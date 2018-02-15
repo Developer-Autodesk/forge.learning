@@ -2,4 +2,4 @@
 
 A user needs to authorize access to his/her data. A **3-legged** token is required.
 
-The next topics are for each language.
+Choose your language: [NodeJS](oauth/3legged/nodejs) | [.NET](oauth/3legged/net)

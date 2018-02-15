@@ -1,4 +1,4 @@
-# Create a new project
+# Create a new project (.NET)
 
 Go to menu File >> New >> New Project and select Web >> Web API. For this sample, let's name it **forgesample**. 
 

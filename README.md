@@ -26,7 +26,7 @@ Clone this project.
 
 Now serve the `/docs` folder:
 
-```
+```bash
 docsify serve ./docs
 ```
 

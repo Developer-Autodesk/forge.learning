@@ -1,4 +1,4 @@
-# Running & Debugging (Visual Studio)
+# Running & Debugging (.NET)
 
 The WebAPI project that we created on Visual Studio came without files, therefore when we start it, nothing runs. As our **forgesample** project now contains a `index.html`, simple right-click on it and select **Set as Start Page**.
 

@@ -1,4 +1,4 @@
-# Create a new project
+# Create a new project (NodeJS)
 
 Create a folder and open that on VS Code, open the integrated terminal (under View >> Integrated Terminal) and type: 
 

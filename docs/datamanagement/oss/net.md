@@ -27,7 +27,7 @@ namespace forgesample.Controllers
     /// Return list of buckets (id=#) or list of objects (id=bucketKey)
     /// </summary>
     [HttpGet]
-    [Route("api/forge/oss")]
+    [Route("api/forge/oss/buckets")]
     public async Task<IList<TreeNode>> GetOSSAsync([FromUri]string id)
     {
       IList<TreeNode> nodes = new List<TreeNode>();
@@ -59,17 +59,22 @@ namespace forgesample.Controllers
       return nodes;
     }
 
+    public class CreateBucketModel
+    {
+      public string bucketKey { get; set; }
+    }
+
     /// <summary>
     /// Create a new bucket 
     /// </summary>
     [HttpPost]
-    [Route("api/forge/oss")]
-    public async Task<dynamic> CreateBucket([FromBody]string bucketKey)
+    [Route("api/forge/oss/buckets")]
+    public async Task<dynamic> CreateBucket([FromBody]CreateBucketModel bucket)
     {
       BucketsApi buckets = new BucketsApi();
       dynamic token = await OAuthController.GetInternalAsync();
       buckets.Configuration.AccessToken = token.access_token;
-      PostBucketsPayload bucketPayload = new PostBucketsPayload(bucketKey, null,
+      PostBucketsPayload bucketPayload = new PostBucketsPayload(bucket.bucketKey, null,
         PostBucketsPayload.PolicyKeyEnum.Transient);
       return await buckets.CreateBucketAsync(bucketPayload, "US");
     }
@@ -79,7 +84,7 @@ namespace forgesample.Controllers
     /// </summary>
     /// <returns></returns>
     [HttpPost]
-    [Route("api/forge/oss/upload")]
+    [Route("api/forge/oss/objects")]
     public async Task<dynamic> UploadObject()
     {
       // basic input validation
