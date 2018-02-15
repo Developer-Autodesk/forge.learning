@@ -9,3 +9,5 @@ Visual Studio should recognize all browsers on the machine and list them to star
 ## Troubleshooting
 
 As of February, 2017, the **Autodesk.Forge** package may not work with **RestSharp v106**, so make sure to install "downgrade" to **v105** at menu **Tools** >> **NuGet Package Manager** >> **Manage NuGet Package for Solution**, under **Installed** tab.
+
+Next: [Deployment](deployment/)

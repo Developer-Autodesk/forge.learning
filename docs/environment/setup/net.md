@@ -12,7 +12,7 @@ PM> Install-Package Autodesk.Forge
 
 ## Web.Config
 
-On the **Web.Config** file, add the Forge Client ID & Secret entries immediately after `</system.web>`:
+On the **Web.Config** file, add the Forge Client ID & Secret entries. By default, it should already have a `<appSettings></appSettings>`, so make sure it is after `</system.web>` and before `<system.webServer>`, as shown below:
 
 ```xml
 ....
@@ -25,6 +25,6 @@ On the **Web.Config** file, add the Forge Client ID & Secret entries immediately
 ....
 ```
 
-At this point, the webapp is not doing anything, but you can always test it with menu **Debug >> Run**.
+At this point, the webapp is not doing anything. 
 
 Next: [Authenticate](oauth/2legged/)

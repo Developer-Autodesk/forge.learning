@@ -12,7 +12,7 @@ To view models we need some files:
 
 ## Index.html
 
-This is the entry point of your app. Create a **index.html** file with:
+This is the entry point of your app. Create a **index.html** file at your root location with:
 
 ```html
 <!DOCTYPE html>
@@ -101,10 +101,9 @@ This is the entry point of your app. Create a **index.html** file with:
 
 ## Main.css
 
-Styling is Now under `css/` folder, create a file named **main.css**:
+CSS is a language that describes the style of an HTML document. Learn more at [W3Schools](https://www.w3schools.com/css/). For this tutorial, create a **main.css** under `/css/` folder with:
 
 ```css
-
 html {
     position: relative;
     min-height: 100%;
@@ -289,7 +288,7 @@ function translateObject(node) {
 
 ## ForgeViewer.js
 
-Now this file will handle the Viewer initialization. Under `/js/` folder, create a **ForgeViewer.js** file with:
+Now this file will handle the Viewer initialization. The following code is based on the Autodesk Forge Viewer [Basic Application](https://developer.autodesk.com/en/docs/viewer/v2/tutorials/basic-application/). Under `/js/` folder, create a **ForgeViewer.js** file with:
 
 ```javascript
 var viewerApp;

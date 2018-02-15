@@ -1,9 +1,11 @@
 # Translate the file
 
-Check the supported translations [here](https://developer.autodesk.com/en/docs/model-derivative/v2/overview/supported-translations/), or use the [endpoint](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/formats-GET/).
+The Model Derivative API enables users to represent and share their designs in different formats, as well as to extract valuable metadata.
 
-To translate a file, first call [POST Job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to start the process, then call [GET Manifest](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/) to check the progress.
+![](https://developer.doc.autodesk.com/bPlouYTd/96/_images/MD-overview-diagram.png)
 
-Note that this endpoint is asynchronous and initiates a process that runs in the background, rather than keeping an open HTTP connection until completion. Use the GET :urn/manifest endpoint to poll for the job’s completion.
+At this section, let's call [POST Job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to start the translation process. Note that this endpoint is asynchronous and initiates a process that runs in the background, rather than keeping an open HTTP connection until completion. Use the GET :urn/manifest endpoint to poll for the job’s completion.
+
+Not sure if your files are compatible? Check the [supported translations](https://developer.autodesk.com/en/docs/model-derivative/v2/overview/supported-translations/).
 
 Choose your language: [NodeJS](modelderivative/translate/nodejs) | [.NET](modelderivative/translate/net)

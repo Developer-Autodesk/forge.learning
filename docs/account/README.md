@@ -1,23 +1,35 @@
-# Account
+# Autodesk Account
 
 Your Autodesk Forge account is your main identity.
 
 ## Creating your Forge account
 
-how to create an account (sub)
+Go to [Forge Developer Portal](https://developer.autodesk.com/), click the “SIGN UP” button to create an account or "SING IN" to use an existing account. If you create a new account, be sure to click the link in the verification email that will be sent to you.
+
+![](https://developer.doc.autodesk.com/bPlouYTd/96/_images/forge-home.png)
 
 ## Activate subscription
 
+Before using any of the paid APIs, like **Model Derivative**, you need to activate your trial. On the top-right, you'll see your name. Click to expand the menu and go to **My Subscription**. On the page that opens, click on **START FREE TRIAL**. That's it.
+
+![](_media/account/activate_sub.png)
+
 ## Create an app
 
-create an app here.
+On the top-right, you'll see your name. Click to expand the menu and go to **My Apps**. Click the “CREATE APP” button.
 
-## Online Resources
+![](https://developer.doc.autodesk.com/bPlouYTd/96/_images/signed-in.png)
 
-### Documentation
+Select APIs you are going to use (you can safelly select all for now). Enter your application name and description, then enter a callback URL: `http://localhost:3000/api/forge/oauth/callback`
 
-### Samples
+![](https://developer.doc.autodesk.com/bPlouYTd/96/_images/create-app.png)
 
-### Blog
+Once you set up an application, you will see a Client ID and Client Secret in your newly created app page. You will need these in all other OAuth flows and, by extension, to complete every other tutorial on this site!
 
-## Getting help
+![](https://developer.doc.autodesk.com/bPlouYTd/96/_images/view-app.png)
+
+!> **DO NOT** share your Client Secret, this should be kept confidential.
+
+You are now good to go!
+
+Next: [Tools](environment/tools/)

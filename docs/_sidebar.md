@@ -1,7 +1,7 @@
 - [Home](/)
 - [Before you start coding](account/)
 - [Tools](environment/tools/)
-- [Authentication](oauth/)
+- [OAuth](oauth/)
 - [View your models](tutorials/viewmodels.md)
   - [Create a server](environment/setup/)
   - [Authenticate](oauth/2legged/)
@@ -10,3 +10,4 @@
   - [Show on Viewer](viewer/)
 - [Run & Debug](environment/rundebug/)
 - [Deployment](deployment/)
+- [Support & Online resources](/help/)

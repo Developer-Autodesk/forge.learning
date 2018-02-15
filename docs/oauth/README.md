@@ -1,11 +1,24 @@
 # OAuth
 
-Basics
+OAuth, specifically OAuth2, is the open standard used across the Forge Platform for token-based authentication and authorization.
 
-## Public and Secret keys
+## 2-legged vs 3-legged
 
-## 2-legged vs 3-legged Authentication
+Learn more about [2-legged](https://developer.autodesk.com/en/docs/oauth/v2/tutorials/get-2-legged-token/) and [3-legged](https://developer.autodesk.com/en/docs/oauth/v2/tutorials/get-3-legged-token/) workflows.
 
 ## Scopes
 
+A scope is a permission that is set on a token, a context in which that token may act. For example, a token with the data:read scope is permitted to read data within the Forge ecosystem and can be used on those endpoints that require that scope. Tokens without that scope would be denied access to such endpoints. (Individual endpoint reference pages list the required scopes.)
+
+Scopes serve two principal functions:
+
+- Privacy and Control: In a three-legged context, they act as a mechanism for requesting and securing permission to act on an end user’s behalf in specified ways.
+- Security: In both two- and three-legged contexts, they ensure that if you lose control of your token, it cannot be misused to access resources for which it was not intended.
+
+[Learn more](https://developer.autodesk.com/en/docs/oauth/v2/overview/scopes/)
+
+## Public and Secret keys
+
 ## Security
+
+Next: [View your models](tutorials/viewmodels)
