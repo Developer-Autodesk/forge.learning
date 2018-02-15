@@ -1,8 +1,10 @@
 # Translate the model (.NET)
 
+To translate a file we just need one endpoint.
+
 ## ModelDerivativeController.cs
 
-Under `/Controllers/` folder, create a **ModelDerivativeController.cs** file with the following content:
+Create a .NET WebAPI Controller named **ModelDerivativeController** (see [how to create a controller](environment/setup/net_controller)) and add the following content:
 
 ```csharp
 using Autodesk.Forge;
@@ -11,7 +13,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace ForgeTutorial.Controllers
+namespace forgesample.Controllers
 {
   public class ModelDerivativeController : ApiController
   {
@@ -19,14 +21,13 @@ namespace ForgeTutorial.Controllers
     {
       public string bucketKey { get; set; }
       public string objectKey { get; set; }
-      public string rootFilename { get; set; }
     }
-    
+
     [HttpPost]
-    [Route("api/forge/modelderivative/translateObject")]
+    [Route("api/forge/modelderivate/translate")]
     public async Task<dynamic> TranslateObject([FromBody]TranslateObjectModel objModel)
     {
-      dynamic oauth = await Utility.OAuth.Get2LeggedTokenAsync(new Scope[] { Scope.DataRead, Scope.DataWrite, Scope.DataCreate });
+      dynamic oauth = await OAuthController.GetInternalAsync();
 
       List<JobPayloadItem> outputs = new List<JobPayloadItem>()
       {
@@ -39,11 +40,7 @@ namespace ForgeTutorial.Controllers
          })
       };
       JobPayload job;
-      if (string.IsNullOrEmpty(objModel.rootFilename))
-        job = new JobPayload(new JobPayloadInput(objModel.objectKey), new JobPayloadOutput(outputs));
-      else
-        job = new JobPayload(new JobPayloadInput(objModel.objectKey, true, objModel.rootFilename), new JobPayloadOutput(outputs));
-
+      job = new JobPayload(new JobPayloadInput(objModel.objectKey), new JobPayloadOutput(outputs));
 
       DerivativesApi derivative = new DerivativesApi();
       derivative.Configuration.AccessToken = oauth.access_token;
@@ -53,3 +50,7 @@ namespace ForgeTutorial.Controllers
   }
 }
 ```
+
+The **TranslateObject** receives the **bucketKey** and **objectName** and post the [translation job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/).
+
+Next: [Show on Viewer](viewer/)

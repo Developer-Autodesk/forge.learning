@@ -6,8 +6,6 @@ Create a folder and open that on VS Code, open the integrated terminal (under Vi
 npm init
 ```
 
-## Packages
-
 After the project is ready, install **Autodesk Forge** with:
 
 ```
@@ -23,7 +21,6 @@ npm install cookie-parser --save
 npm install express --save
 npm install express-session --save
 npm install request --save
-npm install serve-favicon --save
 ```
 
 ## Config.js
@@ -98,10 +95,12 @@ module.exports = app;
 
 At this point, the webapp is not doing anything, but you can always test it with:
 
-```
+```bash
 export FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM FORGE DEVELOPER PORTAL>>
 export FORGE_CLIENT_SECRET=<<YOUR FORGE CLIENT SECRET>>
 npm start
 ```
 
 !> You only need to **export** the key & secret once.
+
+Next: [Authenticate](oauth/2legged/)

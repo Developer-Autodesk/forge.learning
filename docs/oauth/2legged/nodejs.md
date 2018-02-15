@@ -84,3 +84,5 @@ Token.prototype.setCredentials = function (credentials) {
 
 module.exports = Token;
 ```
+
+Next: [Upload file to OSS](/datamanagement/oss/)
