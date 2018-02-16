@@ -18,4 +18,6 @@ If you want to download the project ready to use, visit the following repos:
 - [NodeJS](https://github.com/Autodesk-Forge/forge.learning.viewmodels.nodejs)
 - [.NET](https://github.com/Autodesk-Forge/forge.learning.viewmodels.net)
 
+Ready to start coding?
+
 Next: [Create a server](environment/setup/)

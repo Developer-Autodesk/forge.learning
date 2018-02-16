@@ -1,10 +1,12 @@
 # Create a new project (.NET)
 
-Go to menu File >> New >> New Project and select Web >> Web API. For this sample, let's name it **forgesample**. 
+Go to menu **File** >> **New** >> **Project** and select **Web** >> **ASP.NET Web Application**. For this sample, let's name it **forgesample**. On the next dialog, select **Empty** and select **Web API**. 
+
+Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk Forge** and install it our **forgesample**. 
 
 ![](_media/net/create_project_webapi.gif) 
 
-Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk Forge** and install it our **forgesample**. If you prefer, via command line, use:
+If you prefer, install the package via command line:
 
 ```
 PM> Install-Package Autodesk.Forge
@@ -12,7 +14,7 @@ PM> Install-Package Autodesk.Forge
 
 ## Web.Config
 
-On the **Web.Config** file, add the Forge Client ID & Secret entries. By default, it should already have a `<appSettings></appSettings>`, so make sure it is after `</system.web>` and before `<system.webServer>`, as shown below:
+On the **Web.Config** file, add the Forge Client ID & Secret entries (obtained when you created your app). By default, it should already have a `<appSettings></appSettings>`, so make sure it is after `</system.web>` and before `<system.webServer>`, as shown below:
 
 ```xml
 ....

@@ -1,18 +1,13 @@
 # Viewer
 
-The Viewer is a client-side library, therefore is pure `HTML5` and `JavaScript`. 
-
-
-But there are a few tips for each server-side implementation:
+The Viewer is a client-side library, therefore is pure `HTML5` and `JavaScript`. But there are a few tips for each server-side implementation:
 
 - **NodeJS**: create `.html` files under `/www/` folder, `.js` files under `/www/js` and, following the same logic, `.css` files under `/www/css`.
-- **.NET**: ASP.NET apps usually uses `.aspx` instead `.html`, but for this tutorial let's just use `.html` on the project root folder, `.js` files under `/js/` folder and `.css` files under `/css/` folder.
-
-To view models we need some files:
+- **.NET**: ASP.NET apps usually uses `.aspx` instead `.html`, but for this tutorial let's just use `.html` on the project root folder, JavaScript `.js` files under `/js/` folder and styling `.css` files under `/css/` folder.
 
 ## Index.html
 
-This is the entry point of your app. For this sample we'll use [jQuery](https://jquery.com) for DOM manipulation, [Bootstrap](https://getbootstrap.com/) for styling and [jsTree](https://www.jstree.com) to list buckets & objects. All those libraries are coming from [CDN](https://cdnjs.com/) ([Content Delivery Network](https://en.wikipedia.org/wiki/Content_delivery_network)).
+This is the entry point of your app. For this sample we'll use [jQuery](https://jquery.com) for [DOM](https://www.w3schools.com/js/js_htmldom.asp) manipulation, [Bootstrap](https://getbootstrap.com/) for styling and [jsTree](https://www.jstree.com) to list buckets & objects. All those libraries are coming from [CDN](https://cdnjs.com/) ([Content Delivery Network](https://en.wikipedia.org/wiki/Content_delivery_network)).
 
 And, of course, the Autodesk Forge Viewer libraries: viewer3d.min.js, three.min.js and style.min.css.
 
@@ -347,6 +342,12 @@ function getForgeToken(callback) {
 }
 ```
 
-All set, now run your app!
+To summarize: on the UI side your app should have 4 files:
+- Index.html
+- Main.css
+- ForgeTree.js
+- ForgeViewer.js
+
+All set? Now it's time to run the app!
 
 Next: [Running your app](environment/rundebug/)

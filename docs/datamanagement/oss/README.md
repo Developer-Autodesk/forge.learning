@@ -5,8 +5,8 @@ In OSS, files are stored as objects in buckets. In addition to providing your ap
 Each bucket also has a [retention policy](https://developer.autodesk.com/en/docs/data/v2/overview/retention-policy/) that determines object retention time:
 
  - **transient**: Cache-like storage that persists for only 24 hours, ideal for ephemeral objects. **For this tutorial, let's use this policy**.
- - **temporary**: Storage that persists for 30 days, good for data that is uploaded and accessed, but not needed permanently
- - **persistent**: Storage that persists until it’s deleted
+ - **temporary**: Storage that persists for 30 days.
+ - **persistent**: Storage that persists until it’s deleted.
 
 At this section, let's create a few endpoints to create buckets, upload files and list buckets & objects.
  
