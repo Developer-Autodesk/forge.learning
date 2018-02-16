@@ -13,10 +13,10 @@ Create a project in the programming language that supports the UI described on [
 ```json
 [
   {
-   'id':'bucketKey|objectNameAsURNBase64',
-   'text':''bucketKey|objectName',
-   'type': 'bucket|object',
-   'children': true|false
+   "id": "bucketKey | objectNameAsURNBase64",
+   "text": "bucketKey | objectName",
+   "type": "bucket | object",
+   "children": "true | false"
   }
 ]
 ```
@@ -27,7 +27,27 @@ It receives a querystring with `id`: if **#** return all buckets, if a **bucketK
 
 For reference, when adding a new language, replicate all `net.md` for the new language. The **Viewer** section should be the same for all languages.
 
-The project should be named `forge.learning.TUTORIAL.LANGUAGE`, for instance, `forge.learning.viewmodels.net` or `forge.learning.viewmodels.nodejs`. Tutorial project should be ready to use and include a readme. 
+### Creating a project
+
+`FORK` from `/developer-autodesk/forge.learning.viewmodels.ui` and rename: `forge.learning.TUTORIAL.LANGUAGE`, for example: `forge.learning.viewmodels.net` or `forge.learning.viewmodels.nodejs`. According to each language standards, move files to appropriate folders.
+
+If the UI changes, first [add remote upstream](https://help.github.com/articles/configuring-a-remote-for-a-fork/) (once):
+
+```bash
+git remote add add upstream https://github.com/Developer-Autodesk/forge.learning.viewmodels.ui
+```
+
+Then, [sync fork](https://help.github.com/articles/syncing-a-fork/):
+
+```bash
+git fetch upstream
+git checkout master
+git commit -m "update UI"
+```
+
+Now sync all changes.
+
+### Variables
 
 Use convention:
 
@@ -41,6 +61,10 @@ Use convention:
 ### Animated GIFs
 
 Whenwhere applicable, use animaged GIF to demonstrate a complex setup. Good results with [EZGIF](https://ezgif.com/video-to-gif) in 5FPS (smaller).
+
+### Readme
+
+Tutorial project should be ready to use and include a readme with instructions to setup & run.
 
 # Running locally
 

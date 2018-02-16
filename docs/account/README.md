@@ -20,7 +20,6 @@ On the top-right, you'll see your name. Click to expand the menu and go to **My 
 
 Select APIs you are going to use (you can safelly select all for now). Enter your application name and description, then enter a callback URL: `http://localhost:3000/api/forge/oauth/callback`
 
-
 Once you set up an application, you will see a Client ID and Client Secret in your newly created app page. You will need these in all other OAuth flows and, by extension, to complete every other tutorial on this site!
 
 ![](_media/account/create_app.gif)
