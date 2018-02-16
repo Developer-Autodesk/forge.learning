@@ -12,3 +12,4 @@ Finally, enter the name of your controller.
 
 !> Controllers **MUST** have **Controller** suffix.
 
+:arrow_backward: Click **Back** on your browser 

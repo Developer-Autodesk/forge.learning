@@ -4,7 +4,7 @@ Go to menu File >> New >> New Project and select Web >> Web API. For this sample
 
 ![](_media/net/create_project_webapi.gif) 
 
-Install the Autodesk Forge NuGet package: go to **Tools** >> **NuGet Package Manager** >> **Manage NuGet Package for Solution**, then on **Browse** search for *Autodesk Forge* and install it our **forgesample**. If you prefer, via command line, use:
+Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk Forge** and install it our **forgesample**. If you prefer, via command line, use:
 
 ```
 PM> Install-Package Autodesk.Forge
@@ -25,6 +25,10 @@ On the **Web.Config** file, add the Forge Client ID & Secret entries. By default
 ....
 ```
 
-At this point, the webapp is not doing anything. 
+Last, to make your app consistent with all other **Autodesk Forge** samples, let's change the port to **3000**: go to project **Properties** (right-click on project name), under **Web** tab, then change the **Project URL** to `http://localhost:3000`.
+
+![](_media/net/port.png) 
+
+Project is ready! 
 
 Next: [Authenticate](oauth/2legged/)

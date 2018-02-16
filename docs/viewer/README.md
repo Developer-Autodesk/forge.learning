@@ -12,7 +12,11 @@ To view models we need some files:
 
 ## Index.html
 
-This is the entry point of your app. Create a **index.html** file at your root location with:
+This is the entry point of your app. For this sample we'll use [jQuery](https://jquery.com) for DOM manipulation, [Bootstrap](https://getbootstrap.com/) for styling and [jsTree](https://www.jstree.com) to list buckets & objects. All those libraries are coming from [CDN](https://cdnjs.com/) ([Content Delivery Network](https://en.wikipedia.org/wiki/Content_delivery_network)).
+
+And, of course, the Autodesk Forge Viewer libraries: viewer3d.min.js, three.min.js and style.min.css.
+
+Create a **index.html** file at your root location with:
 
 ```html
 <!DOCTYPE html>
