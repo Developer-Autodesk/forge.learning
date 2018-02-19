@@ -14,13 +14,15 @@ This creates the **package.json** file, which defines which packages our project
 
 ## Install packages
 
-By default, a NodeJS project is empty, so we need to install a few packages with **npm install**. Let's start with **express** and **Autodesk Forge** with:
+By default, a NodeJS project is empty, so we need to install a few packages with **npm install**. Let's start with a basic **express** server, **body-parser** for JSON handling, **multer** for file upload and, of course, **Autodesk Forge**.
 
 !> Run one **npm install** at a time.
 
 ```
 npm install express --save
 npm install forge-apis --save
+npm install multer --save
+npm install body-parser --save
 ```
 
 > The `--save` parameter indicates that it should be saved on the **package.json** file. 
@@ -40,10 +42,13 @@ Finally open the **package.json** and, inside `scripts`, add `start: "node start
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "forge-apis": "^0.4.1"
+    "forge-apis": "^0.4.1",
+    "multer": "^1.3.0"
   }
 }
+
 ```
 
 > The version number (e.g. forge-apis 0.4.1) may vary, this was the latest version when tutorial was created.
@@ -124,7 +129,9 @@ app.set('port', process.env.PORT || 3000); // main port
 
 // prepare our API endpoint routing
 var oauth = require('./oauth');
+var oss = require('./oss');
 app.use('/', oauth); // redirect oauth API calls
+app.use('/', oss); // redirect OSS API calls
 
 module.exports = app;
 ```
