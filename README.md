@@ -31,10 +31,10 @@ For reference, when adding a new language, replicate all `net.md` for the new la
 
 `FORK` from `/developer-autodesk/forge.learning.viewmodels.ui` and rename: `forge.learning.TUTORIAL.LANGUAGE`, for example: `forge.learning.viewmodels.net` or `forge.learning.viewmodels.nodejs`. According to each language standards, move files to appropriate folders.
 
-If the UI changes, first [add remote upstream](https://help.github.com/articles/configuring-a-remote-for-a-fork/) (once):
+If the UI changes, first [add remote upstream](https://help.github.com/articles/configuring-a-remote-for-a-fork/):
 
 ```bash
-git remote add add upstream https://github.com/Developer-Autodesk/forge.learning.viewmodels.ui
+git remote add upstream https://github.com/Developer-Autodesk/forge.learning.viewmodels.ui
 ```
 
 Then, [sync fork](https://help.github.com/articles/syncing-a-fork/):
@@ -42,7 +42,7 @@ Then, [sync fork](https://help.github.com/articles/syncing-a-fork/):
 ```bash
 git fetch upstream
 git checkout master
-git commit -m "update UI"
+git merge upstream/master
 ```
 
 Now sync all changes.
