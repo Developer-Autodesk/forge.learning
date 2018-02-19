@@ -119,9 +119,9 @@ String.prototype.toBase64 = function () {
 module.exports = router;
 ```
 
-As we plan to suppor the [jsTree](https://www.jstree.com/), our **GET oss/buckets** need to return handle the `id` querystring parameter and return buckets when `id=#` and objects for a given bucketKey passed as `id=bucketKey`.
+As we plan to suppor the [jsTree](https://www.jstree.com/), our **GET oss/buckets** need to return handle the `id` querystring parameter and return buckets when `id=#` and objects for a given bucketKey passed as `id=bucketKey`. The upload endpoint uses the [multer package](https://github.com/expressjs/multer) to handle file upload. It saves the file on our server (e.g. under **/tmp/** folder) so we can later upload to forge.
 
-The upload endpoint uses the [multer package](https://github.com/expressjs/multer) to handle file upload. It saves the file on our server (e.g. under **/tmp/** folder) so we can later upload to forge.
+Note how we reuse the `/server/oauth.js` file to call `.getTokenInternal()` on all functions. 
 
 !> Upload a file from the client (browser) directly to Autodesk Forge is possible, but requires giving the client a **write-enabled** access token, which is **NOT SECURE**.
 

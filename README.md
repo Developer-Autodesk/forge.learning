@@ -23,7 +23,7 @@ Create a project in the programming language that supports the UI described on [
 It receives a querystring with `id`: if **#** return all buckets, if a **bucketKey** all objects for the bucket.
 
  - POST **/api/forge/oss/objects**: receive a file and `bucketKey` as a `multipart/form-data`. For simplicity, non-resumable.
- - POST **/api/forge/modelderivate/jobs**: translate the file, receive input in the form of `{'bucketKey': 'theKey', 'objectName': 'theName'}`
+ - POST **/api/forge/modelderivative/jobs**: translate the file, receive input in the form of `{'bucketKey': 'theKey', 'objectName': 'theName'}`
 
 For reference, when adding a new language, replicate all `net.md` for the new language. The **Viewer** section should be the same for all languages.
 

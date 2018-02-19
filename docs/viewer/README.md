@@ -26,9 +26,9 @@ Create a **index.html** file at your root location with:
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
   <!-- Autodesk Forge Viewer files -->
-  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/style.min.css" type="text/css">
+  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/style.min.css?v=v4.0" type="text/css">
   <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/three.min.js"></script>
-  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/viewer3D.min.js"></script>
+  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/viewer3D.min.js?v=v4.0"></script>
   <!-- this project files -->
   <link href="css/main.css" rel="stylesheet" />
   <script src="js/ForgeTree.js"></script>
@@ -69,9 +69,6 @@ Create a **index.html** file at your root location with:
       </div>
     </div>
   </div>
-  <footer class="footer">
-    <div style="float:right;"><img src="/Images/github-logo.png" height="20" /> <a href="https://github.com/Developer-Autodesk/">Source code</a></div>
-  </footer>
   <form id="uploadFile" method='post' enctype="multipart/form-data">
     <input id="hiddenUploadField" type="file" name="theFile" style="visibility:hidden" />
   </form>
@@ -169,12 +166,18 @@ function createNewBucket() {
   var bucketKey = $('#newBucketKey').val();
   var policyKey = $('#newBucketPolicyKey').val();
   jQuery.post({
-    url: '/api/forge/oss',
-    data: { 'bucketKey': bucketKey, 'policyKey': policyKey },
+    url: '/api/forge/oss/buckets',
+    contentType: 'application/json',
+    data: JSON.stringify({ 'bucketKey': bucketKey, 'policyKey': policyKey }),
     success: function (res) {
       $('#appBuckets').jstree(true).refresh();
       $('#createBucketModal').modal('toggle');
     },
+    error: function (err) {
+      if (err.status == 409)
+        alert('Bucket already exists - 409: Duplicated')
+      console.log(err);
+    }
   });
 }
 
@@ -183,7 +186,7 @@ function prepareAppBucketTree() {
     'core': {
       'themes': { "icons": true },
       'data': {
-        "url": '/api/forge/oss',
+        "url": '/api/forge/oss/buckets',
         "dataType": "json",
         'multiple': false,
         "data": function (node) {
@@ -258,7 +261,7 @@ function uploadFile(node) {
         formData.append('bucketKey', node.id);
 
         $.ajax({
-          url: '/api/forge/oss/upload',
+          url: '/api/forge/oss/objects',
           data: formData,
           processData: false,
           contentType: false,
@@ -276,8 +279,9 @@ function translateObject(node) {
   var bucketKey = node.parents[0];
   var objectKey = node.id;
   jQuery.post({
-    url: '/api/forge/modelderivative/translate',
-    data: { 'bucketKey': bucketKey, 'objectName': objectKey },
+    url: '/api/forge/modelderivative/jobs',
+    contentType: 'application/json',
+    data: JSON.stringify({ 'bucketKey': bucketKey, 'objectName': objectKey }),
     success: function (res) {
 
     },
@@ -293,49 +297,48 @@ Now this file will handle the Viewer initialization. The following code is based
 var viewerApp;
 
 function launchViewer(urn) {
-    var options = {
-        env: 'AutodeskProduction',
-        getAccessToken: getForgeToken
-    };
-    var documentId = 'urn:' + urn;
-    Autodesk.Viewing.Initializer(options, function onInitialized() {
-        viewerApp = new Autodesk.Viewing.ViewingApplication('forgeViewer');
-        viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D);
-        viewerApp.loadDocument(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
-    });
+  var options = {
+    env: 'AutodeskProduction',
+    getAccessToken: getForgeToken
+  };
+  var documentId = 'urn:' + urn;
+  Autodesk.Viewing.Initializer(options, function onInitialized() {
+    viewerApp = new Autodesk.Viewing.ViewingApplication('forgeViewer');
+    viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D);
+    viewerApp.loadDocument(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
+  });
 }
 
-var viewer;
-
 function onDocumentLoadSuccess(doc) {
+  // We could still make use of Document.getSubItemsWithProperties()
+  // However, when using a ViewingApplication, we have access to the **bubble** attribute,
+  // which references the root node of a graph that wraps each object from the Manifest JSON.
+  var viewables = viewerApp.bubble.search({ 'type': 'geometry' });
+  if (viewables.length === 0) {
+    console.error('Document contains no viewables.');
+    return;
+  }
 
-    // We could still make use of Document.getSubItemsWithProperties()
-    // However, when using a ViewingApplication, we have access to the **bubble** attribute,
-    // which references the root node of a graph that wraps each object from the Manifest JSON.
-    var viewables = viewerApp.bubble.search({ 'type': 'geometry' });
-    if (viewables.length === 0) {
-        console.error('Document contains no viewables.');
-        return;
-    }
-
-    // Choose any of the avialble viewables
-    viewerApp.selectItem(viewables[0].data, onItemLoadSuccess, onItemLoadFail);
+  // Choose any of the avialble viewables
+  viewerApp.selectItem(viewables[0].data, onItemLoadSuccess, onItemLoadFail);
 }
 
 function onDocumentLoadFailure(viewerErrorCode) {
+  console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode);
 }
 
 function onItemLoadSuccess(viewer, item) {
+  // item loaded, any custom action?
 }
 
 function onItemLoadFail(errorCode) {
+  console.error('onItemLoadFail() - errorCode:' + errorCode);
 }
 
 function getForgeToken(callback) {
   jQuery.ajax({
     url: '/api/forge/oauth/token',
     success: function (res) {
-      console.log('res de token client', res);
       callback(res.access_token, res.expires_in)
     }
   });
