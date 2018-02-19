@@ -1,86 +1,122 @@
 # Create a new project (NodeJS)
 
-Create a folder and open that on VS Code, open the integrated terminal (under View >> Integrated Terminal) and type: 
+Create a folder on your machine, do not use spaces and avoid special chars. For this tutorial, let's use **forgesample**.
+
+Open **Visual Code**, then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder. 
+
+Now we need the terminal, go to menu **View** >> **Integrated Terminal**. A window should appear on the bottom. Type the following command and follow the steps. For consistency with other Forge samples, when prompted for **entry point:**, use **start.js**.
 
 ```
 npm init
 ```
 
-After the project is ready, install **Autodesk Forge** with:
+This creates the **package.json** file, which defines which packages our project will be using. [Learn more](https://docs.npmjs.com/files/package.json).
 
-```
-npm install forge-apis --save
-```
+## Install packages
 
-As we'll also need some other packages, also run:
+By default, a NodeJS project is empty, so we need to install a few packages with **npm install**. Let's start with **express** and **Autodesk Forge** with:
 
 !> Run one **npm install** at a time.
 
 ```
-npm install cookie-parser --save
 npm install express --save
-npm install express-session --save
-npm install request --save
+npm install forge-apis --save
 ```
 
-## Config.js
+> The `--save` parameter indicates that it should be saved on the **package.json** file. 
 
-Now create a file named `config.js` with the following content:
+Finally open the **package.json** and, inside `scripts`, add `start: "node start.js",` line. Now your folder should have a **node_modules** folder and your **package.json** should look like:
+
+```json
+{
+  "name": "forgesample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "start.js",
+  "scripts": {
+    "start": "node start.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "forge-apis": "^0.4.1"
+  }
+}
+```
+
+> The version number (e.g. forge-apis 0.4.1) may vary, this was the latest version when tutorial was created.
+
+## Files and Folders
+
+To create a new folder or file, right-click on the "Exporer" area on the left and select **New Folder** or **New File**.
+
+For consitency with other Forge samples, create a **/server/** folder for all server-side files and a **/www/** for all client-side files.
+
+At this point, you project should be something like:
+
+![](_media/nodejs/vs_code_explorer.png) 
+
+## launch.json
+
+This file indicates to Visual Code how we should run our project. Go to menu **Debug** >> **Add Configuration...** and, on **Select Environment** small window that appears on the top, choose **NodeJS**. A **/.vscode/launch.json** file is created, enter the following. 
+
+!> Note you need to enter your **Forge Client ID & Secret** at the indicated space.
+
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/start.js",
+            "env": {
+                "FORGE_CLIENT_ID": "your id here",
+                "FORGE_CLIENT_SECRET": "your secret here"
+            }
+        }
+    ]
+}
+```
+
+> It's important to define **ID & Secret** as environment variables so our project can, later, be deployed online. More on this later, on **Deployment**.
+
+## Start.js
+
+At the root folder, create a `/start.js` file with:
 
 ```javascript
-'use strict'; // http://www.w3schools.com/js/js_strict.asp
+'use strict';
 
-module.exports = {
+var app = require('./server/server');
 
-  // Autodesk Forge configuration
+// start server
+var server = app.listen(app.get('port'), function () {
+  if (process.env.FORGE_CLIENT_ID == null || process.env.FORGE_CLIENT_SECRET == null)
+    console.log('*****************\nWARNING: Forge Client ID & Client Secret not defined as environment variables.\n*****************');
 
-  // this this callback URL when creating your client ID and secret (3-legged only)
-  callbackURL: process.env.FORGE_CALLBACK_URL || 'YOURCALLBACKURL',
-
-  // set environment variables or hard-code here
-  credentials: {
-    client_id: process.env.FORGE_CLIENT_ID || '',
-    client_secret: process.env.FORGE_CLIENT_SECRET || ''
-  },
-
-  // Required scopes for your application on server-side
-  scopeInternal: ['data:read','data:write','data:create','data:search'],
-  // Required scope of the token sent to the client
-  scopePublic: ['viewables:read']
-};
+  console.log('Starting at ' + (new Date()).toString());
+  console.log('Server listening on port ' + server.address().port);
+});
 ```
 
-We are defining our ENV variables here, at the time of running our Express server the values on these variables will be use to connect to the different Autodesk Forge services we will need.
-
-Here we can find the reference to the callback URL which is needed if we use a 3 legged Token for the authentication, in this case we will use a 2 legged authentication, this value can be left out empty. Later on we have a way to pass in our enviornment variables by defining them as Process variables or hard coding them as strings, my suggestion will be to use the process setup.
-
-Last we see there are 2 definitions about scopes. These scopes give our Token the right permission for the use of the different services of the Forge We Services. This tutorial is dedicated to the use of the Viewer only, we will only need the "viewables:read" scope.
+The purpouse of this file is to ensure our running server is what we expecte. More on this later.
 
 ## Server.js
 
-Now create a file named `sever.js` with:
+Now, under **/server/** folder, create a file named `server.js` with:
 
 ```javascript
 'use strict';
 
 var express = require('express');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
 var app = express();
-
-// this session will be used to save the oAuth token
-app.use(cookieParser());
-app.set('trust proxy', 1) // trust first proxy - HTTPS on Heroku 
-app.use(session({
-    secret: 'autodeskforge',
-    cookie: {
-        httpOnly: true,
-        secure: (process.env.NODE_ENV === 'production'),
-        maxAge: 1000 * 60 * 60 // 1 hours to expire the session and avoid memory leak
-    },
-    resave: false,
-    saveUninitialized: true
-}));
 
 // prepare server routing
 app.use('/', express.static(__dirname + '/../www')); // redirect static calls
@@ -93,14 +129,38 @@ app.use('/', oauth); // redirect oauth API calls
 module.exports = app;
 ```
 
-At this point, the webapp is not doing anything, but you can always test it with:
+This file start the **express** server and serve the static files (e.g. `html`) and route the API requests.
 
-```bash
-export FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM FORGE DEVELOPER PORTAL>>
-export FORGE_CLIENT_SECRET=<<YOUR FORGE CLIENT SECRET>>
-npm start
+## Config.js
+
+Under **/server/** create a file named `config.js` with the following content:
+
+```javascript
+'use strict';
+
+// Autodesk Forge configuration
+module.exports = {
+  // set environment variables or hard-code here
+  credentials: {
+    client_id: process.env.FORGE_CLIENT_ID,
+    client_secret: process.env.FORGE_CLIENT_SECRET
+  },
+
+  // Required scopes for your application on server-side
+  scopeInternal: ['bucket:create', 'bucket:read','data:read','data:create'],
+  // Required scope of the token sent to the client
+  scopePublic: ['viewables:read']
+};
 ```
 
-!> You only need to **export** the key & secret once.
+We are defining our ENV variables here, at the time of running our Express server the values on these variables will be use to connect to the different Autodesk Forge services we will need.
+
+Last we see there are 2 definitions about scopes. These scopes give our Token the right permission for the use of the different services of the Forge We Services. This tutorial is dedicated to the use of the Viewer only, we will only need the "viewables:read" scope.
+
+Project is ready! At this point your project should have:
+
+![](_media/nodejs/vs_code_project.png) 
+
+> The **package-lock.json** was created by Visual Code, don't worry :wink: 
 
 Next: [Authenticate](oauth/2legged/)
