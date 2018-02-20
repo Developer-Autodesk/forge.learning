@@ -15,8 +15,8 @@ To view your model, you need the following steps:
 
 If you want to download the project ready to use, visit the following repos:
 
-- [NodeJS](https://github.com/Autodesk-Forge/forge.learning.viewmodels.nodejs)
-- [.NET](https://github.com/Autodesk-Forge/forge.learning.viewmodels.net)
+- [NodeJS](https://github.com/Autodesk-Forge/forge.learning.viewmodels/tree/nodejs)
+- [.NET](https://github.com/Autodesk-Forge/forge.learning.viewmodels/tree/net)
 
 Ready to start coding?
 
