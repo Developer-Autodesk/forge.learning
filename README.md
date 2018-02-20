@@ -1,8 +1,12 @@
-# Forge Learning
+# Learn Forge
 
-To view tutorials, please visit [forgetutorials.autodesk.io](http://forgetutorials.autodesk.io). This repository is for creating the tutorials.
+### To view tutorials, please visit [learnforge.autodesk.io](http://learnforge.autodesk.io). 
 
-# Adding a new language
+This repository is for creating the tutorials.
+
+***********
+
+### Adding a new language
 
 Create a project in the programming language that supports the UI described on [Viewer](viewer/readme.md) front-end. In summary, the back should implement:
 

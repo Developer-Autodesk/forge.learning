@@ -4,6 +4,6 @@ Go to menu **Debug** and select **Start debugging**. The "Debug Console" tab sho
 
 ![](_media/nodejs/vs_code_debug.png) 
 
-Open your browser and go to `http://localhost:3000`.
+Open your browser and go to `http://localhost:3000`
 
 Next: [Deployment](deployment/)

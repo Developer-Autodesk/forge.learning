@@ -8,4 +8,4 @@
 - Extract metada & translate files
 
 [Developer Portal](http://developer.autodesk.com)
-[Get Started](#autodesk-forge-learning)
+[Get Started](#learn-autodesk-forge)

@@ -1,4 +1,4 @@
-- [Home](/)
+- [Home](/?id=learn-autodesk-forge)
 - [Before you start coding](account/)
 - [Tools](environment/tools/)
 - [OAuth](oauth/)
@@ -10,4 +10,4 @@
   - [Show on Viewer](viewer/)
 - [Run & Debug](environment/rundebug/)
 - [Deployment](deployment/)
-- [Support & Online resources](/help/)
+- [Support & Online resources](help/)
