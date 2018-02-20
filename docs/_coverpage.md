@@ -6,6 +6,6 @@
 
 - View 2D & 3D models on the browser
 - Extract metada & translate files
-- Batch process files on the cloud
 
-[Get Started](#docsify)
+[Developer Portal](http://developer.autodesk.com)
+[Get Started](#autodesk-forge-learning)
