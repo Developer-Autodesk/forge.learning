@@ -21,10 +21,6 @@ Scopes serve two principal functions:
 
 This tutorial will use the 2 types of access tokens: public and internal. The **public** is used for Viewer, which runs and requires a access token on the client. There is a special scope for this scenario: **viewables:read**. 
 
-Now on the server-side we need it write-enabled, so the **internal** will use **bucket:create**, **bucket:read**, **data:read** and **data:create**.
-
-## Security
-
-ToDo
+Now on the server-side we need it write-enabled, so the **internal** will use **bucket:create**, **bucket:read**, **data:read**, **data:create** and **data:write**.
 
 Next: [View your models](tutorials/viewmodels)
