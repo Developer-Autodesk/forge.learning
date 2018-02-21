@@ -128,10 +128,12 @@ app.use('/', express.static(__dirname + '/../www')); // redirect static calls
 app.set('port', process.env.PORT || 3000); // main port
 
 // prepare our API endpoint routing
-var oauth = require('./oauth');
+var oauth = require('./oauthtoken');
 var oss = require('./oss');
+var modelderivative = require('./modelderivative');
 app.use('/', oauth); // redirect oauth API calls
 app.use('/', oss); // redirect OSS API calls
+app.use('/', modelderivative); // redirect model derivative API calls
 
 module.exports = app;
 ```
@@ -154,7 +156,7 @@ module.exports = {
   },
 
   // Required scopes for your application on server-side
-  scopeInternal: ['bucket:create', 'bucket:read','data:read','data:create'],
+  scopeInternal: ['bucket:create', 'bucket:read', 'data:read', 'data:create', 'data:write'],
   // Required scope of the token sent to the client
   scopePublic: ['viewables:read']
 };
