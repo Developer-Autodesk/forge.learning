@@ -13,26 +13,24 @@ Create a **index.html** file with:
 ```html
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Autodesk Forge Tutorial</title>
   <meta charset="utf-8" />
   <!-- Common packages: jQuery, Bootstrap, jsTree -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
   <!-- Autodesk Forge Viewer files -->
-  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/style.min.css?v=v4.0" type="text/css">
-  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/three.min.js"></script>
-  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/viewer3D.min.js?v=v4.0"></script>
+  <link rel="stylesheet" href="//developer.api.autodesk.com/modelderivative/v2/viewers/style.min.css?v=v4.0" type="text/css">
+  <script src="//developer.api.autodesk.com/modelderivative/v2/viewers/three.min.js"></script>
+  <script src="//developer.api.autodesk.com/modelderivative/v2/viewers/viewer3D.min.js?v=v4.0"></script>
   <!-- this project files -->
   <link href="css/main.css" rel="stylesheet" />
   <script src="js/ForgeTree.js"></script>
   <script src="js/ForgeViewer.js"></script>
 </head>
-
 <body>
   <!-- Fixed navbar by Bootstrap: https://getbootstrap.com/examples/navbar-fixed-top/ -->
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -40,7 +38,7 @@ Create a **index.html** file with:
       <ul class="nav navbar-nav left">
         <li>
           <a href="http://developer.autodesk.com" target="_blank">
-            <img alt="Autodesk Forge" src="https://developer.static.autodesk.com/images/logo_forge-2-line.png" height="20">
+            <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20">
           </a>
         </li>
       </ul>
@@ -82,7 +80,8 @@ Create a **index.html** file with:
           <h4 class="modal-title" id="myModalLabel">Create new bucket</h4>
         </div>
         <div class="modal-body">
-          <input type="text" id="newBucketKey" class="form-control"> For demonstration purpouses, objects (files) are NOT automatically translated. After you upload, right click on
+          <input type="text" id="newBucketKey" class="form-control"> For demonstration purpouses, objects (files) are 
+          NOT automatically translated. After you upload, right click on
           the object and select "Translate".
         </div>
         <div class="modal-footer">
@@ -93,7 +92,6 @@ Create a **index.html** file with:
     </div>
   </div>
 </body>
-
 </html>
 ```
 
@@ -102,12 +100,12 @@ Create a **index.html** file with:
 CSS is a language that describes the style of an HTML document. Learn more at [W3Schools](https://www.w3schools.com/css/). For this tutorial, create a **main.css** under `css` folder with:
 
 ```css
-html, body{
+html, body {
   min-height: 100%;
   height: 100%;
 }
 
-.fill{
+.fill {
   height: calc(100vh - 100px);
 }
 
@@ -119,13 +117,12 @@ body {
 #appBuckets {
   overflow: auto;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 150px);
 }
 
 #forgeViewer {
   width: 100%;
 }
-
 ```
 
 ## ForgeTree.js
@@ -200,6 +197,7 @@ function prepareAppBucketTree() {
     $('#appBuckets').jstree('open_all');
   }).bind("activate_node.jstree", function (evt, data) {
     if (data != null && data.node != null && data.node.type == 'object') {
+      $("#forgeViewer").empty();
       var urn = data.node.id;
       getForgeToken(function (access_token) {
         jQuery.ajax({
@@ -207,7 +205,7 @@ function prepareAppBucketTree() {
           headers: { 'Authorization': 'Bearer ' + access_token },
           success: function (res) {
             if (res.status === 'success') launchViewer(urn);
-            else $("#forgeViewer").html('The translation job still running: ' + res.progress + '. Please try again in a moment');
+            else $("#forgeViewer").html('The translation job still running: ' + res.progress + '. Please try again in a moment.');
           },
           error: function (err) {
             var msgButton = 'This file is not translated yet! ' +
@@ -257,6 +255,7 @@ function autodeskCustomMenu(autodeskNode) {
 function uploadFile(node) {
   $('#hiddenUploadField').click();
   $('#hiddenUploadField').change(function () {
+    if (this.files.length == 0) return;
     var file = this.files[0];
     switch (node.type) {
       case 'bucket':
@@ -280,6 +279,7 @@ function uploadFile(node) {
 }
 
 function translateObject(node) {
+  $("#forgeViewer").empty();
   if (node == null) node = $('#appBuckets').jstree(true).get_selected(true)[0];
   var bucketKey = node.parents[0];
   var objectKey = node.id;
@@ -288,7 +288,7 @@ function translateObject(node) {
     contentType: 'application/json',
     data: JSON.stringify({ 'bucketKey': bucketKey, 'objectName': objectKey }),
     success: function (res) {
-
+      $("#forgeViewer").html('Translation started! Please try again in a moment.');
     },
   });
 }
