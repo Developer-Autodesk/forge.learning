@@ -13,6 +13,7 @@ Create a **index.html** file with:
 ```html
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Autodesk Forge Tutorial</title>
   <meta charset="utf-8" />
@@ -31,6 +32,7 @@ Create a **index.html** file with:
   <script src="js/ForgeTree.js"></script>
   <script src="js/ForgeViewer.js"></script>
 </head>
+
 <body>
   <!-- Fixed navbar by Bootstrap: https://getbootstrap.com/examples/navbar-fixed-top/ -->
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -45,24 +47,24 @@ Create a **index.html** file with:
     </div>
   </nav>
   <!-- End of navbar -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="panel panel-default">
+  <div class="container-fluid fill">
+    <div class="row fill">
+      <div class="col-sm-4 fill">
+        <div class="panel panel-default fill">
           <div class="panel-heading" data-toggle="tooltip">
             Buckets &amp; Objects
-            [<span id="refreshBuckets" style="vertical-align: top; cursor: pointer">Refresh</span>]
+            <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
             <button class="btn btn-xs btn-info" style="float: right" id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">
               <span class="glyphicon glyphicon-folder-close"></span> New bucket
             </button>
           </div>
-          <div id="appBuckets" class="foldertree">
+          <div id="appBuckets">
             tree here
           </div>
         </div>
       </div>
-      <div class="col-sm-8">
-        <div id="forgeViewer" class="forgeViewer"></div>
+      <div class="col-sm-8 fill">
+        <div id="forgeViewer"></div>
       </div>
     </div>
   </div>
@@ -74,12 +76,14 @@ Create a **index.html** file with:
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">&times;</span></button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cancel">
+            <span aria-hidden="true">&times;</span>
+          </button>
           <h4 class="modal-title" id="myModalLabel">Create new bucket</h4>
         </div>
         <div class="modal-body">
-          <input type="text" id="newBucketKey" class="form-control">
-          For demonstration purpouses, objects (files) are NOT automatically translated. After you upload, right click on the object and select "Translate".
+          <input type="text" id="newBucketKey" class="form-control"> For demonstration purpouses, objects (files) are NOT automatically translated. After you upload, right click on
+          the object and select "Translate".
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -89,6 +93,7 @@ Create a **index.html** file with:
     </div>
   </div>
 </body>
+
 </html>
 ```
 
@@ -97,46 +102,30 @@ Create a **index.html** file with:
 CSS is a language that describes the style of an HTML document. Learn more at [W3Schools](https://www.w3schools.com/css/). For this tutorial, create a **main.css** under `css` folder with:
 
 ```css
-html {
-    position: relative;
-    min-height: 100%;
+html, body{
+  min-height: 100%;
+  height: 100%;
+}
+
+.fill{
+  height: calc(100vh - 100px);
 }
 
 body {
-    padding-top: 60px; /* space for the top nav bar */
-    margin-bottom: 60px; /* Margin bottom by footer height */
-    margin-right: 30px;
+  padding-top: 60px; /* space for the top nav bar */
+  margin-right: 30px;
 }
 
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 30px;
+#appBuckets {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
 }
 
-div.foldertree {
-    overflow: auto;
-    height: 500px;
+#forgeViewer {
+  width: 100%;
 }
 
-img.gray {
-    filter: gray; /* IE6-9 */
-    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
-    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-}
-
-/* Disable grayscale on hover */
-img.gray:hover {
-    filter: none;
-    -webkit-filter: grayscale(0);
-}
-
-div.forgeViewer {
-    height: 540px;
-    width: 100%;
-}
 ```
 
 ## ForgeTree.js
@@ -211,7 +200,23 @@ function prepareAppBucketTree() {
     $('#appBuckets').jstree('open_all');
   }).bind("activate_node.jstree", function (evt, data) {
     if (data != null && data.node != null && data.node.type == 'object') {
-      launchViewer(data.node.id);
+      var urn = data.node.id;
+      getForgeToken(function (access_token) {
+        jQuery.ajax({
+          url: 'https://developer.api.autodesk.com/modelderivative/v2/designdata/' + urn + '/manifest',
+          headers: { 'Authorization': 'Bearer ' + access_token },
+          success: function (res) {
+            if (res.status === 'success') launchViewer(urn);
+            else $("#forgeViewer").html('The translation job still running: ' + res.progress + '. Please try again in a moment');
+          },
+          error: function (err) {
+            var msgButton = 'This file is not translated yet! ' +
+              '<button class="btn btn-xs btn-info" onclick="translateObject()"><span class="glyphicon glyphicon-eye-open"></span> ' +
+              'Start translation</button>'
+            $("#forgeViewer").html(msgButton);
+          }
+        });
+      })
     }
   });
 }
@@ -227,7 +232,8 @@ function autodeskCustomMenu(autodeskNode) {
           action: function () {
             var treeNode = $('#appBuckets').jstree(true).get_selected(true)[0];
             uploadFile(treeNode);
-          }
+          },
+          icon: 'glyphicon glyphicon-cloud-upload'
         }
       };
       break;
@@ -237,8 +243,9 @@ function autodeskCustomMenu(autodeskNode) {
           label: "Translate",
           action: function () {
             var treeNode = $('#appBuckets').jstree(true).get_selected(true)[0];
-            translateObject(treeNode);
-          }
+            translateObject(treeNode.data.id);
+          },
+          icon: 'glyphicon glyphicon-eye-open'
         }
       };
       break;
@@ -273,6 +280,7 @@ function uploadFile(node) {
 }
 
 function translateObject(node) {
+  if (node == null) node = $('#appBuckets').jstree(true).get_selected(true)[0];
   var bucketKey = node.parents[0];
   var objectKey = node.id;
   jQuery.post({
