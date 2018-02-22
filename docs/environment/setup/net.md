@@ -6,11 +6,7 @@ Install the Autodesk Forge NuGet package: right-click on the project (**Solution
 
 ![](_media/net/create_project_webapi.gif) 
 
-If you prefer, install the package via command line:
-
-```
-PM> Install-Package Autodesk.Forge
-```
+!> If **Web** & **ASP.NET** project types are not available, please review [Tools](environment/tools/net) section
 
 ## Web.Config
 
