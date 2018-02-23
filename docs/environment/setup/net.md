@@ -10,7 +10,7 @@ Install the Autodesk Forge NuGet package: right-click on the project (**Solution
 
 ## Web.Config
 
-On the **Web.Config** file, add the Forge Client ID & Secret entries (obtained when you created your app). By default, it should already have a `<appSettings></appSettings>` after `<configuration>` and before `</system.web>`, adjust as shown below:
+On the **Web.Config** file, add the Forge Client ID & Secret entries (obtained when you created your app). By default, it should already have a `<appSettings></appSettings>` after `<configuration>` and before `<system.web>`, adjust as shown below:
 
 ```xml
 ....
