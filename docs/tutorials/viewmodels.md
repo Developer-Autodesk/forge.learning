@@ -2,7 +2,7 @@
 
 This tutorial will guide you creating a webapp with the following UI: on the left a list of your buckets and objects, on the right a 3D viewer to view them.
 
-![](_media/tutorials/viewmodels.png) 
+![](_media/tutorials/run_sample_viewmodels.gif)
 
 To view your model, you need the following steps:
 

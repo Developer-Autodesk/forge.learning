@@ -37,9 +37,18 @@
       search: {
         paths: 'auto',
       },
+      //disqus: 'learnforge',
       formatUpdated: '{MM}/{DD} {HH}:{mm}',
       plugins: [
-        window.DocsifyCopyCodePlugin.init()
+        window.DocsifyCopyCodePlugin.init(),
+        function (hook, vm) {
+          hook.beforeEach(function (html) {
+            var email = 'Questions on this tutorial? [Ask on Stackoverflow](https://stackoverflow.com/questions/tagged/autodesk-forge) or [email us](mailto:forge.help@autodesk.com?subject=About tutorial page /' + vm.route.file + ')\n'
+            return html
+              + '\n\n----\n'
+              + email
+          })
+        }
       ]
     }
   </script>
@@ -48,6 +57,7 @@
   <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-markdown.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-csharp.min.js"></script>
+  <!--<script src="libs/disqus.js"></script>-->
 </body>
 
 </html>
