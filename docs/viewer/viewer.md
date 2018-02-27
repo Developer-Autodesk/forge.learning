@@ -241,7 +241,7 @@ function autodeskCustomMenu(autodeskNode) {
           label: "Translate",
           action: function () {
             var treeNode = $('#appBuckets').jstree(true).get_selected(true)[0];
-            translateObject(treeNode.data.id);
+            translateObject(treeNode);
           },
           icon: 'glyphicon glyphicon-eye-open'
         }
