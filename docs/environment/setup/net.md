@@ -23,6 +23,29 @@ On the **Web.Config** file, add the Forge Client ID & Secret entries (obtained w
 ....
 ```
 
+The ASP.NET engines limits the size of file on uploads to 4Mb and filter requests bigger than 30Mb. We can change this limit to the maximum (or you can adjust to your needs). On the `web.config` file, search for `httpRuntime` and add the `maxRequestLength` to it, as shown below:
+
+```xml
+<!-- httpRuntime targetFramework is already on your file, just add the maxRequestLength -->
+<httpRuntime targetFramework="4.6.1" maxRequestLength="2097151" />
+```
+
+And add the **security** >> **requestFiltering** limit:
+
+```xml
+  </handlers> <!-- this line is already on your file -->
+  <security>
+    <requestFiltering>
+      <requestLimits maxAllowedContentLength="4294967295" />
+    </requestFiltering>
+  </security>
+</system.webServer> <!-- this line is already on your file -->
+```
+
+Learn more about [maxRequestLength](https://msdn.microsoft.com/en-us/library/e1f13641.aspx) and [maxAllowedContentLength](https://msdn.microsoft.com/en-us/library/ms689462.aspx). 
+
+## Port
+
 Last, to make your app consistent with all other **Autodesk Forge** samples, let's change the port to **3000**: go to project **Properties** (right-click on project name), under **Web** tab, then change the **Project URL** to `http://localhost:3000`.
 
 ![](_media/net/port.png) 
