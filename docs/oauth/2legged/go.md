@@ -1,0 +1,90 @@
+# Authenticate (Go)
+
+The Go approach is relying on [forge-api-go-client](https://github.com/apprentice3d/forge-api-go-client) which was designed to take care of requesting tokens with appropriate scope for their tasks.
+
+In `server.go` file we have the ForgeService struct 
+
+```go
+// ForgeServices holds reference to all services required in this server
+type ForgeServices struct {
+	oauth.TwoLeggedAuth
+	dm.BucketAPI
+	md.ModelDerivativeAPI
+}
+
+```
+that contains all Forge API clients we will be using and each of them was initialized with forge credentials within the same `server.go` file:
+
+```go
+...
+func StartServer(port, clientID, clientSecret string) {
+
+	service := ForgeServices{
+		oauth.NewTwoLeggedClient(clientID, clientSecret),
+		dm.NewBucketAPIWithCredentials(clientID, clientSecret),
+		md.NewAPIWithCredentials(clientID, clientSecret),
+	}
+...
+```
+
+Thus, in our case, the only thing we need for our server in context of authentication, is to expose the endpoint `GET /api/forge/oauth/token` that will be used by the frontend to request tokens with `viewables:read` scope, to be able to display your viewables in the browser.
+
+For this, we would need just one file.
+
+## oauth.go
+
+Create a `/server/oauth.go` file. This file will take care of exposing the abovementioned endpoint. 
+
+```go
+package server
+
+import (
+	"net/http"
+	"encoding/json"
+)
+
+// AccessTokenResponse reflects the data expected by frontend when asking for a token
+type AccessTokenResponse struct {
+	AccessToken string `json:"access_token"`
+	ExpiresIn   int32  `json:"expires_in"`
+}
+
+
+// getAccessToken returns a valid access token in the form of {'access_token':value, 'expires_in':value}
+func (service ForgeServices) getAccessToken(writer http.ResponseWriter, request *http.Request) {
+
+	if request.Method != http.MethodGet {
+		http.Error(writer, "Unsupported request method", http.StatusMethodNotAllowed)
+		return
+	}
+
+	encoder := json.NewEncoder(writer)
+	bearer, err := service.Authenticate("viewables:read")
+
+	if err != nil {
+		http.Error(writer, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	err = encoder.Encode(AccessTokenResponse{
+		bearer.AccessToken,
+		bearer.ExpiresIn,
+	})
+
+	if err != nil {
+		http.Error(writer, err.Error(), http.StatusInternalServerError)
+	}
+
+}
+```
+
+This will assure that any `GET /api/forge/oauth/token` call to our server, will return an access token in form of
+
+```json
+{
+	'access_token': value, 
+	'expires_in': value
+}
+```
+
+Next: [Upload file to OSS](/datamanagement/oss/)
