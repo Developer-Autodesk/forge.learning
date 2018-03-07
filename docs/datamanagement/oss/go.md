@@ -19,6 +19,7 @@ import (
 	"log"
 	"net/http"
 	"encoding/json"
+	"encoding/base64"
 )
 
 // BucketCreateInput reflects the expected body when processing the POST request to bucket managing endpoint
@@ -26,7 +27,7 @@ type BucketCreateInput struct {
 	BucketKey string `json:"bucketKey"`
 }
 
-// Node reflects the output of expected by the frontend when querying for bucket or object list 
+
 type Node struct {
 	ID       string `json:"id"`
 	Text     string `json:"text"`
@@ -50,7 +51,6 @@ func (service ForgeServices) manageBuckets(writer http.ResponseWriter, request *
 
 		log.Println("Request for creating a bucket with key = ", createBucketRequest.BucketKey)
 
-		//TODO: enable this to work with real data
 		_, err = service.CreateBucket(createBucketRequest.BucketKey, "transient")
 		if err != nil {
 			http.Error(writer, "Could not create bucket: "+err.Error(), http.StatusInternalServerError)
@@ -77,9 +77,10 @@ func (service ForgeServices) manageBuckets(writer http.ResponseWriter, request *
 
 			for _, item := range objectList.Items {
 				result = append(result, Node{
-					ID:   item.ObjectID,
+					ID:   base64.RawStdEncoding.EncodeToString([]byte(item.ObjectID)),
 					Text: item.ObjectKey,
 					Type: "object",
+					Children: false,
 				})
 			}
 
@@ -91,14 +92,33 @@ func (service ForgeServices) manageBuckets(writer http.ResponseWriter, request *
 				return
 			}
 
+
+			nodeChannel := make(chan Node, len(bucketList.Items))
+
 			for _, bucket := range bucketList.Items {
-				result = append(result, Node{
-					ID:   bucket.BucketKey,
-					Text: bucket.BucketKey,
-					Type: "bucket",
-				})
+
+				go func(bucketKey string) {
+					children := false
+					objectList, err := service.ListObjects(bucketKey, "", "", "")
+					if err == nil && len(objectList.Items) > 0 {
+						children = true
+					}
+
+					node := Node {
+						ID:   bucketKey,
+						Text: bucketKey,
+						Type: "bucket",
+						Children: children,
+					}
+					nodeChannel <- node
+
+				}(bucket.BucketKey)
+
 			}
 
+			for range bucketList.Items {
+				result = append(result, <- nodeChannel)
+			}
 		}
 
 		writer.Header().Add("Content-Type", "application/json")
@@ -116,7 +136,11 @@ func (service ForgeServices) manageBuckets(writer http.ResponseWriter, request *
 	http.Error(writer, "Unsupported request method", http.StatusMethodNotAllowed)
 	return
 }
+
 ```
+
+As we plan to suppor the [jsTree](https://www.jstree.com/) on the frontend. Thus, our **GET oss/buckets** need to return handle the `id` querystring parameter and return buckets when `id=#` and objects for a given bucketKey passed as `id=bucketKey`.
+
 
 ## uploader.go
 
@@ -169,8 +193,6 @@ func (service ForgeServices) manageObjects(writer http.ResponseWriter, request *
 	return
 }
 ```
-
-As we plan to suppor the [jsTree](https://www.jstree.com/) on the frontend. Thus, our **GET oss/buckets** need to return handle the `id` querystring parameter and return buckets when `id=#` and objects for a given bucketKey passed as `id=bucketKey`.
 
 !> Upload a file from the client (browser) directly to Autodesk Forge is possible, but requires giving the client a **write-enabled** access token, which is **NOT SECURE**.
 

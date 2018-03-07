@@ -13,6 +13,7 @@ import (
 	"net/http"
 	"encoding/json"
 	"log"
+	"github.com/apprentice3d/forge-api-go-client/md"
 )
 
 
@@ -43,14 +44,17 @@ func (service ForgeServices) translateObject(writer http.ResponseWriter, request
 		translationRequest.ObjectName,
 		translationRequest.BucketKey)
 
-	//TODO: enable this to work with real data
-	response, err := service.TranslateToSVF(translationRequest.ObjectName)
+	translationParameters := md.TranslationSVFPreset
+	translationParameters.Input.URN = translationRequest.ObjectName
+
+	response, err := service.TranslateWithParams(translationParameters)
 	if err != nil {
+		log.Println("Could not translate object: "+err.Error())
 		http.Error(writer, "Could not translate object: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
 	//log.Println("Translation result: ", response.Result)
-	log.Printf("Translation result: %#v", response)
+	log.Printf("Translation result: %s", response.Result)
 	writer.WriteHeader(http.StatusOK)
 	return
 }

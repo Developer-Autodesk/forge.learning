@@ -49,7 +49,6 @@ type AccessTokenResponse struct {
 	ExpiresIn   int32  `json:"expires_in"`
 }
 
-
 // getAccessToken returns a valid access token in the form of {'access_token':value, 'expires_in':value}
 func (service ForgeServices) getAccessToken(writer http.ResponseWriter, request *http.Request) {
 
@@ -58,6 +57,7 @@ func (service ForgeServices) getAccessToken(writer http.ResponseWriter, request 
 		return
 	}
 
+	writer.Header().Add("Content-Type", "application/json")
 	encoder := json.NewEncoder(writer)
 	bearer, err := service.Authenticate("viewables:read")
 

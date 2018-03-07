@@ -1,6 +1,6 @@
 # Create a new project (Go)
 
-Create a folder on your machine, somewhere in [$GOPATH](https://github.com/golang/go/wiki/GOPATH)/src, do not use spaces and avoid special chars. For this tutorial, let's use **forgesample**, so in my case this could be ***$GOPATH/src/github.com/apprentice3d/forgesample***
+Create a folder on your machine, somewhere in [$GOPATH](https://github.com/golang/go/wiki/GOPATH)/src, do not use spaces and avoid special chars. For this tutorial, let's use **forgesample**, so in my case this could be ***$GOPATH/src/forgesample***
 
 Open **Visual Code**, then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder. 
 
@@ -29,7 +29,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/apprentice3d/forgesample/server"
+	"forgesample/server"
 )
 
 const (
