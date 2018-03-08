@@ -24,7 +24,9 @@ router.get('/api/forge/oauth/token', function (req, res) {
     oauth.getTokenPublic().then(function (credentials) {
         res.json({ access_token: credentials.access_token, expires_in: credentials.expires_in });
     }).catch(function (error) {
-        res.status(500).end(error);
+        console.log('Error at OAuth Token:');
+        console.log(error);
+        res.status(500).json(error);
     });
 });
 
@@ -79,6 +81,8 @@ module.exports = {
                     resolve(_cached[cache]);
                 })
                 .catch(function (error) {
+                    console.log('Error at OAuth Authenticate:');
+                    console.log(error);
                     reject(error)
                 });
         })
@@ -87,7 +91,7 @@ module.exports = {
     OAuthClient: function (scopes) {
         var client_id = config.credentials.client_id;
         var client_secret = config.credentials.client_secret;
-        if (scopes==undefined) scopes = config.scopeInternal;
+        if (scopes == undefined) scopes = config.scopeInternal;
         return new forgeSDK.AuthClientTwoLegged(client_id, client_secret, scopes);
     }
 }
