@@ -1,6 +1,6 @@
 # Tools (Go)
 
-Install [Go Programming Language](https://golang.org/doc/install) to run your code. 
+Download and install the [Go distribution](https://golang.org/doc/install) to run your code. 
 
 Now we need an IDE to write the code. There are many options, this tutorial will use [Visual Studio Code](https://code.visualstudio.com/).
 

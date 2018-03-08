@@ -1,13 +1,25 @@
 # Create a new project (Go)
 
-Create a folder on your machine, somewhere in [$GOPATH](https://github.com/golang/go/wiki/GOPATH)/src, do not use spaces and avoid special chars. For this tutorial, let's use **forgesample**, so in my case this could be ***$GOPATH/src/forgesample***
+## First time usage
+
+Make sure you [$GOPATH](https://github.com/golang/go/wiki/GOPATH) environment variable is set, this is required for first time usage. You can use a `/go/` folder under your user folder:
+
+```bash
+// MacOS & Linux
+export GOPATH=$HOME/go
+
+// Windows
+ToDo
+```
+
+Inside `$GOPATH` create a `/src` folder for source code, do not use spaces and avoid special chars. Then a subfolder for this this tutorial: **forgesample**. The final result should be **$GOPATH/src/forgesample**.
 
 Open **Visual Code**, then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder. 
 
 
 ## Files and Folders
 
-To create a new folder or file, right-click on the "Exporer" area on the left and select **New Folder** or **New File**.
+To create a new folder or file, right-click on the "Explorer" area on the left and select **New Folder** or **New File**.
 
 For consitency with other Forge samples, create a **/server/** folder for all server-side files and a **/www/** for all client-side files.
 
@@ -98,7 +110,6 @@ func StartServer(port, clientID, clientSecret string) {
 	}
 
 }
-
 ```
 
 This file prepares the server and serve the static files (e.g. `html`) and route the API requests.
