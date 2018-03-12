@@ -111,8 +111,37 @@ func StartServer(port, clientID, clientSecret string) {
 
 }
 ```
-
 This file prepares the server and serve the static files (e.g. `html`) and route the API requests.
+
+Note that the Go approach is relying on [forge-api-go-client](https://github.com/apprentice3d/forge-api-go-client), 
+which was designed to take care of requesting tokens with appropriate scope for their tasks.
+
+This is why we have the `ForgeService` struct:
+
+```go
+// ForgeServices holds reference to all services required in this server
+type ForgeServices struct {
+	oauth.TwoLeggedAuth
+	dm.BucketAPI
+	md.ModelDerivativeAPI
+}
+
+```
+that contains all Forge API clients we will be using and each of them was initialized with forge credentials within the same file:
+
+```go
+...
+func StartServer(port, clientID, clientSecret string) {
+
+	service := ForgeServices{
+		oauth.NewTwoLeggedClient(clientID, clientSecret),
+		dm.NewBucketAPIWithCredentials(clientID, clientSecret),
+		md.NewAPIWithCredentials(clientID, clientSecret),
+	}
+...
+```
+
+
 
 Project is ready! At this point your project should have:
 

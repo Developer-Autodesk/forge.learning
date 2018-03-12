@@ -1,33 +1,7 @@
 # Authenticate (Go)
 
-The Go approach is relying on [forge-api-go-client](https://github.com/apprentice3d/forge-api-go-client) which was designed to take care of requesting tokens with appropriate scope for their tasks.
 
-In `server.go` file we have the ForgeService struct 
-
-```go
-// ForgeServices holds reference to all services required in this server
-type ForgeServices struct {
-	oauth.TwoLeggedAuth
-	dm.BucketAPI
-	md.ModelDerivativeAPI
-}
-
-```
-that contains all Forge API clients we will be using and each of them was initialized with forge credentials within the same `server.go` file:
-
-```go
-...
-func StartServer(port, clientID, clientSecret string) {
-
-	service := ForgeServices{
-		oauth.NewTwoLeggedClient(clientID, clientSecret),
-		dm.NewBucketAPIWithCredentials(clientID, clientSecret),
-		md.NewAPIWithCredentials(clientID, clientSecret),
-	}
-...
-```
-
-Thus, in our case, the only thing we need for our server in context of authentication, is to expose the endpoint `GET /api/forge/oauth/token` that will be used by the frontend to request tokens with `viewables:read` scope, to be able to display your viewables in the browser.
+The only thing we need for our server in context of authentication, is to expose the endpoint `GET /api/forge/oauth/token` that will be used by the frontend to request tokens with `viewables:read` scope, to be able to display your viewables in the browser.
 
 For this, we would need just one file.
 
