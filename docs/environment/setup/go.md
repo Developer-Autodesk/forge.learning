@@ -1,17 +1,5 @@
 # Create a new project (Go)
 
-## First time usage
-
-Make sure you [$GOPATH](https://github.com/golang/go/wiki/GOPATH) environment variable is set, this is required for first time usage. You can use a `/go/` folder under your user folder:
-
-```bash
-// MacOS & Linux
-export GOPATH=$HOME/go
-
-// Windows
-ToDo
-```
-
 Inside `$GOPATH` create a `/src` folder for source code, do not use spaces and avoid special chars. Then a subfolder for this this tutorial: **forgesample**. The final result should be **$GOPATH/src/forgesample**.
 
 Open **Visual Code**, then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder. 
