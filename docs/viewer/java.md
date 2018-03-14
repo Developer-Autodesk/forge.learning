@@ -1,6 +1,6 @@
 # Client-side files (.NET)
 
-JAVA apps usually uses `.jsp` instead `.html`, but for this tutorial let's just use `.html` for simplicity.
+JAVA EE web app usually generates an entry file `.jsp` instead `.html`, but for this tutorial let's just use `.html` for simplicity.
 
 Our JAVA server is configured to serve files from root `/` folder. Let's organize like this:
 

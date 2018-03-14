@@ -78,6 +78,21 @@ public class modelderivative  extends HttpServlet {
 }
 ```
 
+Explictly expose the endpoint in `/web/WEB-INF/web.xml`:
+```xml
+<servlet>
+    <servlet-name>modelderivative</servlet-name>
+    <servlet-class>modelderivative</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>modelderivative</servlet-name>
+    <url-pattern>/api/forge/modelderivative/jobs</url-pattern>
+</servlet-mapping>
+
+```
+
+
 The **jobs** endpoint receives the **bucketKey** and **objectName** and post the [translation job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
 
 To summarize, at this point your **JAVA** project should be like:

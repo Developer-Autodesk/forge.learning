@@ -288,6 +288,29 @@ public class ossuploads  extends HttpServlet {
 }
 ```
 
+Explictly expose the endpoint in `/web/WEB-INF/web.xml`:
+```xml
+
+<servlet>
+    <servlet-name>oss</servlet-name>
+    <servlet-class>oss</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>oss</servlet-name>
+    <url-pattern>/api/forge/oss/buckets</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>ossuploads</servlet-name>
+    <servlet-class>ossuploads</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>ossuploads</servlet-name>
+    <url-pattern>/api/forge/oss/objects</url-pattern>
+</servlet-mapping>
+```
 
  The upload endpoint uses the [multer package](https://github.com/expressjs/multer) to handle file upload. It saves the file on our server (e.g. under **/tmp/** folder) so we can later upload to forge.
 

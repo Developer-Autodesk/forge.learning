@@ -4,8 +4,8 @@ Install [JAVA SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-
 
 Install [TOMCAT](https://tomcat.apache.org/download-80.cgi) to launch the server. 
 
-Now we need an IDE to write the code. There are many options, this tutorial will use [IntelliJ Ultimate](https://www.jetbrains.com/idea/) IDE.
+Now we need an IDE to write the code. Since we need an web application of JAVA,this tutorial will use [IntelliJ Ultimate](https://www.jetbrains.com/idea/) IDE (not-free). There are some other choices which are free, but would need seperate plugins or enablers.
 
 > For this tutorial, use all default install options.
 
-Next: [Authentication](oauth/)
+Next: [setup](environment/setup/)
