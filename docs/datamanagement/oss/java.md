@@ -312,7 +312,7 @@ Explictly expose the endpoint in `/web/WEB-INF/web.xml`:
 </servlet-mapping>
 ```
 
- The upload endpoint uses the [multer package](https://github.com/expressjs/multer) to handle file upload. It saves the file on our server (e.g. under **/tmp/** folder) so we can later upload to forge.
+ 
 
 Note how we reuse the `/src/main/oauth.java` file to call `.getTokenInternal()` on all functions. 
 
