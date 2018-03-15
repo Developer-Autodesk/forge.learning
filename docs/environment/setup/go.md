@@ -18,6 +18,25 @@ At this point, you project should be something like:
 ![](_media/go/vs_code_explorer.png) 
 
 
+## Setup credentials
+
+It's important to define ID & Secret as environment variables so our project can use it for authorized requests.
+
+To setup the environment variables, follow these steps, depending on your operationg system.    
+***Mac OSX/Linux (Terminal)***
+
+```bash
+export FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
+export FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
+```    
+
+***Windows (Command Prompt)***
+
+```bash
+set FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
+set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
+```
+
 ## main.go
 
 Write the following into `main.go`, previously created in the rood folder:
@@ -49,8 +68,9 @@ func main() {
 	server.StartServer(PORT, clientID, clientSecret)
 }
 ```
-The purpose of this file is to setup Forge credentials and start the server.
-Note the import `forgesample/server`, in your case it should match your folder, as you will make use of server files from your project.
+The purpose of this file is to setup Forge credentials and start the server.    
+Note the import `forgesample/server`, in your case it should match your folder, as you will make use of server files from your project.  
+Note also how we get the ID & Secret to setup our server, or failing if one of them is not found.
 
 ## server.go
 
