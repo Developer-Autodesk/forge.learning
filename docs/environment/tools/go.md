@@ -27,4 +27,12 @@ Next, install Go for Visual Code package which once installed gives support to G
 
 ![](_media/go/install_go_extension.gif) 
 
+
+!> If during or after installation, you get notifications to install other go related packages, you can safely install them, as these are helper tools that will imporve your Go coding experience in Visual Studio Code.     
+For example:    
+-`github.com/nsf/gocode` - will add context-sensitive autocompletion;    
+-`github.com/rogpeppe/godef` - will help you find symbol information in Go source;    
+-`github.com/sqs/goreturns` - will autocomplete function returns values for you;    
+-`github.com/tpng/gopkgs` - will help you keep track of installed packages;
+
 Next: [Authentication](oauth/)
