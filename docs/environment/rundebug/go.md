@@ -22,7 +22,11 @@ For Visual Code, install [Delve](https://github.com/derekparker/delve), the gola
 go get -u github.com/derekparker/delve/cmd/dlv
 ```
 
-Once `delve `is installed, you can either press F5 or go to menu **Debug** >> **Start debugging**. You will now see a launch.json file created for your workspace, which will contain the configurations for debugging. By default, there would be a single configuration as below:
+Once `delve` is installed, you can either press F5 or go to menu **Debug** >> **Start debugging**. 
+
+!> For debug, make sure the `main.go` file is open on Visual Code before pessing **F5**, otherwise you may see an error (see [Troubleshooting](#troubleshooting))
+
+You will now see a launch.json file created for your workspace, which will contain the configurations for debugging. By default, there would be a single configuration as below:
 
 ```javascript
 {
@@ -56,6 +60,8 @@ Go to menu **Debug** and select **Start debugging**. The "Debug Console" tab sho
 
 ![](_media/go/vs_code_debug.png) 
 
+## Troubleshooting
+
 If by any chance, you receive an error like `Can not debug non-main package`, don't despair, just open the `main.go` from the route of your project and try again. 
 
     NOTE: This is caused by `"program": "${fileDirname}"` line in configuration file, 
@@ -65,7 +71,7 @@ If by any chance, you receive an error like `Can not debug non-main package`, do
     This makes more sense when you will have apps generating several 
     executables (g.e. daemon and client).
 
-
+## Advanced settings
 
 If you are interested in a terminal only debugging (hardcore debugging), have a look at following tutorials:
 
