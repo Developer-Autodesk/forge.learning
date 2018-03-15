@@ -1,13 +1,7 @@
 # Running & Debugging (Go)
 
-Before running the server for first time, we must make sure that we have all dependencies on our machine. On Visual Code, go to menu **View** > **Integrated Terminal**, which should open on the root of your project, then run:
-
-```bash
-    go get
- ```
-
-This command will scan all dependencies of your project and if anything is missing, it will get for you.   
-Next, to start the server, run:
+To start the server, just open the Visual Studio code integrated terminal by going to menu **View** > **Integrated Terminal**, 
+which should open on the root of your project, then run:
 
 ```bash
     go run main.go
@@ -71,6 +65,13 @@ If by any chance, you receive an error like `Can not debug non-main package`, do
     to start.
     This makes more sense when you will have apps generating several 
     executables (g.e. daemon and client).
+
+If by any chance, you receive an error like `could not launch process: exec "lldb-server"`, then for sure you are developing on OSX and you are missing the `command line developer tools`. To fix this, just follow these steps:
+    1. Open a new Terminal (do not use Visual Code Integrated Terminal)
+    2. Run xcode-select --install
+    3. When prompted, click on Install
+![](_media/go/osx_setup_tools.png) 
+
 
 ## Advanced settings
 
