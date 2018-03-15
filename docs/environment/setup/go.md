@@ -50,7 +50,7 @@ func main() {
 }
 ```
 The purpose of this file is to setup Forge credentials and start the server.
-Note the import `github.com/apprentice3d/forgesample/server`, in your case it should match your folder, as you will make use of server files from your project.
+Note the import `forgesample/server`, in your case it should match your folder, as you will make use of server files from your project.
 
 ## server.go
 
@@ -99,11 +99,19 @@ func StartServer(port, clientID, clientSecret string) {
 
 }
 ```
-This file prepares the server and serve the static files (e.g. `html`) and route the API requests.
+This file prepares the server and serves the static files (e.g. `html`, `js`) and routes the API requests.
 
-Note that the Go approach is relying on [forge-api-go-client](https://github.com/apprentice3d/forge-api-go-client), 
-which was designed to take care of requesting tokens with appropriate scope for their tasks.
+Note that the Go approach is relying on [forge-api-go-client](https://github.com/apprentice3d/forge-api-go-client), and
+to use that library you should get it by calling in terminal:
 
+```bash
+	go get -u github.com/apprentice3d/forge-api-go-client
+```
+
+Go will copy it into `$GOPATH/src/github.com/apprentice3d/forge-api-go-client`, 
+thus making available to this and all your future projects written in Go.
+
+That library was designed to take care of requesting tokens with appropriate scope for their tasks.
 This is why we have the `ForgeService` struct:
 
 ```go

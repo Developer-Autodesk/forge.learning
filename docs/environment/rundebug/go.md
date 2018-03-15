@@ -1,11 +1,12 @@
 # Running & Debugging (Go)
 
-Before running the server, we must make sure that we have all dependencies on our machine. On Visual Code, go to menu **View** > **Integrated Terminal**, which should open on the root of your project, then run:
+Before running the server for first time, we must make sure that we have all dependencies on our machine. On Visual Code, go to menu **View** > **Integrated Terminal**, which should open on the root of your project, then run:
 
 ```bash
     go get
  ```
 
+This command will scan all dependencies of your project and if anything is missing, it will get for you.   
 Next, to start the server, run:
 
 ```bash
