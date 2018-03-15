@@ -1,14 +1,12 @@
 # Running & Debugging (Go)
 
-Before running the server, we must make sure that we have all dependencies on our mashine, and this can be assured by
-going to the root of your project and running:
+Before running the server, we must make sure that we have all dependencies on our machine. On Visual Code, go to menu **View** > **Integrated Terminal**, which should open on the root of your project, then run:
 
 ```bash
     go get
  ```
 
-
-Next, to run the server, run from the same location:
+Next, to start the server, run:
 
 ```bash
     go run main.go
@@ -16,26 +14,26 @@ Next, to run the server, run from the same location:
 
 Open your browser and go to `http://localhost:3000` to check the app.
 
+## Debug
 
-Debugging Go code can vary in difficulty, depending what IDE you are using, if using any IDE at all. 
-Since in this tutorial we are using Visual Studio Code, the following steps are needed to setup debugging:
+For Visual Code, install [Delve](https://github.com/derekparker/delve), the golang debugger, by typing in on the **Integrated Terminal** (under menu **View**):
 
-1. Install Go for VSCode package which once installed gives support to GoLang.
-    - Open `Command Palette ...` by presing Ctrl + Shift + P.
-    - Type `ext install` & select `Install Extension`.
-    - Type `go` and select `Go` plugin made by ***lukehoben***.
+```bash
+go get -u github.com/derekparker/delve/cmd/dlv
+```
 
-2. Install [Delve](https://github.com/derekparker/delve) the golang debugger by typing in terminal:
-    ```bash
-        go get -u github.com/derekparker/delve/cmd/dlv
-    ```
+Once `delve` is installed, you can either press F5 or go to menu **Debug** >> **Start debugging**. 
 
-Once `delve `is installed, you can either press F5 or go to the Code debug viewlet and select the configuration gear.
+!> For debug, make sure the `main.go` file is open on Visual Code before pessing **F5**, otherwise you may see an error (see [Troubleshooting](#troubleshooting))
 
 You will now see a launch.json file created for your workspace, which will contain the configurations for debugging. By default, there would be a single configuration as below:
+
 ```javascript
 {
-	    "version": "0.2.0",
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
     "configurations": [
         {
             "name": "Launch",
@@ -62,6 +60,8 @@ Go to menu **Debug** and select **Start debugging**. The "Debug Console" tab sho
 
 ![](_media/go/vs_code_debug.png) 
 
+## Troubleshooting
+
 If by any chance, you receive an error like `Can not debug non-main package`, don't despair, just open the `main.go` from the route of your project and try again. 
 
     NOTE: This is caused by `"program": "${fileDirname}"` line in configuration file, 
@@ -71,7 +71,7 @@ If by any chance, you receive an error like `Can not debug non-main package`, do
     This makes more sense when you will have apps generating several 
     executables (g.e. daemon and client).
 
-
+## Advanced settings
 
 If you are interested in a terminal only debugging (hardcore debugging), have a look at following tutorials:
 
