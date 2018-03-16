@@ -10,4 +10,4 @@ Each bucket also has a [retention policy](https://developer.autodesk.com/en/docs
 
 At this section, let's create a few endpoints to create buckets, upload files and list buckets & objects.
  
-Choose your language: [NodeJS](datamanagement/oss/nodejs) | [.NET](datamanagement/oss/net) | [Go](datamanagement/oss/go)
+Choose your language: [NodeJS](datamanagement/oss/nodejs) | [.NET](datamanagement/oss/net) | [Go](datamanagement/oss/go) | [JAVA](datamanagement/oss/java)

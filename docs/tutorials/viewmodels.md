@@ -18,6 +18,7 @@ If you want to download the project ready to use, visit the following repos:
 - [NodeJS](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/nodejs)
 - [.NET](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/net)
 - [Go](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/go)
+- [JAVA](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/java)
 
 Ready to start coding?
 
