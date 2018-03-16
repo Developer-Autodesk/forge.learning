@@ -4,7 +4,7 @@ This is where your app goes live! There are several options here, let's focus of
 
 ## Heroku
 
-Compaible with: `NodeJS` | `PHP` | `Ruby` | `Java` | `Python`
+Compaible with: `NodeJS` | `PHP` | `Ruby` | `Java` | `Python` | `Go`
 
 See a [step-by-step](https://devcenter.heroku.com/articles/git) tutorial.
 
