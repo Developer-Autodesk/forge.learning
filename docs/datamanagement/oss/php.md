@@ -17,8 +17,7 @@ use Autodesk\Forge\Client\Api\BucketsApi;
 use Autodesk\Forge\Client\Model\PostBucketsPayload;
 use Autodesk\Forge\Client\Api\ObjectsApi;
 
-class DataManagement
-{
+class DataManagement{
     public function __construct(){
         set_time_limit(0);
     }    
@@ -49,8 +48,7 @@ class DataManagement
  
  
       /////////////////////////////////////////////////////////////////////////
-      public function getBucketsAndObjects()
-      {
+      public function getBucketsAndObjects(){
          global $twoLeggedAuth;
          $accessToken = $twoLeggedAuth->getTokenInternal();
          
@@ -99,8 +97,7 @@ class DataManagement
       }
  
 
-      public function uploadFile()
-      {
+      public function uploadFile(){
           global $twoLeggedAuth;
           $accessToken = $twoLeggedAuth->getTokenInternal();
           

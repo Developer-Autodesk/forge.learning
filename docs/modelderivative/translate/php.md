@@ -17,8 +17,7 @@ use Autodesk\Forge\Client\Model\JobPayloadInput;
 use Autodesk\Forge\Client\Model\JobPayloadOutput;
 use Autodesk\Forge\Client\Model\JobPayloadItem;
 
-class ModelDerivative
-{
+class ModelDerivative{
     public function __construct(){
         set_time_limit(0);
     }    
