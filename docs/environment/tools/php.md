@@ -2,6 +2,9 @@
 
 Install [PHP](http://php.net/downloads.php) engine to run your code. 
 
+Install [Composer](https://getcomposer.org/download/) to manage your dependency. 
+
+
 Now we need an IDE to write the code. There are many options, this tutorial will use [Visual Studio Code](https://code.visualstudio.com/).
 
 > For this tutorial, use all default install options.

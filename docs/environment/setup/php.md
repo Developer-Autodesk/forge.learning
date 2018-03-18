@@ -15,6 +15,9 @@ This creates the **composer.json** file, which defines which packages our projec
 ## Install packages
 
 By default, a PHP project is empty, so we need to install a few packages with **composer require**. Let's start with a basic **PHP** server, **klein** for router handling, of course, **Autodesk Forge**.
+* Check [klein](https://packagist.org/packages/klein/klein) if you want to know more about usage of klein. 
+* Check [Autodesk Forge](https://packagist.org/packages/autodesk/forge-client) if you want to know more about usage of Forge PHP SDK. 
+
 
 !> Run one **composer require** at a time.
 
@@ -72,12 +75,13 @@ Windows (Command Prompt)
 
     set FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
     set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
-Click to copy
 
 
 ## index.php
 
-Now, under **root** folder, create a file named `index.php` with:
+Now, under **root** folder, create a file named `index.php`.
+
+!> Note: when you are developing the app, you need to create the endpoint implementation like AccessToken/DataManagement/ModelDerivative first, and then create the routes by this file, but as an introduction, to make it clear, we will introduce this file first:
 
 ```php
 <?php
@@ -161,7 +165,8 @@ Last we see there are 2 definitions about scopes. These scopes give our Token th
 
 
 ## .htaccess
-This file is used to do URL Rewrite for Apache
+This file is used to do URL Rewrite for Apache, please check [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) for more details.
+
 ```json
 <IfModule mod_rewrite.c>
  RewriteEngine on
@@ -170,7 +175,6 @@ This file is used to do URL Rewrite for Apache
  RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
 </IfModule>
 ```
-
 
 
 Project is ready! At this point your project should have:
