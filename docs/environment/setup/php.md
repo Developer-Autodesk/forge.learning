@@ -171,7 +171,7 @@ class ForgeConfig{
 
 We are defining our ENV variables here, at the time of running our PHP server the values on these variables will be use to connect to the different Autodesk Forge services we will need.
 
-Last we see there are 2 definitions about scopes. These scopes give our Token the right permission for the use of the different services of the Forge We Services. This tutorial is dedicated to the use of the Viewer only, we will only need the "viewables:read" scope.
+Last we see there are 2 definitions about scopes. These scopes give our Token the right permission for the use of the different services of the Forge We Services. This tutorial is dedicated to the use of the Viewer only, we will only need the "data:read" scope.
 
 
 ## .htaccess
