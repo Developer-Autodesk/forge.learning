@@ -130,6 +130,12 @@ $klein->respond('POST', '/api/forge/modelderivative/jobs', function () {
     return $modelDerivative->translateFile();
 });
 
+// Redirect the homepage to www/index.html
+$klein->respond('GET', '/', function ($request, $response, $service) {
+    $service->render('www/index.html');
+    return;
+});
+
 $klein->dispatch();
 ```
 
@@ -164,14 +170,14 @@ class ForgeConfig{
 
     // Required scope of the token sent to the client
     public static function getScopePublic(){
-      return ['data:read'];
+      return ['viewables:read'];
     }
 }
 ```
 
 We are defining our ENV variables here, at the time of running our PHP server the values on these variables will be use to connect to the different Autodesk Forge services we will need.
 
-Last we see there are 2 definitions about scopes. These scopes give our Token the right permission for the use of the different services of the Forge We Services. This tutorial is dedicated to the use of the Viewer only, we will only need the "data:read" scope.
+Last we see there are 2 definitions about scopes. These scopes give our Token the right permission for the use of the different services of the Forge We Services. This tutorial is dedicated to the use of the Viewer only, we will only need the "viewables:read" scope.
 
 
 ## .htaccess

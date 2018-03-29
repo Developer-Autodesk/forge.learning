@@ -60,6 +60,6 @@ The **jobs** endpoint receives the **bucketKey** and **objectName** and post the
 
 To summarize, at this point your **PHP** project should be like:
 
-![](_media/nodejs/vs_code_allfiles.png)
+![](_media/php/vs_code_allfiles.png)
 
 Next: [Show on Viewer](viewer/)
