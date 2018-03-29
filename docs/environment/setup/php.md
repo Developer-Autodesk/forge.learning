@@ -32,20 +32,20 @@ Now your folder should have a **vendor** folder and your **composer.json** shoul
 
 ```json
 {
-    "name": "wuz/forgesample",
+    "name": "yourcompanyname/forgesample",
     "description": "a forge sample of PHP",
     "type": "project",
     "license": "ISC",
     "authors": [
         {
-            "name": "Zhong Wu",
-            "email": "zhong.wu@autodesk.com"
+            "name": "Your Name",
+            "email": "name@example.com"
         }
     ],
     "require": {
         "autodesk/forge-client": "^1.0",
         "klein/klein": "^2.1"
-    }
+    }  
 }
 ```
 
