@@ -2,4 +2,4 @@
 
 This section shows how to prepare your machine to use **Autodesk Forge** or any other cloud APIs. If you already have an IDE of preference, you can skip to [Authentication](oauth/).
 
-Choose your language: [NodeJS](environment/tools/nodejs) | [.NET](environment/tools/net) | [PHP](environment/tools/php)
+Choose your language: [NodeJS](environment/tools/nodejs) | [.NET](environment/tools/net) | [Go](environment/tools/go) | [PHP](environment/tools/php)

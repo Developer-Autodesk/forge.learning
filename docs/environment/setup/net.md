@@ -42,7 +42,7 @@ And add the **security** >> **requestFiltering** limit:
 </system.webServer> <!-- this line is already on your file -->
 ```
 
-Learn more about [maxRequestLength](https://msdn.microsoft.com/en-us/library/e1f13641.aspx) and [maxAllowedContentLength](https://msdn.microsoft.com/en-us/library/ms689462.aspx). 
+Learn more about [maxRequestLength](https://msdn.microsoft.com/en-us/library/system.web.configuration.httpruntimesection.maxrequestlength.aspx) and [maxAllowedContentLength](https://msdn.microsoft.com/en-us/library/ms689462.aspx). 
 
 ## Port
 
