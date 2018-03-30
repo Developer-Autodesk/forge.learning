@@ -11,15 +11,21 @@ Heroku manages app deployments with Git, the popular version control system. The
 
 ## Prepare your project
 
-On the **forgesample** project root folder create a `.gitignore` file and add the following content:
+On the **forgesample** project root folder create a `.gitignore` file and add the content that should not be controlled by **git**, for example:
 
+- Node.js:
 ```
 node_modules/
 .vscode
 Thumbs.db
 ```
 
-This indicates these files should not be controlled by **git**, as the **.vscode** contains your keys, **node_modules** are just the packages you're using and **thumbs** is created by Windows OS.
+- PHP:
+```
+vendor/
+.DS_Store
+.vscode
+```
 
 Now initialize **git** for the folder and commit current files. On the terminal (menu **View** >> **Integrated terminal**) type (one line at a time):
 
