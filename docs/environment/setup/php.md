@@ -14,8 +14,9 @@ This creates the **composer.json** file, which defines which packages our projec
 
 ## Install packages
 
-By default, a PHP project is empty, so we need to install a few packages with **composer require**. Let's start with a basic **PHP** server, **klein** for router handling, of course, **Autodesk Forge**.
+By default, a PHP project is empty, so we need to install a few packages with **composer require**. Let's start with a basic **PHP** server, **klein** for router handling, **phpdotenv** to load environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically, of course, **Autodesk Forge**.
 * Check [klein](https://packagist.org/packages/klein/klein) if you want to know more about usage of klein. 
+* Check [phpdotenv](https://packagist.org/packages/vlucas/phpdotenv) if you want to know more about usage of phpdotenv. 
 * Check [Autodesk Forge](https://packagist.org/packages/autodesk/forge-client) if you want to know more about usage of Forge PHP SDK. 
 
 
@@ -24,6 +25,7 @@ By default, a PHP project is empty, so we need to install a few packages with **
 ```
 composer require autodesk/forge-client
 composer require klein/klein
+composer require vlucas/phpdotenv
 ```
 
 > The libary would be also saved on the **composer.json** file. 
@@ -44,7 +46,8 @@ Now your folder should have a **vendor** folder and your **composer.json** shoul
     ],
     "require": {
         "autodesk/forge-client": "^1.0",
-        "klein/klein": "^2.1"
+        "klein/klein": "^2.1",
+        "vlucas/phpdotenv": "^2.4.0"
     }  
 }
 ```
@@ -61,21 +64,25 @@ At this point, you project should be something like:
 
 ![](_media/php/vs_code_explorer.png) 
 
-## Setup credentials
+## .env 
 
 > It's important to define **ID & Secret** as environment variables so our project can use it for authorized requests..
 
-To setup the environment variables, follow these steps, depending on your operationg system.
-Mac OSX/Linux (Terminal)
+To setup the environment variables, create a file named **.env**, and add your forge client id and client secret to the .env file in the server folder of your project as follow:
 
-    export FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
-    export FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
-Click to copy
-Windows (Command Prompt)
+    FORGE_CLIENT_ID="<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>"
+    FORGE_CLIENT_SECRET="<<YOUR CLIENT SECRET FROM DEVELOPER PORTAL>>"
 
-    set FORGE_CLIENT_ID=<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>
-    set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
+And .env can be loaded into your application with the following code later in **config.php** file:  
+```php
+use Dotenv\Dotenv;
 
+// load the environment variable from .env into your application
+$dotenv = new Dotenv(__DIR__);
+$dotenv->load();
+$forge_id = getenv('FORGE_CLIENT_ID');
+$forge_secret = getenv('FORGE_CLIENT_SECRET');
+```
 
 ## index.php
 
@@ -148,6 +155,7 @@ Under **/server/** create a file named `config.php` with the following content:
 ```php
 <?php
 namespace Autodesk\ForgeServices;
+use Dotenv\Dotenv;
 
 class ForgeConfig{
     private static $forge_id = null;
@@ -155,12 +163,24 @@ class ForgeConfig{
 
     public static function getForgeID(){
       $forge_id = getenv('FORGE_CLIENT_ID');
-      return $forge_id? $forge_id : "<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>";
+      if(!$forge_id){
+        // load the environment variable from .env into your application
+        $dotenv = new Dotenv(__DIR__);
+        $dotenv->load();
+        $forge_id = getenv('FORGE_CLIENT_ID');
+     }
+      return $forge_id;
     }
 
     public static function getForgeSecret(){
       $forge_secret = getenv('FORGE_CLIENT_SECRET');
-      return $forge_secret? $forge_secret : "<<YOUR CLIENT SECRET FROM DEVELOPER PORTAL>>";
+      if(!$forge_secret){
+        // load the environment variable from .env into your application
+        $dotenv = new Dotenv(__DIR__);
+        $dotenv->load();
+        $forge_secret = getenv('FORGE_CLIENT_SECRET');
+     }
+      return $forge_secret;
     }
 
     // Required scopes for your application on server-side
@@ -170,12 +190,13 @@ class ForgeConfig{
 
     // Required scope of the token sent to the client
     public static function getScopePublic(){
-      return ['viewables:read'];
-    }
+      // Will update the scope to viewables:read when #13 of autodesk/forge-client is fixed
+      return ['data:read'];
+    } 
 }
 ```
 
-We are defining our ENV variables here, at the time of running our PHP server the values on these variables will be use to connect to the different Autodesk Forge services we will need.
+We are getting our ENV variables here, at the time of running our PHP server the values on these variables will be use to connect to the different Autodesk Forge services we will need.
 
 Last we see there are 2 definitions about scopes. These scopes give our Token the right permission for the use of the different services of the Forge We Services. This tutorial is dedicated to the use of the Viewer only, we will only need the "viewables:read" scope.
 
