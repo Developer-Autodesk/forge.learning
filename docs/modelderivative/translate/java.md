@@ -97,6 +97,6 @@ The **jobs** endpoint receives the **bucketKey** and **objectName** and post the
 
 To summarize, at this point your **JAVA** project should be like:
 
-![](_media/java/IntelliJ-IDEA-project_all_files_server.png)
+![](_media/java/Eclipse_server_side.png)
 
 Next: [Show on Viewer](viewer/)

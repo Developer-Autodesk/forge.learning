@@ -1,8 +1,22 @@
 # Client-side files (.NET)
 
-JAVA EE web app usually generates an entry file `.jsp` instead `.html`, but for this tutorial let's just use `.html` for simplicity.
+Our JAVA server is configured to serve files from root `/forgesample` but we want to change it to serve from `/` folder. Let's fix that with the following steps:
 
-Our JAVA server is configured to serve files from root `/` folder. Let's organize like this:
+Setting the path to nothing in the Eclipse web modules edit dialog enabled me to access the project without any path component in the URL (i.e. ROOT)
+
+You can reach the web modules edit dialog by pressing F3 if you select Tomcat in the "Servers" view or by double clicking on it.
+
+![](_media/java/Eclipse_server_root.png)
+
+
+![](_media/java/Eclipse_web_module.png)
+
+
+![](_media/java/Eclipse_root_empty.png)
+
+
+
+JAVA EE web app usually generates an entry file `.jsp` instead `.html`, but for this tutorial let's just use `.html` for simplicity.
 
 - `/`: `.html` (or `.jsp` for other projects)
 - `/js`: `.js`
@@ -10,8 +24,6 @@ Our JAVA server is configured to serve files from root `/` folder. Let's organiz
 
 The image below show it (after creating files on the next section)
 
-![](_media/java/IntelliJ-IDEA-project_all_files_client.png)
-
-> `web.xml` & `index.jsp-` files, `src` folders are created by JAVA EE by [IntelliJ IDEA](https://www.jetbrains.com/idea/). `index.jsp` is created by default as the main page, but for this tutorial, we use `index.html`. So make the `index.jsp` to `index.jsp-` to reserve in case of use.
+![](_media/java/Eclipse_client_side.png)
 
 Next: [Viewer (client-side)](viewer/viewer)

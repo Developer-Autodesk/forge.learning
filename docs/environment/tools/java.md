@@ -4,8 +4,10 @@ Install [JAVA SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-
 
 Install [TOMCAT](https://tomcat.apache.org/download-80.cgi) to launch the server. 
 
-Now we need an IDE to write the code. Since we need an web application of JAVA,this tutorial will use [IntelliJ Ultimate](https://www.jetbrains.com/idea/) IDE (not-free). There are some other choices which are free, but would need seperate plugins or enablers.
+> A good tutorial on how to setup your Tomcat server can be found [here](https://crunchify.com/step-by-step-guide-to-setup-and-install-apache-tomcat-server-in-eclipse-development-environment-ide/)
+
+Now we need an IDE to write the code. Since we need an web application of JAVA,this tutorial will use [Eclipse Java EE IDE for Web Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen3). 
 
 > For this tutorial, use all default install options.
 
-Next: [setup](environment/setup/)
+Next: [Authentication](oauth/)

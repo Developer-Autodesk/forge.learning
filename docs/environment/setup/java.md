@@ -1,28 +1,84 @@
 # Create a new project (JAVA EE)
 
-Open [IntelliJ Ultimate](https://www.jetbrains.com/idea/), create a JAVA EE web application. Give a name for the project. For this tutorial, let's use **forgesample**. 
+Open [Eclipse Java EE IDE for Web Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen3), create a simple Maven project and select default Workspace location. 
 
-![](_media/java/IntelliJ-IDEA_create_web_app.png) 
+![](_media/java/Eclipse_new_maven_project.png) 
 
-In this project, right click the project title, select [Add Framework Support]. Next, select [Maven] as the configuration to manage external libraries. an pom.xml file will be generated.
 
-![](_media/java/IntelliJ-IDEA_add_framework.png) 
-![](_media/java/IntelliJ-IDEA_add_maven.png) 
+Select the maven archetype as: **maven-archetype-webapp** and click on next
+
+![](_media/java/Eclipse_maven_archetype.png) 
+
+Fill out below details and click Finish. This step creates Maven Project in your Eclipse Environment. For this tutorial, we will name it **forgesample**.  
+
+![](_media/java/Eclipse_new_maven_project_name.png) 
+
+If you see error “The superclass “javax.servlet.http.HttpServlet” was not found on the Java Build Path index.jsp /forgesample/src/main/webapp” then add below maven dependency.
+
+![](_media/java/Eclipse_httpservelt_error_console.png) 
+
+
+```xml
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.1.0</version>
+</dependency>
+
+```
+
+OR add Apache Tomcat to your Targeted Runtimes.
+
+![](_media/java/Eclipse_apache_tomcat_targeted_runtime.png) 
+
+
+Your Maven Project should look like this.
+
+![](_media/java/Eclipse_tree_structure.png) 
+
+Now build project with “Maven Clean Install” to check there isn’t any dependency issue with project. 
+
+![](_media/java/Eclipse_maven_build_select.png) 
+
+![](_media/java/Eclipse_maven_build_configuration.png) 
+
+![](_media/java/Eclipse_build_success.png) 
+
+
+Deploy Application on Apache Tomcat Server.
+
+Steps:
+
+- Right click on Server -> Add and Remove -> Select CrunchifyMavenTutorial -> Click Finish.
+- Start tomcat server.
+
+Visit http://localhost:8080/forgesample/index.jsp to see your result.
+
+To make sure it is your index.jsp, go and change the text of Hello World! to Hello Forge!
+
+![](_media/java/Eclipse_hello_forge.png) 
+
+You are all set, your Server is running succesfully now.
+
+
+
 
 
 Change [groupId] to the string that indicates your role such as **com.mycompany**. And input the configurations to the file:
 
 ```xml
-<groupId>com.mycompany</groupId>
-    <artifactId>forgesample</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <prerequisites>
-        <maven>2.2.0</maven>
-    </prerequisites>
-
-    <build>
-        <plugins>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mycompany</groupId>
+  <artifactId>forgesample</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>forgesample Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+   <build>
+    <finalName>forgesample</finalName>
+    <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -112,17 +168,14 @@ Change [groupId] to the string that indicates your role such as **com.mycompany*
                 </configuration>
             </plugin>
         </plugins>
-    </build>
-    <dependencies>
-
-        <!-- JAVA SDK of Autodesk: com-autodesk-client -->
-
+  </build>
+  <dependencies>
+      <!-- JAVA SDK of Autodesk: com-autodesk-client -->
         <dependency>
             <groupId>com.autodesk</groupId>
             <artifactId>com-autodesk-client</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.0</version>
         </dependency>
-
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-json</artifactId>
@@ -133,20 +186,17 @@ Change [groupId] to the string that indicates your role such as **com.mycompany*
             <artifactId>genson</artifactId>
             <version>0.99</version>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>1.3</version>
         </dependency>
-
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
             <version>${swagger-annotations-version}</version>
         </dependency>
-
         <!-- HTTP client: jersey-client -->
         <dependency>
             <groupId>com.sun.jersey</groupId>
@@ -158,7 +208,6 @@ Change [groupId] to the string that indicates your role such as **com.mycompany*
             <artifactId>jersey-multipart</artifactId>
             <version>${jersey-version}</version>
         </dependency>
-
         <!-- JSON processing: jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -190,14 +239,12 @@ Change [groupId] to the string that indicates your role such as **com.mycompany*
             <artifactId>joda-time</artifactId>
             <version>${jodatime-version}</version>
         </dependency>
-
         <!-- Base64 encoding that works in both JVM and Android -->
         <dependency>
             <groupId>com.brsanthu</groupId>
             <artifactId>migbase64</artifactId>
             <version>2.2</version>
         </dependency>
-
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
@@ -219,7 +266,7 @@ Change [groupId] to the string that indicates your role such as **com.mycompany*
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit-version}</version>
+            <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
@@ -228,9 +275,14 @@ Change [groupId] to the string that indicates your role such as **com.mycompany*
             <artifactId>mockito-all</artifactId>
             <version>1.9.5</version>
         </dependency> 
-
-    </dependencies>
-    <properties>
+    <dependency>
+     <groupId>javax.servlet</groupId>
+     <artifactId>javax.servlet-api</artifactId>
+     <version>3.1.0</version>
+    </dependency>
+  </dependencies>
+ 
+  <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger-annotations-version>1.5.8</swagger-annotations-version>
         <jersey-version>1.19.1</jersey-version>
@@ -238,30 +290,23 @@ Change [groupId] to the string that indicates your role such as **com.mycompany*
         <jodatime-version>2.9.4</jodatime-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.12</junit-version>
-    </properties> 
-
+  </properties> 
 </project>
 ```
 
-**IntelliJ** will pop out a message to ask you to [Import Changes], click it, all repositries will be imported. We can also set [Auto-Import]. 
-![](_media/java/IntelliJ-IDEA_import_lib.png) 
+A new Error will pop up in your Markers, we will need to update the MAven project to address all the new dependencies we have previously added. 
+
+![](_media/java/Eclipse_maven_error.png)
 
 
-Now, open **File**-->**Project Structure**, the repositries are listed at **Project Setting**-->**Libraries**.
-![](_media/java/IntelliJ-IDEA_libs.png) 
+![](_media/java/Eclipse_maven_update_select.png)
 
 
-Go to **Project Setting**-->**Modules**. Click the sign **+**, to add **TomCat**as some repositries are available with **TomCat**.
- ![](_media/java/IntelliJ-IDEA_modules.png) 
- ![](_media/java/IntelliJ-IDEA_add_tomcat_module.png) 
-
+![](_media/java/Eclipse_maven_update_project.png)
 
 ## Files and Folders
 
 To create a new class file, right-click on the "src-->main-->java" folder on the left and select **New**--> **JAVA Class**. Let's create the **config.java** file firstly.
-
-For consitency with other Forge samples, create a **/server/** folder for all server-side files and a **/www/** for all client-side files.
-  
 
 !> Note you need to enter your **Forge Client ID & Secret** at the indicated space of **config.java** file.
 
@@ -299,8 +344,6 @@ Last we see there are 2 definitions about scopes. These scopes give our Token th
 
 Project is ready! At this point your project should have:
 
- ![](_media/java/IntelliJ-IDEA_add_config_file.png) 
-
-> The **.idea** was created by [IntelliJ Ultimate](https://www.jetbrains.com/idea/), don't worry :wink: 
+ ![](_media/java/Eclipse_config_class.png)
 
 Next: [Authenticate](oauth/2legged/)
