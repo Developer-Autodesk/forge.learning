@@ -64,25 +64,6 @@ At this point, you project should be something like:
 
 ![](_media/php/vs_code_explorer.png) 
 
-## .env 
-
-> It's important to define **ID & Secret** as environment variables so our project can use it for authorized requests..
-
-To setup the environment variables, create a file named **.env**, and add your forge client id and client secret to the .env file in the server folder of your project as follow:
-
-    FORGE_CLIENT_ID="<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>"
-    FORGE_CLIENT_SECRET="<<YOUR CLIENT SECRET FROM DEVELOPER PORTAL>>"
-
-And .env can be loaded into your application with the following code later in **config.php** file:  
-```php
-use Dotenv\Dotenv;
-
-// load the environment variable from .env into your application
-$dotenv = new Dotenv(__DIR__);
-$dotenv->load();
-$forge_id = getenv('FORGE_CLIENT_ID');
-$forge_secret = getenv('FORGE_CLIENT_SECRET');
-```
 
 ## index.php
 
@@ -146,7 +127,32 @@ $klein->respond('GET', '/', function ($request, $response, $service) {
 $klein->dispatch();
 ```
 
-This file routes the API requests.
+This file routes the API requests, and also redirect the homepage to **www/index.html**.
+
+
+## .htaccess
+This file is used to do URL Rewrite for Apache, please check [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) for more details.
+
+```json
+<IfModule mod_rewrite.c>
+ RewriteEngine on
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+</IfModule>
+```
+
+
+## .env 
+
+!> It's important to define **ID & Secret** as environment variables so our project can use it for authorized requests..
+
+To setup the environment variables, create a file named **.env** under **/server/** folder, and add your forge client id and client secret to the .env as follow:
+
+    FORGE_CLIENT_ID="<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>"
+    FORGE_CLIENT_SECRET="<<YOUR CLIENT SECRET FROM DEVELOPER PORTAL>>"
+
+We will talk about how to load the environment variables in next section.
 
 ## Config.php
 
@@ -196,22 +202,20 @@ class ForgeConfig{
 }
 ```
 
-We are getting our ENV variables here, at the time of running our PHP server the values on these variables will be use to connect to the different Autodesk Forge services we will need.
+We are getting our ENV variables here by loading the .env file with the code like:
+
+```php
+<?php
+    $dotenv = new Dotenv(__DIR__);
+    $dotenv->load();
+    $forge_secret = getenv('FORGE_CLIENT_SECRET');
+    $forge_secret = getenv('FORGE_CLIENT_SECRET');
+```
+
+At the time of running our PHP server the values on these variables will be used to connect to the different Autodesk Forge services we will need.
 
 Last we see there are 2 definitions about scopes. These scopes give our Token the right permission for the use of the different services of the Forge We Services. This tutorial is dedicated to the use of the Viewer only, we will only need the "viewables:read" scope.
 
-
-## .htaccess
-This file is used to do URL Rewrite for Apache, please check [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) for more details.
-
-```json
-<IfModule mod_rewrite.c>
- RewriteEngine on
- RewriteCond %{REQUEST_FILENAME} !-d
- RewriteCond %{REQUEST_FILENAME} !-f
- RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
-</IfModule>
-```
 
 
 Project is ready! At this point your project should have:
