@@ -6,15 +6,27 @@ At this section we actually need 3 features:
 2. List buckets & objects (files)
 3. Upload objects (files)
 
-## OSS.js
+## OSS.java
 
-Create a `/src/main/oss.java` file with the following content. This file handles creating bucket and listing buckets.
+Create a `/src/main/java/oss.java` file with the following content. This file handles creating bucket and listing buckets.
 
 ```java
+import java.io.*;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import javax.xml.bind.DatatypeConverter;
+
+import org.json.*;
+
+import com.autodesk.client.ApiException;
+import com.autodesk.client.ApiResponse;
+import com.autodesk.client.api.*;
+import com.autodesk.client.model.*;
+
 WebServlet({"/oss"})
 public class oss extends HttpServlet {
-
-
 
     public oss() {
     }
@@ -170,11 +182,31 @@ public class oss extends HttpServlet {
 
 As we plan to suppor the [jsTree](https://www.jstree.com/) library, our **GET oss/buckets** need to return handle the `id` querystring parameter and return buckets when `id=#` and objects for a given bucketKey passed as `id=bucketKey`.
 
-## OSSUploads.js
+## OSSUploads.java
 
 Create a `/src/main/ossuploads.java` file with the following content. This file handles uploading file. The workflow gets the file stream and uploads to Forge.
 
 ```java
+import java.io.*;
+import java.util.Iterator;
+import java.util.List;
+import java.util.regex.*;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
+import com.autodesk.client.ApiException;
+import com.autodesk.client.ApiResponse;
+import com.autodesk.client.api.ObjectsApi;
+import com.autodesk.client.model.ObjectDetails;
+
 @WebServlet({"/ossuploads"})
 public class ossuploads  extends HttpServlet {
 
@@ -291,30 +323,30 @@ public class ossuploads  extends HttpServlet {
 Explictly expose the endpoint in `/web/WEB-INF/web.xml`:
 ```xml
 
-<servlet>
-    <servlet-name>oss</servlet-name>
-    <servlet-class>oss</servlet-class>
-</servlet>
+    <servlet>
+            <servlet-name>oss</servlet-name>
+            <servlet-class>oss</servlet-class>
+    </servlet>
 
-<servlet-mapping>
-    <servlet-name>oss</servlet-name>
-    <url-pattern>/api/forge/oss/buckets</url-pattern>
-</servlet-mapping>
+    <servlet-mapping>
+            <servlet-name>oss</servlet-name>
+            <url-pattern>/api/forge/oss/buckets</url-pattern>
+    </servlet-mapping>
 
-<servlet>
-    <servlet-name>ossuploads</servlet-name>
-    <servlet-class>ossuploads</servlet-class>
-</servlet>
+    <servlet>
+            <servlet-name>ossuploads</servlet-name>
+            <servlet-class>ossuploads</servlet-class>
+    </servlet>
 
-<servlet-mapping>
-    <servlet-name>ossuploads</servlet-name>
-    <url-pattern>/api/forge/oss/objects</url-pattern>
-</servlet-mapping>
+    <servlet-mapping>
+            <servlet-name>ossuploads</servlet-name>
+            <url-pattern>/api/forge/oss/objects</url-pattern>
+    </servlet-mapping>
 ```
 
  
 
-Note how we reuse the `/src/main/oauth.java` file to call `.getTokenInternal()` on all functions. 
+Note how we reuse the `/src/main/java/oauth.java` file to call `.getTokenInternal()` on all functions. 
 
 !> Upload a file from the client (browser) directly to Autodesk Forge is possible, but requires giving the client a **write-enabled** access token, which is **NOT SECURE**.
 

@@ -13,21 +13,7 @@ Fill out below details and click Finish. This step creates Maven Project in your
 
 ![](_media/java/Eclipse_new_maven_project_name.png) 
 
-If you see error “The superclass “javax.servlet.http.HttpServlet” was not found on the Java Build Path index.jsp /forgesample/src/main/webapp” then add below maven dependency.
-
-![](_media/java/Eclipse_httpservelt_error_console.png) 
-
-
-```xml
-<dependency>
-    <groupId>javax.servlet</groupId>
-    <artifactId>javax.servlet-api</artifactId>
-    <version>3.1.0</version>
-</dependency>
-
-```
-
-OR add Apache Tomcat to your Targeted Runtimes.
+If you see error “The superclass “javax.servlet.http.HttpServlet” was not found on the Java Build Path index.jsp `/forgesample/src/main/webapp` add Apache Tomcat to your Targeted Runtimes. You get there by going to the project properties and then Targeted Runtimes, check the box as indicated below.
 
 ![](_media/java/Eclipse_apache_tomcat_targeted_runtime.png) 
 
@@ -49,19 +35,22 @@ Deploy Application on Apache Tomcat Server.
 
 Steps:
 
-- Right click on Server -> Add and Remove -> Select CrunchifyMavenTutorial -> Click Finish.
-- Start tomcat server.
 
-Visit http://localhost:8080/forgesample/index.jsp to see your result.
+![](_media/java/Eclipse_run_as_server.png) 
 
-To make sure it is your index.jsp, go and change the text of Hello World! to Hello Forge!
+![](_media/java/Eclipse_setup_server.png) 
+
+
+
+When done, click Finish. Eclipse will run a local page in your IDE showing you Hello World! or you can always visit http://localhost:8080/forgesample/index.jsp to see your result.
+
+To make sure it is your index.jsp the one running, go src/main/webapp/index.jsp and change the text from Hello World! to Hello Forge!
 
 ![](_media/java/Eclipse_hello_forge.png) 
 
-You are all set, your Server is running succesfully now.
+You are all set, your Server is running succesfully now. :)
 
-
-
+## Setup Pom.xml
 
 
 Change [groupId] to the string that indicates your role such as **com.mycompany**. And input the configurations to the file:

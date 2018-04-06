@@ -4,7 +4,7 @@ For a basic *OAuth* implementation we need 2 files.
 
 ## oauth.java
 
-Create a `/src/main/oauth.java` file. This file takes care of creating the express router to expose the endpoint. 
+Create a `/src/main/java/oauth.java` file. This file takes care of creating the express router to expose the endpoint. 
 
 ```java
 public class oauth  {
@@ -60,7 +60,7 @@ public class oauth  {
 
 ## oauthtoken.java
 
-Now create a `/src/main/oauthtoken.java` file that will actually request the access token from Forge. This will be reused on other parts of this tutorial.
+Now create a `/src/main/java/oauthtoken.java` file that will actually request the access token from Forge. This will be reused on other parts of this tutorial.
 
 ```java
 @WebServlet({"/oauthtoken"})
@@ -84,7 +84,7 @@ public class oauthtoken extends HttpServlet {
         try{
             token = oauth.getTokenPublic();
             obj.put("access_token", token);
-            obj.put("expires_in", "dummy");
+            obj.put("expires_in", 3500);
             out.print(obj);
         }
         catch (Exception var2) {
@@ -101,10 +101,10 @@ public class oauthtoken extends HttpServlet {
 ```
 Add annotation to make the class `oauthtoken` as web service by [WebServlet](http://blog.caucho.com/2009/10/06/servlet-30-tutorial-weblistener-webservlet-webfilter-and-webinitparam/)
 
-Explictly expose the endpoint in `/web/WEB-INF/web.xml`:
+Explictly expose the endpoint in `src/webapp/WEB-INF/web.xml`:
 
 ```xml
-  <servlet>
+    <servlet>
         <servlet-name>oauthtoken</servlet-name>
         <servlet-class>oauthtoken</servlet-class>
     </servlet>

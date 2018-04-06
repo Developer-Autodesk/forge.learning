@@ -80,7 +80,7 @@ Create a **index.html** file with:
           <h4 class="modal-title" id="myModalLabel">Create new bucket</h4>
         </div>
         <div class="modal-body">
-          <input type="text" id="newBucketKey" class="form-control"> For demonstration purpouses, objects (files) are 
+          <input type="text" id="newBucketKey" class="form-control"> For demonstration purposes, objects (files) are 
           NOT automatically translated. After you upload, right click on
           the object and select "Translate".
         </div>
@@ -324,7 +324,7 @@ function onDocumentLoadSuccess(doc) {
     return;
   }
 
-  // Choose any of the avialble viewables
+  // Choose any of the available viewables
   viewerApp.selectItem(viewables[0].data, onItemLoadSuccess, onItemLoadFail);
 }
 

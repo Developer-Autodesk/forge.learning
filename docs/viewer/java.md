@@ -1,6 +1,6 @@
-# Client-side files (.NET)
+# Client-side files (JAVA)
 
-Our JAVA server is configured to serve files from root `/forgesample` but we want to change it to serve from `/` folder. Let's fix that with the following steps:
+Our JAVA server is configured to serve files from `/forgesample` but we want to change it to serve from `/` folder. Let's fix that with the following steps:
 
 Setting the path to nothing in the Eclipse web modules edit dialog enabled me to access the project without any path component in the URL (i.e. ROOT)
 
