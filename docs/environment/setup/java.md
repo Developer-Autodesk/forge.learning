@@ -299,6 +299,8 @@ To create a new class file, right-click on the "src-->main-->java" folder on the
 !> Note you need to enter your **Forge Client ID & Secret** at the indicated space of **config.java** file.
 
 ```java
+import java.util.ArrayList;
+
 public class config {
 
     // set environment variables or hard-code here 

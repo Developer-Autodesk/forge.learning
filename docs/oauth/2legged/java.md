@@ -7,6 +7,11 @@ For a basic *OAuth* implementation we need 2 files.
 Create a `/src/main/java/oauth.java` file. This file takes care of creating the express router to expose the endpoint. 
 
 ```java
+import java.util.ArrayList;
+
+import com.autodesk.client.auth.Credentials;
+import com.autodesk.client.auth.OAuth2TwoLegged;
+
 public class oauth  {
 
 
@@ -63,6 +68,17 @@ public class oauth  {
 Now create a `/src/main/java/oauthtoken.java` file that will actually request the access token from Forge. This will be reused on other parts of this tutorial.
 
 ```java
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.JSONObject;
+
 @WebServlet({"/oauthtoken"})
 public class oauthtoken extends HttpServlet {
 
