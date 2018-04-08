@@ -25,7 +25,7 @@ import com.autodesk.client.ApiResponse;
 import com.autodesk.client.api.*;
 import com.autodesk.client.model.*;
 
-WebServlet({"/oss"})
+@WebServlet({"/oss"})
 public class oss extends HttpServlet {
 
     public oss() {
