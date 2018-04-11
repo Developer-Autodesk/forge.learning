@@ -2,7 +2,7 @@
 
 An extension should implement the `.load` and `.unload` functions. To make a little more interesting, let's also create a toolbar button to trigger this extension code inside `.onClick` function. 
 
-Each extension should be a JavaScript file. Create a file at **/www/js/myawesomeextension.js** and copy the following content. 
+Each extension should be a JavaScript file. Create a file at UI folder **//js/myawesomeextension.js** and copy the following content. 
 
 ```javascript
 // *******************************************
@@ -47,6 +47,8 @@ MyAwesomeExtension.prototype.createUI = function () {
         //
         //
         // **********************
+
+        alert('I am an extension');
 
     };
     // myAwesomeToolbarButton CSS class should be defined on your .css file
