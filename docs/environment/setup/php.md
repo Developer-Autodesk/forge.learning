@@ -118,24 +118,34 @@ $klein->respond('POST', '/api/forge/modelderivative/jobs', function () {
     return $modelDerivative->translateFile();
 });
 
-// Redirect the homepage to www/index.html
-$klein->respond('GET', '/', function ($request, $response, $service) {
-    $service->render('www/index.html');
-    return;
-});
-
 $klein->dispatch();
 ```
 
-This file routes the API requests, and also redirect the homepage to **www/index.html**.
+This file routes the API requests.
 
 
 ## .htaccess
-This file is used to do URL Rewrite for Apache, please check [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) for more details.
+This file is used to do URL Rewrite for Apache, we will direct the following URL:
+1. Redirect home page to **/www/index.html** 
+2. Redirect js & css files to folder **www**
+3. Redirect any API call to be prefixed with **index.php** 
+
+please check [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) for more details.
 
 ```json
 <IfModule mod_rewrite.c>
  RewriteEngine on
+ RewriteBase /
+
+ RewriteCond %{REQUEST_URI} !^/www(.*)$
+ RewriteCond %{REQUEST_URI} ^/$
+ RewriteRule ^(.*)$ /www/index.html [NC,R=301],L]
+
+ RewriteCond %{REQUEST_URI} !^/www(.*)$
+ RewriteCond %{REQUEST_URI} ^.*.(js|css)$
+ RewriteRule ^(.*)$ /www/$1 [NC,R=301],L]
+
+ RewriteCond %{REQUEST_URI} !^/www(.*)$
  RewriteCond %{REQUEST_FILENAME} !-d
  RewriteCond %{REQUEST_FILENAME} !-f
  RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
