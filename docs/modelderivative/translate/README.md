@@ -2,7 +2,7 @@
 
 The Model Derivative API enables users to represent and share their designs in different formats, as well as to extract valuable metadata.
 
-![](https://developer.doc.autodesk.com/bPlouYTd/96/_images/MD-overview-diagram.png)
+![](/_media/forge/md_diagram.png)
 
 Not sure if your files are compatible? Check the [supported translations](https://developer.autodesk.com/en/docs/model-derivative/v2/overview/supported-translations/).
 
