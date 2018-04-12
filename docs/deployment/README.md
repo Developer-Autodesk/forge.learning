@@ -16,7 +16,7 @@ Choose your language: [.NET](deployment/aws/net)
 
 _Heroku is a cloud-based, platform-as-a-service (PaaS) based on a managed container system for building, running, and managing modern apps. Heroku’s platform, tools, integrated services, and ecosystem are meticulously designed to support the best possible developer experience._ [Learn more](https://devcenter.heroku.com/articles/git).
 
-Choose your language:  [Node.js](deployment/heroku/nodejs)
+Choose your language:  [Node.js](deployment/heroku/heroku) | [PHP](deployment/heroku/heroku)
 
 ## AppHarbor
 
