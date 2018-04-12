@@ -36,12 +36,12 @@ HandleSelectionExtension.prototype.onToolbarCreated = function () {
 };
 
 HandleSelectionExtension.prototype.createUI = function () {
-    var viewer = this.viewer;
+    var _this = this;
 
     // prepare to execute the button action
-    var myAwesomeToolbarButton = new Autodesk.Viewing.UI.Button('handleSelectionButton');
-    myAwesomeToolbarButton.onClick = function (e) {
-        
+    var handleSelectionToolbarButton = new Autodesk.Viewing.UI.Button('handleSelectionButton');
+    handleSelectionToolbarButton.onClick = function (e) {
+       
         // **********************
         //
         //
@@ -53,14 +53,16 @@ HandleSelectionExtension.prototype.createUI = function () {
     };
     // handleSelectionToolbarButton CSS class should be defined on your .css file
     // you may include icons, below is a sample class:
-    myAwesomeToolbarButton.addClass('handleSelectionToolbarButton');
-    myAwesomeToolbarButton.setToolTip('Handle current selection');
+    handleSelectionToolbarButton.addClass('handleSelectionToolbarButton');
+    handleSelectionToolbarButton.setToolTip('Handle current selection');
 
     // SubToolbar
-    this.subToolbar = new Autodesk.Viewing.UI.ControlGroup('MyAppToolbar');
-    this.subToolbar.addControl(myAwesomeToolbarButton);
+    this.subToolbar = (this.viewer.toolbar.getControl("MyAppToolbar") ?
+        this.viewer.toolbar.getControl("MyAppToolbar") :
+        new Autodesk.Viewing.UI.ControlGroup('MyAppToolbar'));
+    this.subToolbar.addControl(handleSelectionToolbarButton);
 
-    viewer.toolbar.addControl(this.subToolbar);
+    this.viewer.toolbar.addControl(this.subToolbar);
 };
 
 HandleSelectionExtension.prototype.unload = function () {
@@ -70,8 +72,9 @@ HandleSelectionExtension.prototype.unload = function () {
 
 Autodesk.Viewing.theExtensionManager.registerExtension('HandleSelectionExtension', HandleSelectionExtension);
 ```
+## Toolbar CSS
 
-And, just like on the basic skeletong, the toolbar button uses a **CSS** styling (see call to `.addClass` on the code). At the **/css/main.css** add the following.
+Just like on the basic skeletong, the toolbar button uses a **CSS** styling (see call to `.addClass` on the code). At the **/css/main.css** add the following.
 
 ```css
 .handleSelectionToolbarButton {
@@ -84,11 +87,23 @@ And, just like on the basic skeletong, the toolbar button uses a **CSS** styling
 
 > You can use your own images or from a library, in this case let's use [Font Awesome](https://fontawesome.com/) icons in PNG format.
 
-Finally, [load the extension](/viewer/extensions/skeleton?id=loading-the-extension) using the same code as the **basic skeleton** (of course, adjust the names). At this point the extension should load with a toolbar icon, but it doesn't do anything.
+## Load the extension
+
+Finally, [load the extension](/viewer/extensions/skeleton?id=loading-the-extension) using the same code as the **basic skeleton** (of course, adjust the names). For your reference, here are the 2 changes needed: include the `<script>` on **index.html** and include the extension on `.registerViewer()` call.
+
+```html
+<script src="/js/handleselectionextension.js"></script>
+```
+
+```javascript
+viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D, { extensions: ['HandleSelectionExtension'] });
+```
+
+At this point the extension should load with a toolbar icon, but it doesn't do anything.
 
 ## Implement .onClick function
 
-Now it's time to replace the `Execute an action here` placeholder inside the `.onClick` function. For this sample, let's isolate the selection. 
+Now it's time to replace the `Execute an action here` placeholder inside the `.onClick` function. For this sample, let's isolate the selection. Copy the following content to your extension **.js** file inside the `.onClick = function (e)` function:
 
 ```javascript
 // get current selection
@@ -126,7 +141,9 @@ else {
 }
 ```
 
-At this point the extension should load and show a toolbar button. Select one or more object and click on the button, confirm which elements to isolate. The following video demonstrate its usage.
+## Conclusion
+
+At this point the extension should load and show a toolbar button. Select one or more object and click on the button, confirm which elements to isolate. The following video demonstrate its behaviour.
 
 ![](_media/javascript/js_isolate.gif)
 

@@ -1,6 +1,6 @@
 # Viewer extensions
 
-Extensions provide a mechanism to write custom code that interacts with the viewer. Each extension should register itself with an extension manager, providing a unique string ID which is then used to load or unload the extension during runtime. [Learn more](https://developer.autodesk.com/en/docs/viewer/v2/overview/extensions/).
+Extensions provide a mechanism to write custom code that interacts with the **Viewer**. Each extension should register itself with the extension manager, providing a unique string ID which is then used to load or unload the extension during runtime. [Learn more](https://developer.autodesk.com/en/docs/viewer/v2/overview/extensions/).
 
 This tutorial will guide you creating an extension for Viewer. 
 

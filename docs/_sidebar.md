@@ -13,6 +13,6 @@
   - [Basic skeleton](viewer/extensions/skeleton)
   - [Handling selection](viewer/extensions/selection)
   - [Docking panel](viewer/extensions/panel)
-  - [Example](viewer/extensions/examples)
+  - [Examples](viewer/extensions/examples)
 - [Deployment](deployment/)
 - [Support & Online resources](help/)
