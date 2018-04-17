@@ -1,10 +1,10 @@
 # Extension Skeleton
 
-This step of the tutorial described the basic skeleton of an extension with a toolbar button, which triggers a code inside `.onClick` function. You may skip to [Handling Selection](viewer/extensions/selection) for a real sample.
+This step of the tutorial describes the basic skeleton of an extension with a toolbar button, which triggers a code inside `.onClick` function. You may skip to [Handling Selection](viewer/extensions/selection) for a real sample.
 
 ## Create the extension
 
-Let's get started: each extension should be a JavaScript file and implement, at least, the `.load` and `.unload` functions. Create a file at UI folder **/js/myawesomeextension.js** and copy the following content. 
+Let's get started, each extension should be a JavaScript file and implement, at least, the `.load` and `.unload` functions. Create a file at UI folder **/js/myawesomeextension.js** and copy the following content. 
 
 ```javascript
 // *******************************************

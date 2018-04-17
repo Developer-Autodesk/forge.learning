@@ -4,7 +4,7 @@ This section uses the **basic skeleton** from previous section, but let's rename
 
 ## Create the extension
 
-As each extension should be an separeted JavaScript file, create a file at the UI folder **/js/handleselectionextension.js** and copy the following content (which is the same as the basic skeleton, except with a different name): 
+As each extension should be an separeted JavaScript file, create a file in the UI folder **/js/handleselectionextension.js** and copy the following content (which is the same as the basic skeleton, except with a different name): 
 
 ```javascript
 // *******************************************
