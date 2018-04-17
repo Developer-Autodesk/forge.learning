@@ -4,7 +4,7 @@ This step of the tutorial describes the basic skeleton of an extension with a to
 
 ## Create the extension
 
-Let's get started, each extension should be a JavaScript file and implement, at least, the `.load` and `.unload` functions. Create a file at UI folder **/js/myawesomeextension.js** and copy the following content. 
+Let's get started, each extension should be a JavaScript file and implement, at least, the `.load` and `.unload` functions. Create a file in the UI folder **/js/myawesomeextension.js** and copy the following content. 
 
 ```javascript
 // *******************************************
@@ -100,7 +100,7 @@ The extension skeleton is ready, now open the **/index.html** file and add the f
 <script src="/js/myawesomeextension.js"></script>
 ```
 
-Finally we need to tell the Viewer to load the extension. At the **/www/js/ForgeViewer.js** find the following line:
+Finally we need to tell the Viewer to load the extension, in the **/www/js/ForgeViewer.js** find the following line:
 
 ```javascript
 viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D);
@@ -114,7 +114,7 @@ viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D, { 
 
 At this point the extension should load and the toolbar button will show, but it doesn't execute anything (remember there is just a place holder comment on `.onClick` function). This is the basic skeleton you can use to create your extensions. 
 
-!> When creating your own extensions, make sure to rename it: names must be unique. 
+!> When creating your own extensions, make sure to rename it, names must be unique. 
 
 
 Next: [Handling selection](viewer/extensions/selection)

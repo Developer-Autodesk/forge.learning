@@ -8,7 +8,7 @@ The extension can comunicate with server to implement more complex features, jus
 
 **NodeJS**
 
-- [Share Viewer state](https://forge.autodesk.com/blog/share-viewer-state-websockets): uses websocket to share sync state of 2+ instances of the Viewer.
+- [Share Viewer state](https://forge.autodesk.com/blog/share-viewer-state-websockets): uses websocket to share state between 2+ instances of the Viewer.
 
 **.NET**
 

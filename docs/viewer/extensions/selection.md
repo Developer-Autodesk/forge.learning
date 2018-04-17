@@ -4,7 +4,7 @@ This section uses the **basic skeleton** from previous section, but let's rename
 
 ## Create the extension
 
-As each extension should be an separeted JavaScript file, create a file in the UI folder **/js/handleselectionextension.js** and copy the following content (which is the same as the basic skeleton, except with a different name): 
+As each extension should be a separeted JavaScript file, create a file in the UI folder **/js/handleselectionextension.js** and copy the following content (which is same as the basic skeleton, except with a different name): 
 
 ```javascript
 // *******************************************
@@ -74,7 +74,7 @@ Autodesk.Viewing.theExtensionManager.registerExtension('HandleSelectionExtension
 ```
 ## Toolbar CSS
 
-Just like on the basic skeletong, the toolbar button uses a **CSS** styling (see call to `.addClass` on the code). At the **/css/main.css** add the following.
+Just like in the basic skeleton, the toolbar button uses a **CSS** styling (see call to `.addClass` on the code). In the **/css/main.css** add the following:
 
 ```css
 .handleSelectionToolbarButton {
@@ -157,7 +157,7 @@ Key learning points:
 
 Additional learning points:
 
-- **.forEach()** to interate through a collection, this is a JavaScript feature, [learn more](https://www.w3schools.com/jsref/jsref_forEach.asp)
+- **.forEach()** to iterate through a collection, this is a JavaScript feature, [learn more](https://www.w3schools.com/jsref/jsref_forEach.asp)
 - **.push()** to to include items on an array, [learn more](https://www.w3schools.com/jsref/jsref_push.asp)
 
 Next: [Docking panel](viewer/extensions/panel)

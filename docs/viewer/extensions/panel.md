@@ -4,7 +4,7 @@ This section uses the **basic skeleton** from previous section, but let's rename
 
 ## Create the extension
 
-As each extension should be an separeted JavaScript file, create a file in the UI folder **/js/dockingpanelextension.js** and copy the following content (which is the same as the basic skeleton, except with a different name): 
+As each extension should be a separeted JavaScript file, create a file in the UI folder **/js/dockingpanelextension.js** and copy the following content (which is same as the basic skeleton, except with a different name): 
 
 ```javascript
 // *******************************************
@@ -76,7 +76,7 @@ Autodesk.Viewing.theExtensionManager.registerExtension('ModelSummaryExtension', 
 
 ## Toolbar CSS
 
-Just like on the basic skeletong, the toolbar button uses a **CSS** styling (see call to `.addClass` on the code). At the **/css/main.css** add the following.
+Just like in the basic skeleton, the toolbar button uses a **CSS** styling (see call to `.addClass` on the code). In the **/css/main.css** add the following:
 
 ```css
 .modelSummaryToolbarButton {
@@ -105,7 +105,7 @@ At this point the extension should load with a toolbar icon, but it doesn't do a
 
 ## Enumerate leaf nodes
 
-The Viewer contains all elements on the model, including categories (e.g. families or part definition), so we need to enumerate the leaf nodes, meaning actual instances on the model. The following `.getAllLeafComponents()` function should be added the our extension (anywhere on the file, outside other functions). This is based on [this blog post](https://forge.autodesk.com/blog/enumerating-leaf-nodes-viewer). 
+The Viewer contains all elements on the model, including categories (e.g. families or part definition), so we need to enumerate the leaf nodes, meaning actual instances on the model. The following `.getAllLeafComponents()` function should be added to our extension (anywhere on the file, outside other functions). This is based on [this blog post](https://forge.autodesk.com/blog/enumerating-leaf-nodes-viewer). 
 
 ```javascript
 ModelSummaryExtension.prototype.getAllLeafComponents = function (callback) {
@@ -131,7 +131,7 @@ ModelSummaryExtension.prototype.getAllLeafComponents = function (callback) {
 };
 ```
 
-> Note how `.getAllLeafComponents()` if defined as a prototype function of **ModelSummaryExtension**. [Learn more about JavaScript Prototype](https://www.w3schools.com/js/js_object_prototypes.asp).
+> Note how `.getAllLeafComponents()` if defined as a prototype method of **ModelSummaryExtension**. [Learn more about JavaScript Prototype](https://www.w3schools.com/js/js_object_prototypes.asp).
 
 ## Docking panel
 
@@ -153,7 +153,7 @@ ModelSummaryPanel.prototype.constructor = ModelSummaryPanel;
 
 Now it's time to replace the `Execute an action here` placeholder inside the `.onClick` function. For this sample, let's first show the property panel, then enumerate leaf nodes, then get a specific set of properties for leaf nodes, finally count ocurrences of those properties and show results on the panel. 
 
-!> At the code below you **MUST** adjust `var propsToList = ['PropName1', 'PropName2'];` to the property names that applies to your models. For instance, as **Material** exists on almost all models, you can try with `var propsToList = ['Material'];`
+!> In the code below you **MUST** adjust `var propsToList = ['PropName1', 'PropName2'];` to the property names that applies to your models. For instance, as **Material** exists on almost all models, you can try with `var propsToList = ['Material'];`
 
 Copy the following content to your extension **.js** file inside the `.onClick = function (e)` function:
 
@@ -171,7 +171,7 @@ if (!_this.panel.isVisible()) return;
 
 // first, the Viewer contains all elements on the model, including
 // categories (e.g. families or part definition), so we need to enumerate
-// the leaf nodes, meaning actual instances on the model. The following
+// the leaf nodes, meaning actual instances of the model. The following
 // getAllLeafComponents function is defined at the bottom
 _this.getAllLeafComponents(function (dbIds) {
 
@@ -222,16 +222,16 @@ At this point the extension should load and show a toolbar button. Click on the 
 
 ![](_media/javascript/js_dockingpanel.gif)
 
-> As mentioned, you need to define the **propsToList** that makes sense on your models. The above video used `['Material', 'Design Status', 'Type Name'];` which works for both models.
+> As mentioned, you need to define the **propsToList** appropriate for your models. The above video used `['Material', 'Design Status', 'Type Name'];` which works for both models.
 
 Key learning points:
 
-- **.getObjectTree()** is gives access to the model hierarchy and with **.getChildCount()** and **.enumNodeChildren()** is possible to recursively iterate the tree
+- **.getObjectTree()** gives access to the model hierarchy and with **.getChildCount()** and **.enumNodeChildren()** is possible to recursively iterate the tree
 - **.getBulkProperties()** is an asynchronous method that returns a specific set of properties for an array of dbIds via callback, which is widelly used on Viewer, [learn more about callbacks](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
 - **.addProperty()** panel method adds properties (name, value) on a category
 
 Additional learning points:
 
-- **.forEach()** to interate through a collection, this is a JavaScript feature, [learn more](https://www.w3schools.com/jsref/jsref_forEach.asp)
+- **.forEach()** to iterate through a collection, this is a JavaScript feature, [learn more](https://www.w3schools.com/jsref/jsref_forEach.asp)
 
 Next: [Examples](viewer/extensions/examples)
