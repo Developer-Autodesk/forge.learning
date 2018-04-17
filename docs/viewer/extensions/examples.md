@@ -6,11 +6,11 @@ Here are a few examples of extensions based on this skeleton approach:
 
 The extension can comunicate with server to implement more complex features, just like any other JavaScript code. The following samples demonstrate it:
 
-### NodeJS
+**NodeJS**
 
 - [Share Viewer state](https://forge.autodesk.com/blog/share-viewer-state-websockets): uses websocket to share sync state of 2+ instances of the Viewer.
 
-### .NET
+**.NET**
 
 - [Custom properties](https://forge.autodesk.com/blog/custom-properties-viewer-net-lambda-dynamodb): stores custom properties on a database (AWS DynamoDB) and uses a .NET WebAPI code to serve via REST endpoints. 
 
