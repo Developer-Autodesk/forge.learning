@@ -106,9 +106,9 @@ At this point the extension should load with a toolbar icon, but it doesn't do a
 Now it's time to replace the `Execute an action here` placeholder inside the `.onClick` function. For this sample, let's isolate the selection. Copy the following content to your extension **.js** file inside the `.onClick = function (e)` function:
 
 ```javascript
-// get current selection
-var selection = viewer.getSelection();
-viewer.clearSelection();
+/// get current selection
+var selection = _this.viewer.getSelection();
+_this.viewer.clearSelection();
 // anything selected?
 if (selection.length > 0) {
     // create an array to store dbIds to isolate
@@ -117,7 +117,7 @@ if (selection.length > 0) {
     // iterate through the list of selected dbIds
     selection.forEach(function (dbId) {
         // get properties of each dbId
-        viewer.getProperties(dbId, function (props) {
+        _this.viewer.getProperties(dbId, function (props) {
             // output on console, for fun...
             console.log(props);
 
@@ -128,7 +128,7 @@ if (selection.length > 0) {
                 // at this point we know which elements to isolate
                 if (dbIdsToChange.length > 0) {
                     // isolate selected (and confirmed) dbIds
-                    viewer.isolate(dbIdsToChange);
+                    _this.viewer.isolate(dbIdsToChange);
                 }
             }
         })
@@ -137,7 +137,7 @@ if (selection.length > 0) {
 }
 else {
     // if nothing selected, restore
-    viewer.isolate(0);
+    _this.viewer.isolate(0);
 }
 ```
 
