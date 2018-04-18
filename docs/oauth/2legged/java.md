@@ -4,16 +4,20 @@ For a basic *OAuth* implementation we need 2 files.
 
 ## oauth.java
 
-Create a `/src/main/java/oauth.java` file. This file takes care of creating the express router to expose the endpoint. 
+Create a new Java Class. This file takes care of creating the express router to expose the endpoint. 
 
 ```java
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.joda.time.Instant;
+import org.json.simple.JSONObject;
 
 import com.autodesk.client.auth.Credentials;
 import com.autodesk.client.auth.OAuth2TwoLegged;
 
-public class oauth  {
-
+public class oauth  { 
 
     private static Credentials twoLeggedCredentials = null;
 
@@ -34,11 +38,23 @@ public class oauth  {
         return twoLeggedCredentials;
     }
 
+    //token cache map
+    private static Map<String,JSONObject> _cached = new HashMap<String,JSONObject>();
     private static String OAuthRequest(ArrayList<String> scopes, String cache) throws Exception{
 
-        //cache has not been used...will do
-
-
+        
+    	if(_cached.containsKey(cache)) {
+            //check if the token expires or not
+    		JSONObject cacheJsonObj =(JSONObject) _cached.get(cache);
+    		Instant instant = Instant.now();
+    		Long currentTime = instant.getMillis(); 
+    		Long expire_at = (Long) cacheJsonObj.get("expire_at");
+    		if(expire_at >currentTime)
+                //use current token
+    			return  String.valueOf(cacheJsonObj.get("access_token")); 
+    	}
+    	
+        //get new token
         String client_id = config.credentials.client_id;
         String client_secret = config.credentials.client_secret;
 
@@ -46,7 +62,17 @@ public class oauth  {
 
         twoLeggedCredentials = forgeOAuth.authenticate();
         String token = twoLeggedCredentials.getAccessToken();
-
+        long expire_at = twoLeggedCredentials.getExpiresAt();
+        
+        //store the token to cache
+        JSONObject obj = new JSONObject(); 
+        obj.put("access_token", token);
+    	Instant instant = Instant.now();
+    	Long currentTime = instant.getMillis(); 
+        obj.put("expire_at", currentTime + expire_at); 
+        _cached.put(cache, obj); 
+        
+         
         return  token;
     }
 
@@ -68,16 +94,15 @@ public class oauth  {
 Now create a `/src/main/java/oauthtoken.java` file that will actually request the access token from Forge. This will be reused on other parts of this tutorial.
 
 ```java
-import java.io.IOException;
-import java.io.PrintWriter;
+import org.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet({"/oauthtoken"})
 public class oauthtoken extends HttpServlet {
@@ -100,7 +125,6 @@ public class oauthtoken extends HttpServlet {
         try{
             token = oauth.getTokenPublic();
             obj.put("access_token", token);
-            obj.put("expires_in", 3500);
             out.print(obj);
         }
         catch (Exception var2) {
