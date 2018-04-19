@@ -19,4 +19,4 @@ On older versions of Visual Studio (e.g. Visual Studio 2015) the above fix may n
 </dependentAssembly>
 ```
 
-Next: [Deployment](deployment/)
+Next: [Viewer extension](tutorials/extensions)

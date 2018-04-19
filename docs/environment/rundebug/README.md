@@ -10,4 +10,4 @@ The next section will show you how to run your app. When it opens on the browser
 
 Ready? Let's run it!
 
-Choose your language: [NodeJS](environment/rundebug/nodejs) | [.NET](environment/rundebug/net) | [Go](environment/rundebug/go) | [JAVA](environment/rundebug/java)
+Choose your language: [NodeJS](environment/rundebug/nodejs) | [.NET](environment/rundebug/net) | [Go](environment/rundebug/go) | [PHP](environment/rundebug/php) | [JAVA](environment/rundebug/java)
