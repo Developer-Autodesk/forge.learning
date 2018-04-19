@@ -8,7 +8,7 @@
   - [Upload file to OSS](datamanagement/oss/)
   - [Translate the file](modelderivative/translate/)
   - [Show on Viewer](viewer/2legged/)
-- [View BIM 360 & Fusion models](tutorials/viewbim360models.md)
+- [View BIM 360 & Fusion models](tutorials/viewhubmodels.md)
   - [Create a server](environment/setup/3legged)
   - [Authorize](oauth/3legged/)
   - [List hubs & projects](datamanagement/hubs/)
