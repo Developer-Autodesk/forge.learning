@@ -12,6 +12,7 @@
   - [Create a server](environment/setup/3legged)
   - [Authorize](oauth/3legged/)
   - [List hubs & projects](datamanagement/hubs/)
+  - [User information](oauth/user/)
   - [Show on Viewer](viewer/3legged/)
 - [Run & Debug](environment/rundebug/)
 - [Viewer extension](tutorials/extensions.md)  
