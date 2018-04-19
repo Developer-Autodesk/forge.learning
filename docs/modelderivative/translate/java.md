@@ -4,7 +4,7 @@ To translate a file we just need one endpoint.
 
 ## ModelDerivative.java
 
-Create a `/src/main/java/modelderivative.java` file with the following content:
+Create a new Java Class with the following content. 
 
 ```java
 import java.io.BufferedReader;

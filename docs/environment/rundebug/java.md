@@ -1,19 +1,22 @@
 # Running & Debugging (JAVA)
 
-Go to menu **File** --> **Project Structure**, select [Artifacts], on the right panel, select all [available elements], right click, Extract into WEB-INF/classes. click Apply button and exit the dialog.
+We will need to set our ENV Variables for both **FORGE_CLIENT_ID** and **FORGE_CLIENT_SECRET**
 
- ![](_media/java/IntelliJ-IDEA_add_tomcat_server.png) 
+Make sure your Tomcat Server is not running and head over to menu **Run** and select **Run Configurations...**. 
 
+ ![](_media/java/Eclipse_setup_server-env-vars.png) 
 
-Go to menu **Run** and select **Edit Configuration**. Click the sign **+** on the top left to add **TomCat Server**. We can keep the default settings, while rename the configuraion to 'mytest'. 
+ With the Tomcat server selected, go ahead and select the Environment tab and select **New** to add them. We can keep the default settings.
 
- ![](_media/java/IntelliJ-IDEA_tomcat_config.png) 
+ ![](_media/java/Eclipse_new_env_var.png) 
 
-Finally, click **Fix** on the right bottom. cick [Apply], and exit the dialog.
+Finally, click **Apply** on the right bottom and close the dialog.
 
-Now, we can click **Run**-->**Debug**, select the configuraion created above, the project will be launching. 
- ![](_media/java/IntelliJ-IDEA_debug.png) 
+![](_media/java/Eclipse_new_env_var.png)
 
+Now, we can Start our Tomcat server 
+
+![](_media/java/Eclipse_start_server_final.png) 
 
 Open your browser and go to `http://localhost:8080`
 
