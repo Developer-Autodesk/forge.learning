@@ -170,7 +170,7 @@ function getFolderContents(projectId, folderId, oauthClient, credentials, res) {
                         item.links.self.href,
                         name,
                         'items',
-                        true,
+                        true
                     ));
                 }
             });
