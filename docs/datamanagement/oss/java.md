@@ -8,7 +8,7 @@ At this section we actually need 3 features:
 
 ## OSS.java
 
-Create a new Java Class with the following content. This file handles creating bucket and listing buckets.
+Create a `/src/main/java/oss.java` file with the following content. This file handles creating bucket and listing buckets.
 
 ```java
 import java.io.*;
@@ -184,7 +184,7 @@ As we plan to suppor the [jsTree](https://www.jstree.com/) library, our **GET os
 
 ## OSSUploads.java
 
-Create a new Java Class with the following content. This file handles uploading file. The workflow gets the file stream and uploads to Forge.
+Create a `/src/main/ossuploads.java` file with the following content. This file handles uploading file. The workflow gets the file stream and uploads to Forge.
 
 ```java
 import java.io.*;
@@ -346,7 +346,7 @@ Explictly expose the endpoint in `/web/WEB-INF/web.xml`:
 
  
 
-Note how we reuse the `/src/resources/oauth.java` file to call `.getTokenInternal()` on all functions. 
+Note how we reuse the `/src/main/java/oauth.java` file to call `.getTokenInternal()` on all functions. 
 
 !> Upload a file from the client (browser) directly to Autodesk Forge is possible, but requires giving the client a **write-enabled** access token, which is **NOT SECURE**.
 
