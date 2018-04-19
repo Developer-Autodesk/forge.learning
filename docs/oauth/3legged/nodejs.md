@@ -69,7 +69,7 @@ module.exports = router;
 
 ## OAuth.js
 
-Now create a `/sever/oauth.js` file that will actually request the access token from Forge. This will be reused on other parts of this tutorial.
+Now create a `/server/oauth.js` file that will actually request the access token from Forge. This will be reused on other parts of this tutorial.
 
 ```javascript
 'use strict';
