@@ -28,7 +28,7 @@ npm install body-parser --save
 
 > The `--save` parameter indicates that it should be saved on the **package.json** file. 
 
-Finally open the **package.json** and, inside `scripts`, add `start: "node start.js",` line. Now your folder should have a **node_modules** folder and your **package.json** should look like:
+Finally open the **package.json** and, inside `"scripts"`, add `"start": "node start.js",` line. Now your folder should have a **node_modules** folder and your **package.json** should look like:
 
 ```json
 {
