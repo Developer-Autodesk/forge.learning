@@ -8,4 +8,4 @@ Not sure if your files are compatible? Check the [supported translations](https:
 
 At this section, let's call [POST Job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to start the translation process. Note that this endpoint is asynchronous and initiates a process that runs in the background, rather than keeping an open HTTP connection until completion. 
 
-Choose your language: [NodeJS](modelderivative/translate/nodejs) | [.NET](modelderivative/translate/net) | [Go](modelderivative/translate/go) | [PHP](modelderivative/translate/php) | [JAVA](modelderivative/translate/java)
+Choose your language: [NodeJS](modelderivative/translate/nodejs) | [.NET](modelderivative/translate/net) | [Go](modelderivative/translate/go) | [PHP](modelderivative/translate/php) 
