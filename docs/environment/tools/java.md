@@ -1,8 +1,8 @@
-# Tools (JAVA)
+# Tools (Java)
 
-Install [JAVA SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to run your code. 
+Install [Java SE Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to run your code. 
 
-Install [TOMCAT](https://tomcat.apache.org/download-80.cgi) to launch the server. 
+Install [Apache Tomcat](https://tomcat.apache.org/download-80.cgi) to launch the server. 
 
 > A good tutorial on how to setup your Tomcat server can be found [here](https://crunchify.com/step-by-step-guide-to-setup-and-install-apache-tomcat-server-in-eclipse-development-environment-ide/)
 
