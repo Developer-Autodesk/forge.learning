@@ -55,7 +55,7 @@ Finally open the **package.json** and, inside `scripts`, add `start: "node start
 
 ## Files and Folders
 
-To create a new folder or file, right-click on the "Exporer" area on the left and select **New Folder** or **New File**.
+To create a new folder or file, right-click on the "Explorer" area on the left and select **New Folder** or **New File**.
 
 For consitency with other Forge samples, create a **/server/** folder for all server-side files and a **/www/** for all client-side files.
 

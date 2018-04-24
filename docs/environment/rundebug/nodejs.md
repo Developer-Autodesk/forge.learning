@@ -6,4 +6,4 @@ Go to menu **Debug** and select **Start debugging**. The "Debug Console" tab sho
 
 Open your browser and go to `http://localhost:3000`
 
-Next: [Deployment](deployment/)
+Next: [Viewer extension](tutorials/extensions)

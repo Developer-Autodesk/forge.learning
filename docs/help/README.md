@@ -12,8 +12,9 @@
 
 Other samples used on this tutorial:
 
-- [NodeJS Tutorial](https://github.com/Autodesk-Forge/forge.learning.viewmodels.nodejs)
-- [.NET Tutorial](https://github.com/Autodesk-Forge/forge.learning.viewmodels.net)
+- [NodeJS Tutorial](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/nodejs)
+- [.NET Tutorial](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/net)
+- [PHP Tutorial](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/php)
 
 **Blog**
 
