@@ -4,7 +4,7 @@ For a basic *OAuth* implementation we need 2 files.
 
 ## oauth.java
 
-Create a new Java Class. This file takes care of creating the express router to expose the endpoint. 
+Create a new **Java Class** named `/src/main/java/oauth.java` and copy the following content. This will request the access token from Forge. This will be reused on other parts of this tutorial.
 
 ```java
 import java.util.ArrayList;
@@ -89,9 +89,13 @@ public class oauth  {
 }
 ```
 
+To avoid getting a new access token for each end-user request, which adds unnecessary latency, let's cache them in global variables. Note we still need to refresh it after `expires_in` seconds.
+
+!> Share access token between users is only valid in this case, where all users are accessing the same information (2-legged). If your app uses per-user data (3-legged), **DOT NOT** use this approach.
+
 ## oauthtoken.java
 
-Now create a `/src/main/java/oauthtoken.java` file that will actually request the access token from Forge. This will be reused on other parts of this tutorial.
+Now create a `/src/main/java/oauthtoken.java` and copy the following content. This file takes care of creating the endpoint router.  
 
 ```java
 import org.json.JSONObject;
@@ -139,24 +143,21 @@ public class oauthtoken extends HttpServlet {
     }
 }
 ```
-Add annotation to make the class `oauthtoken` as web service by [WebServlet](http://blog.caucho.com/2009/10/06/servlet-30-tutorial-weblistener-webservlet-webfilter-and-webinitparam/)
 
-Explictly expose the endpoint in `src/webapp/WEB-INF/web.xml`:
+Note the `@WebServlet` annotation to make the class `oauthtoken` as web service by [WebServlet](http://blog.caucho.com/2009/10/06/servlet-30-tutorial-weblistener-webservlet-webfilter-and-webinitparam/). 
+
+Finally expose the endpoint in `src/webapp/WEB-INF/web.xml`, add the following content before `</web-app>`:
 
 ```xml
-    <servlet>
-        <servlet-name>oauthtoken</servlet-name>
-        <servlet-class>oauthtoken</servlet-class>
-    </servlet>
+<servlet>
+    <servlet-name>oauthtoken</servlet-name>
+    <servlet-class>oauthtoken</servlet-class>
+</servlet>
 
-    <servlet-mapping>
-        <servlet-name>oauthtoken</servlet-name>
-        <url-pattern>/api/forge/oauth/token</url-pattern>
-    </servlet-mapping>
+<servlet-mapping>
+    <servlet-name>oauthtoken</servlet-name>
+    <url-pattern>/api/forge/oauth/token</url-pattern>
+</servlet-mapping>
 ```
-
-To avoid getting a new access token for each end-user request, which adds unnecessary latency, let's cache them in global variables. Note we still need to refresh it after `expires_in` seconds.
-
-!> Share access token between users is only valid in this case, where all users are accessing the same information (2-legged). If your app uses per-user data (3-legged), **DOT NOT** use this approach.
 
 Next: [Upload file to OSS](/datamanagement/oss/)

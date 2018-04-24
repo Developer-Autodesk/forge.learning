@@ -6,9 +6,9 @@ At this section we actually need 3 features:
 2. List buckets & objects (files)
 3. Upload objects (files)
 
-## OSS.java
+## oss.java
 
-Create a new Java Class with the following content. This file handles creating bucket and listing buckets.
+Create a new Java Class named `/src/main/java/oss.java` with the following content. This file handles creating and listing buckets.
 
 ```java
 import java.io.*;
@@ -182,7 +182,7 @@ public class oss extends HttpServlet {
 
 As we plan to suppor the [jsTree](https://www.jstree.com/) library, our **GET oss/buckets** need to return handle the `id` querystring parameter and return buckets when `id=#` and objects for a given bucketKey passed as `id=bucketKey`.
 
-## OSSUploads.java
+## ossuploads.java
 
 Create a new Java Class with the following content. This file handles uploading file. The workflow gets the file stream and uploads to Forge.
 
@@ -320,33 +320,28 @@ public class ossuploads  extends HttpServlet {
 }
 ```
 
-Explictly expose the endpoint in `/web/WEB-INF/web.xml`:
+Now explictly expose the endpoint in `/web/WEB-INF/web.xml`, add the following content before `</web-app>`:
+
 ```xml
-
-    <servlet>
-            <servlet-name>oss</servlet-name>
-            <servlet-class>oss</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-            <servlet-name>oss</servlet-name>
-            <url-pattern>/api/forge/oss/buckets</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-            <servlet-name>ossuploads</servlet-name>
-            <servlet-class>ossuploads</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-            <servlet-name>ossuploads</servlet-name>
-            <url-pattern>/api/forge/oss/objects</url-pattern>
-    </servlet-mapping>
+<servlet>
+    <servlet-name>oss</servlet-name>
+    <servlet-class>oss</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>oss</servlet-name>
+    <url-pattern>/api/forge/oss/buckets</url-pattern>
+</servlet-mapping>
+<servlet>
+    <servlet-name>ossuploads</servlet-name>
+    <servlet-class>ossuploads</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ossuploads</servlet-name>
+    <url-pattern>/api/forge/oss/objects</url-pattern>
+</servlet-mapping>
 ```
 
- 
-
-Note how we reuse the `/src/resources/oauth.java` file to call `.getTokenInternal()` on all functions. 
+Note how we reuse the `/src/main/java/oauth.java` file to call `.getTokenInternal()` on all functions. 
 
 !> Upload a file from the client (browser) directly to Autodesk Forge is possible, but requires giving the client a **write-enabled** access token, which is **NOT SECURE**.
 

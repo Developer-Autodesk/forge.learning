@@ -2,9 +2,9 @@
 
 To translate a file we just need one endpoint.
 
-## ModelDerivative.java
+## modelderivative.java
 
-Create a new Java Class with the following content. 
+Create a new Java Class named `/src/main/java/modelderivative.java` with the following content. 
 
 ```java
 import java.io.BufferedReader;
@@ -95,7 +95,7 @@ public class modelderivative  extends HttpServlet {
 }
 ```
 
-Explictly expose the endpoint in `/web/WEB-INF/web.xml`:
+Explictly expose the endpoint in `/web/WEB-INF/web.xml`, add the following content before `</web-app>`:
 ```xml
 <servlet>
     <servlet-name>modelderivative</servlet-name>
@@ -106,12 +106,9 @@ Explictly expose the endpoint in `/web/WEB-INF/web.xml`:
     <servlet-name>modelderivative</servlet-name>
     <url-pattern>/api/forge/modelderivative/jobs</url-pattern>
 </servlet-mapping>
-
 ```
 
-
 The **jobs** endpoint receives the **bucketKey** and **objectName** and post the [translation job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
-
 
 At the end your `/web/WEB-INF/web.xml` should look like this:
 

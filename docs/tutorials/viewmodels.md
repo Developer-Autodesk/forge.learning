@@ -19,7 +19,7 @@ If you want to download the project ready to use, visit the following repos:
 - [.NET](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/net)
 - [Go](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/go)
 - [PHP](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/php)
-- [JAVA](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/java)
+- [Java](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/java)
 
 Ready to start coding?
 

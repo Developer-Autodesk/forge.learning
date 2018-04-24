@@ -1,4 +1,4 @@
-# Running & Debugging (JAVA)
+# Running & Debugging (Java)
 
 We will need to set our ENV Variables for both **FORGE_CLIENT_ID** and **FORGE_CLIENT_SECRET**
 
