@@ -20,6 +20,7 @@ import javax.xml.bind.DatatypeConverter;
 
 import org.json.*;
 
+import com.autodesk.client.auth.OAuth2TwoLegged; 
 import com.autodesk.client.ApiException;
 import com.autodesk.client.ApiResponse;
 import com.autodesk.client.api.*;
@@ -49,7 +50,7 @@ public class oss extends HttpServlet {
 			if (id.equals("#")) {// root
 				BucketsApi bucketsApi = new BucketsApi();
 
-				ApiResponse<Buckets> buckets = bucketsApi.getBuckets("us", 100, "", forgeOAuth,
+				ApiResponse<Buckets> buckets = bucketsApi.getBuckets("us", 100, "abc", forgeOAuth,
 						forgeOAuth.getCredentials());
 
 				JSONArray bucketsArray = new JSONArray();
@@ -199,6 +200,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
+import com.autodesk.client.auth.OAuth2TwoLegged; 
 
 import com.autodesk.client.ApiException;
 import com.autodesk.client.ApiResponse;
