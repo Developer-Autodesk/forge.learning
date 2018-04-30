@@ -358,4 +358,4 @@ To summarize: on the UI side your app should have 4 files:
 
 All set? Now it's time to run the app!
 
-Next: [Running your app](environment/rundebug/)
+Next: [Running your app](environment/rundebug/2legged)

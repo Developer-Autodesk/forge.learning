@@ -62,4 +62,4 @@ To summarize, at this point your **PHP** project should be like:
 
 ![](_media/php/vs_code_allfiles.png)
 
-Next: [Show on Viewer](viewer/)
+Next: [Show on Viewer](viewer/2legged/)
