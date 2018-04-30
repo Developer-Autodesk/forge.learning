@@ -22,4 +22,4 @@ If you want to download the project ready to use, visit the following repos:
 
 Ready to start coding?
 
-Next: [Create a server](environment/setup/)
+Next: [Create a server](environment/setup/2legged)
