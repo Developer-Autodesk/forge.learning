@@ -8,7 +8,7 @@ Fill out below details: for this tutorial, we will name **Group Id** as **com.yo
 
 ![](_media/java/eclipse_create_project.gif)
 
-> If you see error “The superclass “javax.servlet.http.HttpServlet” was not found on the Java Build Path index.jsp `/forgesample/src/main/webapp` add Apache Tomcat to your Targeted Runtimes. You get there by going to the project properties and then Targeted Runtimes, check the box as indicated below.
+!> If you see error “The superclass “javax.servlet.http.HttpServlet” was not found on the Java Build Path index.jsp `/forgesample/src/main/webapp` add Apache Tomcat to your Targeted Runtimes. You get there by going to the project properties and then Targeted Runtimes, check the box as indicated below.
 
 Now set **Targeted Runtime** to **Apache Tomcat**, then define server, select folder location and project to run. Finally **Run as** >> **Run as Server**.
 
@@ -16,9 +16,13 @@ Now set **Targeted Runtime** to **Apache Tomcat**, then define server, select fo
 
 !> If a Maven error is display in the Markers, run the following **Run As - Maven Clean**
 
-Eclipse will run a local page in your IDE showing you Hello World! or you can always visit http://localhost:8080/forgesample/index.jsp to see your result.
+Before we continue, we will switch the PORT of the server to maintain similarity with future tutorials. 
 
-To make sure it is your index.jsp the one running, go src/main/webapp/index.jsp and change the text from Hello World! to Hello Forge!
+![](_media/java/eclipse_change_server_port.gif)
+
+Eclipse will run a local page in your IDE showing you Hello World! or you can always visit http://localhost:3000/forgesample/index.jsp to see your result.
+
+To make sure it is your index.jsp the one running, go to **src/main/webapp/index.jsp** and change the text from Hello World! to Hello Forge!
 
 You are all set, your Server is running succesfully now. :)
 

@@ -4,7 +4,7 @@ Our Java server is configured to serve files from `/forgesample` but we want to 
 
 Setting the path to nothing in the Eclipse web modules edit dialog enable access the project without any path component in the URL (i.e. ROOT)
 
-You can reach the web modules edit dialog by pressing F3 if you select Tomcat in the "Servers" view or by double clicking on it.
+You can reach the web modules edit dialog by double clicking on it.
 
 ![](_media/java/Eclipse_server_root.png)
 
