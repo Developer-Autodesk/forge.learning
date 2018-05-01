@@ -18,6 +18,6 @@ Now, we can Start our Tomcat server
 
 ![](_media/java/Eclipse_start_server_final.png) 
 
-Open your browser and go to `http://localhost:8080`
+Open your browser and go to `http://localhost:3000`
 
 Next: [Deployment](deployment/)
