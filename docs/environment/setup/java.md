@@ -16,7 +16,11 @@ Now set **Targeted Runtime** to **Apache Tomcat**, then define server, select fo
 
 !> If a Maven error is display in the Markers, run the following **Run As - Maven Clean**
 
-Eclipse will run a local page in your IDE showing you Hello World! or you can always visit http://localhost:8080/forgesample/index.jsp to see your result.
+Before we continue, we will switch the PORT of the server to maintain similarity with future tutorials. 
+
+![](_media/java/eclipse_change_server_port.gif)
+
+Eclipse will run a local page in your IDE showing you Hello World! or you can always visit http://localhost:3000/forgesample/index.jsp to see your result.
 
 To make sure it is your index.jsp the one running, go to **src/main/webapp/index.jsp** and change the text from Hello World! to Hello Forge!
 
