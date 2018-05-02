@@ -10,6 +10,7 @@ At this section we actually need 3 features:
 
 Create a new Java Class named `/src/main/java/oss.java` with the following content. This file handles creating and listing buckets.
 
+
 ```java
 import java.io.*;
 
@@ -183,7 +184,7 @@ As we plan to suppor the [jsTree](https://www.jstree.com/) library, our **GET os
 
 ## ossuploads.java
 
-Create a new Java Class with the following content. This file handles uploading file. The workflow gets the file stream and uploads to Forge.
+Create a `/src/main/ossuploads.java` file with the following content. This file handles uploading file. The workflow gets the file stream and uploads to Forge.
 
 ```java
 import java.io.*;

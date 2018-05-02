@@ -23,5 +23,3 @@ Java EE web app usually generates an entry file `.jsp` instead `.html`, but for 
 The image below show it (after creating files on the next section)
 
 ![](_media/java/Eclipse_client_side.png)
-
-Next: [Viewer (client-side)](viewer/viewer)

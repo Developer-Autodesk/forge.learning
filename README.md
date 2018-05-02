@@ -8,9 +8,11 @@ This repository is for creating the tutorials.
 
 ### Adding a new language
 
+**View Models sample** (2-legged)
+
 Create a project in the programming language that supports the UI described on [Viewer](viewer/readme.md) front-end. In summary, the back should implement:
 
- - GET **/api/forge/oauth/token**: return a valid access token in the form of `{'access_token':value, 'expires_in':value}`
+ - GET **/api/forge/oauth/token**: return a valid **viewables:read** access token in the form of `{'access_token':value, 'expires_in':value}`
  - POST **/api/forge/oss/buckets**: create a new bucket, receive input in the form of `{'bucketKey': 'theKey'}` and return 200.
  - GET **/api/forge/oss/buckets**: return all buckets or objects in form of list of nodes: 
 
@@ -31,14 +33,35 @@ It receives a querystring with `id`: if **#** return all buckets, if a **bucketK
 
 For reference, when adding a new language, replicate all `net.md` for the new language. The **Viewer** section should be the same for all languages.
 
+**View Hub Models sample** (3-legged)
+
+ - GET **/api/forge/datamanagement** receives `#` to return list of hubs, or `href` of projects/folders/items to return topfolders, folder contents or versions (respectively). The response should be an array with:
+ ```json
+[
+  {
+   "id": "href id of the hub/project/folder/item or base64 urn for versions (Viewable)",
+   "text": "name",
+   "type": "hubs/projects/folders/items/versions",
+   "children": "false for versions, true for others"
+  }
+]
+```
+ - GET **/api/forge/callback/oauth** as the OAuth callback, receives `code` from Autodesk and redirect to `/` 
+ - GET **/api/forge/oauth/url** return the sign-in URL (text) so the UI can redirect
+ - GET **/api/forge/oauth/signout** to finish current session and redirect to `/` 
+ - GET **/api/forge/oauth/token** return a valid **viewables:read** access token in the form of `{'access_token':value, 'expires_in':value}`
+ - GET **/api/forge/user/profile** returns the user information in the form of `{'name':'user name', 'picture': 'http://profilepictureurl'}`
+
+ For reference, when adding a new language, replicate all `nodejs.md`/`net.md` for the new language. The **Viewer** section should be the same for all languages.
+
 ### Creating a project
 
-`FORK` from `/developer-autodesk/forge.learning.viewmodels` and rename: `forge.learning.TUTORIAL.LANGUAGE`, for example: `forge.learning.viewmodels.net` or `forge.learning.viewmodels.nodejs`. According to each language standards, move files to appropriate folders.
+`FORK` from `/autodesk-forge/learn.forge.viewmodels` (or `viewhubmodels`) and rename: `learn.forge.TUTORIAL.LANGUAGE`, for example: `learn.forge.viewmodels.net` or `learn.forge.viewmodels.nodejs`. According to each language standards, move files to appropriate folders.
 
 If the UI changes, first [add remote upstream](https://help.github.com/articles/configuring-a-remote-for-a-fork/):
 
 ```bash
-git remote add upstream https://github.com/Developer-Autodesk/forge.learning.viewmodels
+git remote add upstream https://github.com/autodesk.forge/learn.forge.viewmodels  (or viewhubmodels)
 ```
 
 Then, [sync fork](https://help.github.com/articles/syncing-a-fork/):
@@ -60,7 +83,7 @@ Use convention:
 - PORT: 3000
 - FORGE\_CLIENT\_ID
 - FROGE\_CLIENT\_SECRET
-- FORGE\_CALLBACK\_URL: default `http://localhost:3000/api/forge/oauth/callback`
+- FORGE\_CALLBACK\_URL: default `http://localhost:3000/api/forge/callback/oauth`
 
 > This is importat so developers can reuse this with other samples on **Autodesk-Forge** Github.
 

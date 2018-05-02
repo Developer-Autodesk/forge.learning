@@ -166,4 +166,4 @@ To summarize, at this point your **JAVA** project should be like:
 
 ![](_media/java/Eclipse_server_side.png)
 
-Next: [Show on Viewer](viewer/)
+Next: [Show on Viewer](viewer/2legged/)

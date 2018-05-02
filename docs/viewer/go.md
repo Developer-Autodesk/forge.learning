@@ -9,5 +9,3 @@ Our Go server is configured to serve files from `/www/` folder. Let's organize l
 The image below show it (after creating files on the next section)
 
 ![](_media/go/vs_code_allfiles_ui.png)
-
-Next: [Viewer (client-side)](viewer/viewer)

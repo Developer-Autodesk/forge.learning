@@ -4,7 +4,7 @@ Extensions provide a mechanism to write custom code that interacts with the **Vi
 
 This tutorial will guide you creating an extension for Viewer. 
 
-> For this tutorial you need an app with Viewer, for instance the [View your models](tutorials/viewmodels.md) tutorial.
+> For this tutorial you need an app with Viewer, for instance the [View your models](tutorials/viewmodels.md) or the [View BIM 360 & Fusion models](tutorials/viewhubmodels.md) tutorial. The Viewer is the same regardless where the file is hosted.
 
 Ready to start coding?
 

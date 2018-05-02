@@ -20,4 +20,4 @@ Now, we can Start our Tomcat server
 
 Open your browser and go to `http://localhost:3000`
 
-Next: [Deployment](deployment/)
+Next: [Viewer extension](tutorials/extensions)
