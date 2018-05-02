@@ -2,6 +2,7 @@
 
 Open [Eclipse Java EE IDE for Web Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen3), create a simple Maven project and select default Workspace location. Click on **Next**.
 
+
 Select the maven archetype. On the list, filter **Artifact Id** as **maven-archetype-webapp** and click on **Next**.
 
 Fill out below details: for this tutorial, we will name **Group Id** as **com.yourcompany** and **Artifact Id** as **forgesample**. Click Finish. Check the creation progress on the bottom right. This step creates Maven Project in your Eclipse Environment. 
@@ -19,13 +20,13 @@ Now set **Targeted Runtime** to **Apache Tomcat**, then define server, select fo
 
 Before we continue, we will switch the PORT of the server to maintain similarity with future tutorials. 
 
+
 ![](_media/java/eclipse_change_server_port.gif)
 
 
 Eclipse will run a local page in your IDE showing you Hello World! or you can always visit http://localhost:3000/forgesample/index.jsp to see your result.
 
 To make sure it is your index.jsp the one running, go to **src/main/webapp/index.jsp** and change the text from Hello World! to Hello Forge!
-
 
 You are all set, your Server is running succesfully now. :)
 
@@ -278,6 +279,7 @@ To create a new class file, right-click on the project and select **New** >> **C
 Make sure the **Source Folder** is set to **ForgeSample/src/main/java** and the package is set to default (empty)
 
 ![](_media/java/Eclipse_maven_java_class.png)
+
 
 
 Copy & paste the following content to the `config.java` file.

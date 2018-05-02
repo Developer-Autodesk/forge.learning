@@ -21,7 +21,6 @@ If you want to download the project ready to use, visit the following repos:
 - [PHP](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/php)
 - [Java](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/java)
 
-
 Ready to start coding?
 
 Next: [Create a server](environment/setup/2legged)
