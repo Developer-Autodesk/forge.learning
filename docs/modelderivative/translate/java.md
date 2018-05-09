@@ -7,6 +7,8 @@ To translate a file we just need one endpoint.
 Create a new Java Class named `/src/main/java/modelderivative.java` with the following content. 
 
 ```java
+package forgesample;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -100,7 +102,7 @@ Explictly expose the endpoint in `/web/WEB-INF/web.xml`, add the following conte
 ```xml
 <servlet>
     <servlet-name>modelderivative</servlet-name>
-    <servlet-class>modelderivative</servlet-class>
+    <servlet-class>forgesample.modelderivative</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -116,49 +118,45 @@ At the end your `/web/WEB-INF/web.xml` should look like this:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-         version="3.1">
-         
-    <servlet>
-        <servlet-name>oauthtoken</servlet-name>
-        <servlet-class>oauthtoken</servlet-class>
-    </servlet>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
 
-    <servlet-mapping>
-        <servlet-name>oauthtoken</servlet-name>
-        <url-pattern>/api/forge/oauth/token</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-            <servlet-name>oss</servlet-name>
-            <servlet-class>oss</servlet-class>
-    </servlet>
+	<servlet>
+		<servlet-name>oauthtoken</servlet-name>
+		<servlet-class>forgesample.oauthtoken</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>oauthtoken</servlet-name>
+		<url-pattern>/api/forge/oauth/token</url-pattern>
+	</servlet-mapping>
 
-    <servlet-mapping>
-            <servlet-name>oss</servlet-name>
-            <url-pattern>/api/forge/oss/buckets</url-pattern>
-    </servlet-mapping>
+	<servlet>
+		<servlet-name>oss</servlet-name>
+		<servlet-class>forgesample.oss</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>oss</servlet-name>
+		<url-pattern>/api/forge/oss/buckets</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ossuploads</servlet-name>
+		<servlet-class>forgesample.ossuploads</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ossuploads</servlet-name>
+		<url-pattern>/api/forge/oss/objects</url-pattern>
+	</servlet-mapping>
 
-    <servlet>
-            <servlet-name>ossuploads</servlet-name>
-            <servlet-class>ossuploads</servlet-class>
-    </servlet>
+	<servlet>
+		<servlet-name>modelderivative</servlet-name>
+		<servlet-class>forgesample.modelderivative</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>modelderivative</servlet-name>
+		<url-pattern>/api/forge/modelderivative/jobs</url-pattern>
+	</servlet-mapping>
 
-    <servlet-mapping>
-            <servlet-name>ossuploads</servlet-name>
-            <url-pattern>/api/forge/oss/objects</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-            <servlet-name>modelderivative</servlet-name>
-            <servlet-class>modelderivative</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-            <servlet-name>modelderivative</servlet-name>
-            <url-pattern>/api/forge/modelderivative/jobs</url-pattern>
-    </servlet-mapping>
 </web-app>
 ```
 

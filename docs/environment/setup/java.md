@@ -35,7 +35,7 @@ Open the `pom.xml` file (via **Project Explorer**), copy & paste the content bel
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mycompany</groupId>
-  <artifactId>ForgeSample</artifactId>
+  <artifactId>forgesample</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>ForgeSample Maven Webapp</name>
@@ -45,7 +45,7 @@ Open the `pom.xml` file (via **Project Explorer**), copy & paste the content bel
         <dependency>
             <groupId>com.autodesk</groupId>
             <artifactId>com-autodesk-client</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.sun.jersey</groupId>
@@ -271,13 +271,15 @@ Right-click **src/main** folder, then **New** >> **Folder**, name it **java**.
 
 To create a new class file, right-click on the project and select **New** >> **Class**. Let's create the **config.java** file firstly.
 
-Make sure the **Source Folder** is set to **ForgeSample/src/main/java** and the package is set to default (empty)
+!> Make sure the **Source Folder** is set to **ForgeSample/src/main/java** and the package is set to `forgesample` (our project name).
 
 ![](_media/java/Eclipse_maven_java_class.png)
 
 Copy & paste the following content to the `config.java` file.
 
 ```java
+package forgesample;
+
 import java.util.ArrayList;
 
 public class config {

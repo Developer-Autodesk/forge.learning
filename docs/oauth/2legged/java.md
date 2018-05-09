@@ -7,6 +7,8 @@ For a basic *OAuth* implementation we need 2 files.
 Create a new **Java Class** named `/src/main/java/oauth.java` and copy the following content. This will request the access token from Forge. This will be reused on other parts of this tutorial.
 
 ```java
+package forgesample;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -75,6 +77,8 @@ To avoid getting a new access token for each end-user request, which adds unnece
 Now create a `/src/main/java/oauthtoken.java` and copy the following content. This file takes care of creating the endpoint router.  
 
 ```java
+package forgesample;
+
 import org.codehaus.jettison.json.JSONObject;
 import org.joda.time.DateTime;
 
@@ -137,18 +141,25 @@ public class oauthtoken extends HttpServlet {
 
 Note the `@WebServlet` annotation to make the class `oauthtoken` as web service by [WebServlet](http://blog.caucho.com/2009/10/06/servlet-30-tutorial-weblistener-webservlet-webfilter-and-webinitparam/). 
 
-Finally expose the endpoint in `src/webapp/WEB-INF/web.xml`, add the following content before `</web-app>`:
+Finally expose the endpoint in `src/webapp/WEB-INF/web.xml`, replace the existing content with:
 
 ```xml
-<servlet>
-    <servlet-name>oauthtoken</servlet-name>
-    <servlet-class>oauthtoken</servlet-class>
-</servlet>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
 
-<servlet-mapping>
-    <servlet-name>oauthtoken</servlet-name>
-    <url-pattern>/api/forge/oauth/token</url-pattern>
-</servlet-mapping>
+	<servlet>
+		<servlet-name>oauthtoken</servlet-name>
+		<servlet-class>forgesample.oauthtoken</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>oauthtoken</servlet-name>
+		<url-pattern>/api/forge/oauth/token</url-pattern>
+	</servlet-mapping>
+
+</web-app>
 ```
 
 Next: [Upload file to OSS](/datamanagement/oss/)

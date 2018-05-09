@@ -1,18 +1,14 @@
 # Running & Debugging (Java)
 
-We will need to set our ENV Variables for both **FORGE_CLIENT_ID** and **FORGE_CLIENT_SECRET**
+We will need to set our ENV Variables for both **FORGE_CLIENT_ID** and **FORGE_CLIENT_SECRET**.
 
-Make sure your Tomcat Server is not running and head over to menu **Run** and select **Run Configurations...**. 
-
- ![](_media/java/Eclipse_setup_server-env-vars.png) 
-
- With the Tomcat server selected, go ahead and select the Environment tab and select **New** to add them. We can keep the default settings.
+Make sure your Tomcat Server is NOT running and head over to menu **Run** and select **Run Configurations...**. Select the Tomcat server on the left tree, go ahead and select the **Environment** tab and click **New** to add a variable. We can keep the default settings. 
 
  ![](_media/java/Eclipse_new_env_var.png) 
 
-Finally, click **Apply** on the right bottom and close the dialog.
+ > Make sure to add both **FORGE_CLIENT_ID** and **FORGE_CLIENT_SECRET**.
 
-![](_media/java/Eclipse_new_env_var.png)
+Finally, click **Apply** on the right bottom and close the dialog.
 
 Now, we can Start our Tomcat server 
 

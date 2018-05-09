@@ -12,6 +12,8 @@ Create a new Java Class named `/src/main/java/oss.java` with the following conte
 
 
 ```java
+package forgesample;
+
 import java.io.*;
 
 import javax.servlet.ServletException;
@@ -187,6 +189,8 @@ As we plan to suppor the [jsTree](https://www.jstree.com/) library, our **GET os
 Create a `/src/main/ossuploads.java` file with the following content. This file handles uploading file. The workflow gets the file stream and uploads to Forge.
 
 ```java
+package forgesample;
+
 import java.io.*;
 import java.util.Iterator;
 import java.util.List;
@@ -330,7 +334,7 @@ Now explictly expose the endpoint in `/web/WEB-INF/web.xml`, add the following c
 ```xml
 <servlet>
     <servlet-name>oss</servlet-name>
-    <servlet-class>oss</servlet-class>
+    <servlet-class>forgesample.oss</servlet-class>
 </servlet>
 <servlet-mapping>
     <servlet-name>oss</servlet-name>
@@ -338,7 +342,7 @@ Now explictly expose the endpoint in `/web/WEB-INF/web.xml`, add the following c
 </servlet-mapping>
 <servlet>
     <servlet-name>ossuploads</servlet-name>
-    <servlet-class>ossuploads</servlet-class>
+    <servlet-class>forgesample.ossuploads</servlet-class>
 </servlet>
 <servlet-mapping>
     <servlet-name>ossuploads</servlet-name>
