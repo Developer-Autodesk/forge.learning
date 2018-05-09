@@ -6,11 +6,14 @@ At this section we actually need 3 features:
 2. List buckets & objects (files)
 3. Upload objects (files)
 
-## OSS.java
+## oss.java
 
-Create a `/src/main/java/oss.java` file with the following content. This file handles creating bucket and listing buckets.
+Create a new Java Class named `/src/main/java/oss.java` with the following content. This file handles creating and listing buckets.
+
 
 ```java
+package forgesample;
+
 import java.io.*;
 
 import javax.servlet.ServletException;
@@ -20,161 +23,160 @@ import javax.xml.bind.DatatypeConverter;
 
 import org.json.*;
 
+import com.autodesk.client.auth.OAuth2TwoLegged; 
 import com.autodesk.client.ApiException;
 import com.autodesk.client.ApiResponse;
 import com.autodesk.client.api.*;
 import com.autodesk.client.model.*;
 
-@WebServlet({"/oss"})
+
+@WebServlet({ "/oss" })
 public class oss extends HttpServlet {
 
-    public oss() {
-    }
+	public oss() {
+	}
 
-    public void init() throws ServletException {
+	public void init() throws ServletException {
 
-    }
+	}
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String id = req.getParameter("id");
-        resp.setCharacterEncoding("utf8");
-        resp.setContentType("application/json");
-        try
-        {
-            String internalToken = oauth.getTokenInternal();
+		// for get buckets info
 
+		String id = req.getParameter("id");
+		resp.setCharacterEncoding("utf8");
+		resp.setContentType("application/json");
+		try {
+			// get oAuth of internal, in order to get the token with higher permissions
+			OAuth2TwoLegged forgeOAuth = oauth.getOAuthInternal();
+			if (id.equals("#")) {// root
+				BucketsApi bucketsApi = new BucketsApi();
 
-            if (id.equals("#")) {// root
-                BucketsApi bucketsApi = new BucketsApi();
+				ApiResponse<Buckets> buckets = bucketsApi.getBuckets("us", 100, "abc", forgeOAuth,
+						forgeOAuth.getCredentials());
 
-                //no idea how to set startAt. looks 'abc' can workaround
-                ApiResponse<Buckets> buckets = bucketsApi.getBuckets("us",100,"abc",oauth.OAuthClient(null),oauth.getCredentials());
+				JSONArray bucketsArray = new JSONArray();
+				PrintWriter out = resp.getWriter();
 
-                JSONArray bucketsArray = new JSONArray();
-                PrintWriter out = resp.getWriter();
+				// iterate buckets
+				for (int i = 0; i < buckets.getData().getItems().size(); i++) {
 
-                for(int i=0;i<buckets.getData().getItems().size();i++){
+					// get bucker info
+					BucketsItems eachItem = buckets.getData().getItems().get(i);
+					JSONObject obj = new JSONObject();
 
+					obj.put("id", eachItem.getBucketKey());
+					obj.put("text", eachItem.getBucketKey());
+					obj.put("type", "bucket");
+					obj.put("children", true);
 
-                    BucketsItems eachItem = buckets.getData().getItems().get(i);
-                    JSONObject obj = new JSONObject();
+					bucketsArray.put(obj);
 
-                    obj.put("id", eachItem.getBucketKey());
-                    obj.put("text", eachItem.getBucketKey());
-                    obj.put("type", "bucket");
-                    obj.put("children", true);
+				}
 
-                    bucketsArray.put(obj);
+				out.print(bucketsArray);
 
-                }
+			} else {
 
-                out.print(bucketsArray);
+				// as we have the id (bucketKey), let's return all objects
+				ObjectsApi objectsApi = new ObjectsApi();
 
-            }
-            else
-            {
+				ApiResponse<BucketObjects> objects = objectsApi.getObjects(id, 100, null, null, forgeOAuth,
+						forgeOAuth.getCredentials());
 
-                // as we have the id (bucketKey), let's return all objects
-                ObjectsApi objectsApi = new ObjectsApi();
+				JSONArray objectsArray = new JSONArray();
+				PrintWriter out = resp.getWriter();
 
-                ApiResponse<BucketObjects> objects = objectsApi.getObjects(id,100,
-                        null,null,
-                        oauth.OAuthClient(null),oauth.getCredentials());
+				// iterate each items of the bucket
+				for (int i = 0; i < objects.getData().getItems().size(); i++) {
 
+					// make a note with the base64 urn of the item
+					ObjectDetails eachItem = objects.getData().getItems().get(i);
+					String base64Urn = DatatypeConverter.printBase64Binary(eachItem.getObjectId().getBytes());
 
-                JSONArray objectsArray = new JSONArray();
-                PrintWriter out = resp.getWriter();
+					JSONObject obj = new JSONObject();
 
-                for(int i=0;i<objects.getData().getItems().size();i++){
+					obj.put("id", base64Urn);
+					obj.put("text", eachItem.getObjectKey());
+					obj.put("type", "object");
+					obj.put("children", false);
 
+					objectsArray.put(obj);
 
-                    ObjectDetails eachItem = objects.getData().getItems().get(i);
-                    String base64Urn = DatatypeConverter.printBase64Binary(eachItem.getObjectId().getBytes());
+				}
 
+				out.print(objectsArray);
 
-                    JSONObject obj = new JSONObject();
+			}
+		} catch (ApiException autodeskExp) {
+			System.out.print("get buckets & objects exception: " + autodeskExp.toString());
+			resp.setStatus(500);
 
-                    obj.put("id", base64Urn);
-                    obj.put("text", eachItem.getObjectKey());
-                    obj.put("type", "object");
-                    obj.put("children", false);
+		} catch (Exception exp) {
+			System.out.print("get buckets & objects exception: " + exp.toString());
+			resp.setStatus(500);
+		}
 
+	}
 
-                    objectsArray.put(obj);
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-                }
+		// for create bucket
 
-                out.print(objectsArray);
+		try {
 
+			// from
+			// https://stackoverflow.com/questions/3831680/httpservletrequest-get-json-post-data/3831791
+			StringBuffer jb = new StringBuffer();
+			String line = null;
+			try {
+				BufferedReader reader = req.getReader();
+				while ((line = reader.readLine()) != null)
+					jb.append(line);
+			} catch (Exception e) {
+				/* report an error */ }
 
-            }
-        }catch (ApiException autodeskExp) {
-            System.out.print("get buckets & objects exception: "+ autodeskExp.toString());
-            resp.setStatus(500);
+			// Create a new bucket
+			try {
+				// get oAuth of internal, in order to get the token with higher permissions
+				OAuth2TwoLegged forgeOAuth = oauth.getOAuthInternal();
 
-        }
-         catch(Exception exp){
-             System.out.print("get buckets & objects exception: "+ exp.toString());
-             resp.setStatus(500);
-         }
+				JSONObject jsonObject = new JSONObject(jb.toString());
+				String bucketKey = jsonObject.getString("bucketKey");
 
-    }
+				// build the payload of the http request
+				BucketsApi bucketsApi = new BucketsApi();
+				PostBucketsPayload postBuckets = new PostBucketsPayload();
+				postBuckets.setBucketKey(bucketKey);
+				// expires in 24h
+				postBuckets.setPolicyKey(PostBucketsPayload.PolicyKeyEnum.TRANSIENT);
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+				ApiResponse<Bucket> newbucket = bucketsApi.createBucket(postBuckets, null, forgeOAuth,
+						forgeOAuth.getCredentials());
 
-        try {
+				resp.setStatus(200);
 
-            //from https://stackoverflow.com/questions/3831680/httpservletrequest-get-json-post-data/3831791
+			} catch (ApiException autodeskExp) {
+				System.out.print("get buckets & objects exception: " + autodeskExp.toString());
+				resp.setStatus(500);
 
-            StringBuffer jb = new StringBuffer();
-            String line = null;
-            try {
-                BufferedReader reader = req.getReader();
-                while ((line = reader.readLine()) != null)
-                    jb.append(line);
-            } catch (Exception e) { /*report an error*/ }
+			} catch (Exception exp) {
+				System.out.print("get buckets & objects exception: " + exp.toString());
+				resp.setStatus(500);
 
-            // Create a new bucket
-            try
-            {
-                 JSONObject jsonObject = new JSONObject(jb.toString());
+			}
 
-                String bucketKey = jsonObject.getString("bucketKey");
-                String internalToken = oauth.getTokenInternal();
-                BucketsApi bucketsApi = new BucketsApi();
-                PostBucketsPayload postBuckets = new PostBucketsPayload();
-                postBuckets.setBucketKey(bucketKey);
-                postBuckets.setPolicyKey(PostBucketsPayload.PolicyKeyEnum.TRANSIENT);// expires in 24h
+		} catch (JSONException e) {
+			// crash and burn
+			throw new IOException("Error parsing JSON request string");
+		}
 
-                ApiResponse<Bucket> newbucket = bucketsApi.createBucket(postBuckets, null,
-                        oauth.OAuthClient(null),oauth.getCredentials());
+	}
 
-                resp.setStatus(200);
-
-
-            }
-            catch (ApiException autodeskExp) {
-                System.out.print("get buckets & objects exception: "+ autodeskExp.toString());
-                resp.setStatus(500);
-
-            }
-            catch(Exception exp){
-                System.out.print("get buckets & objects exception: "+ exp.toString());
-                resp.setStatus(500);
-
-            }
-
-        } catch (JSONException e) {
-            // crash and burn
-            throw new IOException("Error parsing JSON request string");
-        }
-
-    }
-
-    public void destroy() {
-        super.destroy();
-    } 
+	public void destroy() {
+		super.destroy();
+	}
 }
 ```
 
@@ -182,11 +184,13 @@ public class oss extends HttpServlet {
 
 As we plan to suppor the [jsTree](https://www.jstree.com/) library, our **GET oss/buckets** need to return handle the `id` querystring parameter and return buckets when `id=#` and objects for a given bucketKey passed as `id=bucketKey`.
 
-## OSSUploads.java
+## ossuploads.java
 
 Create a `/src/main/ossuploads.java` file with the following content. This file handles uploading file. The workflow gets the file stream and uploads to Forge.
 
 ```java
+package forgesample;
+
 import java.io.*;
 import java.util.Iterator;
 import java.util.List;
@@ -202,149 +206,149 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.autodesk.client.auth.OAuth2TwoLegged; 
+
 import com.autodesk.client.ApiException;
 import com.autodesk.client.ApiResponse;
 import com.autodesk.client.api.ObjectsApi;
 import com.autodesk.client.model.ObjectDetails;
 
-@WebServlet({"/ossuploads"})
-public class ossuploads  extends HttpServlet {
+@WebServlet({ "/ossuploads" })
+public class ossuploads extends HttpServlet {
 
-    public ossuploads() {
-    }
+	public ossuploads() {
+	}
 
-    public void init() throws ServletException {
+	public void init() throws ServletException {
 
-    }
+	}
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-    }
+	}
 
-    private String filename(String contentTxt) throws UnsupportedEncodingException {
-        Pattern pattern = Pattern.compile("filename=\"(.*)\"");
-        Matcher matcher = pattern.matcher(contentTxt);
-        matcher.find();
-        return matcher.group(1);
-    }
+	private String filename(String contentTxt) throws UnsupportedEncodingException {
+		Pattern pattern = Pattern.compile("filename=\"(.*)\"");
+		Matcher matcher = pattern.matcher(contentTxt);
+		matcher.find();
+		return matcher.group(1);
+	}
 
-    private byte[] bodyContent(HttpServletRequest request) throws IOException {
-        try(ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-            InputStream in = request.getInputStream();
-            byte[] buffer = new byte[1024];
-            int length = -1;
-            while((length = in.read(buffer)) != -1) {
-                out.write(buffer, 0, length);
-            }
-            return out.toByteArray();
-        }
-    }
-    protected void doPost(HttpServletRequest req, HttpServletResponse res)
-            throws ServletException, IOException,FileNotFoundException  {
+	private byte[] bodyContent(HttpServletRequest request) throws IOException {
+		try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+			InputStream in = request.getInputStream();
+			byte[] buffer = new byte[1024];
+			int length = -1;
+			while ((length = in.read(buffer)) != -1) {
+				out.write(buffer, 0, length);
+			}
+			return out.toByteArray();
+		}
+	}
 
-        //from https://stackoverflow.com/questions/3831680/httpservletrequest-get-json-post-data/3831791
-        try
-        { 
-            //from https://stackoverflow.com/questions/13048939/file-upload-with-servletfileuploads-parserequest
-            if (!ServletFileUpload.isMultipartContent(req)) { 
-                //not multiparts/formdata
-                res.setStatus(500);
-            }
-            else
-            {
-                 String bucketKey = "";
-                String filename="";
-                String filepath = "/fileuploads";
+	protected void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException, IOException, FileNotFoundException {
 
-                List<FileItem> items = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(req);
-                Iterator iter = items.iterator();
+		// for uploading file
 
-                File fileToUpload = null;
+		try {
+			// from
+			// https://stackoverflow.com/questions/13048939/file-upload-with-servletfileuploads-parserequest
+			if (!ServletFileUpload.isMultipartContent(req)) {
+				// not multiparts/formdata
+				res.setStatus(500);
+			} else {
+				// bucket name to store the file
+				String bucketKey = "";
+				// name of the new file
+				String filename = "";
+				// path on server to store the new file temporarily
+				String serverFilesPath = "/fileuploads";
 
-                while (iter.hasNext()) {
-                    FileItem item = (FileItem) iter.next();
+				// from
+				// https://stackoverflow.com/questions/3831680/httpservletrequest-get-json-post-data/3831791
 
-                    if (!item.isFormField()) {
-                        filename = item.getName();
+				List<FileItem> items = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(req);
+				Iterator iter = items.iterator();
 
-                        String root = getServletContext().getRealPath("/");
-                        File path = new File(root + filepath);
-                        if (!path.exists()) {
-                            boolean status = path.mkdirs();
-                        }
+				File fileToUpload = null;
 
-                        filepath = path + "/" + filename;
-                        fileToUpload = new File(filepath);
-                        item.write(fileToUpload);
-                     }
-                    else
-                    {
-                        if(item.getFieldName().equals("bucketKey")){
-                            bucketKey = item.getString();
-                        }
-                     }
-                }
+				// get post body to extract file name and bucket name
+				while (iter.hasNext()) {
+					FileItem item = (FileItem) iter.next();
 
-                ObjectsApi objectsApi = new ObjectsApi();
+					if (!item.isFormField()) {
+						filename = item.getName();
 
-                //this call will cause the issue below.
-                //working on the problem
-                //the codes are for stackholder.
-                //com.sun.jersey.api.client.ClientHandlerException: com.sun.jersey.api.client.ClientHandlerException: A message body writer for Java type, class [B, and MIME media type, application/octet-stream, was not found
-                ApiResponse<ObjectDetails> response =
-                        objectsApi.uploadObject(bucketKey, filename,
-                                (int)fileToUpload.length(),
-                                fileToUpload, null, null,
-                                oauth.OAuthClient(null),oauth.getCredentials());
+						String root = getServletContext().getRealPath("/");
+						File path = new File(root + serverFilesPath);
+						if (!path.exists()) {
+							boolean status = path.mkdirs();
+						}
 
+						// store the file stream on server
+						String thisFilePathOnServer = path + "/" + filename;
+						fileToUpload = new File(thisFilePathOnServer);
+						item.write(fileToUpload);
+					} else {
+						// get bucket name
+						if (item.getFieldName().equals("bucketKey")) {
+							bucketKey = item.getString();
+						}
+					}
+				}
 
-                res.setStatus(response.getStatusCode());
-            }
+				ObjectsApi objectsApi = new ObjectsApi();
 
-        }
-        catch(ApiException adskexp){
+				// get oAuth of internal, in order to get the token with higher permissions
 
-        }catch(FileNotFoundException fileexp){
-            System.out.print("get buckets & objects exception: "+ fileexp.toString());
+				OAuth2TwoLegged forgeOAuth = oauth.getOAuthInternal();
 
-        }
+				ApiResponse<ObjectDetails> response = objectsApi.uploadObject(bucketKey, filename,
+						(int) fileToUpload.length(), fileToUpload, null, null, forgeOAuth, forgeOAuth.getCredentials());
 
-        catch(Exception exp){
-            System.out.print("get buckets & objects exception: "+ exp.toString());
+				res.setStatus(response.getStatusCode());
+			}
 
-        }
-    }
-    public void destroy() {
-        super.destroy();
-    }
+		} catch (ApiException adskexp) {
+
+		} catch (FileNotFoundException fileexp) {
+			System.out.print("get buckets & objects exception: " + fileexp.toString());
+
+		}
+
+		catch (Exception exp) {
+			System.out.print("get buckets & objects exception: " + exp.toString());
+
+		}
+	}
+
+	public void destroy() {
+		super.destroy();
+	}
 }
 ```
 
-Explictly expose the endpoint in `/web/WEB-INF/web.xml`:
+Now explictly expose the endpoint in `/web/WEB-INF/web.xml`, add the following content before `</web-app>`:
+
 ```xml
-
-    <servlet>
-            <servlet-name>oss</servlet-name>
-            <servlet-class>oss</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-            <servlet-name>oss</servlet-name>
-            <url-pattern>/api/forge/oss/buckets</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-            <servlet-name>ossuploads</servlet-name>
-            <servlet-class>ossuploads</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-            <servlet-name>ossuploads</servlet-name>
-            <url-pattern>/api/forge/oss/objects</url-pattern>
-    </servlet-mapping>
+<servlet>
+    <servlet-name>oss</servlet-name>
+    <servlet-class>forgesample.oss</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>oss</servlet-name>
+    <url-pattern>/api/forge/oss/buckets</url-pattern>
+</servlet-mapping>
+<servlet>
+    <servlet-name>ossuploads</servlet-name>
+    <servlet-class>forgesample.ossuploads</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ossuploads</servlet-name>
+    <url-pattern>/api/forge/oss/objects</url-pattern>
+</servlet-mapping>
 ```
-
- 
 
 Note how we reuse the `/src/main/java/oauth.java` file to call `.getTokenInternal()` on all functions. 
 

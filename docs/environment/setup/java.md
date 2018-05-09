@@ -1,66 +1,41 @@
 # Create a new project (JAVA EE)
 
-Open [Eclipse Java EE IDE for Web Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen3), create a simple Maven project and select default Workspace location. 
+Open [Eclipse Java EE IDE for Web Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen3), create a simple Maven project and select default Workspace location. Click on **Next**.
 
-![](_media/java/Eclipse_new_maven_project.png) 
+Select the maven archetype. On the list, filter **Artifact Id** as **maven-archetype-webapp** and click on **Next**.
 
+Fill out below details: for this tutorial, we will name **Group Id** as **com.yourcompany** and **Artifact Id** as **forgesample**. Click Finish. Check the creation progress on the bottom right. This step creates Maven Project in your Eclipse Environment. 
 
-Select the maven archetype as: **maven-archetype-webapp** and click on next
+![](_media/java/eclipse_create_project.gif)
 
-![](_media/java/Eclipse_maven_archetype.png) 
+!> If you see error “The superclass “javax.servlet.http.HttpServlet” was not found on the Java Build Path index.jsp `/forgesample/src/main/webapp` add Apache Tomcat to your Targeted Runtimes. You get there by going to the project properties and then Targeted Runtimes, check the box as indicated below.
 
-Fill out below details and click Finish. This step creates Maven Project in your Eclipse Environment. For this tutorial, we will name it **forgesample**.  
+Now set **Targeted Runtime** to **Apache Tomcat**, then define server, select folder location and project to run. Finally **Run as** >> **Run as Server**.
 
-![](_media/java/Eclipse_new_maven_project_name.png) 
+![](_media/java/eclipse_run_tomcat.gif)
 
-If you see error “The superclass “javax.servlet.http.HttpServlet” was not found on the Java Build Path index.jsp `/forgesample/src/main/webapp` add Apache Tomcat to your Targeted Runtimes. You get there by going to the project properties and then Targeted Runtimes, check the box as indicated below.
+!> If a Maven error is display in the Markers, run the following **Run As - Maven Clean**
 
-![](_media/java/Eclipse_apache_tomcat_targeted_runtime.png) 
+Before we continue, we will switch the PORT of the server to maintain similarity with future tutorials. 
 
+![](_media/java/eclipse_change_server_port.gif)
 
-Your Maven Project should look like this.
+Eclipse will run a local page in your IDE showing you Hello World! or you can always visit http://localhost:3000/forgesample/index.jsp to see your result.
 
-![](_media/java/Eclipse_tree_structure.png) 
-
-Now build project with “Maven Clean Install” to check there isn’t any dependency issue with project. 
-
-![](_media/java/Eclipse_maven_build_select.png) 
-
-![](_media/java/Eclipse_maven_build_configuration.png) 
-
-![](_media/java/Eclipse_build_success.png) 
-
-
-Deploy Application on Apache Tomcat Server.
-
-Steps:
-
-
-![](_media/java/Eclipse_run_as_server.png) 
-
-![](_media/java/Eclipse_setup_server.png) 
-
-
-
-When done, click Finish. Eclipse will run a local page in your IDE showing you Hello World! or you can always visit http://localhost:8080/forgesample/index.jsp to see your result.
-
-To make sure it is your index.jsp the one running, go src/main/webapp/index.jsp and change the text from Hello World! to Hello Forge!
-
-![](_media/java/Eclipse_hello_forge.png) 
+To make sure it is your index.jsp the one running, go to **src/main/webapp/index.jsp** and change the text from Hello World! to Hello Forge!
 
 You are all set, your Server is running succesfully now. :)
 
 ## Setup Pom.xml
 
-
-Change [groupId] to the string that indicates your role such as **com.mycompany**. And input the configurations to the file:
+Open the `pom.xml` file (via **Project Explorer**), copy & paste the content below. Change [groupId] to the string that indicates your role such as **com.mycompany**.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mycompany</groupId>
-  <artifactId>ForgeSample</artifactId>
+  <artifactId>forgesample</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>ForgeSample Maven Webapp</name>
@@ -70,7 +45,7 @@ Change [groupId] to the string that indicates your role such as **com.mycompany*
         <dependency>
             <groupId>com.autodesk</groupId>
             <artifactId>com-autodesk-client</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.sun.jersey</groupId>
@@ -282,23 +257,29 @@ Change [groupId] to the string that indicates your role such as **com.mycompany*
 </project>
 ```
 
-A new Error will pop up in your Markers, we will need to update the MAven project to address all the new dependencies we have previously added. 
+A new Error will pop up in your Markers, we will need to update the Maven project to address all the new dependencies we have previously added. Right-click on the project, then **Maven** >> **Update Project**.
 
-![](_media/java/Eclipse_maven_error.png)
-
-
-![](_media/java/Eclipse_maven_update_select.png)
-
+![](_media/java/Eclipse_maven_error.png) 
 
 ![](_media/java/Eclipse_maven_update_project.png)
 
 ## Files and Folders
 
-To create a new class file, right-click on the "src-->main-->java" folder on the left and select **New**--> **JAVA Class**. Let's create the **config.java** file firstly.
+Right-click **src/main** folder, then **New** >> **Folder**, name it **java**.
 
-!> Note you need to enter your **Forge Client ID & Secret** at the indicated space of **config.java** file.
+![](_media/java/Eclipse_tree_structure_java_folder.png)
+
+To create a new class file, right-click on the project and select **New** >> **Class**. Let's create the **config.java** file firstly.
+
+!> Make sure the **Source Folder** is set to **ForgeSample/src/main/java** and the package is set to `forgesample` (our project name).
+
+![](_media/java/Eclipse_maven_java_class.png)
+
+Copy & paste the following content to the `config.java` file.
 
 ```java
+package forgesample;
+
 import java.util.ArrayList;
 
 public class config {
@@ -327,8 +308,6 @@ public class config {
 ```
 
 > It's important to define **ID & Secret** as environment variables so our project can, later, be deployed online. More on this later, on **Deployment**.
-
-The purpouse of this file is to ensure our running server is what we expect. More on this later. 
 
 Last we see there are 2 definitions about scopes. These scopes give our Token the right permission for the use of the different services of the Forge We Services. This tutorial is dedicated to the use of the Viewer only, we will only need the "viewables:read" scope.
 
