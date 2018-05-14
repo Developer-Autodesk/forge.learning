@@ -9,5 +9,3 @@ Our PHP server is configured to serve files from `/www/` folder. Let's organize 
 The image below show it (after creating files on the next section)
 
 ![](_media/php/vs_code_allfiles_ui.png)
-
-Next: [Viewer (client-side)](viewer/viewer)
