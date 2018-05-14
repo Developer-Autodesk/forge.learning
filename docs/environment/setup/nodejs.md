@@ -95,9 +95,11 @@ This file indicates to Visual Code how we should run our project. Go to menu **D
 
 > It's important to define **ID & Secret** as environment variables so our project can, later, be deployed online. More on this later, on **Deployment**.
 
-## Start.js
+## start.js
 
 At the root folder, create a `/start.js` file with:
+
+!> File names are case-sensitive for some deployments, like **Heroku**. For this tutorial, let's use lower-case.
 
 ```javascript
 'use strict';
