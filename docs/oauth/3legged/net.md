@@ -1,4 +1,4 @@
-# Authorize (NodeJS)
+# Authorize
 
 For a basic *OAuth* implementation we need 1 file.
 
