@@ -2,7 +2,7 @@
 
 The [Data Management API](https://developer.autodesk.com/en/docs/data/v2/overview/) provides a unified and consistent way to access data across **Hubs** for BIM 360 Team, Fusion Team (formerly known as A360 Team), BIM 360 Docs and A360 Personal.
 
-![](https://developer.doc.autodesk.com/bPlouYTd/8/_images/entities_and_domains.png)
+![](_media/datamanagement/entities_and_domains.png)
 
 To navigate and access BIM 360 Team, Fusion Team, BIM 360 Docs, A360 Personal, and OSS data, you need to be familiar with the following terminology:
 
@@ -16,7 +16,7 @@ To navigate and access BIM 360 Team, Fusion Team, BIM 360 Docs, A360 Personal, a
 
 > Each **BIM 360 Docs** account will be one hub that the current user has access to. To identify these hubs, the `attribute.extension.type` should be **hubs:autodesk.bim360:Account**. Or check the `b.` prefix on the **id**. 
 
-![](https://developer.doc.autodesk.com/bPlouYTd/8/_images/hub_extension_types.png)
+![](_media/datamanagement/hub_extension_types.png)
 
 At this section, let's create an endpoint to returns list of **Hubs**, **Projects**, **Folders**, **Items** (files) and respective **Versions** (which can be viewed on Viewer).
  

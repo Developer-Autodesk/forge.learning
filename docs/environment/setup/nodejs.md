@@ -118,7 +118,7 @@ var server = app.listen(app.get('port'), function () {
 
 The purpouse of this file is to ensure our running server is what we expecte. More on this later.
 
-## Server.js
+## server.js
 
 Now, under **/server/** folder, create a file named `server.js` with:
 
@@ -163,7 +163,7 @@ module.exports = app;
 
 This file start the **express** server and serve the static files (e.g. `html`) and route the API requests.
 
-## Config.js
+## config.js
 
 Under **/server/** create a file named `config.js` with the following content:
 

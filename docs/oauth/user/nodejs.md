@@ -43,4 +43,4 @@ router.get('/api/forge/user/profile', function (req, res) {
 module.exports = router;
 ```
 
-Next: [Show on Viewer](viewer/3legged/)
+Next: [Show on Viewer](viewer/3legged/readme)
