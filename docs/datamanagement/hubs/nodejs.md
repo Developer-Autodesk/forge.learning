@@ -218,4 +218,4 @@ The last `get` function returns the **Versions** for each item (file), where the
 
 Note how we reuse the /server/oauth.js file to call .getTokenInternal() on all functions.
 
-Next: [User information](oauth/user/)
+Next: [User information](oauth/user/readme)
