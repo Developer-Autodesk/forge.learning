@@ -180,4 +180,4 @@ This code will store both **access tokens** on the session with the **refresh to
 
 !> Our server was specified with `https` access only and the cookie can only be read by the client and server. 
 
-Next: [List hubs & projects](/datamanagement/hubs/)
+Next: [List hubs & projects](/datamanagement/hubs/readme)
