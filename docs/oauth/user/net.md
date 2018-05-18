@@ -42,7 +42,6 @@ namespace forgesample.Controllers
     }
   }
 }
-
 ```
 
-Next: [Show on Viewer](viewer/3legged/)
+Next: [Show on Viewer](viewer/3legged/readme)

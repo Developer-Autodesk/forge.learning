@@ -224,4 +224,4 @@ The last `get` function returns the **Versions** for each item (file), where the
 
 Note how we reuse the `Credentials` exposed via property.
 
-Next: [User information](oauth/user/)
+Next: [User information](oauth/user/readme)
