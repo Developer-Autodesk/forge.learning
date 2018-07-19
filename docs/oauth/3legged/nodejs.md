@@ -2,7 +2,7 @@
 
 For a basic *OAuth* implementation we need 2 files.
 
-## OAuthToken.js
+## oauthtoken.js
 
 Create a `/server/oauthtoken.js` file. This file takes care of creating the express router to expose the endpoint. 
 
@@ -67,7 +67,7 @@ router.get('/api/forge/oauth/token', function (req, res) {
 module.exports = router;
 ```
 
-## OAuth.js
+## oauth.js
 
 Now create a `/server/oauth.js` file that will actually request the access token from Forge. This will be reused on other parts of this tutorial.
 
@@ -206,4 +206,4 @@ This code will store both **access tokens** on the session (cookie-based) with t
 
 !> Our server was specified with `https` access only and the cookie can only be read by the client and server. 
 
-Next: [List hubs & projects](/datamanagement/hubs/)
+Next: [List hubs & projects](/datamanagement/hubs/readme)

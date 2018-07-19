@@ -66,6 +66,8 @@ Sign in on [Heroku Dashboard](https://dashboard.heroku.com/) where you app shoul
 
 ![](_media/deployment/heroku/env_vars.gif) 
 
+!> If you're create a 3-legged app (**View BIM 360 & Fusion models**) you also need to create the **FORGE_CALLBACK_URL** config var, th the value should be `https://YOUR_HEROKU_APP_NAME.herokuapp.com/api/forge/callback/oauth`. Remember to set the same value on Heroku and Forge Developer Portal! 
+
 Ready! You app should be live at your Heroku address, something like: **YourAppName.herokuapp.com**.
 
 ## Deploy changes

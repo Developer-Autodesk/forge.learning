@@ -95,9 +95,11 @@ This file indicates to Visual Code how we should run our project. Go to menu **D
 
 > It's important to define **ID & Secret** as environment variables so our project can, later, be deployed online. More on this later, on **Deployment**.
 
-## Start.js
+## start.js
 
 At the root folder, create a `/start.js` file with:
+
+!> File names are case-sensitive for some deployments, like **Heroku**. For this tutorial, let's use lower-case.
 
 ```javascript
 'use strict';
@@ -116,7 +118,7 @@ var server = app.listen(app.get('port'), function () {
 
 The purpouse of this file is to ensure our running server is what we expecte. More on this later.
 
-## Server.js
+## server.js
 
 Now, under **/server/** folder, create a file named `server.js` with:
 
@@ -161,7 +163,7 @@ module.exports = app;
 
 This file start the **express** server and serve the static files (e.g. `html`) and route the API requests.
 
-## Config.js
+## config.js
 
 Under **/server/** create a file named `config.js` with the following content:
 
