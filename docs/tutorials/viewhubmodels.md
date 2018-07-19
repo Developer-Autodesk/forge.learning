@@ -8,9 +8,9 @@ To view your model, you need the following steps:
 
 1. [Create a server](environment/setup/3legged) << First time developer? You should start here :wink:
 2. [Authorize](oauth/3legged/)
-3. [User information](oauth/user/)
-4. [List hubs & projects](datamanagement/hubs/)
-5. [Show on Viewer](viewer/3legged/)
+3. [List hubs & projects](datamanagement/hubs/readme)
+4. [User information](oauth/user/readme)
+5. [Show on Viewer](viewer/3legged/readme)
 
 
 If you want to download the project ready to use, visit the following repos:
