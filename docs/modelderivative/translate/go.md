@@ -66,4 +66,4 @@ To summarize, at this point your **Go** project should be like:
 
 ![](_media/go/vs_code_allfiles.png)
 
-Next: [Show on Viewer](viewer/)
+Next: [Show on Viewer](viewer/2legged/)

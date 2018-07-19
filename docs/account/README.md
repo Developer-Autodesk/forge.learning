@@ -6,7 +6,7 @@ Your Autodesk Forge account is your main identity.
 
 Go to [Forge Developer Portal](https://developer.autodesk.com/), click the “SIGN UP” button to create an account or "SING IN" to use an existing account. If you create a new account, be sure to click the link in the verification email that will be sent to you.
 
-![](https://developer.doc.autodesk.com/bPlouYTd/96/_images/forge-home.png)
+![](/_media/forge/dev_portal_home.png)
 
 ## Activate subscription
 
