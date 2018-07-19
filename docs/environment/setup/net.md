@@ -18,6 +18,7 @@ On the **Web.Config** file, add the Forge Client ID & Secret entries (obtained w
   <appSettings>
     <add key="FORGE_CLIENT_ID" value="Your client ID here" />
     <add key="FORGE_CLIENT_SECRET" value="Your client secret here" />
+    <add key="FORGE_CALLBACK_URL" value="http://localhost:3000/api/forge/callback/oauth" />
   </appSettings>
   <system.web> <!-- this line is already on your file -->
 ....
@@ -42,14 +43,10 @@ And add the **security** >> **requestFiltering** limit:
 </system.webServer> <!-- this line is already on your file -->
 ```
 
-Learn more about [maxRequestLength](https://msdn.microsoft.com/en-us/library/e1f13641.aspx) and [maxAllowedContentLength](https://msdn.microsoft.com/en-us/library/ms689462.aspx). 
+Learn more about [maxRequestLength](https://msdn.microsoft.com/en-us/library/system.web.configuration.httpruntimesection.maxrequestlength.aspx) and [maxAllowedContentLength](https://msdn.microsoft.com/en-us/library/ms689462.aspx). 
 
 ## Port
 
 Last, to make your app consistent with all other **Autodesk Forge** samples, let's change the port to **3000**: go to project **Properties** (right-click on project name), under **Web** tab, then change the **Project URL** to `http://localhost:3000`.
 
 ![](_media/net/port.png) 
-
-Project is ready! 
-
-Next: [Authenticate](oauth/2legged/)

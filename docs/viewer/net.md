@@ -13,5 +13,3 @@ The image below show it (after creating files on the next section)
 ![](_media/net/project_all_files.png)
 
 > `Global.asax` & `packages.config` files, `App_Data`, `App_Start` & `Model` folders are created by default.
-
-Next: [Viewer (client-side)](viewer/viewer)

@@ -6,7 +6,7 @@ At this section we actually need 3 features:
 2. List buckets & objects (files)
 3. Upload objects (files)
 
-## OSS.js
+## oss.js
 
 Create a `/server/oss.js` file with the following content:
 
@@ -30,7 +30,7 @@ var oauth = require('./oauth');
 // Return list of buckets (id=#) or list of objects (id=bucketKey)
 router.get('/api/forge/oss/buckets', function (req, res) {
     var id = req.query.id;
-    if (id === '#') {// root
+    if (id === '#') { // root
         // in this case, let's return all buckets
         var bucketsApi = new forgeSDK.BucketsApi();
         oauth.getTokenInternal().then(function (credentials) {
