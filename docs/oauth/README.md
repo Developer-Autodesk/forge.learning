@@ -23,10 +23,10 @@ This tutorial will use the 2 types of access tokens: public and internal. The **
 
 Now on the server-side we need it write-enabled, so the **internal** will use **bucket:create**, **bucket:read**, **data:read**, **data:create** and **data:write**.
 
-Next: [View your models](tutorials/viewmodels) or [View BIM 360 & Fusion models](tutorials/viewhubmodels)
-
 > Don't know which tutorial to follow? 
 > 
 > Answer this: where are the files you want to access and view? 
 > 
 > If on your computer or on some other place, then **View your models**. If the models are on any BIM 360 (Team, Design or Docs) or Fusion Team, then **View BIM 360 & Fusion models**. 
+
+Next: [View your models](tutorials/viewmodels) or [View BIM 360 & Fusion models](tutorials/viewhubmodels)

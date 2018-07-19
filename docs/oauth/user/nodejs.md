@@ -2,7 +2,7 @@
 
 This endpoint will request the end-user information and return the **name** and **picture** (40px).
 
-## User.js
+## user.js
 
 Create a `/sever/user.js` file and copy the following content:
 
@@ -43,4 +43,4 @@ router.get('/api/forge/user/profile', function (req, res) {
 module.exports = router;
 ```
 
-Next: [Show on Viewer](viewer/3legged/)
+Next: [Show on Viewer](viewer/3legged/readme)

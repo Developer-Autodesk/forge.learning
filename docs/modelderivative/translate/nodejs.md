@@ -2,7 +2,7 @@
 
 To translate a file we just need one endpoint.
 
-## ModelDerivative.js
+## modelderivative.js
 
 Create a `/server/modelderivative.js` file with the following content:
 
