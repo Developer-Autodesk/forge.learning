@@ -23,7 +23,7 @@ var jsonParser = bodyParser.json();
 // actually perform the token operation
 var oauth = require('./oauth');
 
-// Create a new bucket 
+// expose translation job
 router.post('/api/forge/modelderivative/jobs', jsonParser, function (req, res) {
     oauth.getTokenInternal().then(function (credentials) {
         // prepare the translation job payload
