@@ -72,7 +72,6 @@ module.exports = {
             var client_id = config.credentials.client_id;
             var client_secret = config.credentials.client_secret;
 
-            //new forgeSDK.AuthClientTwoLegged(client_id, client_secret, scopes);
             forgeOAuth.authenticate()
                 .then(function (credentials) {
                     _cached[cache] = credentials;
