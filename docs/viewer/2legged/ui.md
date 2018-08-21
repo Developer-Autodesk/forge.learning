@@ -8,7 +8,7 @@ This is the entry point of your app. For this sample we'll use [jQuery](https://
 
 And, of course, the Autodesk Forge Viewer libraries: viewer3d.min.js, three.min.js and style.min.css.
 
-Create a **index.html** file with:
+Create an **index.html** file with:
 
 ```html
 <!DOCTYPE html>
@@ -96,7 +96,7 @@ Create a **index.html** file with:
 
 ## Main.css
 
-CSS is a language that describes the style of an HTML document. Learn more at [W3Schools](https://www.w3schools.com/css/). For this tutorial, create a **main.css** under `css` folder with:
+CSS is a language that describes the style of HTML documents. Learn more at [W3Schools](https://www.w3schools.com/css/). For this tutorial, create a **main.css** under the `css` folder with the following content:
 
 ```css
 html, body {
@@ -126,7 +126,7 @@ body {
 
 ## ForgeTree.js
 
-This file will handle the tree view that lists all your buckets. Under `js` folder, create a **ForgeTree.js** file with the following content:
+This file will handle the tree view that lists all your buckets. Under the `js` folder, create a **ForgeTree.js** file with the following content:
 
 ```javascript
 $(document).ready(function () {
@@ -295,7 +295,7 @@ function translateObject(node) {
 
 ## ForgeViewer.js
 
-Now this file will handle the Viewer initialization. The following code is based on the Autodesk Forge Viewer [Basic Application](https://developer.autodesk.com/en/docs/viewer/v2/tutorials/basic-application/). Under `js` folder, create a **ForgeViewer.js** file with:
+Now this file will handle the Viewer initialization. The following code is based on the Autodesk Forge Viewer [Basic Application](https://developer.autodesk.com/en/docs/viewer/v2/tutorials/basic-application/) tutorial. In the `js` folder, create a **ForgeViewer.js** file with:
 
 ```javascript
 var viewerApp;
@@ -349,7 +349,7 @@ function getForgeToken(callback) {
 }
 ```
 
-To summarize: on the UI side your app should have 4 files:
+To summarize, on the UI side your app should have 4 files:
 - Index.html
 - Main.css
 - ForgeTree.js

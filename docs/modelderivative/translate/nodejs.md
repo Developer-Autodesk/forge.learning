@@ -53,9 +53,9 @@ router.post('/api/forge/modelderivative/jobs', jsonParser, function (req, res) {
 module.exports = router;
 ```
 
-The **jobs** endpoint receives the **bucketKey** and **objectName** and post the [translation job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
+The **jobs** endpoint receives the **bucketKey** and **objectName** and posts the [translation job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
 
-To summarize, at this point your **NodeJS** project should be like:
+To summarize, at this point your **NodeJS** project should look like this:
 
 ![](_media/nodejs/vs_code_allfiles.png)
 

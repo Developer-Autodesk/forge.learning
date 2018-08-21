@@ -26,9 +26,9 @@ npm install cookie-session --save
 npm install body-parser --save
 ```
 
-> The `--save` parameter indicates that it should be saved on the **package.json** file. 
+> The `--save` parameter indicates that the module should be included in the **package.json** file as a dependency.
 
-Finally open the **package.json** and, inside `"scripts"`, add `"start": "node start.js",` line. Now your folder should have a **node_modules** folder and your **package.json** should look like:
+Finally open the **package.json** and, inside `"scripts"`, add `"start": "node start.js",` line. Now your folder should have a **node_modules** folder and your **package.json** should look like this:
 
 ```json
 {
@@ -53,7 +53,7 @@ Finally open the **package.json** and, inside `"scripts"`, add `"start": "node s
 
 ```
 
-> The version number (e.g. forge-apis 0.4.1) may vary, this was the latest version when tutorial was created.
+> The version number (e.g. forge-apis 0.4.1) may vary, it was the latest version when this tutorial was created.
 
 ## Files and Folders
 
@@ -61,13 +61,13 @@ To create a new folder or file, right-click on the "Explorer" area on the left a
 
 For consitency with other Forge samples, create a **/server/** folder for all server-side files and a **/www/** for all client-side files.
 
-At this point, you project should be something like:
+At this point, you project should have the following structure:
 
 ![](_media/nodejs/vs_code_explorer.png) 
 
 ## launch.json
 
-This file indicates to Visual Code how we should run our project. Go to menu **Debug** >> **Add Configuration...** and, on **Select Environment** small window that appears on the top, choose **NodeJS** and at the **/.vscode/launch.json** file that is created, enter the following:
+This file indicates to Visual Studio Code how we should run our project. Go to menu **Debug** >> **Add Configuration...** and, in the **Select Environment** window that appears on the top, choose **NodeJS**. In the **/.vscode/launch.json** file that is created, enter the following:
 
 !> Note you need to enter your **Forge Client ID & Secret** at the indicated space.
 
@@ -93,11 +93,11 @@ This file indicates to Visual Code how we should run our project. Go to menu **D
 }
 ```
 
-> It's important to define **ID & Secret** as environment variables so our project can, later, be deployed online. More on this later, on **Deployment**.
+> It's important to define **ID & Secret** as environment variables so our project can later be deployed online. More on this later, in **Deployment**.
 
 ## start.js
 
-At the root folder, create a `/start.js` file with:
+In the root folder, create a `/start.js` file with:
 
 !> File names are case-sensitive for some deployments, like **Heroku**. For this tutorial, let's use lower-case.
 
@@ -116,11 +116,11 @@ var server = app.listen(app.get('port'), function () {
 });
 ```
 
-The purpouse of this file is to ensure our running server is what we expecte. More on this later.
+The purpose of this file is to ensure that our running server is what we expect. More on this later.
 
 ## server.js
 
-Now, under **/server/** folder, create a file named `server.js` with:
+Now, under the **/server/** folder, create a file named `server.js` with:
 
 ```javascript
 'use strict';
@@ -161,11 +161,11 @@ function loadRoute(path) {
 module.exports = app;
 ```
 
-This file start the **express** server and serve the static files (e.g. `html`) and route the API requests.
+This file starts the **express** server, serves static files (e.g. `html`), and routes API requests.
 
 ## config.js
 
-Under **/server/** create a file named `config.js` with the following content:
+Under **/server/**, create a file named `config.js` with the following content:
 
 ```javascript
 'use strict';
@@ -186,12 +186,12 @@ module.exports = {
 };
 ```
 
-We are defining our ENV variables here, at the time of running our Express server the values on these variables will be use to connect to the different Autodesk Forge services we will need.
+We are defining our ENV variables here. At the time of running our Express server, the values of these variables will be use to connect to the different Autodesk Forge services we will need.
 
-Last we see there are 2 definitions about scopes. The internal scopes give our access token the right permission for the use of the different services of the Forge Web Services (server-side). This tutorial is dedicated to the use of the Viewer, we will only need the "viewables:read" scope for public.
+Last we see there are 2 scope definitions. The internal scopes give our access token the right permission for the use of the different services of the Forge Web Services (server-side). This tutorial is dedicated to the use of the Viewer, we will only need the "viewables:read" scope for public.
 
-Project is ready! At this point your project should have:
+The project is ready! At this point your project should look like this:
 
 ![](_media/nodejs/vs_code_project.png) 
 
-> The **package-lock.json** was created by Visual Code, don't worry :wink: 
+> The **package-lock.json** was created by **npm**, don't worry :wink: 
