@@ -4,7 +4,7 @@ For a basic *OAuth* implementation we need 2 files.
 
 ## oauthtoken.js
 
-Create a `/server/oauthtoken.js` file. This file takes care of creating the express router to expose the endpoint. 
+Create a `/server/oauthtoken.js` file. This file takes care of creating an express router to expose the endpoint. 
 
 ```javascript
 'use strict';
@@ -35,7 +35,7 @@ module.exports = router;
 
 ## oauth.js
 
-Now create a `/sever/oauth.js` file that will actually request the access token from Forge. This will be reused on other parts of this tutorial.
+Now create a `/sever/oauth.js` file that will actually request the access token from Forge. This will be reused in other parts of this tutorial.
 
 ```javascript
 'use strict';
@@ -96,7 +96,7 @@ module.exports = {
 }
 ```
 
-To avoid getting a new access token for each end-user request, which adds unnecessary latency, let's cache them in global variables. Note we still need to refresh it after `expires_in` seconds.
+To avoid getting a new access token for each end-user request, which adds unnecessary latency, let's cache them in global variables. Note that we still need to refresh the tokens after `expires_in` seconds.
 
 !> Share access token between users is only valid in this case, where all users are accessing the same information (2-legged). If your app uses per-user data (3-legged), **DOT NOT** use this approach.
 

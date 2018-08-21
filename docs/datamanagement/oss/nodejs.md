@@ -1,10 +1,10 @@
 # Upload file to OSS (NodeJS)
 
-At this section we actually need 3 features:
+In this section we need 3 features:
 
-1. Create buckets
-2. List buckets & objects (files)
-3. Upload objects (files)
+1. Creating buckets
+2. Listing buckets & objects (files)
+3. Uploading objects (files)
 
 ## oss.js
 
@@ -128,10 +128,10 @@ String.prototype.toBase64 = function () {
 module.exports = router;
 ```
 
-As we plan to suppor the [jsTree](https://www.jstree.com/), our **GET oss/buckets** need to return handle the `id` querystring parameter and return buckets when `id=#` and objects for a given bucketKey passed as `id=bucketKey`. The upload endpoint uses the [multer package](https://github.com/expressjs/multer) to handle file upload. It saves the file on our server (e.g. under **/tmp/** folder) so we can later upload to forge.
+Since we plan to support [jsTree](https://www.jstree.com/), our **GET oss/buckets** endpoint needs to handle the `id` querystring parameter, returning all buckets when `id` is set to `#`, or returning all objects in a given bucketKey passed as `id=bucketKey`. The upload endpoint uses the [multer](https://github.com/expressjs/multer) module to handle file upload. It saves the file on our server (e.g. in **/tmp/** folder) so we can later upload it to Forge.
 
-Note how we reuse the `/server/oauth.js` file to call `.getTokenInternal()` on all functions. 
+Note how we reuse the `/server/oauth.js` file to call `.getTokenInternal()` in all functions. 
 
-!> Upload a file from the client (browser) directly to Autodesk Forge is possible, but requires giving the client a **write-enabled** access token, which is **NOT SECURE**.
+!> Uploading a file from the client (browser) directly to Autodesk Forge is possible, but requires giving the client a **write-enabled** access token, which is **NOT SECURE**.
 
 Next: [Translate the file](modelderivative/translate/)
