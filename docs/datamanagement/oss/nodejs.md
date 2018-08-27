@@ -6,131 +6,104 @@ In this section we need 3 features:
 2. Listing buckets & objects (files)
 3. Uploading objects (files)
 
-## oss.js
+## routes/oss.js
 
-Create a `/server/oss.js` file with the following content:
+Create a `routes/oss.js` file with the following content:
 
 ```javascript
-'use strict';
+const fs = require('fs');
+const express = require('express');
+const multer  = require('multer');
+const { BucketsApi, ObjectsApi, PostBucketsPayload } = require('forge-apis');
 
-// web framework
-var express = require('express');
-var router = express.Router();
+const { getClient, getInternalToken } = require('./common/oauth');
 
-// Forge NPM
-var forgeSDK = require('forge-apis');
+let router = express.Router();
 
-// handle json requests
-var bodyParser = require('body-parser');
-var jsonParser = bodyParser.json();
+// Middleware for obtaining a token for each request.
+router.use(async (req, res, next) => {
+    const token = await getInternalToken();
+    req.oauth_token = token;
+    req.oauth_client = getClient();
+    next();
+});
 
-// actually perform the token operation
-var oauth = require('./oauth');
-
-// Return list of buckets (id=#) or list of objects (id=bucketKey)
-router.get('/api/forge/oss/buckets', function (req, res) {
-    var id = req.query.id;
-    if (id === '#') { // root
-        // in this case, let's return all buckets
-        var bucketsApi = new forgeSDK.BucketsApi();
-        oauth.getTokenInternal().then(function (credentials) {
-            bucketsApi.getBuckets({ limit: 100 }, oauth.OAuthClient(), credentials).then(function (buckets) {
-                var list = [];
-                buckets.body.items.forEach(function (bucket) {
-                    list.push({
-                        id: bucket.bucketKey,
-                        text: bucket.bucketKey,
-                        type: 'bucket',
-                        children: true
-                    })
-                })
-                res.json(list);
-            });
-        }).catch(function (error) {
-            console.log('Error at Get Buckets:');
-            console.log(error);
-            res.status(500).json(error);
-        });
-    }
-    else {
-        // as we have the id (bucketKey), let's return all objects
-        var objectsApi = new forgeSDK.ObjectsApi();
-        oauth.getTokenInternal().then(function (credentials) {
-            objectsApi.getObjects(id, {}, oauth.OAuthClient(), credentials).then(function (objects) {
-                var list = [];
-                objects.body.items.forEach(function (object) {
-                    list.push({
-                        id: object.objectId.toBase64(),
-                        text: object.objectKey,
-                        type: 'object',
-                        children: false
-                    })
-                })
-                res.json(list);
-            });
-        }).catch(function (error) {
-            console.log('Error at Get Objects:');
-            console.log(error);
-            res.status(500).json(error);
-        });
+// GET /api/forge/oss/buckets - expects a query param 'id'; if the param is '#' or empty,
+// returns a JSON with list of buckets, otherwise returns a JSON with list of objects in bucket with given name.
+router.get('/buckets', async (req, res, next) => {
+    const bucket_name = req.query.id;
+    if (!bucket_name || bucket_name === '#') {
+        try {
+            // Retrieve buckets from Forge using the [BucketsApi](https://github.com/Autodesk-Forge/forge-api-nodejs-client/blob/master/docs/BucketsApi.md#getBuckets)
+            const buckets = await new BucketsApi().getBuckets({ limit: 64 }, req.oauth_client, req.oauth_token);
+            res.json(buckets.body.items.map((bucket) => {
+                return {
+                    id: bucket.bucketKey,
+                    text: bucket.bucketKey,
+                    type: 'bucket',
+                    children: true
+                };
+            }));
+        } catch(err) {
+            next(err);
+        }
+    } else {
+        try {
+            // Retrieve objects from Forge using the [ObjectsApi](https://github.com/Autodesk-Forge/forge-api-nodejs-client/blob/master/docs/ObjectsApi.md#getObjects)
+            const objects = await new ObjectsApi().getObjects(bucket_name, {}, req.oauth_client, req.oauth_token);
+            res.json(objects.body.items.map((object) => {
+                return {
+                    id: Buffer.from(object.objectId).toString('base64'),
+                    text: object.objectKey,
+                    type: 'object',
+                    children: false
+                };
+            }));
+        } catch(err) {
+            next(err);
+        }
     }
 });
 
-// Create a new bucket 
-router.post('/api/forge/oss/buckets', jsonParser, function (req, res) {
-    oauth.getTokenInternal().then(function (credentials) {
-        var bucketsApi = new forgeSDK.BucketsApi();
-        var postBuckets = new forgeSDK.PostBucketsPayload();
-        postBuckets.bucketKey = req.body.bucketKey;
-        postBuckets.policyKey = "transient"; // expires in 24h
+// POST /api/forge/oss/buckets - creates a new bucket.
+// Request body must be a valid JSON in the form of { "bucketKey": "<new_bucket_name>" }.
+router.post('/buckets', async (req, res, next) => {
+    let payload = new PostBucketsPayload();
+    payload.bucketKey = req.body.bucketKey;
+    payload.policyKey = 'transient'; // expires in 24h
+    try {
+        // Create a bucket using [BucketsApi](https://github.com/Autodesk-Forge/forge-api-nodejs-client/blob/master/docs/BucketsApi.md#createBucket).
+        await new BucketsApi().createBucket(payload, {}, req.oauth_client, req.oauth_token);
+        res.status(200).end();
+    } catch(err) {
+        next(err);
+    }
+});
 
-        bucketsApi.createBucket(postBuckets, {}, oauth.OAuthClient(), credentials).then(function (buckets) {
+// POST /api/forge/oss/objects - uploads new object to given bucket.
+// Request body must be structured as 'form-data' dictionary
+// with the uploaded file under "fileToUpload" key, and the bucket name under "bucketKey".
+router.post('/objects', multer({ dest: 'uploads/' }).single('fileToUpload'), async (req, res, next) => {
+    fs.readFile(req.file.path, async (err, data) => {
+        if (err) {
+            next(err);
+        }
+        try {
+            // Upload an object to bucket using [ObjectsApi](https://github.com/Autodesk-Forge/forge-api-nodejs-client/blob/master/docs/ObjectsApi.md#uploadObject).
+            await new ObjectsApi().uploadObject(req.body.bucketKey, req.file.originalname, data.length, data, {}, req.oauth_client, req.oauth_token);
             res.status(200).end();
-        }).catch(function (error) {
-            if (error.statusCode && error.statusCode == 409)
-                res.status(409).end();
-            else {
-                console.log('Error at OSS Create Bucket:');
-                console.log(error);
-                res.status(500).json(error);
-            }
-        });
+        } catch(err) {
+            next(err);
+        }
     });
 });
-
-// handle file upload
-var multer = require('multer')
-var upload = multer({ dest: './tmp' })
-
-// Receive a file from the client and upload to the bucket
-router.post('/api/forge/oss/objects', upload.single('fileToUpload'), function (req, res) {
-    oauth.getTokenInternal().then(function (credentials) {
-        var bucketKey = req.body.bucketKey;
-        var fs = require('fs');
-        fs.readFile(req.file.path, function (err, filecontent) {
-            var objects = new forgeSDK.ObjectsApi();
-            objects.uploadObject(bucketKey, req.file.originalname, filecontent.length, filecontent, {}, oauth.OAuthClient(), credentials)
-                .then(function (object) {
-                    res.end();
-                }).catch(function (error) {
-                    console.log('Error at Upload Object:');
-                    console.log(error);
-                    res.status(500).end();
-                });
-        })
-    });
-});
-
-String.prototype.toBase64 = function () {
-    return new Buffer(this).toString('base64');
-};
 
 module.exports = router;
 ```
 
-Since we plan to support [jsTree](https://www.jstree.com/), our **GET oss/buckets** endpoint needs to handle the `id` querystring parameter, returning all buckets when `id` is set to `#`, or returning all objects in a given bucketKey passed as `id=bucketKey`. The upload endpoint uses the [multer](https://github.com/expressjs/multer) module to handle file upload. It saves the file on our server (e.g. in **/tmp/** folder) so we can later upload it to Forge.
+Since we plan to support [jsTree](https://www.jstree.com/), our **GET /api/forge/oss/buckets** endpoint needs to handle the `id` querystring parameter, returning all buckets when `id` is set to `#`, or returning all objects in a given bucketKey passed as `id=bucketKey`. The upload endpoint uses the [multer](https://github.com/expressjs/multer) module to handle file upload. It saves the file on our server (e.g. in **/uploads/** folder) so we can later upload it to Forge.
 
-Note how we reuse the `/server/oauth.js` file to call `.getTokenInternal()` in all functions. 
+Note how we reuse the authentication helpers from `routes/common/oauth.js` as a middleware of this router.
 
 !> Uploading a file from the client (browser) directly to Autodesk Forge is possible, but requires giving the client a **write-enabled** access token, which is **NOT SECURE**.
 
