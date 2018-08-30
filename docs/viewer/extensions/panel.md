@@ -25,13 +25,13 @@ ModelSummaryExtension.prototype.load = function () {
     } else {
         // Toolbar hasn't been created yet, wait until we get notification of its creation
         this.onToolbarCreatedBinded = this.onToolbarCreated.bind(this);
-        this.viewer.addEventListener(av.TOOLBAR_CREATED_EVENT, this.onToolbarCreatedBinded);
+        this.viewer.addEventListener(Autodesk.Viewing.TOOLBAR_CREATED_EVENT, this.onToolbarCreatedBinded);
     }
     return true;
 };
 
 ModelSummaryExtension.prototype.onToolbarCreated = function () {
-    this.viewer.removeEventListener(av.TOOLBAR_CREATED_EVENT, this.onToolbarCreatedBinded);
+    this.viewer.removeEventListener(Autodesk.Viewing.TOOLBAR_CREATED_EVENT, this.onToolbarCreatedBinded);
     this.onToolbarCreatedBinded = null;
     this.createUI();
 };
