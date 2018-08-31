@@ -2,98 +2,87 @@
 
 For a basic *OAuth* implementation we need 2 files.
 
-## oauthtoken.js
+## routes/oauth.js
 
-Create a `/server/oauthtoken.js` file. This file takes care of creating an express router to expose the endpoint. 
+Create a `routes/oauth.js` file. This file takes care of creating an express router for OAuth-related endpoints.
 
 ```javascript
-'use strict';
+const express = require('express');
 
-// web framework
-var express = require('express');
-var router = express.Router();
+const { getPublicToken } = require('./common/oauth');
 
-// Forge NPM
-var forgeSDK = require('forge-apis');
+let router = express.Router();
 
-// actually perform the token operation
-var oauth = require('./oauth');
-
-// Endpoint to return a 2-legged access token
-router.get('/api/forge/oauth/token', function (req, res) {
-    oauth.getTokenPublic().then(function (credentials) {
-        res.json({ access_token: credentials.access_token, expires_in: credentials.expires_in });
-    }).catch(function (error) {
-        console.log('Error at OAuth Token:');
-        console.log(error);
-        res.status(500).json(error);
-    });
+// GET /api/forge/oauth/token - generates a public access token (required by the Forge viewer).
+router.get('/token', async (req, res, next) => {
+    try {
+        const token = await getPublicToken();
+        res.json({
+            access_token: token.access_token,
+            expires_in: token.expires_in    
+        });
+    } catch(err) {
+        next(err);
+    }
 });
 
 module.exports = router;
 ```
 
-## oauth.js
+## routes/common/oauth.js
 
-Now create a `/sever/oauth.js` file that will actually request the access token from Forge. This will be reused in other parts of this tutorial.
+Now create a `common` subfolder in the `routes` folder, and prepare a `routes/common/oauth.js` file that will actually request
+the access token from Forge. This will be reused in other parts of this tutorial.
 
 ```javascript
-'use strict';
+const { AuthClientTwoLegged } = require('forge-apis');
 
-// Forge NPM
-var forgeSDK = require('forge-apis');
+const config = require('../../config');
 
-// Forge config information, such as client ID and secret
-var config = require('./config');
+/**
+ * Initializes a Forge client for 2-legged authentication.
+ * @param {string[]} scopes List of resource access scopes.
+ * @returns {AuthClientTwoLegged} 2-legged authentication client.
+ */
+function getClient(scopes) {
+    const { client_id, client_secret } = config.credentials;
+    return new AuthClientTwoLegged(client_id, client_secret, scopes || config.scopes.internal);
+}
 
-// Cache of the access tokens
-var _cached = [];
+let cache = {};
+async function getToken(scopes) {
+    const key = scopes.join('+');
+    if (cache[key]) {
+        return cache[key];
+    }
+    const client = getClient(scopes);
+    let credentials = await client.authenticate();
+    cache[key] = credentials;
+    setTimeout(() => { delete cache[key]; }, credentials.expires_in * 1000);
+    return credentials;
+}
+
+/**
+ * Retrieves a 2-legged authentication token for preconfigured public scopes.
+ * @returns Token object: { "access_token": "...", "expires_at": "...", "expires_in": "...", "token_type": "..." }.
+ */
+async function getPublicToken() {
+    return getToken(config.scopes.public);
+}
+
+/**
+ * Retrieves a 2-legged authentication token for preconfigured internal scopes.
+ * @returns Token object: { "access_token": "...", "expires_at": "...", "expires_in": "...", "token_type": "..." }.
+ */
+async function getInternalToken() {
+    return getToken(config.scopes.internal);
+}
 
 module.exports = {
-    getTokenPublic: function () {
-        return this.OAuthRequest(config.scopePublic, 'public');
-    },
-
-    getTokenInternal: function () {
-        return this.OAuthRequest(config.scopeInternal, 'internal');
-    },
-
-    OAuthRequest: function (scopes, cache) {
-        var client_id = config.credentials.client_id;
-        var client_secret = config.credentials.client_secret;
-        var forgeOAuth = this.OAuthClient(scopes);
-
-        return new Promise(function (resolve, reject) {
-            if (_cached[cache] != null && _cached[cache].expires_at > (new Date()).getTime()) {
-                resolve(_cached[cache]);
-                return;
-            }
-
-            var client_id = config.credentials.client_id;
-            var client_secret = config.credentials.client_secret;
-
-            forgeOAuth.authenticate()
-                .then(function (credentials) {
-                    _cached[cache] = credentials;
-                    var now = new Date();
-                    _cached[cache].expires_at = (now.setSeconds(now.getSeconds() + credentials.expires_in));
-                    resolve(_cached[cache]);
-                })
-                .catch(function (error) {
-                    console.log('Error at OAuth Authenticate:');
-                    console.log(error);
-                    reject(error)
-                });
-        })
-    },
-
-    OAuthClient: function (scopes) {
-        var client_id = config.credentials.client_id;
-        var client_secret = config.credentials.client_secret;
-        if (scopes == undefined) scopes = config.scopeInternal;
-        return new forgeSDK.AuthClientTwoLegged(client_id, client_secret, scopes);
-    }
-}
+    getClient,
+    getPublicToken,
+    getInternalToken
+};
 ```
 
 To avoid getting a new access token for each end-user request, which adds unnecessary latency, let's cache them in global variables. Note that we still need to refresh the tokens after `expires_in` seconds.

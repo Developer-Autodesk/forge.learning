@@ -16,15 +16,19 @@ On the **forgesample** project root folder create a `.gitignore` file and add th
 - Node.js:
 ```
 node_modules/
-.vscode
+.vscode/
+uploads/
+*.log
+.DS_Store
 Thumbs.db
 ```
 
 - PHP:
 ```
 vendor/
+.vscode/
 .DS_Store
-.vscode
+Thumbs.db
 ```
 
 Now initialize **git** for the folder and commit current files. On the terminal (menu **View** >> **Integrated terminal**) type (one line at a time):
