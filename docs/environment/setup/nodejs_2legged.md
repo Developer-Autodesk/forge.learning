@@ -61,6 +61,8 @@ At this point, you project should have the following structure:
 
 ![](_media/nodejs/vs_code_explorer.png) 
 
+> The **package-lock.json** was created by **npm**, don't worry :wink: 
+
 ## launch.json
 
 This file indicates to Visual Studio Code how we should run our project. Go to menu **Debug** >> **Add Configuration...** and, in the **Select Environment** window that appears on the top, choose **NodeJS**. In the **/.vscode/launch.json** file that is created, enter the following:
@@ -115,8 +117,8 @@ app.use('/api/forge/oauth', require('./routes/oauth'));
 app.use('/api/forge/oss', require('./routes/oss'));
 app.use('/api/forge/modelderivative', require('./routes/modelderivative'));
 app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json(err);
+    console.error(err);
+    res.status(err.statusCode).json(err);
 });
 app.listen(PORT, () => { console.log(`Server listening on port ${PORT}`); });
 ```
@@ -152,7 +154,5 @@ Last we see there are 2 scope definitions. The internal scopes give our access t
 The project is ready! At this point your project should look like this:
 
 ![](_media/nodejs/vs_code_project.png) 
-
-> The **package-lock.json** was created by **npm**, don't worry :wink: 
 
 Next: [Authenticate](oauth/2legged/)
