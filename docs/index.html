@@ -24,7 +24,7 @@
   <script>
     window.$docsify = {
       auto2top: true,
-      coverpage: true,
+      coverpage: false,
       executeScript: true,
       loadSidebar: true,
       alias: {
@@ -44,7 +44,7 @@
         window.DocsifyCopyCodePlugin.init(),
         function (hook, vm) {
           hook.beforeEach(function (html) {
-            var email = 'Questions on this tutorial? [Ask on Stackoverflow](https://stackoverflow.com/questions/tagged/autodesk-forge) or [email us](mailto:forge.help@autodesk.com?subject=About tutorial page /' + vm.route.file + ')\n'
+            var email = 'Questions on this tutorial? [Ask on Stackoverflow](https://stackoverflow.com/questions/ask?tags=[autodesk-forge]) or [email us](mailto:forge.help@autodesk.com?subject=About tutorial page /' + vm.route.file + ')\n'
             return html
               + '\n\n----\n'
               + email
@@ -62,9 +62,9 @@
   <script src="//unpkg.com/prismjs@1.11.0/components/prism-javascript.min.js"></script>
   <script src="//unpkg.com/prismjs@1.11.0/components/prism-csharp.min.js"></script>
   <script src="//unpkg.com/prismjs@1.11.0/components/prism-go.min.js"></script>
-  <script src="//unpkg.com/prismjs@1.11.0/components/prism-php.min.js"></script> 
-  <script src="//unpkg.com/prismjs@1.11.0/components/prism-java.min.js"></script> 
-  <script src="//unpkg.com/prismjs@1.11.0/components/prism-xml.min.js"></script> 
+  <script src="//unpkg.com/prismjs@1.11.0/components/prism-php.min.js"></script>
+  <script src="//unpkg.com/prismjs@1.11.0/components/prism-java.min.js"></script>
+  <script src="//unpkg.com/prismjs@1.11.0/components/prism-xml.min.js"></script>
   <!--<script src="libs/disqus.js"></script>-->
 </body>
 
