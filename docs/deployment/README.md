@@ -22,4 +22,4 @@ Choose your language:  [Node.js](deployment/heroku/heroku) | [PHP](deployment/he
 
 _AppHarbor is a fully hosted .NET Platform as a Service. AppHarbor can deploy and scale any standard .NET application to the cloud._ [Learn more](https://appharbor.com/).
 
-Choose your language:  [.NET](https://support.appharbor.com/kb/getting-started/deploying-your-first-application-using-git)
+Choose your language:  [.NET](https://forge.autodesk.com/blog/deploying-forge-aspnet-samples-appharbor)
