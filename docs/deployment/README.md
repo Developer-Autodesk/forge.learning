@@ -16,11 +16,11 @@ Choose your language: [.NET](deployment/aws/net)
 
 _Microsoft Azure App Service is a fully managed platform to quickly build, deploy, and scale enterprise-grade web, mobile, and API apps running on any platform._ [Learn more](https://azure.microsoft.com/en-us/services/app-service/).
 
-Introduction - [What's Azure and its App Service, and why?](deployment/azure/)
+<!--Introduction - [What's Azure and its App Service, and why?](deployment/azure/)-->
 
 Deployment - Choose your language:  [NodeJS](deployment/azure/node) | [.NET](deployment/azure/net)
 
-Advanced Topics - [Custom domain name, Security, Load balancing, Backup and Restore, Elasticity and Autoscaling](deployment/azure/advanced)
+<!--Advanced Topics - [Custom domain name, Security, Load balancing, Backup and Restore, Elasticity and Autoscaling](deployment/azure/advanced)-->
 
 ## Heroku
 

@@ -1,14 +1,21 @@
 # Node.js Forge App with Azure App Service
 
-This is to walk you through the steps to deploy a sample OAuth (3-legged) Enabled Node.js Forge App to Azure App Service as a Web App with the [Azure Web Portal](https://azure.microsoft.com/en-us/features/azure-portal/) and [Git](https://git-scm.com/).
+This is to walk you through the steps to deploy a Node.js sample Forge App to Azure App Service as a Web App with the [Azure Web Portal](https://azure.microsoft.com/en-us/features/azure-portal/) and [Git](https://git-scm.com/).
 
-For this tutorial, we will be using our ViewHubModels sample as described in [previous chapters](tutorials/viewhubmodels). You may retrieve the full sample from [our Github repo](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/nodejs).
+For this tutorial, we will be using our ViewHubModels sample as described in [previous chapters](tutorials/viewhubmodels). You may retrieve the full sample from [our Github repo](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/nodejs). The same steps should also work for **View Models** tutorial code.
 
-# Create a Web App
+Before you start, [sign in or sign up](https://signup.azure.com/) for [Microsoft Azure Computing Platform & Services](https://azure.microsoft.com/) and create a [trial account](https://azure.microsoft.com/en-us/free/?cdn=disable), it includes $200 credit and free for 12 months
 
-### Create an app with Web Portal
+## Prerequisites
 
-- [Sign up](https://signup.azure.com/) for [Microsoft Azure Computing Platform & Services](https://azure.microsoft.com/) and create a [trial account, with $200 credit and free for 12 months ](https://azure.microsoft.com/en-us/free/?cdn=disable)
+Most steps can be done via Web Portal, but [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) is required. 
+
+## Create an Azure Web App
+
+There are 2 ways to create an app: using the Web Portal and with CLI.
+
+**1. Create an app with Web Portal**
+
 - Create a ```Resource Group``` and a ```Web App```
 
   ![](_media/deployment/azure/create_web_app_1.png)
@@ -19,80 +26,81 @@ For this tutorial, we will be using our ViewHubModels sample as described in [pr
 
   ![](_media/deployment/azure/app_dashboard.png)
 
-### Create an App with Azure CLI
-- Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+**2. Create an App with Azure CLI**
 
 - Create a ```Resource Group``` (or use existing) and a ```Web App``` with commands below:
 
-  ```bash
-  # login with credentials explicitly or simply use 'azure login' to log in with a browser session or authorisation code
-  az login -u <username> -p <password>
+```bash
+# login with credentials explicitly or simply use 'azure login' to log in with a browser session or authorisation code
+az login -u <username> -p <password>
 
-  # Create a Resource Group
-  az group create --location westus --name myResourceGroup
+# Create a Resource Group
+az group create --location westus --name myResourceGroup
 
-  # Create an App Service Plan in free tier
-  az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+# Create an App Service Plan in free tier
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 
-  # Create a Web App
-  az webapp create --name <nameofyourapp> --plan myAppServicePlan --resource-group myResourceGroup
-  ```
+# Create a Web App
+az webapp create --name <nameofyourapp> --plan myAppServicePlan --resource-group myResourceGroup
+```
 
 # Deploy the App
 
-For this tutorial, we are going with ```Local Git``` to deploy our code.
+For this tutorial, we are going with ```Local Git``` to deploy our code. This can done using the Web Portal and with CLI
 
-### Deploy with Azure Portal and Git CLI (Windows/Linux)
+**1. Deploy using Web Portal**
+
 - Navigate to the ```Deployment Center``` to set up deployment settings
+![](_media/deployment/azure/deployment_settings_1.png)
 
-  ![](_media/deployment/azure/deployment_settings_1.png)
 - Choose your build server
+![](_media/deployment/azure/deployment_settings_kudu.png)
 
-  ![](_media/deployment/azure/deployment_settings_kudu.png)
 - Set deployment source to ```Local Git```
+![](_media/deployment/azure/deployment_settings_localgit_1.png)
 
-  ![](_media/deployment/azure/deployment_settings_localgit_1.png)
 - Click the highlighted button on right top to open the Azure CLI, run ```az webapp deployment user set --user-name $username --password $password``` to configure deployment credentials and record the resulting Git url
+![](_media/deployment/azure/deployment_settings_azure.png)
 
-  ![](_media/deployment/azure/deployment_settings_azure.png)
+**2. Deploy using CLI**
 
-- _Optional: the above steps can be done on Azure CLI with commands below_
-  ```bash
-  # Set the account-level deployment credentials
-  az webapp deployment user set --user-name $username --password $password
+``` bash
+# Set the account-level deployment credentials
+az webapp deployment user set --user-name $username --password $password
 
-  # Configure local Git and get deployment URL
-  echo $(az webapp deployment source config-local-git --name <nameofyourapp> --resource-group <nameofyourresourcegroup> --query url --output tsv)
-  ```
+# Configure local Git and get deployment URL
+echo $(az webapp deployment source config-local-git --name <nameofyourapp> --resource-group <nameofyourresourcegroup> --query url --output tsv)
+```
 
 - Push your local repo to your Azure Web App with [Git CLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line) or your favorite Git client
-  ```bash
-  # Add the Azure remote to your local Git respository and push your code
-  cd /path/to/local/repo
-  git remote add azure <giturlofyourapp>
-  git push azure master # use 'git push azure <nameofyourbranch>:master' if you would like to push other local branches than master
-  ```
+
+```bash
+# Add the Azure remote to your local Git respository and push your code
+cd /path/to/local/repo
+git remote add azure <giturlofyourapp>
+git push azure master # use 'git push azure <nameofyourbranch>:master' if you would like to push other local branches than master
+```
+
+- The app dashboard should look like:
+
+![](_media/deployment/azure/app_dashboard.png)
 
 - Open the app url to see our app in action
 
-    ![](_media/deployment/azure/app_dashboard.png)
-    ![](_media/deployment/azure/app_running.png)
+![](_media/deployment/azure/app_running.png)
 
-### Other Deployment Options
+**3. Other Deployment Options**
 - [Visual Code](https://azure.microsoft.com/en-us/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)/[Visual Studio](../node)
 - [VSTS](https://docs.microsoft.com/en-us/labs/devops/deployazurefunctionswithvsts/)
 - [Github](https://blogs.msdn.microsoft.com/benjaminperkins/2017/05/10/deploy-github-source-code-repositories-to-an-azure-app-service/)
 - [BitBucket](https://confluence.atlassian.com/bitbucket/deploy-to-microsoft-azure-900820699.html)
 - [FTP](https://docs.microsoft.com/en-us/azure/app-service/deploy-ftp)
 
-
-
 # Demo Screencast
-Watch this screencast demonstrating the above steps on the Azure Portal and CLI (the screencast is based on Bash but the commands involved would have been identical on Windows CLI and [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/getting-started-with-windows-powershell). And you can run Bash on Windows! See [this](http://mingw.org/wiki/msys) or [this](https://gitforwindows.org/) as part of Git or even try the [Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10))
-<iframe width="560" height="315" src="https://www.youtube.com/embed/h_b_te0Iza0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Watch this screencast demonstrating the deployment of our .NET sample in [Visual Studio 2017](https://visualstudio.microsoft.com/vs/) (similar steps can be taken to deploy your Node.js app with Visual Studio)
-<iframe width="560" height="315" src="https://www.youtube.com/embed/r7QyGvsXTK8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Watch this screencast demonstrating the above steps on the Azure Portal and CLI (the screencast is based on Bash but the commands involved would have been identical on Windows CLI and [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/getting-started-with-windows-powershell). And you can run Bash on Windows! See [this](http://mingw.org/wiki/msys) or [this](https://gitforwindows.org/) as part of Git or even try the [Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10))
+
+[viewNodejs](https://www.youtube.com/embed/h_b_te0Iza0 ':include :type=iframe width=100% height=400px')
 
 # Try For Yourself
 - Post deployment automation and testing with [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/javascript?view=vsts)
