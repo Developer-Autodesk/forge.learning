@@ -12,6 +12,16 @@ _Simply upload your code and Elastic Beanstalk automatically handles the deploym
 
 Choose your language: [.NET](deployment/aws/net)
 
+## Azure App Service
+
+_Microsoft Azure App Service is a fully managed platform to quickly build, deploy, and scale enterprise-grade web, mobile, and API apps running on any platform._ [Learn more](https://azure.microsoft.com/en-us/services/app-service/).
+
+Introduction - [What's Azure and its App Service, and why?](deployment/azure/)
+
+Deployment - Choose your language:  [NodeJS](deployment/azure/node) | [.NET](deployment/azure/net)
+
+Advanced Topics - [Custom domain name, Security, Load balancing, Backup and Restore, Elasticity and Autoscaling](deployment/azure/advanced)
+
 ## Heroku
 
 _Heroku is a cloud-based, platform-as-a-service (PaaS) based on a managed container system for building, running, and managing modern apps. Heroku’s platform, tools, integrated services, and ecosystem are meticulously designed to support the best possible developer experience._ [Learn more](https://devcenter.heroku.com/articles/git).

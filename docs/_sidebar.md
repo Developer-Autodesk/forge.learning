@@ -21,4 +21,7 @@
   - [Docking panel](viewer/extensions/panel)
   - [Examples](viewer/extensions/examples)
 - [Deployment](deployment/)
+  - [Amazon Web Services](deployment/aws/net)
+  - [Azure App Service](deployment/azure/)
+  - [Heroku](deployment/heroku/heroku)
 - [Support & Online resources](help/)
