@@ -18,7 +18,7 @@ _Microsoft Azure App Service is a fully managed platform to quickly build, deplo
 
 <!--Introduction - [What's Azure and its App Service, and why?](deployment/azure/)-->
 
-Deployment - Choose your language:  [NodeJS](deployment/azure/node) | [.NET](deployment/azure/net)
+Deployment - Choose your language:  [Node.js](deployment/azure/node) | [.NET](deployment/azure/net)
 
 <!--Advanced Topics - [Custom domain name, Security, Load balancing, Backup and Restore, Elasticity and Autoscaling](deployment/azure/advanced)-->
 

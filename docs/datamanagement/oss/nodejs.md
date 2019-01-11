@@ -1,4 +1,4 @@
-# Upload file to OSS (NodeJS)
+# Upload file to OSS (Node.js)
 
 In this section we need 3 features:
 

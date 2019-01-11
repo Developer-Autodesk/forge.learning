@@ -14,7 +14,7 @@ This creates the **package.json** file, which defines which packages our project
 
 ## Install packages
 
-By default, a NodeJS project is empty, so we need to install a few packages with **npm install**. Let's start with a basic **express** server, **cookie-session** for handling authentication session data, **multer** for file upload and, of course, **Autodesk Forge**.
+By default, a Node.js project is empty, so we need to install a few packages with **npm install**. Let's start with a basic **express** server, **cookie-session** for handling authentication session data, **multer** for file upload and, of course, **Autodesk Forge**.
 
 !> Run one **npm install** at a time.
 
@@ -67,7 +67,7 @@ At this point, you project should have the following structure:
 
 ## launch.json
 
-This file indicates to Visual Studio Code how we should run our project. Go to menu **Debug** >> **Add Configuration...** and, in the **Select Environment** window that appears on the top, choose **NodeJS**. In the **/.vscode/launch.json** file that is created, enter the following:
+This file indicates to Visual Studio Code how we should run our project. Go to menu **Debug** >> **Add Configuration...** and, in the **Select Environment** window that appears on the top, choose **Node.js**. In the **/.vscode/launch.json** file that is created, enter the following:
 
 !> Note you need to enter your **Forge Client ID & Secret** at the indicated space.
 

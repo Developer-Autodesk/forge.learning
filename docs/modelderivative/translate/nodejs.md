@@ -1,4 +1,4 @@
-# Translate Model (NodeJS)
+# Translate Model (Node.js)
 
 To translate a file we just need one endpoint.
 
