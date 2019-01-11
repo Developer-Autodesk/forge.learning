@@ -14,7 +14,7 @@ This creates the **package.json** file, which defines which packages our project
 
 ## Install packages
 
-By default, a NodeJS project is empty, so we need to install a few packages with **npm install**. Let's start with a basic **express** server, **body-parser** for JSON handling, **multer** for file upload and, of course, **Autodesk Forge**.
+By default, a Node.js project is empty, so we need to install a few packages with **npm install**. Let's start with a basic **express** server, **body-parser** for JSON handling, **multer** for file upload and, of course, **Autodesk Forge**.
 
 !> Run one **npm install** at a time.
 

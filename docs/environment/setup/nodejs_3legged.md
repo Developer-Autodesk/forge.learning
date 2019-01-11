@@ -1,4 +1,4 @@
-# Create a new project (NodeJS)
+# Create a new project (Node.js)
 
 Create a folder on your machine, do not use spaces and avoid special chars. For this tutorial, let's use **forgesample**.
 
