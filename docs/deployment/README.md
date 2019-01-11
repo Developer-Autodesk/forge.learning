@@ -1,6 +1,6 @@
 # Deployment
 
-This is when your app goes live! There are several options here, let's focus of a few.
+This is when your app goes live! There are several options out there, let's focus of a few.
 
 ## Amazon Web Services
 
@@ -12,13 +12,17 @@ _Simply upload your code and Elastic Beanstalk automatically handles the deploym
 
 Choose your language: [.NET](deployment/aws/net)
 
-## Azure App Service
+## Microsoft Azure
 
-_Microsoft Azure App Service is a fully managed platform to quickly build, deploy, and scale enterprise-grade web, mobile, and API apps running on any platform._ [Learn more](https://azure.microsoft.com/en-us/services/app-service/).
+Azure supports many different environments and programming languages, here are a few options:
+
+**App Service**
+
+_ Create powerful cloud apps using a fully managed platform: Quickly build, deploy, and scale enterprise-grade web, mobile, and API apps running on any platform. Meet rigorous performance, scalability, security and compliance requirements while using a fully managed platform to perform infrastructure maintenance._ [Learn more](https://azure.microsoft.com/en-us/services/app-service/).
 
 <!--Introduction - [What's Azure and its App Service, and why?](deployment/azure/)-->
 
-Deployment - Choose your language:  [Node.js](deployment/azure/node) | [.NET](deployment/azure/net)
+Choose your language:  [Node.js](deployment/azure/node) | [.NET](deployment/azure/net)
 
 <!--Advanced Topics - [Custom domain name, Security, Load balancing, Backup and Restore, Elasticity and Autoscaling](deployment/azure/advanced)-->
 
