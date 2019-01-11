@@ -6,6 +6,10 @@ For this tutorial, we will be using our ViewHubModels sample as described in [pr
 
 Before you start, [sign in or sign up](https://signup.azure.com/) for [Microsoft Azure Computing Platform & Services](https://azure.microsoft.com/) and create a [trial account](https://azure.microsoft.com/en-us/free/?cdn=disable), it includes $200 credit and free for 12 months
 
+## Prerequisites
+
+This tutorial requires [Visual Studio 2017](https://visualstudio.microsoft.com/vs/).
+
 # Create and Deploy to Azure
 
 - Open the sample project in Visual Studio. Right click on your project or select ```Build > Publish``` to start to publish to ```Azure App Service```
@@ -24,8 +28,7 @@ Before you start, [sign in or sign up](https://signup.azure.com/) for [Microsoft
 - Set up the environment variables with your Forge App credentials (```FORGE_CLIENT_ID``` and ```FORGE_CLIENT_SECRET```) and the callback url (following pattern ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```)
 ![](_media/deployment/azure/vsAppSettings.png)
 
-- Click on the ```Site URL``` to see the app in action
-![](_media/deployment/azure/app_running.png)
+Done! Click on the ```Site URL``` to see the app in action
 
 # Alternative Approaches
 
@@ -47,14 +50,12 @@ Watch this screencast demonstrating the deployment of our .NET sample in [Visual
 
 [videoNET](https://www.youtube.com/embed/dDg-fQ7SHAQ ':include :type=iframe width=100% height=400px')
 
-# Try For Yourself
+# Further Readings
 <!--
 This will be live soon (as another version of the tutorial)
 - Adapt this sample app to the [.NET Core Framework](https://docs.microsoft.com/en-us/dotnet/core/) and deploy it as a [Azure Web App](deployment/azure/node)
 -->
 - Try out [Application Insights](https://azure.microsoft.com/en-us/services/monitor/), [Cost Management](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview), [Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/18) and [many more Azure Cloud tools and features](https://azure.microsoft.com/en-us/services/)
-
-# Further Readings
 - What are [Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), [Service Plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/),[Azure Templates](https://azure.microsoft.com/en-us/resources/templates/) and [Staging Environment](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots)?
 - [Microsoft Azure Developer Camp: Build a Cloud-Native App](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-developer-camp-build-a-cloud-native-app-8299)
 - [Monitor Azure App Service performance](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-azure-web-apps)
