@@ -8,17 +8,7 @@ Before you start, [sign in or sign up](https://signup.azure.com/) for [Microsoft
 
 # Create and Deploy to Azure
 
-- Set up the environment variables in your ```Web.config```
-
-```xml
-<appSettings>
-  <add key="FORGE_CLIENT_ID" value="<yourclientid>" />
-  <add key="FORGE_CLIENT_SECRET" value="<yourclientsecret>" />
-  <add key="FORGE_CALLBACK_URL" value="http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth" />
-</appSettings>
-```
-
-- Right click on your project or select ```Build > Publish``` to start to publish to ```Azure App Service```
+- Open the sample project in Visual Studio. Right click on your project or select ```Build > Publish``` to start to publish to ```Azure App Service```
 ![](_media/deployment/azure/create_web_app_net.png)
 
 - Sign in or create a Azure free account
@@ -30,6 +20,9 @@ Before you start, [sign in or sign up](https://signup.azure.com/) for [Microsoft
 
 - Check the build output for deployment details. And note that a new profile has been automatically created so that going forward you can deploy your solution directly to this app and won't need to go through these steps again
 ![](_media/deployment/azure/net_app_published_result.png)
+
+- Set up the environment variables with your Forge App credentials (```FORGE_CLIENT_ID``` and ```FORGE_CLIENT_SECRET```) and the callback url (following pattern ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```)
+![](_media/deployment/azure/vsAppSettings.png)
 
 - Click on the ```Site URL``` to see the app in action
 ![](_media/deployment/azure/app_running.png)
@@ -52,7 +45,7 @@ Before you start, [sign in or sign up](https://signup.azure.com/) for [Microsoft
 
 Watch this screencast demonstrating the deployment of our .NET sample in [Visual Studio 2017](https://visualstudio.microsoft.com/vs/) (similar steps can be taken to deploy your Node.js app with Visual Studio)
 
-[videoNET](https://www.youtube.com/embed/r7QyGvsXTK8 ':include :type=iframe width=100% height=400px')
+[videoNET](https://www.youtube.com/embed/dDg-fQ7SHAQ ':include :type=iframe width=100% height=400px')
 
 # Try For Yourself
 <!--

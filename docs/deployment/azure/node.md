@@ -8,7 +8,7 @@ Before you start, [sign in or sign up](https://signup.azure.com/) for [Microsoft
 
 ## Prerequisites
 
-Most steps can be done via Web Portal, but [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) is required. 
+Most steps can be done via Web Portal, but [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) is required.
 
 ## Create an Azure Web App
 
@@ -62,6 +62,9 @@ For this tutorial, we are going with ```Local Git``` to deploy our code. This ca
 - Click the highlighted button on right top to open the Azure CLI, run ```az webapp deployment user set --user-name $username --password $password``` to configure deployment credentials and record the resulting Git url
 ![](_media/deployment/azure/deployment_settings_azure.png)
 
+- Set up the environment variables with your Forge App credentials (```FORGE_CLIENT_ID``` and ```FORGE_CLIENT_SECRET```) and the callback url (following pattern ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```)
+![](_media/deployment/azure/portalAppSettings.png)
+
 **2. Deploy using CLI**
 
 ``` bash
@@ -70,6 +73,9 @@ az webapp deployment user set --user-name $username --password $password
 
 # Configure local Git and get deployment URL
 echo $(az webapp deployment source config-local-git --name <nameofyourapp> --resource-group <nameofyourresourcegroup> --query url --output tsv)
+
+# Set up the environment variables
+az webapp config appsettings set -g MyResourceGroup -n <nameofyourapp> --settings FORGE_CLIENT_ID=<yourForgeAppClientID> FORGE_CLIENT_SECRET=<yourForgeAppSecret> FORGE_CLIENT_SECRET=<yourForgeAppSecret> FORGE_CALLBACK_URL=<yourCallbackURL>
 ```
 
 - Push your local repo to your Azure Web App with [Git CLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line) or your favorite Git client
