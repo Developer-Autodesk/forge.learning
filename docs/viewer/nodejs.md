@@ -1,6 +1,6 @@
-# Client-side files (NodeJS)
+# Client-side files (Node.js)
 
-Our NodeJS server is configured to serve files from `public` folder. Let's organize its content like this:
+Our Node.js server is configured to serve files from `public` folder. Let's organize its content like this:
 
 - `public/`: `.html` 
 - `public/js`: `.js`

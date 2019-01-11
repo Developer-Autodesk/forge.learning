@@ -6,7 +6,7 @@ Here are a few examples of extensions based on this skeleton approach:
 
 The extension can comunicate with server to implement more complex features, just like any other JavaScript code. The following samples demonstrate it:
 
-**NodeJS**
+**Node.js**
 
 - [Share Viewer state](https://forge.autodesk.com/blog/share-viewer-state-websockets): uses websocket to share state between 2+ instances of the Viewer.
 

@@ -1,6 +1,6 @@
 # Deployment
 
-This is when your app goes live! There are several options here, let's focus of a few.
+This is when your app goes live! There are several options out there, let's focus of a few.
 
 ## Amazon Web Services
 
@@ -11,6 +11,20 @@ Amazon Web Services (AWS) supports many different environments and programming l
 _Simply upload your code and Elastic Beanstalk automatically handles the deployment, from capacity provisioning, load balancing, auto-scaling to application health monitoring. At the same time, you retain full control over the AWS resources powering your application and can access the underlying resources at any time._ [Learn more](https://aws.amazon.com/elasticbeanstalk/).
 
 Choose your language: [.NET](deployment/aws/net)
+
+## Microsoft Azure
+
+Azure supports many different environments and programming languages, here are a few options:
+
+**App Service**
+
+_ Create powerful cloud apps using a fully managed platform: Quickly build, deploy, and scale enterprise-grade web, mobile, and API apps running on any platform. Meet rigorous performance, scalability, security and compliance requirements while using a fully managed platform to perform infrastructure maintenance._ [Learn more](https://azure.microsoft.com/en-us/services/app-service/).
+
+<!--Introduction - [What's Azure and its App Service, and why?](deployment/azure/)-->
+
+Choose your language:  [Node.js](deployment/azure/node) | [.NET](deployment/azure/net)
+
+<!--Advanced Topics - [Custom domain name, Security, Load balancing, Backup and Restore, Elasticity and Autoscaling](deployment/azure/advanced)-->
 
 ## Heroku
 
