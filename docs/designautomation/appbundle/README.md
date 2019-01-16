@@ -10,4 +10,6 @@ At this section we will create a basic plugin that update `width` and `height` p
 
 For the next step, choose the **Engine**, which is the Autodesk application where you plugin will run. You'll need the respective application installed in order to compile, debug and test locally.
 
+> Checkpoint: at this point you should have a Visual Studio solution with 1 project (forgesample webapp).
+
 Choose the engine: [AutoCAD](/designautomation/appbundle/engines/autocad) | [Inventor](/designautomation/appbundle/engines/inventor) | [Revit](/designautomation/appbundle/engines/revit) | [3ds Max](/designautomation/appbundle/engines/max)
