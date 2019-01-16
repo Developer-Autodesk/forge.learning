@@ -260,4 +260,8 @@ function startConnection(onReady) {
 }
 ```
 
+The final result should look like:
+
+![](_media/designautomation/netcore/basefiles.png)
+
 Next: [Prepare a plugin](designautomation/appbundle/)
