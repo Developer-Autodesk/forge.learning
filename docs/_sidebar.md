@@ -16,6 +16,7 @@
   - [Show on Viewer](viewer/3legged/readme.md)
 - [Modify your models](tutorials/modifymodels.md)
   - [Create a server](environment/setup/2legged_da.md)
+  - [Basic app UI](designautomation/html/readme.md)
   - [Prepare a plugin](designautomation/appbundle/readme.md)
   - [Define an activity](designautomation/activity/readme.md)
   - [Execute workitem](designautomation/workitem/readme.md)
