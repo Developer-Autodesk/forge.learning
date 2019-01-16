@@ -2,7 +2,6 @@
 
 The following methods should be added to the `DesignAutomationController` class.
 
-
 **1. EngineAttributes**
 
 To define the activity we'll need the executable and the default file extension. This helper function provides it (from the engine name). 
@@ -111,5 +110,9 @@ public async Task<List<string>> GetDefinedActivities()
     return definedActivities;
 }
 ```
+
+Now you can click on **Configure** (top-right), select the AppBundle, select the Engine and click on **Define Activity**, which should define and upload the appbundle and define the activity. The results panel (left-side) shows the respective ids. **All other buttons do not work yet**... let's move forward.
+
+![](_media/designautomation/define_activity.gif)
 
 Next: [Execute workitem](designautomation/workitem/)

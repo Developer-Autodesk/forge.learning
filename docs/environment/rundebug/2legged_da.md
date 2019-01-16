@@ -6,6 +6,8 @@ Now that your app is ready, it's time to run it. This is where we can test and c
 
 At the top-roght, click on **Configure** to define AppBundle & Activity. This only need to be done once. Specify the new `width` and `height` on the left panel, select the `input file` and click on `Start workitem`. The right panel should show the results.
 
+You can find [sample files here](https://github.com/Developer-Autodesk/learn.forge.designautomation/tree/master/sample%20files).
+
 !> If the plugin code changes, then you need to redefine the AppBundle. This sample will create a new version every time a new AppBundle is uploaded.
 
 ![](_media/tutorials/run_sample_modifymodels.gif)
@@ -22,7 +24,7 @@ Consider use the **Clear Account** button. This removes all AppBundles & Activit
 
 **3. Cannot see my AppBundle at the Configuration form**
 
-The ZIP bundles are copied to the `webapp/wwwroot/bundles` after you Build the respective plugin. Make sure the `Post-build` event is properly defined and executed after build.
+The ZIP bundles are copied to the `wwwroot/bundles` after you Build the respective plugin. Make sure the `Post-build` event is properly defined and executed after build.
 
 Ready? Let's run it!
 

@@ -172,7 +172,7 @@ This will copy the DLL from /bin/debug/ into .bundle/Contents folder, then use [
 
 ![](_media/designautomation/autocad/post_build.png)
 
-If you build the `autocad` project now you should see something like this on the **Output** window (note the 2 folders, 3 files), this means you're doing great! :wink:
+If you build the `autocad` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great! :wink:
 
 ![](_media/designautomation/autocad/build_output.png)
 

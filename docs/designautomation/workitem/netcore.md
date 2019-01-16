@@ -164,4 +164,6 @@ public async Task<IActionResult> ClearAccount()
 }
 ```
 
+Everything ready!
+
 Next: [Run & Debug](environment/rundebug/2legged_da)

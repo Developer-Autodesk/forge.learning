@@ -264,4 +264,6 @@ The final result should look like:
 
 ![](_media/designautomation/netcore/basefiles.png)
 
+At this point you can run your project, the HTML interface should open, indicating that your project was created correctly. None of the buttons should work... let's move forward.
+
 Next: [Prepare a plugin](designautomation/appbundle/)

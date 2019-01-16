@@ -172,4 +172,8 @@ public async Task<IActionResult> CreateAppBundle([FromBody]JObject appBundleSpec
 }
 ```
 
+If you launch the webapp now and click on **Configure** (top-right), you should see your AppBundle and a list of all available engines. **Buttons do not work yet**... let's move forward.
+
+![](_media/designautomation/list_engines.png)
+
 Next: [Define an Activity](designautomation/activity/)
