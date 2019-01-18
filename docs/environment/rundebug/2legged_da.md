@@ -8,7 +8,7 @@ At the top-roght, click on **Configure** to define AppBundle & Activity. This on
 
 You can find [sample files here](https://github.com/Developer-Autodesk/learn.forge.designautomation/tree/master/sample%20files).
 
-!> If the plugin code changes, then you need to redefine the AppBundle. This sample will create a new version every time a new AppBundle is uploaded.
+!> If the plugin code changes, then you need to upload a new AppBundle and increase the version (e.g. v1 to v2). This sample will create a new version every time a new AppBundle is uploaded.
 
 ![](_media/tutorials/run_sample_modifymodels.gif)
 
@@ -25,6 +25,16 @@ Consider use the **Clear Account** button. This removes all AppBundles & Activit
 **3. Cannot see my AppBundle at the Configuration form**
 
 The ZIP bundles are copied to the `wwwroot/bundles` after you Build the respective plugin. Make sure the `Post-build` event is properly defined and executed after build.
+
+**4. Ensuring the correct DLL was uploaded**
+
+A easy trick to ensure the correct DLL was uploaded to Design Automation is to check it's date. [This StackOverflow answer](https://stackoverflow.com/a/1600990) shows how to get the Linker Date (i.e. when the DLL was compiled), with that you can show it on the begining of your code. Note the dates are on the server timezone.
+
+```csharp
+LogTrace("DLL {0} compiled on {1}",
+    System.IO.Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location),
+    GetLinkerTime(System.Reflection.Assembly.GetExecutingAssembly()));
+```
 
 Ready? Let's run it!
 

@@ -1,4 +1,4 @@
-# Execute workitem (.NET Core)
+# Execute Workitem (.NET Core)
 
 The following methods should be added to the `DesignAutomationController` class.
 
