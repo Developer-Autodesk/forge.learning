@@ -1,12 +1,23 @@
 # Prepare an AutoCAD bundle
 
-This step will help you create a basic AutoCAD plugin. For more information, please visit [My First AutoCAD Plugin](https://knowledge.autodesk.com/support/autocad/learn-explore/caas/simplecontent/content/my-first-autocad-plug-overview.html) tutorial.
+This step will help you create a basic AutoCAD plugin for Design Automation. For more information, please visit [My First AutoCAD Plugin](https://knowledge.autodesk.com/support/autocad/learn-explore/caas/simplecontent/content/my-first-autocad-plug-overview.html) tutorial.
 
 ## Create a new project
 
-Right-click on the solution, the **Add** >> **New Project**. Select **Windows Desktop**, then **Class Library** and, finally, name it `autocad`.
+Right-click on the solution, the **Add** >> **New Project**. Select **Windows Desktop**, then **Class Library** and, finally, name it `UpdateDWGParam`. Then right-click on the project, go to **Manage NuGet Packages...**, under **Browser** you can search for **AutoCAD.NET** and install `AutoCAD.NET.Core` (which also installs `AutoCAD.NET.Model`). Then search and install `Newtonsoft.Json` (which is used to parse input data in JSON format).
 
 ![](_media/designautomation/autocad/new_project.gif)
+
+As a result, the **package.config** should look like the following. These are the latest version as of Feb/2019.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<packages>
+  <package id="AutoCAD.NET.Core" version="23.0.0" targetFramework="net47" />
+  <package id="AutoCAD.NET.Model" version="23.0.0" targetFramework="net47" />
+  <package id="Newtonsoft.Json" version="12.0.1" targetFramework="net47" />
+</packages>
+```
 
 The project should contain a `Class1.cs` class, let's rename the file to `Commands.cs` (for consistency). 
 
@@ -17,17 +28,16 @@ This is the main code that will run with AutoCAD. Copy the following content int
 ```csharp
 using Autodesk.AutoCAD.ApplicationServices.Core;
 using Autodesk.AutoCAD.DatabaseServices;
-using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 using Newtonsoft.Json;
 using System.IO;
 
-[assembly: CommandClass(typeof(Autodesk.Forge.Sample.DesignAutomation.AutoCAD.MainEntry))]
+[assembly: CommandClass(typeof(Autodesk.Forge.Sample.DesignAutomation.AutoCAD.Commands))]
 [assembly: ExtensionApplication(null)]
 
 namespace Autodesk.Forge.Sample.DesignAutomation.AutoCAD
 {
-  public class MainEntry
+  public class Commands
   {
     [CommandMethod("UpdateParam", CommandFlags.Modal)]
     public static void UpdateParam()
@@ -62,7 +72,6 @@ namespace Autodesk.Forge.Sample.DesignAutomation.AutoCAD
               {
                 dynBlockRefs.Add(id);
               }
-
             }
             if (dynBlockRefs.Count > 0)
             {
@@ -119,33 +128,15 @@ namespace Autodesk.Forge.Sample.DesignAutomation.AutoCAD
 
 ## PackageContents.xml
 
-Create a folder named `UpdateDWGParam.bundle` and, inside, a file named `PackageContents.xml`, then copy the following content to it. Learn more about PackageContents at the [AutoCAD Developer Center](https://www.autodesk.com/developer-network/platform-technologies/autocad).
+Create a folder named `UpdateDWGParam.bundle` and, inside, a file named `PackageContents.xml`, then copy the following content to it. Learn more at the [PackageContents.xml Format Reference](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html).
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<ApplicationPackage
-    SchemaVersion="1.0"
-    Version="1.0"
-    ProductCode="{F11EA57A-1E7E-4B6D-8E81-986B071E3E07}"
-    Name="UpdateWindowParameters"
-    Description="A sample package to update parameters of a Dyanmic blockreference"
-    Author="Autodesk Forge">
-  <CompanyDetails
-      Name="Autodesk, Inc"
-      Phone="12345678910"
-      Url="www.autodesk.com"
-      Email="forge.help@autodesk.com"/>
+<ApplicationPackage SchemaVersion="1.0" Version="1.0" ProductCode="{F11EA57A-1E7E-4B6D-8E81-986B071E3E07}" Name="UpdateWindowParameters" Description="A sample package to update parameters of a Dyanmic blockreference" Author="Autodesk Forge">
+  <CompanyDetails Name="Autodesk, Inc" Phone="12345678910" Url="www.autodesk.com" Email="forge.help@autodesk.com"/>
   <Components>
-    <RuntimeRequirements
-        OS="Win64"
-        Platform="AutoCAD"
-		SeriesMin="R23.0" SeriesMax="R23.0"/>
-    <ComponentEntry
-        AppName="UpdateWindowParameters"
-        ModuleName="./Contents/UpdateDWGParam.dll"
-        AppDescription="AutoCAD.IO .net App to update parameters of Dynamic blockreference in AutoCAD Drawing"
-        LoadOnCommandInvocation="True"
-        LoadOnAutoCADStartup="True">
+    <RuntimeRequirements OS="Win64" Platform="AutoCAD" SeriesMin="R23.0" SeriesMax="R23.0"/>
+    <ComponentEntry AppName="UpdateWindowParameters" ModuleName="./Contents/UpdateDWGParam.dll" AppDescription="AutoCAD.IO .net App to update parameters of Dynamic blockreference in AutoCAD Drawing" LoadOnCommandInvocation="True" LoadOnAutoCADStartup="True">
       <Commands GroupName="FPDCommands">
         <Command Global="UpdateWindowParam" Local="UpdateWindowParam"/>
       </Commands>
@@ -164,15 +155,17 @@ Now we need to ZIP the .bundle folder. Right-click on the project, select **Prop
 
 ```
 xcopy /Y /F $(TargetDir)*.dll $(ProjectDir)UpdateDWGParam.bundle\Contents\
-del /F $(ProjectDir)..\webapp\wwwroot\bundles\UpdateDWGParam.zip
-"C:\Program Files\7-Zip\7z.exe" a -tzip $(ProjectDir)../webapp/wwwroot/bundles/UpdateDWGParam.zip  $(ProjectDir)UpdateDWGParam.bundle\ -xr0!*.pdb
+del /F $(ProjectDir)..\forgesample\wwwroot\bundles\UpdateDWGParam.zip
+"C:\Program Files\7-Zip\7z.exe" a -tzip $(ProjectDir)../forgesample/wwwroot/bundles/UpdateDWGParam.zip  $(ProjectDir)UpdateDWGParam.bundle\ -xr0!*.pdb
 ```
 
 This will copy the DLL from /bin/debug/ into .bundle/Contents folder, then use [7zip](https://www.7-zip.org/) to create a zip, then finally copy the ZIP into /bundles folders of the webapp.
 
 ![](_media/designautomation/autocad/post_build.png)
 
-If you build the `autocad` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great! :wink:
+> Note how the **Post-build event** uses the project and folder names, so make sure you're using this names.
+
+If you build the `UpdateDWGParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great! :wink:
 
 ![](_media/designautomation/autocad/build_output.png)
 
