@@ -172,6 +172,15 @@ public async Task<IActionResult> CreateAppBundle([FromBody]JObject appBundleSpec
 }
 ```
 
+As the `DesignAutomationHub` class is now defined (inside this controller), open the `Startup.cs` and, inside `Configure` method, add the following line:
+
+```csharp
+app.UseSignalR(routes =>
+{
+    routes.MapHub<DesignAutomationHub>("/api/signalr/designautomation");
+});
+```
+
 If you launch the webapp now and click on **Configure** (top-right), you should see your AppBundle and a list of all available engines. **Buttons do not work yet**... let's move forward.
 
 ![](_media/designautomation/list_engines.png)
