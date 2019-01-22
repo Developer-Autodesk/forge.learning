@@ -24,7 +24,7 @@ On the **Web.Config** file, add the Forge Client ID & Secret entries (obtained w
 ....
 ```
 
-The ASP.NET engines limits the size of file on uploads to 4Mb and filter requests bigger than 30Mb. We can change this limit to the maximum (or you can adjust to your needs). On the `web.config` file, search for `httpRuntime` and add the `maxRequestLength` to it, as shown below:
+The ASP.NET engine limits the size of file on uploads to 4Mb and filter requests bigger than 30Mb. We can change this limit to the maximum (or you can adjust to your needs). On the `web.config` file, search for `httpRuntime` and add the `maxRequestLength` to it, as shown below:
 
 ```xml
 <!-- httpRuntime targetFramework is already on your file, just add the maxRequestLength -->
