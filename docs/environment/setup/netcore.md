@@ -17,7 +17,7 @@ Right-click on the projet, go to **Properties**, then under **Debug** tab see th
 - `FORGE_CLIENT_SECRET`: use your secret here
 - `FORGE_WEBHOOK_CALLBACK_HOST`: use the **ngrok** forwarding URL from previous step
 
-You may also check **Launch browser** and specify the **App URL** as shown below.
+You may also check **Launch browser** and specify the **App URL**. Finally, as this is running locally, uncheck **Enable SSL** option. It should look like as shown below.
 
 ![](_media/netcore/env_vars.png) 
 
@@ -28,27 +28,13 @@ Now open the **Startup.cs** and replace the content of the `Startup` class with 
 // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+    services.AddMvc();
     services.AddSignalR();
 }
 
 // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
-    if (env.IsDevelopment())
-    {
-        app.UseDeveloperExceptionPage();
-    }
-    else
-    {
-        app.UseHsts();
-    }
-
-    app.UseSignalR(routes =>
-    {
-        routes.MapHub<DesignAutomationHub>("/api/signalr/designautomation");
-    });
-
     app.UseFileServer();
     app.UseMvc();
 }
@@ -58,7 +44,7 @@ Finally, create a **Controllers** folder, which will later host the WebAPI Contr
 
 ## OAuthController.cs
 
-We'll need an `access token` to start Design Automation and to read & write input & output files to OSS Buckets.
+We'll need an `access token` to start Design Automation and to read & write input & output files to OSS Buckets. Under **Controllers** folder, create a `OAuthController.cs` file with the following content:
 
 ```csharp
 using System;
