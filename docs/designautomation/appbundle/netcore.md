@@ -181,7 +181,7 @@ app.UseSignalR(routes =>
 });
 ```
 
-If you launch the webapp now and click on **Configure** (top-right), you should see your AppBundle and a list of all available engines. **Buttons do not work yet**... let's move forward.
+If you run the webapp now and click on **Configure** (top-right), you should see your AppBundle and a list of all available engines. **Buttons do not work yet**... let's move forward.
 
 ![](_media/designautomation/list_engines.png)
 
