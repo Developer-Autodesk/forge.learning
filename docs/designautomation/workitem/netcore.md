@@ -131,7 +131,7 @@ public async Task<IActionResult> OnCallback(string id, [FromBody]dynamic body)
         string report = System.Text.Encoding.Default.GetString(bs);
         await _hubContext.Clients.Client(id).SendAsync("onComplete", report);
     }
-    catch (Exception e) { }
+    catch { }
 
     // ALWAYS return ok (200)
     return Ok();
