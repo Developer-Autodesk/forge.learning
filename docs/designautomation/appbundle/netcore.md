@@ -58,11 +58,11 @@ namespace forgeSample.Controllers
 }
 ```
 
-Now let's add a few endpoints to this class.
+Now let's add a few endpoints to this class. The following methods must be copied inside the `DesignAutomationController` class.
 
 **1. GetLocalBundles**
 
-Look at the `bundles` folder and return a lista of .ZIP files.
+Look at the `bundles` folder and return a list of .ZIP files.
 
 ```csharp
 /// <summary>
@@ -177,7 +177,7 @@ As the `DesignAutomationHub` class is now defined (inside this controller), open
 ```csharp
 app.UseSignalR(routes =>
 {
-    routes.MapHub<DesignAutomationHub>("/api/signalr/designautomation");
+    routes.MapHub<Controllers.DesignAutomationHub>("/api/signalr/designautomation");
 });
 ```
 
