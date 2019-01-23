@@ -1,4 +1,4 @@
-# Upload file to OSS (.NET Framework)
+# Upload file to OSS (.NET Core)
 
 At this section we actually need 3 features:
 
@@ -8,7 +8,7 @@ At this section we actually need 3 features:
 
 ## OSSController.cs
 
-Create a .NET WebAPI Controller named **OSSController** (see [how to create a controller](environment/setup/net_controller)) and add the following content:
+Under **Controllers** folder, create a class/file named **OSSController** and add the following content:
 
 ```csharp
 using Autodesk.Forge;

@@ -4,7 +4,7 @@ To translate a file we just need one endpoint.
 
 ## ModelDerivativeController.cs
 
-Create a .NET WebAPI Controller named **ModelDerivativeController** (see [how to create a controller](environment/setup/net_controller)) and add the following content:
+Under **Controllers** folder, create a class/file named **ModelDerivativeController** and add the following content:
 
 ```csharp
 using Autodesk.Forge;
