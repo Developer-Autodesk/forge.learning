@@ -1,4 +1,4 @@
-# Authenticate (.NET)
+# Authenticate (.NET Framework)
 
 ## OAuthController.cs
 

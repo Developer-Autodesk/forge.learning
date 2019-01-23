@@ -10,6 +10,8 @@ You can find [sample files here](https://github.com/Developer-Autodesk/learn.for
 
 !> If the plugin code changes, then you need to upload a new AppBundle and increase the version (e.g. v1 to v2). This sample will create a new version every time a new AppBundle is uploaded.
 
+> Both input and output files are saved on OSS Buckets, you can use [View Models](tutorials/viewmodels) tutorial to view them.
+
 ![](_media/tutorials/run_sample_modifymodels.gif)
 
 ## Troubleshooting

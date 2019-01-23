@@ -1,8 +1,8 @@
-# Authenticate (.NET)
+# Authenticate (.NET Core)
 
 ## OAuthController.cs
 
-Create a .NET WebAPI Controller named **OAuthController** (see [how to create a controller](environment/setup/net_controller)) and add the following content:
+Under **Controllers** folder, create a class/file named **OAuthController** and add the following content:
 
 ```csharp
 using System;
