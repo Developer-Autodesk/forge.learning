@@ -31,7 +31,7 @@ public async Task<IActionResult> StartWorkitem([FromForm]StartWorkitemInput inpu
     string browerConnectionId = workItemData["browerConnectionId"].Value<string>();
 
     // save the file on the server
-    var fileSavePath = Path.Combine(_env.ContentRootPath, input.inputFile.FileName);
+    var fileSavePath = Path.Combine(_env.ContentRootPath, Path.GetFileName(input.inputFile.FileName));
     using (var stream = new FileStream(fileSavePath, FileMode.Create)) await input.inputFile.CopyToAsync(stream);
 
     // OAuth token
@@ -49,7 +49,7 @@ public async Task<IActionResult> StartWorkitem([FromForm]StartWorkitemInput inpu
     }
     catch { }; // in case bucket already exists
     // 2. upload inputFile
-    string inputFileNameOSS = string.Format("{0}_input_{1}", DateTime.Now.ToString("yyyyMMddhhmmss"), input.inputFile.FileName); // avoid overriding
+    string inputFileNameOSS = string.Format("{0}_input_{1}", DateTime.Now.ToString("yyyyMMddhhmmss"), Path.GetFileName(input.inputFile.FileName)); // avoid overriding
     ObjectsApi objects = new ObjectsApi();
     objects.Configuration.AccessToken = oauth.access_token;
     using (StreamReader streamReader = new StreamReader(fileSavePath))
@@ -72,7 +72,7 @@ public async Task<IActionResult> StartWorkitem([FromForm]StartWorkitemInput inpu
     inputJson.Height = heigthParam;
     JObject inputJsonArgument = new JObject { new JProperty("url", "data:application/json, " + ((JObject)inputJson).ToString(Formatting.None).Replace("\"", "'")) }; // ToDo: need to improve this
     // 3. output file
-    string outputFileNameOSS = string.Format("{0}_output_{1}", DateTime.Now.ToString("yyyyMMddhhmmss"), input.inputFile.FileName); // avoid overriding
+    string outputFileNameOSS = string.Format("{0}_output_{1}", DateTime.Now.ToString("yyyyMMddhhmmss"), Path.GetFileName(input.inputFile.FileName)); // avoid overriding
     JObject outputFileArgument = new JObject
     {
         new JProperty("verb", "PUT"),
