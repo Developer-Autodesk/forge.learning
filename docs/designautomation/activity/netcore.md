@@ -36,17 +36,12 @@ public async Task<IActionResult> CreateActivity([FromBody]JObject activitySpecs)
     string zipFileName = activitySpecs["zipFileName"].Value<string>();
     string engineName = activitySpecs["engine"].Value<string>();
 
-    // define Activities API
-    dynamic oauth = await OAuthController.GetInternalAsync();
-    ActivitiesApi activitiesApi = new ActivitiesApi();
-    activitiesApi.Configuration.AccessToken = oauth.access_token;
-
     // standard name for this sample
     string appBundleName = zipFileName + "AppBundle";
     string activityName = zipFileName + "Activity";
 
     // 
-    PageString activities = await activitiesApi.ActivitiesGetItemsAsync();
+    Page<string> activities = await _designAutomation.GetActivitiesAsync();
     string qualifiedActivityId = string.Format("{0}.{1}+{2}", NickName, activityName, Alias);
     if (!activities.Data.Contains(qualifiedActivityId))
     {
@@ -54,24 +49,28 @@ public async Task<IActionResult> CreateActivity([FromBody]JObject activitySpecs)
         // ToDo: parametrize for different engines...
         dynamic engineAttributes = EngineAttributes(engineName);
         string commandLine = string.Format(@"$(engine.path)\\{0} /i $(args[inputFile].path) /al $(appbundles[{1}].path) /s $(settings[script].path)", engineAttributes.executable, appBundleName);
-        ModelParameter inputFile = new ModelParameter(false, false, ModelParameter.VerbEnum.Get, "input file", true, "$(inputFile)");
-        ModelParameter inputJson = new ModelParameter(false, false, ModelParameter.VerbEnum.Get, "input json", false, "params.json");
-        ModelParameter outputFile = new ModelParameter(false, false, ModelParameter.VerbEnum.Put, "output file", true, "outputFile." + engineAttributes.extension);
-        Activity activitySpec = new Activity(
-            new List<string>() { commandLine },
-            new Dictionary<string, ModelParameter>() {
-            { "inputFile", inputFile },
-            { "inputJson", inputJson },
-            { "outputFile", outputFile }
+        Activity activitySpec = new Activity()
+        {
+            Id = activityName,
+            Appbundles = new List<string>() { string.Format("{0}.{1}+{2}", NickName, appBundleName, Alias) },
+            CommandLine = new List<string>() { commandLine },
+            Engine = engineName,
+            Parameters = new Dictionary<string, Parameter>()
+            {
+                { "inputFile", new Parameter() { Description = "input file", LocalName = "$(inputFile)", Ondemand = false, Required = true, Verb = Verb.Get, Zip = false } },
+                { "inputJson", new Parameter() { Description = "input json", LocalName = "params.json", Ondemand = false, Required = false, Verb = Verb.Get, Zip = false } },
+                { "outputFile", new Parameter() { Description = "output file", LocalName = "outputFile." + engineAttributes.extension, Ondemand = false, Required = true, Verb = Verb.Put, Zip = false } }
             },
-            engineName, new List<string>() { string.Format("{0}.{1}+{2}", NickName, appBundleName, Alias) },
-            new Dictionary<string, dynamic>() { { "script", new { value = "UpdateParam\n" }  } },
-            string.Format("Description for {0}", activityName), null, activityName);
-            Activity newActivity = await activitiesApi.ActivitiesCreateItemAsync(activitySpec);
- 
+            Settings = new Dictionary<string, ISetting>()
+            {
+                { "script", new StringSetting(){ Value = "UpdateParam\n"  }  }
+            }
+        };
+        Activity newActivity = await _designAutomation.CreateActivityAsync(activitySpec);
+
         // specify the alias for this Activity
-        Alias aliasSpec = new Alias(1, null, Alias);
-        Alias newAlias = await activitiesApi.ActivitiesCreateAliasAsync(activityName, aliasSpec);
+        Alias aliasSpec = new Alias() { Id = Alias, Version = 1 };
+        Alias newAlias = await _designAutomation.CreateActivityAliasAsync(activityName, aliasSpec);
 
         return Ok(new { Activity = qualifiedActivityId });
     }
@@ -94,14 +93,8 @@ We'll also need a method to return all defined activities. Note that returns onl
 [Route("api/forge/designautomation/activities")]
 public async Task<List<string>> GetDefinedActivities()
 {
-    dynamic oauth = await OAuthController.GetInternalAsync();
-
-    // define Activities API
-    ActivitiesApi activitiesApi = new ActivitiesApi();
-    activitiesApi.Configuration.AccessToken = oauth.access_token; ;
-
     // filter list of 
-    PageString activities = await activitiesApi.ActivitiesGetItemsAsync();
+    Page<string> activities = await _designAutomation.GetActivitiesAsync();
     List<string> definedActivities = new List<string>();
     foreach (string activity in activities.Data)
         if (activity.StartsWith(NickName) && activity.IndexOf("$LATEST") == -1)
