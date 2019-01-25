@@ -105,6 +105,8 @@ public class StartWorkitemInput
 }
 ```
 
+> Note how the `StartWorkitemInput` class is defined **inside** de **DesignAutomationController**, this is correct and it's used as input parameter for `StartWorkitem` method.
+
 **2. OnCallback**
 
 When the workitem is done, Design Automation will callback our app (using the ngrok forwarding URL). This function will handle it and push a notification to the client (using SignalR Hub).

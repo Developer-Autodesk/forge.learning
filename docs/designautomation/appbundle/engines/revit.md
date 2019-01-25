@@ -8,11 +8,11 @@ Right-click on the solution, the **Add** >> **New Project**. Select **Windows De
 
 > Please select .NET Framework 4.7. If not listed, [please install](https://dotnet.microsoft.com/download/thank-you/net47).
 
+Right-click on **References**, then **Add Reference** and **Browse** for `RevitAPI.dll` (by default under _C:\Program Files\Autodesk\Revit 201x\_ folder)
+
 Then right-click on the project, go to **Manage NuGet Packages...**, under **Browser** you can search for **DesignAutomation.Revt** and install `Autodesk.Forge.DesignAutomation.Revit` (choose the appropriate Revit version you need). Then search and install `Newtonsoft.Json` (which is used to parse input data in JSON format). 
 
-> Please check **Include prerelease** while searching for packages. Design Automation for Revit in beta (as of Jan/2019).
-
-Now right-click on **References**, then **Add Reference** and **Browse** for `RevitAPI.dll` (by default under _C:\Program Files\Autodesk\Revit 201x\_ folder)
+> Please check **Include prerelease** while searching for packages. Design Automation for Revit is in beta (as of Jan/2019).
 
 ![](_media/designautomation/revit/new_project.gif)
 

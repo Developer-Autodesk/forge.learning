@@ -6,6 +6,8 @@ Go to menu **File** >> **New** >> **Project** and select **.NET Core** >> **ASP.
 
 Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk.Forge** and install `Autodesk.Forge` and `Autodesk.Forge.DesignAutomation`, where the first will be used to upload input and output results to OSS and the second to use Design Automation. 
 
+> Please check **Include prerelease** while searching for packages. Design Automation v3 is in beta (as of Jan/2019).
+
 ![](_media/netcore/create_project.gif) 
 
 !> If **Web** & **ASP.NET** project types are not available, please review [Tools](environment/tools/net) section
@@ -64,7 +66,7 @@ Finally, create a **Controllers** folder, which will later host the WebAPI Contr
 
 ## OAuthController.cs
 
-We'll need an `access token` to start Design Automation and to read & write input & output files to OSS Buckets. Under **Controllers** folder, create a `OAuthController.cs` file with the following content:
+We'll need an `access token` to read & write input & output files to OSS Buckets. Under **Controllers** folder, create a `OAuthController.cs` file with the following content:
 
 ```csharp
 using System;

@@ -51,7 +51,7 @@ namespace forgesample.Controllers
 
         // **********************************
         //
-        // Will add the methods here later...
+        // Next we will add the methods here
         //
         // **********************************
     }
