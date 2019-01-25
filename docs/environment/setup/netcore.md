@@ -12,7 +12,7 @@ Install the Autodesk Forge NuGet package: right-click on the project (**Solution
 
 !> If **Web** & **ASP.NET** project types are not available, please review [Tools](environment/tools/net) section
 
-Right-click on the projet, go to **Properties**, then under **Debug** tab see the **Environment Variables** section. `ASPNETCORE_ENVIRONMENT` should be already defined, so add:
+Right-click on the project, go to **Properties**, then under **Debug** tab see the **Environment Variables** section. `ASPNETCORE_ENVIRONMENT` should be already defined, so add:
 
 - `ASPNETCORE_URLS`: use `http://localhost:3000`
 - `FORGE_CLIENT_ID`: use your id here

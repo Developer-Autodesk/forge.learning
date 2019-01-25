@@ -2,7 +2,7 @@
 
 Design Automation uses .bundle just like the Autodesk App Store, meaning you need to create a `PackageContents.xml` and a ZIP with the `DLL` (and other required files). For detailed information on how to create them, please visit [Autodesk App Store Developer Center](https://www.autodesk.com/developer-network/app-store).
 
-At this section we will create a basic plugin that update `width` and `height` parameter and save the resulting file. Also the supporting files (`PackageContents.xml`) and the folder structure to place them. Finally create a .ZIP file ready to Design Automation.
+At this section we will create a basic plugin that update `width` and `height` parameter and save the resulting file. Also the supporting files (`PackageContents.xml`) and the folder structure to place them. Finally create a .ZIP file ready to upload to Design Automation.
 
 ### Prerequisites
 

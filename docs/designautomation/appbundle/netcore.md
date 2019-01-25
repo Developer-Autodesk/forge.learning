@@ -135,7 +135,7 @@ public async Task<IActionResult> CreateAppBundle([FromBody]JObject appBundleSpec
     // get defined app bundles
     Page<string> appBundles = await _designAutomation.GetAppBundlesAsync();
 
-    // check if app bundle is already define
+    // check if app bundle is already defined
     dynamic newAppVersion;
     string qualifiedAppBundleId = string.Format("{0}.{1}+{2}", NickName, appBundleName, Alias);
     if (!appBundles.Data.Contains(qualifiedAppBundleId))
