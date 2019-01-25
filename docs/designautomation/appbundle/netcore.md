@@ -8,9 +8,9 @@ Under **Controllers** folder create a `DesignAutomationController.cs` with the f
 
 ```csharp
 using Autodesk.Forge;
-using Autodesk.Forge.DesignAutomation.v3;
+using Autodesk.Forge.DesignAutomation;
+using Autodesk.Forge.DesignAutomation.Model;
 using Autodesk.Forge.Model;
-using Autodesk.Forge.Model.DesignAutomation.v3;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,13 +23,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using ActivitiesApi = Autodesk.Forge.DesignAutomation.v3.ActivitiesApi;
-using Activity = Autodesk.Forge.Model.DesignAutomation.v3.Activity;
-using EnginesApi = Autodesk.Forge.DesignAutomation.v3.EnginesApi;
-using WorkItem = Autodesk.Forge.Model.DesignAutomation.v3.WorkItem;
-using WorkItemsApi = Autodesk.Forge.DesignAutomation.v3.WorkItemsApi;
+using Activity = Autodesk.Forge.DesignAutomation.Model.Activity;
+using Alias = Autodesk.Forge.DesignAutomation.Model.Alias;
+using AppBundle = Autodesk.Forge.DesignAutomation.Model.AppBundle;
+using Parameter = Autodesk.Forge.DesignAutomation.Model.Parameter;
+using WorkItem = Autodesk.Forge.DesignAutomation.Model.WorkItem;
+using WorkItemStatus = Autodesk.Forge.DesignAutomation.Model.WorkItemStatus;
 
-namespace forgeSample.Controllers
+
+namespace forgesample.Controllers
 {
     [ApiController]
     public class DesignAutomationController : ControllerBase
@@ -38,14 +40,20 @@ namespace forgeSample.Controllers
         private IHostingEnvironment _env;
         // used to access the SignalR Hub
         private IHubContext<DesignAutomationHub> _hubContext;
-        // Constructor, where env and hubContext are specified
-        public DesignAutomationController(IHostingEnvironment env, IHubContext<DesignAutomationHub> hubContext) { _env = env; _hubContext = hubContext; }
         // Local folder for bundles
         public string LocalBundlesFolder { get { return Path.Combine(_env.WebRootPath, "bundles"); } }
         /// Prefix for AppBundles and Activities
         public static string NickName { get { return OAuthController.GetAppSetting("FORGE_CLIENT_ID"); } }
         /// Alias for the app (e.g. DEV, STG, PROD). This value may come from an environment variable
         public static string Alias { get { return "dev"; } }
+        // Design Automation v3 API
+        DesignAutomationClient _designAutomation;
+
+        // **********************************
+        //
+        // Will add the methods here later...
+        //
+        // **********************************
     }
 
     /// <summary>
@@ -55,6 +63,7 @@ namespace forgeSample.Controllers
     {
         public string GetConnectionId() { return Context.ConnectionId; }
     }
+
 }
 ```
 
@@ -93,9 +102,7 @@ public async Task<List<string>> GetAvailableEngines()
     dynamic oauth = await OAuthController.GetInternalAsync();
 
     // define Engines API
-    EnginesApi enginesApi = new EnginesApi();
-    enginesApi.Configuration.AccessToken = oauth.access_token;
-    PageString engines = await enginesApi.EnginesGetItemsAsync();
+    Page<string> engines = await _designAutomation.GetEnginesAsync();
     engines.Data.Sort();
 
     return engines.Data; // return list of engines
@@ -108,7 +115,7 @@ That's where we actually define a new AppBundle:
 
 ```csharp
 /// <summary>
-/// Define a new appbundle
+/// Define a new activity
 /// </summary>
 [HttpPost]
 [Route("api/forge/designautomation/appbundles")]
@@ -125,13 +132,8 @@ public async Task<IActionResult> CreateAppBundle([FromBody]JObject appBundleSpec
     string packageZipPath = Path.Combine(LocalBundlesFolder, zipFileName + ".zip");
     if (!System.IO.File.Exists(packageZipPath)) throw new Exception("Appbundle not found at " + packageZipPath);
 
-    // define Activities API
-    dynamic oauth = await OAuthController.GetInternalAsync();
-    AppBundlesApi appBundlesApi = new AppBundlesApi();
-    appBundlesApi.Configuration.AccessToken = oauth.access_token;
-
     // get defined app bundles
-    PageString appBundles = await appBundlesApi.AppBundlesGetItemsAsync();
+    Page<string> appBundles = await _designAutomation.GetAppBundlesAsync();
 
     // check if app bundle is already define
     dynamic newAppVersion;
@@ -139,31 +141,45 @@ public async Task<IActionResult> CreateAppBundle([FromBody]JObject appBundleSpec
     if (!appBundles.Data.Contains(qualifiedAppBundleId))
     {
         // create an appbundle (version 1)
-        AppBundle appBundleSpec = new AppBundle(appBundleName, null, engineName, null, null, string.Format("Description for {0}", appBundleName), null, appBundleName);
-        newAppVersion = await appBundlesApi.AppBundlesCreateItemAsync(appBundleSpec);
+        AppBundle appBundleSpec = new AppBundle()
+        {
+            Package = appBundleName,
+            Engine = engineName,
+            Id = appBundleName,
+            Description = string.Format("Description for {0}", appBundleName),
+
+        };
+        newAppVersion = await _designAutomation.CreateAppBundleAsync(appBundleSpec);
         if (newAppVersion == null) throw new Exception("Cannot create new app");
 
         // create alias pointing to v1
-        Alias aliasSpec = new Alias(1, null, Alias);
-        Alias newAlias = await appBundlesApi.AppBundlesCreateAliasAsync(appBundleName, aliasSpec);
+        Alias aliasSpec = new Alias() { Id = Alias, Version = 1 };
+        Alias newAlias = await _designAutomation.CreateAppBundleAliasAsync(appBundleName, aliasSpec);
     }
     else
     {
         // create new version
-        AppBundle appBundleSpec = new AppBundle(null, null, engineName, null, null, appBundleName, null, null);
-        newAppVersion = await appBundlesApi.AppBundlesCreateItemVersionAsync(appBundleName, appBundleSpec);
+        AppBundle appBundleSpec = new AppBundle()
+        {
+            Engine = engineName,
+            Description = appBundleName
+        };
+        newAppVersion = await _designAutomation.CreateAppBundleVersionAsync(appBundleName, appBundleSpec);
         if (newAppVersion == null) throw new Exception("Cannot create new version");
 
         // update alias pointing to v+1
-        Alias aliasSpec = new Alias(newAppVersion.Version, null, null);
-        Alias newAlias = await appBundlesApi.AppBundlesModifyAliasAsync(appBundleName, Alias, aliasSpec);
+        AliasPatch aliasSpec = new AliasPatch()
+        {
+            Version = newAppVersion.Version
+        };
+        Alias newAlias = await _designAutomation.ModifyAppBundleAliasAsync(appBundleName, Alias, aliasSpec);
     }
 
     // upload the zip with .bundle
     RestClient uploadClient = new RestClient(newAppVersion.UploadParameters.EndpointURL);
     RestRequest request = new RestRequest(string.Empty, Method.POST);
     request.AlwaysMultipartFormData = true;
-    foreach (KeyValuePair<string, object> x in newAppVersion.UploadParameters.FormData) request.AddParameter(x.Key, x.Value);
+    foreach (KeyValuePair<string, string> x in newAppVersion.UploadParameters.FormData) request.AddParameter(x.Key, x.Value);
     request.AddFile("file", packageZipPath);
     request.AddHeader("Cache-Control", "no-cache");
     await uploadClient.ExecuteTaskAsync(request);

@@ -8,15 +8,6 @@ This is where we actually start the Design Automation. The `StartWorkitemInput` 
 
 ```csharp
 /// <summary>
-/// Input for StartWorkitem
-/// </summary>
-public class StartWorkitemInput
-{
-    public IFormFile inputFile { get; set; }
-    public string data { get; set; }
-}
-
-/// <summary>
 /// Start a new workitem
 /// </summary>
 [HttpPost]
@@ -48,7 +39,7 @@ public async Task<IActionResult> StartWorkitem([FromForm]StartWorkitemInput inpu
         await buckets.CreateBucketAsync(bucketPayload, "US");
     }
     catch { }; // in case bucket already exists
-    // 2. upload inputFile
+                // 2. upload inputFile
     string inputFileNameOSS = string.Format("{0}_input_{1}", DateTime.Now.ToString("yyyyMMddhhmmss"), Path.GetFileName(input.inputFile.FileName)); // avoid overriding
     ObjectsApi objects = new ObjectsApi();
     objects.Configuration.AccessToken = oauth.access_token;
@@ -58,49 +49,59 @@ public async Task<IActionResult> StartWorkitem([FromForm]StartWorkitemInput inpu
 
     // prepare workitem arguments
     // 1. input file
-    JObject inputFileArgument = new JObject
+    XrefTreeArgument inputFileArgument = new XrefTreeArgument()
     {
-        new JProperty("url", string.Format("https://developer.api.autodesk.com/oss/v2/buckets/{0}/objects/{1}", bucketKey, inputFileNameOSS)),
-        new JProperty("headers",
-        new JObject{
-        new JProperty("Authorization", "Bearer " + oauth.access_token)
-        })
+        Url = string.Format("https://developer.api.autodesk.com/oss/v2/buckets/{0}/objects/{1}", bucketKey, inputFileNameOSS),
+        Headers = new Dictionary<string, string>()
+            {
+                { "Authorization", "Bearer " + oauth.access_token }
+            }
     };
     // 2. input json
     dynamic inputJson = new JObject();
     inputJson.Width = widthParam;
     inputJson.Height = heigthParam;
-    JObject inputJsonArgument = new JObject { new JProperty("url", "data:application/json, " + ((JObject)inputJson).ToString(Formatting.None).Replace("\"", "'")) }; // ToDo: need to improve this
+    XrefTreeArgument inputJsonArgument = new XrefTreeArgument()
+    {
+        Url = "data:application/json, " + ((JObject)inputJson).ToString(Formatting.None).Replace("\"", "'")
+    };
     // 3. output file
     string outputFileNameOSS = string.Format("{0}_output_{1}", DateTime.Now.ToString("yyyyMMddhhmmss"), Path.GetFileName(input.inputFile.FileName)); // avoid overriding
-    JObject outputFileArgument = new JObject
+    XrefTreeArgument outputFileArgument = new XrefTreeArgument()
     {
-        new JProperty("verb", "PUT"),
-        new JProperty("url", string.Format("https://developer.api.autodesk.com/oss/v2/buckets/{0}/objects/{1}", bucketKey, outputFileNameOSS)),
-        new JProperty("headers",
-        new JObject{
-        new JProperty("Authorization", "Bearer " + oauth.access_token)
-        })
+        Url = string.Format("https://developer.api.autodesk.com/oss/v2/buckets/{0}/objects/{1}", bucketKey, outputFileNameOSS),
+        Verb = Verb.Put,
+        Headers = new Dictionary<string, string>()
+            {
+                {"Authorization", "Bearer " + oauth.access_token }
+            }
     };
 
     // prepare & submit workitem
     string callbackUrl = string.Format("{0}/api/forge/callback/designautomation?id={1}", OAuthController.GetAppSetting("FORGE_WEBHOOK_CALLBACK_HOST"), browerConnectionId);
-    WorkItem workItemSpec = new WorkItem(
-                null, activityName,
-                new Dictionary<string, JObject>()
-                {
-                { "inputFile", inputFileArgument },
-                { "inputJson",  inputJsonArgument},
-                { "outputFile", outputFileArgument },
-                //{ "onProgress", new JObject { new JProperty("verb", "POST"), new JProperty("url", callbackUrl) }},
-                { "onComplete", new JObject { new JProperty("verb", "POST"), new JProperty("url", callbackUrl) }}
-                },
-                null);
-    WorkItemsApi workItemApi = new WorkItemsApi();
-    workItemApi.Configuration.AccessToken = oauth.access_token; ;
-    WorkItemStatus newWorkItem = await workItemApi.WorkItemsCreateWorkItemsAsync(null, null, workItemSpec);
+    WorkItem workItemSpec = new WorkItem()
+    {
+        ActivityId = activityName,
+        Arguments = new Dictionary<string, IArgument>()
+        {
+            { "inputFile", inputFileArgument },
+            { "inputJson",  inputJsonArgument },
+            { "outputFile", outputFileArgument },
+            { "onComplete", new XrefTreeArgument { Verb = Verb.Post, Url = callbackUrl } }
+        }
+    };
+    WorkItemStatus workItemStatus = await _designAutomation.CreateWorkItemsAsync(workItemSpec);
 
-    return Ok(new { WorkItemId = newWorkItem.Id });
+    return Ok(new { WorkItemId = workItemStatus.Id });
+}
+
+/// <summary>
+/// Input for StartWorkitem
+/// </summary>
+public class StartWorkitemInput
+{
+    public IFormFile inputFile { get; set; }
+    public string data { get; set; }
 }
 ```
 
@@ -150,16 +151,8 @@ Last, but not least, to help you test, this function removes all appbundles and 
 [Route("api/forge/designautomation/account")]
 public async Task<IActionResult> ClearAccount()
 {
-    if (!_env.IsDevelopment()) return BadRequest(); // disable when published :-)
-
-    dynamic oauth = await OAuthController.GetInternalAsync();
-
-    // define the account api (ForgeApps)
-    Autodesk.Forge.DesignAutomation.v3.ForgeAppsApi forgeAppApi = new ForgeAppsApi();
-    forgeAppApi.Configuration.AccessToken = oauth.access_token;
-
     // clear account
-    await forgeAppApi.ForgeAppsDeleteUserAsync("me");
+    await _designAutomation.DeleteForgeAppAsync("me");
     return Ok();
 }
 ```

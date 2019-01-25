@@ -4,7 +4,7 @@
 
 Go to menu **File** >> **New** >> **Project** and select **.NET Core** >> **ASP.NET Core Web Application**. For this sample, let's name it **forgesample**. On the next dialog, select **Empty** and select **Web API**. 
 
-Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk Forge** and install it our **forgesample**. 
+Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk.Forge** and install `Autodesk.Forge` and `Autodesk.Forge.DesignAutomation`, where the first will be used to upload input and output results to OSS and the second to use Design Automation. 
 
 ![](_media/netcore/create_project.gif) 
 
@@ -20,6 +20,26 @@ Right-click on the projet, go to **Properties**, then under **Debug** tab see th
 You may also check **Launch browser** and specify the **App URL**. Finally, as this is running locally, uncheck **Enable SSL** option. It should look like as shown below.
 
 ![](_media/netcore/env_vars.png) 
+
+
+Now open the **Program.cs** and add the following namespaces:
+
+```csharp
+using Autodesk.Forge.Core;
+using Autodesk.Forge.DesignAutomation;
+```
+
+Then replace the **Program.cs** `Main()` method content with the following. This tells our application to load Forge Client ID & Secret from the environment variables defined above.
+
+```csharp
+CreateWebHostBuilder(args).ConfigureAppConfiguration(builder =>
+{
+    builder.AddForgeAlternativeEnvironmentVariables();
+}).ConfigureServices((hostContext, services) =>
+{
+    services.AddDesignAutomation(hostContext.Configuration);
+}).Build().Run();
+```
 
 Now open the **Startup.cs** and replace the content of the `Startup` class with the following code, which enables static file server (HTML & JS) and [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-2.2), used to push notifications to the client.
 
@@ -54,7 +74,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Autodesk.Forge;
 
-namespace forgeSample.Controllers
+namespace forgesample.Controllers
 {
     [ApiController]
     public class OAuthController : ControllerBase
