@@ -10,11 +10,11 @@ Right-click on the solution, the **Add** >> **New Project**. Select **Windows De
 
 Then right-click on the project, go to **Manage NuGet Packages...**, under **Browser** you can search for **DesignAutomation.Revt** and install `Autodesk.Forge.DesignAutomation.Revit` (choose the appropriate Revit version you need). Then search and install `Newtonsoft.Json` (which is used to parse input data in JSON format). 
 
+> Please check **Include prerelease** while searching for packages. Design Automation for Revit in beta (as of Jan/2019).
+
 Now right-click on **References**, then **Add Reference** and **Browse** for `RevitAPI.dll` (by default under _C:\Program Files\Autodesk\Revit 201x\_ folder)
 
 ![](_media/designautomation/revit/new_project.gif)
-
-> ToDo: missing image
 
 As a result, the **package.config** should look like the following. These are the latest version as of Jan/2019.
 
@@ -22,6 +22,7 @@ As a result, the **package.config** should look like the following. These are th
 <?xml version="1.0" encoding="utf-8"?>
 <packages>
   <package id="Autodesk.Forge.DesignAutomation.Revit" version="2019.0.0" targetFramework="net47" />
+  <package id="Microsoft.CSharp" version="4.5.0" targetFramework="net47" />
   <package id="Newtonsoft.Json" version="12.0.1" targetFramework="net47" />
 </packages>
 ```
@@ -30,7 +31,7 @@ The project should contain a `Class1.cs` class, let's rename the file to `Comman
 
 At this point, the project should look like the following:
 
-> ToDo: missing image
+![](_media/designautomation/revit/project_files.png)
 
 ## Commands.cs
 
@@ -167,8 +168,6 @@ Under `UpdateRVTParam.bundle` folder create a subfolder named `Contents` and, in
 At this point, the project should look like:
 
 ![](_media/designautomation/revit/bundle_folders.png)
-
-> ToDo: missing image
 
 ## Post-build event
 

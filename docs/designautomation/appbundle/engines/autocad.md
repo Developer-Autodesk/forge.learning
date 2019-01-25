@@ -6,7 +6,7 @@ This step will help you create a basic AutoCAD plugin for Design Automation. For
 
 Right-click on the solution, the **Add** >> **New Project**. Select **Windows Desktop**, then **Class Library** and, finally, name it `UpdateDWGParam`. Then right-click on the project, go to **Manage NuGet Packages...**, under **Browser** you can search for **AutoCAD.NET** and install `AutoCAD.NET.Core` (which also installs `AutoCAD.NET.Model`). Then search and install `Newtonsoft.Json` (which is used to parse input data in JSON format).
 
-> Ensure to select .NET Framework 4.7. If not listed, [please install](https://dotnet.microsoft.com/download/thank-you/net47).
+> Please select .NET Framework 4.7. If not listed, [please install](https://dotnet.microsoft.com/download/thank-you/net47).
 
 ![](_media/designautomation/autocad/new_project.gif)
 

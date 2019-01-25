@@ -1,8 +1,8 @@
 # Modify your models
 
-This tutorial will guide you through creating a webapp that can upload a input file, change its `width` and `height` parameter and save the output file. The UI will allow define AppBundle & Activity (as an initial configuration) and execute Workitems, with a output result. 
+This tutorial will guide you through creating a webapp that can upload an input file, change its `width` and `height` parameter and save the output file. The UI will let you define AppBundle & Activity (as an initial configuration) and execute Workitems, with a output result. 
 
-> Both input and output files are saved on OSS Buckets, you can use [View Models](tutorials/viewmodels) tutorial to view them.
+> Both input and output files are saved in OSS Buckets, you can use [View Models](tutorials/viewmodels) tutorial to view them.
 
 ![](_media/tutorials/run_sample_modifymodels.gif)
 
