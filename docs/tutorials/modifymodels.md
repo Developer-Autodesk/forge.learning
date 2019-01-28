@@ -14,9 +14,9 @@ To modify your models, you need the following steps:
 4. [Define an activity](designautomation/activity/)
 5. [Execute workitem](designautomation/workitem/)
 
-<!--If you want to download the project ready to use, visit the following repos:
+If you want to download the project ready to use, visit the following repos:
 
-- [.NET Core](https://github.com/Developer-Autodesk/learn.forge.designautomation)-->
+- [.NET Core](https://github.com/Autodesk-Forge/learn.forge.designautomation)
 
 Ready to start coding?
 
