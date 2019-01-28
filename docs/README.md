@@ -18,6 +18,7 @@ Forge enables companies to leverage design and engineering data to develop custo
 - Step-by-step tutorials for: 
   - [View your models](tutorials/viewmodels): upload & show 3D models on the web.
   - [View BIM 360 & Fusion models](tutorials/viewhubmodels): access & show BIM 360 and Fusion models on your own webapp.
+  - [Modify your models](tutorials/modifymodels): update data on DWG, IPT, RVT and MAX files on the cloud.
 - [Run & debug](environment/rundebug/): executing the code locally and tips & tricks.
 - [Viewer extension](tutorials/extensions.md): add buttons and panels to Viewer.
 - [Deployment](deployment/): **AWS**, **Azure**, **Heroku** and **AppHarbor** step-by-step deployment.

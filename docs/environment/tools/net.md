@@ -1,4 +1,4 @@
-# Tools (.NET)
+# Tools (.NET Framework)
 
 The .NET engine is a built-in feature on Windows machines. 
 
@@ -8,7 +8,7 @@ Install any flavor of Visual Studio, for instance [Community](https://www.visual
 
 ## Visual Studio Community 2017
 
-If you are installing Visual Studio Community for the first time, make sure to select `ASP.NET and web development` workload for this tutorial. Other **Workloads** are not required for this tutorial.
+If you are installing Visual Studio Community for the first time, make sure to select `ASP.NET and web development` workload for this tutorial. `.NET desktop development` worflow is need for **Design Automation** tutorial: **Modify my models**. Other **Workloads** are not required for this tutorial.
 
 In case Visual Studio Community is already installed, go to **Add or remove programs** >> **Apps & Features**, find Visual Studio Community and click **Modify**, then select the workload (as shown below). 
 
