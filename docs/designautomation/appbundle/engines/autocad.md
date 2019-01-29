@@ -25,7 +25,7 @@ The project should contain a `Class1.cs` class, let's rename the file to `Comman
 
 ## Commands.cs
 
-This is the main code that will run with AutoCAD. Copy the following content into `Commands.cs`.
+This is the main code that will run with AutoCAD. Copy the following content into `Commands.cs`. The class contains one custom AutoCAD command, `UpdateParam`, defined as a method with the same name. This command is called by Design Automation engine, as will be specified on the **Activity** (next step of this tutorial)
 
 ```csharp
 using Autodesk.AutoCAD.ApplicationServices.Core;
