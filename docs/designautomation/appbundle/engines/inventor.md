@@ -25,7 +25,7 @@ As a result, the **package.config** should look like the following. These are th
 
 ## Commands.cs
 
-Create a new class named `Commands` and copy the following content to it. This is where the parameters are updated.
+Create a new class named `Commands` and copy the following content to it. This is where the parameters are updated under the `Run` method.
 
 ```csharp
 using Inventor;
@@ -120,7 +120,7 @@ namespace UpdateIPTParam
 
 ## StandardAddInServer.cs
 
-This file is created by the template and is the entry point, let's just add our Commands to it.
+This file is created by the template and is the entry point, let's just add our Commands to it and make it as a return for `Automation` property, so it is called by Design Automation.
 
 **1. Class members**
 

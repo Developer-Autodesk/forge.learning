@@ -35,7 +35,7 @@ At this point, the project should look like the following:
 
 ## Commands.cs
 
-This is the main code that will run with Revit. Copy the following content into `Commands.cs`.
+This is the main code that will run with Revit. Copy the following content into `Commands.cs`. The main point of interest is the `DesignAutomationReadyEvent` event, triggered when the application is ready to run. The `HandleDesignAutomationReadyEvent` implements our custom code.
 
 ```csharp
 using Autodesk.Revit.ApplicationServices;
