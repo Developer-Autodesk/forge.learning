@@ -35,7 +35,7 @@ At this point, the project should look like the following:
 
 ## Commands.cs
 
-This is the main code that will run with Revit. Copy the following content into `Commands.cs`.
+This is the main code that will run with Revit. Copy the following content into `Commands.cs`. The main point of interest is the `DesignAutomationReadyEvent` event, triggered when the application is ready to run. The `HandleDesignAutomationReadyEvent` implements our custom code.
 
 ```csharp
 using Autodesk.Revit.ApplicationServices;
@@ -185,7 +185,7 @@ This will copy the DLL from /bin/debug/ into .bundle/Contents folder, then use [
 
 > Note how the **Post-build event** uses the project and folder names, so make sure you're using this names.
 
-If you build the `UpdateDWGParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great! :wink:
+If you build the `UpdateRVTParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great! :wink:
 
 ![](_media/designautomation/revit/build_output.png)
 

@@ -6,7 +6,7 @@ At this section we will create a basic plugin that update `width` and `height` p
 
 ### Prerequisites
 
-- [7zip](https://www.7-zip.org/): use to create the .ZIP with bundle files.
+- 1. **7zip**: use to create the .ZIP with bundle files, please install [from here](https://www.7-zip.org/). This tutorial assumes **7zip** is installed on the default folder: _C:\Program Files\7-Zip\7z.exe_.
 
 For the next step, choose the **Engine**, which is the Autodesk application where you plugin will run. You'll need the respective application installed in order to compile, debug and test locally.
 
