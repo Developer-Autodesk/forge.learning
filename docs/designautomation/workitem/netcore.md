@@ -78,7 +78,7 @@ public async Task<IActionResult> StartWorkitem([FromForm]StartWorkitemInput inpu
     };
 
     // prepare & submit workitem
-    string callbackUrl = string.Format("{0}/api/forge/callback/designautomation?id={1}", OAuthController.GetAppSetting("FORGE_WEBHOOK_CALLBACK_HOST"), browerConnectionId);
+    string callbackUrl = string.Format("{0}/api/forge/callback/designautomation?id={1}&outputFileName={2}", OAuthController.GetAppSetting("FORGE_WEBHOOK_CALLBACK_HOST"), browerConnectionId, outputFileNameOSS);
     WorkItem workItemSpec = new WorkItem()
     {
         ActivityId = activityName,
@@ -117,7 +117,7 @@ When the workitem is done, Design Automation will callback our app (using the ng
 /// </summary>
 [HttpPost]
 [Route("/api/forge/callback/designautomation")]
-public async Task<IActionResult> OnCallback(string id, [FromBody]dynamic body)
+public async Task<IActionResult> OnCallback(string id, string outputFileName, [FromBody]dynamic body)
 {
     try
     {
@@ -133,6 +133,10 @@ public async Task<IActionResult> OnCallback(string id, [FromBody]dynamic body)
         byte[] bs = client.DownloadData(request);
         string report = System.Text.Encoding.Default.GetString(bs);
         await _hubContext.Clients.Client(id).SendAsync("onComplete", report);
+
+        ObjectsApi objectsApi = new ObjectsApi();
+        dynamic signedUrl = await objectsApi.CreateSignedResourceAsyncWithHttpInfo(NickName.ToLower() + "_designautomation", outputFileName, new PostBucketsSigned(10), "read");
+        await _hubContext.Clients.Client(id).SendAsync("downloadResult", (string)(signedUrl.Data.signedUrl));
     }
     catch { }
 
