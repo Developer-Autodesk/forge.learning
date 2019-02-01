@@ -53,9 +53,9 @@ public async Task<IActionResult> StartWorkitem([FromForm]StartWorkitemInput inpu
     {
         Url = string.Format("https://developer.api.autodesk.com/oss/v2/buckets/{0}/objects/{1}", bucketKey, inputFileNameOSS),
         Headers = new Dictionary<string, string>()
-            {
-                { "Authorization", "Bearer " + oauth.access_token }
-            }
+        {
+            { "Authorization", "Bearer " + oauth.access_token }
+        }
     };
     // 2. input json
     dynamic inputJson = new JObject();
@@ -78,6 +78,7 @@ public async Task<IActionResult> StartWorkitem([FromForm]StartWorkitemInput inpu
     };
 
     // prepare & submit workitem
+    // the callback contains the connectionId (used to identify the client) and the outputFileName of this workitem
     string callbackUrl = string.Format("{0}/api/forge/callback/designautomation?id={1}&outputFileName={2}", OAuthController.GetAppSetting("FORGE_WEBHOOK_CALLBACK_HOST"), browerConnectionId, outputFileNameOSS);
     WorkItem workItemSpec = new WorkItem()
     {
@@ -128,12 +129,12 @@ public async Task<IActionResult> OnCallback(string id, string outputFileName, [F
         var client = new RestClient(bodyJson["reportUrl"].Value<string>());
         var request = new RestRequest(string.Empty);
 
-        Console.WriteLine(id);
-
+        // send the result output log to the client
         byte[] bs = client.DownloadData(request);
         string report = System.Text.Encoding.Default.GetString(bs);
         await _hubContext.Clients.Client(id).SendAsync("onComplete", report);
 
+        // generate a signed URL to download the result file and send to the client
         ObjectsApi objectsApi = new ObjectsApi();
         dynamic signedUrl = await objectsApi.CreateSignedResourceAsyncWithHttpInfo(NickName.ToLower() + "_designautomation", outputFileName, new PostBucketsSigned(10), "read");
         await _hubContext.Clients.Client(id).SendAsync("downloadResult", (string)(signedUrl.Data.signedUrl));
