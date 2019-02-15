@@ -12,10 +12,10 @@ To define the activity we'll need the executable and the default file extension.
 /// </summary>
 private dynamic EngineAttributes(string engine)
 {
-    if (engine.Contains("3dsMax")) return new { executable = "3dsmaxbatch.exe", extension = "max" };
-    if (engine.Contains("AutoCAD")) return new { executable = "accoreconsole.exe", extension = "dwg" };
-    if (engine.Contains("Inventor")) return new { executable = "InventorCoreConsole.exe", extension = "ipt" };
-    if (engine.Contains("Revit")) return new { executable = "revitcoreconsole.exe", extension = "rvt" };
+    if (engine.Contains("3dsMax")) return new { commandLine = @"$(engine.path)\\3dsmaxbatch.exe -sceneFile $(args[inputFile].path) $(settings[script].path)", extension = "max", script = "da = dotNetClass(\"Autodesk.Forge.Sample.DesignAutomation.Max.RuntimeExecute\")\nda.ModifyWindowWidthHeight()\n" };
+    if (engine.Contains("AutoCAD")) return new { commandLine = "$(engine.path)\\accoreconsole.exe /i $(args[inputFile].path) /al $(appbundles[{0}].path) /s $(settings[script].path)", extension = "dwg", script = "UpdateParam\n" };
+    if (engine.Contains("Inventor")) return new { commandLine = "$(engine.path)\\InventorCoreConsole.exe /i $(args[inputFile].path) /al $(appbundles[{0}].path)", extension = "ipt", script = string.Empty };
+    if (engine.Contains("Revit")) return new { commandLine = "$(engine.path)\\revitcoreconsole.exe /i $(args[inputFile].path) /al $(appbundles[{0}].path)", extension = "rvt", script = string.Empty };
     throw new Exception("Invalid engine");
 }
 ```
@@ -48,7 +48,7 @@ public async Task<IActionResult> CreateActivity([FromBody]JObject activitySpecs)
         // define the activity
         // ToDo: parametrize for different engines...
         dynamic engineAttributes = EngineAttributes(engineName);
-        string commandLine = string.Format(@"$(engine.path)\\{0} /i $(args[inputFile].path) /al $(appbundles[{1}].path) /s $(settings[script].path)", engineAttributes.executable, appBundleName);
+        string commandLine = string.Format(engineAttributes.commandLine, appBundleName);
         Activity activitySpec = new Activity()
         {
             Id = activityName,
@@ -63,7 +63,7 @@ public async Task<IActionResult> CreateActivity([FromBody]JObject activitySpecs)
             },
             Settings = new Dictionary<string, ISetting>()
             {
-                { "script", new StringSetting(){ Value = "UpdateParam\n"  }  }
+                { "script", new StringSetting(){ Value = engineAttributes.script } }
             }
         };
         Activity newActivity = await _designAutomation.CreateActivityAsync(activitySpec);
