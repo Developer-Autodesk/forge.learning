@@ -49,6 +49,14 @@ namespace forgesample.Controllers
         // Design Automation v3 API
         DesignAutomationClient _designAutomation;
 
+        // Constructor, where env and hubContext are specified
+        public DesignAutomationController(IHostingEnvironment env, IHubContext<DesignAutomationHub> hubContext, DesignAutomationClient api)
+        {
+            _designAutomation = api;
+            _env = env;
+            _hubContext = hubContext;
+        }
+
         // **********************************
         //
         // Next we will add the methods here
@@ -135,7 +143,7 @@ public async Task<IActionResult> CreateAppBundle([FromBody]JObject appBundleSpec
     // get defined app bundles
     Page<string> appBundles = await _designAutomation.GetAppBundlesAsync();
 
-    // check if app bundle is already defined
+    // check if app bundle is already define
     dynamic newAppVersion;
     string qualifiedAppBundleId = string.Format("{0}.{1}+{2}", NickName, appBundleName, Alias);
     if (!appBundles.Data.Contains(qualifiedAppBundleId))
