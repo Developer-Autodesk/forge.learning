@@ -49,6 +49,14 @@ namespace forgesample.Controllers
         // Design Automation v3 API
         DesignAutomationClient _designAutomation;
 
+        // Constructor, where env and hubContext are specified
+        public DesignAutomationController(IHostingEnvironment env, IHubContext<DesignAutomationHub> hubContext, DesignAutomationClient api)
+        {
+            _designAutomation = api;
+            _env = env;
+            _hubContext = hubContext;
+        }
+
         // **********************************
         //
         // Next we will add the methods here
