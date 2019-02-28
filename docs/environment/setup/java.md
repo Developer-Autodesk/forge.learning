@@ -44,8 +44,8 @@ Open the `pom.xml` file (via **Project Explorer**), copy & paste the content bel
       <!-- JAVA SDK of Autodesk: com-autodesk-client -->
         <dependency>
             <groupId>com.autodesk</groupId>
-            <artifactId>com-autodesk-client</artifactId>
-            <version>1.0.1</version>
+            <artifactId>forge-java-sdk</artifactId>
+            <version>1.0.2</version>
         </dependency>
         <dependency>
             <groupId>com.sun.jersey</groupId>
