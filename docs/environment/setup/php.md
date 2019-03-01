@@ -47,7 +47,7 @@ Now your folder should have a **vendor** folder and your **composer.json** shoul
     "require": {
         "autodesk/forge-client": "^1.0",
         "klein/klein": "^2.1",
-        "vlucas/phpdotenv": "^2.4.0"
+        "vlucas/phpdotenv": "^3.0.0"
     }  
 }
 ```
@@ -181,7 +181,7 @@ class ForgeConfig{
       $forge_id = getenv('FORGE_CLIENT_ID');
       if(!$forge_id){
         // load the environment variable from .env into your application
-        $dotenv = new Dotenv(__DIR__);
+        $dotenv = Dotenv::create(__DIR__);
         $dotenv->load();
         $forge_id = getenv('FORGE_CLIENT_ID');
      }
@@ -192,7 +192,7 @@ class ForgeConfig{
       $forge_secret = getenv('FORGE_CLIENT_SECRET');
       if(!$forge_secret){
         // load the environment variable from .env into your application
-        $dotenv = new Dotenv(__DIR__);
+        $dotenv = Dotenv::create(__DIR__);
         $dotenv->load();
         $forge_secret = getenv('FORGE_CLIENT_SECRET');
      }
@@ -216,7 +216,7 @@ We are getting our ENV variables here by loading the .env file with the code lik
 
 ```php
 <?php
-    $dotenv = new Dotenv(__DIR__);
+    $dotenv = Dotenv::create(__DIR__);
     $dotenv->load();
     $forge_secret = getenv('FORGE_CLIENT_SECRET');
     $forge_secret = getenv('FORGE_CLIENT_SECRET');
