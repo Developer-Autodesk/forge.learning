@@ -17,6 +17,7 @@ Create a **index.html** file with:
 <head>
   <title>Autodesk Forge Tutorial</title>
   <meta charset="utf-8" />
+  <link rel="shortcut icon" href="https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/favicon.ico">
   <!-- Common packages: jQuery, Bootstrap, jsTree -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -58,7 +59,7 @@ Create a **index.html** file with:
           <div id="userHubs">
             <div style="padding-top: 100px; text-align: center;">
               <button class="btn btn-lg btn-default" id="autodeskSigninButton">
-                <img src="https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/autodesk_text.png"
+                <img src="https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/autodesk_text.png"
                   height="20"> Sign in
               </button>
               <br/>
@@ -177,19 +178,19 @@ function prepareUserHubsTree() {
         'icon': 'glyphicon glyphicon-user'
       },
       'hubs': {
-        'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/a360hub.png'
+        'icon': 'https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/a360hub.png'
       },
       'personalHub': {
-        'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/a360hub.png'
+        'icon': 'https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/a360hub.png'
       },
       'bim360Hubs': {
-        'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/bim360hub.png'
+        'icon': 'https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/bim360hub.png'
       },
       'bim360projects': {
-        'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/bim360project.png'
+        'icon': 'https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/bim360project.png'
       },
       'a360projects': {
-        'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/a360project.png'
+        'icon': 'https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/a360project.png'
       },
       'items': {
         'icon': 'glyphicon glyphicon-file'

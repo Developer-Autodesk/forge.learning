@@ -16,6 +16,7 @@ Create an **index.html** file with:
 <head>
   <title>Autodesk Forge Tutorial</title>
   <meta charset="utf-8" />
+  <link rel="shortcut icon" href="https://github.com/Autodesk-Forge/learn.forge.viewmodels/raw/master/img/favicon.ico">
   <!-- Common packages: jQuery, Bootstrap, jsTree -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>

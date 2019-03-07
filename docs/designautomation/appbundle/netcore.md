@@ -123,7 +123,7 @@ That's where we actually define a new AppBundle:
 
 ```csharp
 /// <summary>
-/// Define a new activity
+/// Define a new appbundle
 /// </summary>
 [HttpPost]
 [Route("api/forge/designautomation/appbundles")]

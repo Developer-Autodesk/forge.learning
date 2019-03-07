@@ -6,7 +6,7 @@ This step will help you create a basic Revit plugin for Design Automation. For m
 
 Right-click on the solution, the **Add** >> **New Project**. Select **Windows Desktop**, then **Class Library** and, finally, name it `UpdateRVTParam`. 
 
-> Please select .NET Framework 4.7. If not listed, [please install](https://dotnet.microsoft.com/download/thank-you/net47).
+> Please select .NET Framework 4.7. If not listed, [please install](https://dotnet.microsoft.com/download/dotnet-framework/net47).
 
 Right-click on **References**, then **Add Reference** and **Browse** for `RevitAPI.dll` (by default under _C:\Program Files\Autodesk\Revit 201x\_ folder). Then right-click on this **RevitAPI** reference, go to **Properties**, then set **Copy Local** to **False**.
 

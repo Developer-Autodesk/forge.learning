@@ -17,7 +17,7 @@ Right-click on the project, go to **Properties**, then under **Debug** tab see t
 - `ASPNETCORE_URLS`: use `http://localhost:3000`
 - `FORGE_CLIENT_ID`: use your id here
 - `FORGE_CLIENT_SECRET`: use your secret here
-- `FORGE_WEBHOOK_CALLBACK_HOST`: use the **ngrok** forwarding URL from previous step
+- `FORGE_WEBHOOK_URL`: use the **ngrok** forwarding URL from previous step
 
 You may also check **Launch browser** and specify the **App URL**. Finally, as this is running locally, uncheck **Enable SSL** option. It should look like as shown below.
 
