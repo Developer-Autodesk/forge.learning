@@ -30,6 +30,15 @@ You are all set, your Server is running succesfully now. :)
 
 Open the `pom.xml` file (via **Project Explorer**), copy & paste the content below. Change [groupId] to the string that indicates your role such as **com.mycompany**.
 
+Maven 3.0 and above deprecated LATEST and RELEASE metaversions ([see this discussion](https://stackoverflow.com/questions/30571/how-do-i-tell-maven-to-use-the-latest-version-of-a-dependency)], if you need latest version of **Forge JAVA SDK**, please check on [Maven Center](https://search.maven.org/search?q=a:forge-java-sdk) and update with the specific version number accordingly. 
+  ```
+    <dependency>
+            <groupId>com.autodesk</groupId>
+            <artifactId>forge-java-sdk</artifactId> 
+            <version> input the latest version if needed </version>
+    </dependency>
+  ```
+
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -44,8 +53,8 @@ Open the `pom.xml` file (via **Project Explorer**), copy & paste the content bel
       <!-- JAVA SDK of Autodesk: com-autodesk-client -->
         <dependency>
             <groupId>com.autodesk</groupId>
-            <artifactId>com-autodesk-client</artifactId>
-            <version>1.0.1</version>
+            <artifactId>forge-java-sdk</artifactId>
+            <version>1.0.2</version>
         </dependency>
         <dependency>
             <groupId>com.sun.jersey</groupId>
