@@ -16,8 +16,8 @@ Under **wwwroot** folder create the **index.html** file with the following conte
     <link rel="shortcut icon" href="https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/favicon.ico">
     <!-- Common packages: jQuery, Bootstrap -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- .NET SignalR -->
     <script src="//unpkg.com/@aspnet/signalr@1.1.0/dist/browser/signalr.min.js"></script>
     <!-- Files for this project -->
@@ -76,9 +76,10 @@ Under **wwwroot** folder create the **index.html** file with the following conte
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Define new AppBundle & Activity</h4>
+                    <h4 class="modal-title" id="myModalLabel">Create/Update AppBundle & Activity</h4>
                 </div>
                 <div class="modal-body">
+                  <div class="alert alert-warning"><center>Define AppBundle &amp; Activity only once.<br />Redefine only when your plugin code change (creates a new version).</center></div>
                     <div class="form-group">
                         <label for="localBundles">Select a local AppBundle:</label>
                         <select class="form-control" id="localBundles"> </select>
@@ -93,7 +94,7 @@ Under **wwwroot** folder create the **index.html** file with the following conte
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-danger" id="clearAccount">Clear account</button>
-                    <button type="button" class="btn btn-primary" id="createAppBundleActivity">Define activity</button>
+                    <button type="button" class="btn btn-primary" id="createAppBundleActivity">Create/Update</button>
                 </div>
             </div>
         </div>
@@ -130,7 +131,7 @@ function list(control, endpoint) {
     jQuery.ajax({
         url: endpoint,
         success: function (list) {
-            if (list.length == 0)
+            if (list.length === 0)
                 $('#' + control).append($('<option>', { disabled: true, text: 'Nothing found' }));
             else
                 list.forEach(function (item) { $('#' + control).append($('<option>', { value: item, text: item })); })
@@ -203,7 +204,7 @@ function createActivity(cb) {
 
 function startWorkitem() {
     var inputFileField = document.getElementById('inputFile');
-    if (inputFileField.files.length == 0) { alert('Please select an input file'); return; }
+    if (inputFileField.files.length === 0) { alert('Please select an input file'); return; }
     if ($('#activity').val() === null) { alert('Please select an activity'); return };
     var file = inputFileField.files[0];
     startConnection(function () {
@@ -250,8 +251,8 @@ function startConnection(onReady) {
                 });
         });
 
-    connection.on("onProgress", function (message) {
-        writeLog(message);
+    connection.on("downloadResult", function (url) {
+        writeLog('<a href="' + url +'">Download result file here</a>');
     });
 
     connection.on("onComplete", function (message) {
@@ -264,6 +265,8 @@ The final result should look like:
 
 ![](_media/designautomation/netcore/basefiles.png)
 
-At this point you can run your project, the HTML interface should open, indicating that your project was created correctly. None of the buttons should work... let's move forward.
+At this point you can run your project, just hit **play**, the HTML interface should open, indicating that your project was created correctly. None of the buttons should work... let's move forward.
+
+![](_media/net/start_debug.png) 
 
 Next: [Prepare a plugin](designautomation/appbundle/)

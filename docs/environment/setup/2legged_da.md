@@ -4,7 +4,15 @@ Your Client ID & Secret should be protected and keep confidential as all your fi
 
 ### Prerequisites
 
-**ngrok**
+**1. Visual Studio**
+
+Visual Studio 2017 or newer is required, please visit [this link](https://visualstudio.microsoft.com/vs/).
+
+**2. AutoCAD, Inventor or Revit**
+
+In order to develop, test and debug your Design Automation plugin: [AutoCAD](https://www.autodesk.com/products/autocad/overview) | [Inventor](https://www.autodesk.com/products/inventor/overview) | [Revit](https://www.autodesk.com/products/revit/overview).
+
+**3. ngrok**
 
 When Design Automation finishes modifying your model, it notifies back. As your machine is not exposed on the web, the [ngrok](https://ngrok.com/) tool create a temporary address to receive notifications. This tool is only required locally. 
 
@@ -13,5 +21,7 @@ After download, unzip it. Open the Windows **Command Line Prompt** (CMD) and nav
 ![](/_media/designautomation/ngrok.gif)
 
 > If running on non-Windows (e.g. MacOS), open the **Terminal** instead and follow the same steps.
+
+!> **Warning**: `ngrok` exposes your localhost server to the web while it is in use. Be sure to turn it off when your testing it done. Do not use this outside development environment
 
 Choose your language: [.NET Core](environment/setup/netcore)

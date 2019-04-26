@@ -10,6 +10,8 @@ This step will help you create a basic Inventor plugin. For more information, pl
 
 Right-click on the solution, the **Add** >> **New Project**. Select **Visual C#**, then **Autodesk Inventor 2019 Addin** and, finally, name it `UpdateIPTParam`. Right-click on the project, go to **Manage NuGet Packages...**, under **Browser** you can search for **Newtonsoft** and install `Newtonsoft.Json`. 
 
+> Please select .NET Framework 4.7. If not listed, [please install the Dev Pack](https://dotnet.microsoft.com/download/dotnet-framework/net47).
+
 ![](_media/designautomation/inventor/new_project.gif)
 
 As a result, the **package.config** should look like the following. These are the latest version as of Jan/2019.
@@ -23,7 +25,7 @@ As a result, the **package.config** should look like the following. These are th
 
 ## Commands.cs
 
-Create a new class named `Commands` and copy the following content to it. This is where the parameters are updated.
+Create a new class named `Commands` and copy the following content to it. This is where the parameters are updated under the `Run` method.
 
 ```csharp
 using Inventor;
@@ -118,7 +120,7 @@ namespace UpdateIPTParam
 
 ## StandardAddInServer.cs
 
-This file is created by the template and is the entry point, let's just add our Commands to it.
+This file is created by the template and is the entry point, let's just add our Commands to it and make it as a return for `Automation` property, so it is called by Design Automation.
 
 **1. Class members**
 
@@ -202,9 +204,9 @@ At this point, the project should look like:
 Now we need to ZIP the .bundle folder. Right-click on the project, select **Properties**, then open **Build Events** and copy the following into **Post-build event command line** field, as shown on the image below.
 
 ```
-xcopy /Y /F $(TargetDir)*.dll $(ProjectDir)UpdateIPTParam.bundle\Contents\
-del /F $(ProjectDir)..\forgesample\wwwroot\bundles\UpdateIPTParam.zip
-"C:\Program Files\7-Zip\7z.exe" a -tzip $(ProjectDir)../forgesample/wwwroot/bundles/UpdateIPTParam.zip  $(ProjectDir)UpdateIPTParam.bundle\ -xr0!*.pdb
+xcopy /Y /F "$(TargetDir)*.dll" "$(ProjectDir)UpdateIPTParam.bundle\Contents\"
+del /F "$(ProjectDir)..\forgesample\wwwroot\bundles\UpdateIPTParam.zip"
+"C:\Program Files\7-Zip\7z.exe" a -tzip "$(ProjectDir)../forgesample/wwwroot/bundles/UpdateIPTParam.zip" "$(ProjectDir)UpdateIPTParam.bundle\" -xr0!*.pdb
 ```
 
 This will copy the DLL from /bin/debug/ into .bundle/Contents folder, then use [7zip](https://www.7-zip.org/) to create a zip, then finally copy the ZIP into /bundles folders of the webapp.
