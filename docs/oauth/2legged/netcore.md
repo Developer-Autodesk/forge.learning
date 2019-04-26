@@ -5,12 +5,10 @@
 Under **Controllers** folder, create a class/file named **OAuthController** and add the following content:
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Autodesk.Forge;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace forgeSample.Controllers
 {

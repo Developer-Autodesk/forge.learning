@@ -1,4 +1,4 @@
-# Client-side files (.NET)
+# Client-side files (.NET Framework)
 
 ASP.NET apps usually uses `.aspx` instead `.html`, but for this tutorial let's just use `.html` for simplicity.
 
