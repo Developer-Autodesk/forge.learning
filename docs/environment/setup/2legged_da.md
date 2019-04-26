@@ -24,4 +24,4 @@ After download, unzip it. Open the Windows **Command Line Prompt** (CMD) and nav
 
 !> **Warning**: `ngrok` exposes your localhost server to the web while it is in use. Be sure to turn it off when your testing it done. Do not use this outside development environment
 
-Choose your language: [.NET Core](environment/setup/netcore)
+Choose your language: [.NET Core](environment/setup/netcore_da)

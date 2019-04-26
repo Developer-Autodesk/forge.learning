@@ -13,14 +13,16 @@ Under **Controllers** folder, create a class/file named **OSSController** and ad
 ```csharp
 using Autodesk.Forge;
 using Autodesk.Forge.Model;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using System.Web;
-using System.Web.Http;
 
 namespace forgesample.Controllers
 {
+  [ApiController]
   public class OSSController : ApiController
   {
     /// <summary>

@@ -1,4 +1,4 @@
-# Translate the model (.NET Framework)
+# Translate the model (.NET Core)
 
 To translate a file we just need one endpoint.
 
@@ -9,12 +9,13 @@ Under **Controllers** folder, create a class/file named **ModelDerivativeControl
 ```csharp
 using Autodesk.Forge;
 using Autodesk.Forge.Model;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Web.Http;
 
 namespace forgesample.Controllers
 {
+  [ApiController]
   public class ModelDerivativeController : ApiController
   {
     /// <summary>
