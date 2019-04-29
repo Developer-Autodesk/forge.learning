@@ -15,6 +15,7 @@ Right-click on the project, go to **Properties**, then under **Debug** tab see t
 - `ASPNETCORE_URLS`: use `http://localhost:3000`
 - `FORGE_CLIENT_ID`: use your id here
 - `FORGE_CLIENT_SECRET`: use your secret here
+- `FORGE_CALLBACK_URL`: for this sample, use `http://localhost:3000/api/forge/callback/oauth`
 
 You may also check **Launch browser** and specify the **App URL** if you would to launch the app in your browser automatically when debugging. Finally, as we are running the app locally without setting up a trusted certificate, uncheck **Enable SSL** option. Your settings should look as shown below.
 
