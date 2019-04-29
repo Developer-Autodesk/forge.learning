@@ -1,6 +1,6 @@
 # Upload file to OSS (.NET Core)
 
-At this section we actually need 3 features:
+For this section we actually need 3 features:
 
 1. Create buckets
 2. List buckets & objects (files)
@@ -8,7 +8,7 @@ At this section we actually need 3 features:
 
 ## OSSController.cs
 
-Under **Controllers** folder, create a class/file named **OSSController** and add the following content:
+Under **Controllers** folder, create a class named **OSSController** in a class file with the same name (`OSSController.cs`) and add the following content:
 
 ```csharp
 using Autodesk.Forge;
@@ -50,13 +50,13 @@ namespace forgesample.Controllers
       }
       else
       {
-        // as we have the id (bucketKey), let's return all 
+        // as we have the id (bucketKey), let's return all
         ObjectsApi objects = new ObjectsApi();
         objects.Configuration.AccessToken = oauth.access_token;
         var objectsList = objects.GetObjects(id);
         foreach (KeyValuePair<string, dynamic> objInfo in new DynamicDictionaryItems(objectsList.items))
         {
-          nodes.Add(new TreeNode(Base64Encode((string)objInfo.Value.objectId), 
+          nodes.Add(new TreeNode(Base64Encode((string)objInfo.Value.objectId),
             objInfo.Value.objectKey, "object", false));
         }
       }
@@ -83,7 +83,7 @@ namespace forgesample.Controllers
     }
 
     /// <summary>
-    /// Create a new bucket 
+    /// Create a new bucket
     /// </summary>
     [HttpPost]
     [Route("api/forge/oss/buckets")]
@@ -160,8 +160,8 @@ namespace forgesample.Controllers
 }
 ```
 
-As we plan to suppor the [jsTree](https://www.jstree.com/), our **GetOSSAsync** need to return handle the `id` querystring parameter and return buckets when `id=#` and objects for a given bucketKey passed as `id=bucketKey`. The **CreateBucket** expects a **bucketKey** parameter to create the bucket. Last, but not least, the **UploadObject** receives the files from the client (browser), save it on **/App_Data/** temporaly, then upload to the respective bucket.
+As we plan to support the [jsTree](https://www.jstree.com/), our **GetOSSAsync** needs a `id` as querystring parameter and returns buckets when `id=#` and objects for a given bucketKey passed in as `id=bucketKey` in the querystring. The **CreateBucket** expects a **bucketKey** parameter to create the bucket. Last but not least, the **UploadObject** receives the files from your browser, saves it under **/App_Data/** temporarily, then uploads to the respective bucket.
 
-!> Upload a file from the client (browser) directly to Autodesk Forge is possible, but requires giving the client a **write-enabled** access token, which is **NOT SECURE**.
+!> Upload a file from your browser to Autodesk Forge is possible through a server backend, but requires giving the client a **write-enabled** access token, which is **NOT SECURE**.
 
 Next: [Translate the file](modelderivative/translate/)
