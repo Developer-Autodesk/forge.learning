@@ -1,4 +1,4 @@
-# Create a new project (.NET)
+# Create a new project (.NET Framework)
 
 Go to menu **File** >> **New** >> **Project** and select **Web** >> **ASP.NET Web Application**. For this sample, let's name it **forgesample**. On the next dialog, select **Empty** and select **Web API**. 
 

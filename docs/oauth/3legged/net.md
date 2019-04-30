@@ -1,4 +1,4 @@
-# Authorize
+# Authorize (.NET Framework)
 
 For a basic *OAuth* implementation we need 1 file.
 
