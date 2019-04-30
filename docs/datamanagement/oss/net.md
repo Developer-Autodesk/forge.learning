@@ -1,4 +1,4 @@
-# Upload file to OSS (.NET)
+# Upload file to OSS (.NET Framework)
 
 At this section we actually need 3 features:
 

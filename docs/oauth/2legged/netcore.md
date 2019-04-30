@@ -2,15 +2,13 @@
 
 ## OAuthController.cs
 
-Under **Controllers** folder, create a class/file named **OAuthController** and add the following content:
+Under **Controllers** folder, create a class named **OAuthController** in a class file with the same name (`OAuthController.cs`) and add the following content:
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Autodesk.Forge;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace forgeSample.Controllers
 {
@@ -18,9 +16,9 @@ namespace forgeSample.Controllers
     public class OAuthController : ControllerBase
     {
         // As both internal & public tokens are used for all visitors
-        // we don't need to request a new token on every request, so let's
+        // we don't need to request a new token for every request, so let's
         // cache them using static variables. Note we still need to refresh
-        // them after the expires_in time (in seconds)
+        // them after they expire after the time specified in the expires_in field (in seconds)
         private static dynamic InternalToken { get; set; }
         private static dynamic PublicToken { get; set; }
 
@@ -79,12 +77,12 @@ namespace forgeSample.Controllers
 }
 ```
 
-The **Get2LeggedTokenAsync** method connects to Autodesk Forge and get the access token. As we need a public (read-only) and an internal (write-enabled) tokens, **GetPublicAsync** exposes as an endpoint while **GetInternalAsync** is for the application. 
+The **Get2LeggedTokenAsync** method connects to Autodesk Forge and get the access token. As we need a public (read-only) and an internal (write-enabled) token, **GetPublicAsync** exposes an endpoint for public access while **GetInternalAsync** is to be called within the application only.
 
-To avoid getting a new access token for each end-user request, which adds unnecessary latency, let's cache them in a couple `static` variables. Note we still need to refresh it after `expires_in` seconds.
+To avoid getting a new access token for each end-user request causing unnecessary latency, let's cache them in a couple of `static` variables. Note we still need to refresh it after the time given in `expires_in` (in seconds).
 
-!> Share access token between users is only valid in this case, where all users are accessing the same information (2-legged). If your app uses per-user data (3-legged), **DOT NOT** use this approach.
+!> Sharing access token between users is only valid in this case, where all users are accessing the same information (2-legged). If your app requires user specific data (3-legged), **DOT NOT** use this approach.
 
-As per comments, the **GetAppSetting** simply gets the ID & Secret from the **Web.Config** file.
+As per comments in the code above, the **GetAppSetting** simply gets the ID & Secret from the **Web.Config** file.
 
 Next: [Upload file to OSS](/datamanagement/oss/)
