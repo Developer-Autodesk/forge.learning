@@ -39,7 +39,8 @@ router.get('/buckets', async (req, res, next) => {
             res.json(buckets.body.items.map((bucket) => {
                 return {
                     id: bucket.bucketKey,
-                    text: bucket.bucketKey,
+                    // Remove bucket key prefix that was added during bucket creation
+                    text: bucket.bucketKey.replace(config.credentials.client_id.toLowerCase() + '-', ''),
                     type: 'bucket',
                     children: true
                 };
@@ -69,7 +70,7 @@ router.get('/buckets', async (req, res, next) => {
 // Request body must be a valid JSON in the form of { "bucketKey": "<new_bucket_name>" }.
 router.post('/buckets', async (req, res, next) => {
     let payload = new PostBucketsPayload();
-    payload.bucketKey = req.body.bucketKey;
+    payload.bucketKey = config.credentials.client_id.toLowerCase() + '-' + req.body.bucketKey;
     payload.policyKey = 'transient'; // expires in 24h
     try {
         // Create a bucket using [BucketsApi](https://github.com/Autodesk-Forge/forge-api-nodejs-client/blob/master/docs/BucketsApi.md#createBucket).
