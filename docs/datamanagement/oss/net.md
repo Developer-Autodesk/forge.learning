@@ -43,7 +43,7 @@ namespace forgesample.Controllers
         dynamic buckets = await appBckets.GetBucketsAsync("US", 100);
         foreach (KeyValuePair<string, dynamic> bucket in new DynamicDictionaryItems(buckets.items))
         {
-          nodes.Add(new TreeNode(bucket.Value.bucketKey, bucket.Value.bucketKey, "bucket", true));
+          nodes.Add(new TreeNode(bucket.Value.bucketKey, bucket.Value.bucketKey.Replace(ClientId + "-", string.Empty), "bucket", true));
         }
       }
       else
@@ -90,7 +90,7 @@ namespace forgesample.Controllers
       BucketsApi buckets = new BucketsApi();
       dynamic token = await OAuthController.GetInternalAsync();
       buckets.Configuration.AccessToken = token.access_token;
-      PostBucketsPayload bucketPayload = new PostBucketsPayload(bucket.bucketKey, null,
+      PostBucketsPayload bucketPayload = new PostBucketsPayload(string.Format("{0}-{1}", ClientId, bucket.bucketKey.ToLower()), null,
         PostBucketsPayload.PolicyKeyEnum.Transient);
       return await buckets.CreateBucketAsync(bucketPayload, "US");
     }

@@ -30,7 +30,7 @@ public async Task<IActionResult> StartWorkitem([FromForm]StartWorkitemInput inpu
 
     // upload file to OSS Bucket
     // 1. ensure bucket existis
-    string bucketKey = NickName.ToLower() + "_designautomation";
+    string bucketKey = NickName.ToLower() + "-designautomation";
     BucketsApi buckets = new BucketsApi();
     buckets.Configuration.AccessToken = oauth.access_token;
     try
@@ -136,7 +136,7 @@ public async Task<IActionResult> OnCallback(string id, string outputFileName, [F
 
         // generate a signed URL to download the result file and send to the client
         ObjectsApi objectsApi = new ObjectsApi();
-        dynamic signedUrl = await objectsApi.CreateSignedResourceAsyncWithHttpInfo(NickName.ToLower() + "_designautomation", outputFileName, new PostBucketsSigned(10), "read");
+        dynamic signedUrl = await objectsApi.CreateSignedResourceAsyncWithHttpInfo(NickName.ToLower() + "-designautomation", outputFileName, new PostBucketsSigned(10), "read");
         await _hubContext.Clients.Client(id).SendAsync("downloadResult", (string)(signedUrl.Data.signedUrl));
     }
     catch { }
