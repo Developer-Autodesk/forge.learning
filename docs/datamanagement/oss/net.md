@@ -23,6 +23,8 @@ namespace forgesample.Controllers
 {
   public class OSSController : ApiController
   {
+    public string ClientId { get { return OAuthController.GetAppSetting("FORGE_CLIENT_ID").ToLower(); } }
+
     /// <summary>
     /// Return list of buckets (id=#) or list of objects (id=bucketKey)
     /// </summary>
