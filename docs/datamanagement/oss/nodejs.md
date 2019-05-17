@@ -17,6 +17,7 @@ const multer  = require('multer');
 const { BucketsApi, ObjectsApi, PostBucketsPayload } = require('forge-apis');
 
 const { getClient, getInternalToken } = require('./common/oauth');
+const config = require('../config');
 
 let router = express.Router();
 
