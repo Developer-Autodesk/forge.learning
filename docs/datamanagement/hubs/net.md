@@ -4,6 +4,8 @@
 
 Create a .NET WebAPI Controller named **DataManagementController** (see [how to create a controller](environment/setup/net_controller)) and add the following content:
 
+> Note that a few errors will appear, to be fixed right after.
+
 ```csharp
 using Autodesk.Forge;
 using Autodesk.Forge.Model;
