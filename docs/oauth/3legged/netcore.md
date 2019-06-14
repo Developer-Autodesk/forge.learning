@@ -7,13 +7,13 @@ For a basic *OAuth* implementation we need 1 file.
 Under **Controllers** folder, create a class named **OAuthController** in a class file with the same name (`OAuthController.cs`) and add the following content:
 
 ```csharp
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Autodesk.Forge;
-using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace forgeSample.Controllers
 {
@@ -78,6 +78,7 @@ namespace forgeSample.Controllers
         [Route("api/forge/callback/oauth")] // see Web.Config FORGE_CALLBACK_URL variable
         public async Task<IActionResult> OAuthCallbackAsync(string code)
         {
+            if (string.IsNullOrWhiteSpace(code)) return Redirect("/");
             // create credentials form the oAuth CODE
             Credentials credentials = await Credentials.CreateFromCodeAsync(code, Response.Cookies);
 
@@ -192,7 +193,5 @@ namespace forgeSample.Controllers
 ```
 
 This code will store both **access tokens** on the session with the **refresh token** and **expiration time**. When it expires, it will use the refresh token to request 2 new access tokens (internal & public). Note how it contains 2 classes: `OAuthController` and `Credentials`, where the first exposes the endpoints and the second handles the access tokens (including refresh).
-
-!> Our server was specified with `https` access only and the cookie can only be read by the client and server. 
 
 Next: [List hubs & projects](/datamanagement/hubs/readme)

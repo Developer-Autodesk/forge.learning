@@ -2,7 +2,7 @@
 
 > .NET Core also runs on non-Windows and non-Visual Studio environment, please check [this other tutorial for MacOS](https://github.com/augustogoncalves/dotnetcoreheroku). Windows OS still required to compile the plugin.
 
-Go to menu **File** >> **New** >> **Project** and select **.NET Core** >> **ASP.NET Core Web Application**. For this sample, let's name it **forgesample**. On the next dialog, select **Empty** and select **Web API**.
+Go to menu **File** >> **New** >> **Project** and select **.NET Core** >> **ASP.NET Core Web Application**. For this sample, let's name it **forgesample**. On the next dialog, select **Empty**.
 
 Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk.Forge** and install `Autodesk.Forge`, where the first will be used to upload input and output results to OSS and the second to use Design Automation.
 
@@ -17,7 +17,7 @@ Right-click on the project, go to **Properties**, then under **Debug** tab see t
 - `FORGE_CLIENT_SECRET`: use your secret here
 - `FORGE_CALLBACK_URL`: for this sample, use `http://localhost:3000/api/forge/callback/oauth`
 
-You may also check **Launch browser** and specify the **App URL** if you would to launch the app in your browser automatically when debugging. Finally, as we are running the app locally without setting up a trusted certificate, uncheck **Enable SSL** option. Your settings should look as shown below.
+You may also check **Launch browser** and specify the **App URL** if you would to launch the app in your browser automatically when debugging. Adjust the **App URL** field to `http://localhost:3000`. Finally, as we are running the app locally without setting up a trusted certificate, uncheck **Enable SSL** option. Your settings should look as shown below.
 
 ![](_media/netcore/env_vars.png)
 

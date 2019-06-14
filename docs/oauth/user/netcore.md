@@ -7,10 +7,10 @@ This endpoint will request the end-user information and return the **name** and 
 Under **Controllers** folder, create a class named **UserController** in a class file with the same name (`UserController.cs`) and add the following content:
 
 ```csharp
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Autodesk.Forge;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
 
 namespace forgeSample.Controllers
 {
