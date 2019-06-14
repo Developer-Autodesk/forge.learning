@@ -10,15 +10,15 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
-namespace forgeSample.Controllers
+namespace forgesample.Controllers
 {
     [ApiController]
     public class OAuthController : ControllerBase
     {
         // As both internal & public tokens are used for all visitors
-        // we don't need to request a new token for every request, so let's
+        // we don't need to request a new token on every request, so let's
         // cache them using static variables. Note we still need to refresh
-        // them after they expire after the time specified in the expires_in field (in seconds)
+        // them after the expires_in time (in seconds)
         private static dynamic InternalToken { get; set; }
         private static dynamic PublicToken { get; set; }
 
