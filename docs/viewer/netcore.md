@@ -1,6 +1,6 @@
 # Client-side files (.NET Core)
 
-Typically, ASP.NET Core app serves files from `/wwwroot/` folder, so under that folder, let's organize like this:
+Typically, ASP.NET Core app serves files from `/wwwroot/` folder, create it if not there yet. Under that folder, let's organize like this:
 
 - `wwwroot/`: `.html`
 - `wwwroot/js`: `.js`
