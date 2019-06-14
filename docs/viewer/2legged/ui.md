@@ -82,7 +82,7 @@ Create an **index.html** file with:
         <div class="modal-body">
           <input type="text" id="newBucketKey" class="form-control"> For demonstration purposes, objects (files) are 
           NOT automatically translated. After you upload, right click on
-          the object and select "Translate".
+          the object and select "Translate". Bucket keys must be of the form [-_.a-z0-9]{3,128}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
