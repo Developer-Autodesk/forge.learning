@@ -25,8 +25,8 @@ Create a **index.html** file with:
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.7/themes/default/style.min.css" />
   <!-- Autodesk Forge Viewer files -->
-  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/style.min.css" type="text/css">
-  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/viewer3D.min.js"></script>
+  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css" type="text/css">
+  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
   <!-- this project files -->
   <link href="css/main.css" rel="stylesheet" />
   <script src="js/ForgeTree.js"></script>
@@ -232,63 +232,39 @@ function showUser() {
 Now this file will handle the Viewer initialization. The following code is based on the Autodesk Forge Viewer [Basic Application](https://developer.autodesk.com/en/docs/viewer/v2/tutorials/basic-application/). Under `js` folder, create a **ForgeViewer.js** file with:
 
 ```javascript
-var viewerApp;
+var viewer;
 
 function launchViewer(urn) {
-  if (viewerApp != null) {
-    var thisviewer = viewerApp.getCurrentViewer();
-    if (thisviewer) {
-      thisviewer.tearDown()
-      thisviewer.finish()
-      thisviewer = null
-      $("#forgeViewer").empty();
-    }
-  }
-  
   var options = {
     env: 'AutodeskProduction',
-    getAccessToken: getForgeToken
+    getAccessToken: getForgeToken,
+    api: 'derivativeV2' + (atob(urn.replace('_', '/')).indexOf('emea') > -1 ? '_EU' : '') // handle BIM 360 US and EU regions
   };
-  var documentId = 'urn:' + urn;
-  Autodesk.Viewing.Initializer(options, function onInitialized() {
-    viewerApp = new Autodesk.Viewing.ViewingApplication('forgeViewer');
-    viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D);
-    viewerApp.loadDocument(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
+
+  Autodesk.Viewing.Initializer(options, () => {
+    viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'));
+    viewer.start();
+    var documentId = 'urn:' + urn;
+    Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
   });
 }
 
 function onDocumentLoadSuccess(doc) {
-  // We could still make use of Document.getSubItemsWithProperties()
-  // However, when using a ViewingApplication, we have access to the **bubble** attribute,
-  // which references the root node of a graph that wraps each object from the Manifest JSON.
-  var viewables = viewerApp.bubble.search({ 'type': 'geometry' });
-  if (viewables.length === 0) {
-    console.error('Document contains no viewables.');
-    return;
-  }
-
-  // Choose any of the avialble viewables
-  viewerApp.selectItem(viewables[0].data, onItemLoadSuccess, onItemLoadFail);
+  var viewables = doc.getRoot().getDefaultGeometry();
+  viewer.loadDocumentNode(doc, viewables).then(i => {
+    console.log(`isOTG:${viewer.model.isOTG()}`);
+  });
 }
 
 function onDocumentLoadFailure(viewerErrorCode) {
   console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode);
 }
 
-function onItemLoadSuccess(viewer, item) {
-  // item loaded, any custom action?
-}
-
-function onItemLoadFail(errorCode) {
-  console.error('onItemLoadFail() - errorCode:' + errorCode);
-}
-
 function getForgeToken(callback) {
-  jQuery.ajax({
-    url: '/api/forge/oauth/token',
-    success: function (res) {
-      callback(res.access_token, res.expires_in)
-    }
+  fetch('/api/forge/oauth/token').then(res => {
+    res.json().then(data => {
+      callback(data.access_token, data.expires_in);
+    });
   });
 }
 ```
