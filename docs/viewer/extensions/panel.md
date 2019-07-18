@@ -19,24 +19,11 @@ ModelSummaryExtension.prototype = Object.create(Autodesk.Viewing.Extension.proto
 ModelSummaryExtension.prototype.constructor = ModelSummaryExtension;
 
 ModelSummaryExtension.prototype.load = function () {
-    if (this.viewer.toolbar) {
-        // Toolbar is already available, create the UI
-        this.createUI();
-    } else {
-        // Toolbar hasn't been created yet, wait until we get notification of its creation
-        this.onToolbarCreatedBinded = this.onToolbarCreated.bind(this);
-        this.viewer.addEventListener(Autodesk.Viewing.TOOLBAR_CREATED_EVENT, this.onToolbarCreatedBinded);
-    }
+    // any custom initialization required? add here
     return true;
 };
 
 ModelSummaryExtension.prototype.onToolbarCreated = function () {
-    this.viewer.removeEventListener(Autodesk.Viewing.TOOLBAR_CREATED_EVENT, this.onToolbarCreatedBinded);
-    this.onToolbarCreatedBinded = null;
-    this.createUI();
-};
-
-ModelSummaryExtension.prototype.createUI = function () {
     var _this = this;
 
     // prepare to execute the button action
@@ -67,7 +54,8 @@ ModelSummaryExtension.prototype.createUI = function () {
 };
 
 ModelSummaryExtension.prototype.unload = function () {
-    this.viewer.toolbar.removeControl(this.subToolbar);
+    if (this.viewer.toolbar) this.viewer.toolbar.removeControl(this.subToolbar);
+    if (this.panel) this.panel.setVisible(false);
     return true;
 };
 
