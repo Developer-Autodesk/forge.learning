@@ -252,7 +252,7 @@ function launchViewer(urn) {
 function onDocumentLoadSuccess(doc) {
   var viewables = doc.getRoot().getDefaultGeometry();
   viewer.loadDocumentNode(doc, viewables).then(i => {
-    console.log(`isOTG:${viewer.model.isOTG()}`);
+    // documented loaded, any action?
   });
 }
 

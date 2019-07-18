@@ -7,5 +7,3 @@ Typically, ASP.NET Core app serves files from `/wwwroot/` folder, create it if n
 - `wwwroot/css`: `.css`
 
 The image below illustrates our file and folder structure after creating them in the next section:
-
-![](_media/netcore/project_all_files.png)

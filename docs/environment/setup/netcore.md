@@ -2,7 +2,7 @@
 
 > .NET Core also runs on non-Windows and non-Visual Studio environment, please check [this other tutorial for MacOS](https://github.com/augustogoncalves/dotnetcoreheroku). Windows OS still required to compile the plugin.
 
-Go to menu **File** >> **New** >> **Project** and select **.NET Core** >> **ASP.NET Core Web Application**. For this sample, let's name it **forgesample**. On the next dialog, select **Empty**.
+Go to menu **File** >> **New** >> **Project** and select **.NET Core** >> **ASP.NET Core Web Application**. For this sample, let's name it **forgeSample**. On the next dialog, select **Empty**.
 
 Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk.Forge** and install `Autodesk.Forge`, where the first will be used to upload input and output results to OSS and the second to use Design Automation.
 
