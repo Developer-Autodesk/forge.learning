@@ -91,13 +91,13 @@ The extension skeleton is ready, now open the **/index.html** file and add the f
 Finally we need to tell the Viewer to load the extension, in the **/www/js/ForgeViewer.js** find the following line:
 
 ```javascript
-viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D);
+viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'));
 ```
 
 And replace with:
 
 ```javascript
-viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D, { extensions: ['MyAwesomeExtension'] });
+viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['MyAwesomeExtension'] });
 ```
 
 At this point the extension should load and the toolbar button will show, but it doesn't execute anything (remember there is just a place holder comment on `.onClick` function). This is the basic skeleton you can use to create your extensions. 

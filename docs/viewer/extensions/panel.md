@@ -77,14 +77,14 @@ Just like in the basic skeleton, the toolbar button uses a **CSS** styling (see 
 
 ## Load the extension
 
-Finally, [load the extension](/viewer/extensions/skeleton?id=loading-the-extension) using the same code as the **basic skeleton** (of course, adjust the names). For your reference, here are the 2 changes needed: include the `<script>` on **index.html** and include the extension on `.registerViewer()` call.
+Finally, [load the extension](/viewer/extensions/skeleton?id=loading-the-extension) using the same code as the **basic skeleton** (of course, adjust the names). For your reference, here are the 2 changes needed: include the `<script>` on **index.html** and include the extension on viewer creation:
 
 ```html
 <script src="/js/dockingpanelextension.js"></script>
 ```
 
 ```javascript
-viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D, { extensions: ['ModelSummaryExtension'] });
+viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['ModelSummaryExtension'] });
 ```
 
 > Note how `extensions` is an array, so you can load multiple extensions! For instance, to load the previous selection sample and this, just use `['HandleSelectionExtension', 'ModelSummaryExtension']` instead! Cool, right?
