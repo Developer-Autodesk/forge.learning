@@ -230,13 +230,6 @@ private async Task<IList<jsTreeNode>> GetFolderContents(string href)
     return nodes;
 }
 
-private string GetName(DynamicDictionaryItems folderIncluded, KeyValuePair<string, dynamic> folderContentItem)
-{
-
-
-    return "N/A";
-}
-
 private async Task<IList<jsTreeNode>> GetItemVersions(string href)
 {
     IList<jsTreeNode> nodes = new List<jsTreeNode>();
