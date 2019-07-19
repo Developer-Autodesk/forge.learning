@@ -17,6 +17,7 @@ If you want to download the project ready to use, visit the following repos:
 
 - [Node.js](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/nodejs)
 - [.NET Framework](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/net)
+- [.NET Core](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/netcore)
 
 Ready to start coding?
 

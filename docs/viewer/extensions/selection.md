@@ -18,24 +18,11 @@ HandleSelectionExtension.prototype = Object.create(Autodesk.Viewing.Extension.pr
 HandleSelectionExtension.prototype.constructor = HandleSelectionExtension;
 
 HandleSelectionExtension.prototype.load = function () {
-    if (this.viewer.toolbar) {
-        // Toolbar is already available, create the UI
-        this.createUI();
-    } else {
-        // Toolbar hasn't been created yet, wait until we get notification of its creation
-        this.onToolbarCreatedBinded = this.onToolbarCreated.bind(this);
-        this.viewer.addEventListener(Autodesk.Viewing.TOOLBAR_CREATED_EVENT, this.onToolbarCreatedBinded);
-    }
+    // any custom initialization required? add here
     return true;
 };
 
 HandleSelectionExtension.prototype.onToolbarCreated = function () {
-    this.viewer.removeEventListener(Autodesk.Viewing.TOOLBAR_CREATED_EVENT, this.onToolbarCreatedBinded);
-    this.onToolbarCreatedBinded = null;
-    this.createUI();
-};
-
-HandleSelectionExtension.prototype.createUI = function () {
     var _this = this;
 
     // prepare to execute the button action
@@ -66,7 +53,7 @@ HandleSelectionExtension.prototype.createUI = function () {
 };
 
 HandleSelectionExtension.prototype.unload = function () {
-    this.viewer.toolbar.removeControl(this.subToolbar);
+    if (this.viewer.toolbar) this.viewer.toolbar.removeControl(this.subToolbar);
     return true;
 };
 
@@ -89,14 +76,14 @@ Just like in the basic skeleton, the toolbar button uses a **CSS** styling (see 
 
 ## Load the extension
 
-Finally, [load the extension](/viewer/extensions/skeleton?id=loading-the-extension) using the same code as the **basic skeleton** (of course, adjust the names). For your reference, here are the 2 changes needed: include the `<script>` on **index.html** and include the extension on `.registerViewer()` call.
+Finally, [load the extension](/viewer/extensions/skeleton?id=loading-the-extension) using the same code as the **basic skeleton** (of course, adjust the names). For your reference, here are the 2 changes needed: include the `<script>` on **index.html** and include the extension on viewer creation:
 
 ```html
 <script src="/js/handleselectionextension.js"></script>
 ```
 
 ```javascript
-viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D, { extensions: ['HandleSelectionExtension'] });
+viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['HandleSelectionExtension'] });
 ```
 
 At this point the extension should load with a toolbar icon, but it doesn't do anything.

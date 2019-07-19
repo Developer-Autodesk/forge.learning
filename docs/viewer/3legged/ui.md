@@ -25,8 +25,8 @@ Create a **index.html** file with:
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.7/themes/default/style.min.css" />
   <!-- Autodesk Forge Viewer files -->
-  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/style.min.css" type="text/css">
-  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/viewer3D.min.js"></script>
+  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css" type="text/css">
+  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
   <!-- this project files -->
   <link href="css/main.css" rel="stylesheet" />
   <script src="js/ForgeTree.js"></script>
@@ -171,47 +171,44 @@ function prepareUserHubsTree() {
       }
     },
     'types': {
-      'default': {
-        'icon': 'glyphicon glyphicon-question-sign'
-      },
-      '#': {
-        'icon': 'glyphicon glyphicon-user'
-      },
-      'hubs': {
-        'icon': 'https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/a360hub.png'
-      },
-      'personalHub': {
-        'icon': 'https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/a360hub.png'
-      },
-      'bim360Hubs': {
-        'icon': 'https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/bim360hub.png'
-      },
-      'bim360projects': {
-        'icon': 'https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/bim360project.png'
-      },
-      'a360projects': {
-        'icon': 'https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/a360project.png'
-      },
-      'items': {
-        'icon': 'glyphicon glyphicon-file'
-      },
-      'folders': {
-        'icon': 'glyphicon glyphicon-folder-open'
-      },
-      'versions': {
-        'icon': 'glyphicon glyphicon-time'
-      },
-      'unsupported': {
-        'icon': 'glyphicon glyphicon-ban-circle'
+      'default': { 'icon': 'glyphicon glyphicon-question-sign' },
+      '#': { 'icon': 'glyphicon glyphicon-user' },
+      'hubs': { 'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/a360hub.png' },
+      'personalHub': { 'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/a360hub.png' },
+      'bim360Hubs': { 'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/bim360hub.png' },
+      'bim360projects': { 'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/bim360project.png' },
+      'a360projects': { 'icon': 'https://github.com/Autodesk-Forge/bim360appstore-data.management-nodejs-transfer.storage/raw/master/www/img/a360project.png' },      
+      'folders': { 'icon': 'glyphicon glyphicon-folder-open' },
+      'items': { 'icon': 'glyphicon glyphicon-file' },
+      'bim360documents': { 'icon': 'glyphicon glyphicon-file' },
+      'versions': { 'icon': 'glyphicon glyphicon-time' },
+      'unsupported': { 'icon': 'glyphicon glyphicon-ban-circle' }
+    },
+    "sort": function (a, b) {
+      var a1 = this.get_node(a);
+      var b1 = this.get_node(b);
+      var parent = this.get_node(a1.parent);
+      if (parent.type === 'items') { // sort by version number
+        var id1 = Number.parseInt(a1.text.substring(a1.text.indexOf('v') + 1, a1.text.indexOf(':')))
+        var id2 = Number.parseInt(b1.text.substring(b1.text.indexOf('v') + 1, b1.text.indexOf(':')));
+        return id1 > id2 ? 1 : -1;
       }
+      else if (a1.type !== b1.type) return a1.icon < b1.icon ? 1 : -1; // types are different inside folder, so sort by icon (files/folders)
+      else return a1.text > b1.text ? 1 : -1; // basic name/text sort
     },
     "plugins": ["types", "state", "sort"],
     "state": { "key": "autodeskHubs" }// key restore tree state
   }).bind("activate_node.jstree", function (evt, data) {
-    if (data != null && data.node != null && data.node.type == 'versions') {
-      $("#forgeViewer").empty();
-      var urn = data.node.id;
-      launchViewer(urn);
+    if (data != null && data.node != null && (data.node.type == 'versions' || data.node.type == 'bim360documents')) {
+      // in case the node.id contains a | then split into URN & viewableId
+      if (data.node.id.indexOf('|') > -1) {
+        var urn; = data.node.id.split('|')[1];
+        var viewableId = data.node.id.split('|')[2];
+        launchViewer(urn, viewableId);
+      }
+      else {
+        launchViewer(data.node.id);
+      }
     }
   });
 }
@@ -232,63 +229,42 @@ function showUser() {
 Now this file will handle the Viewer initialization. The following code is based on the Autodesk Forge Viewer [Basic Application](https://developer.autodesk.com/en/docs/viewer/v2/tutorials/basic-application/). Under `js` folder, create a **ForgeViewer.js** file with:
 
 ```javascript
-var viewerApp;
+var viewer;
 
-function launchViewer(urn) {
-  if (viewerApp != null) {
-    var thisviewer = viewerApp.getCurrentViewer();
-    if (thisviewer) {
-      thisviewer.tearDown()
-      thisviewer.finish()
-      thisviewer = null
-      $("#forgeViewer").empty();
-    }
-  }
-  
+// @urn the model to show
+// @viewablesId which viewables to show, applies to BIM 360 Plans folder
+function launchViewer(urn, viewableId) {
   var options = {
     env: 'AutodeskProduction',
-    getAccessToken: getForgeToken
+    getAccessToken: getForgeToken,
+    api: 'derivativeV2' + (atob(urn.replace('_', '/')).indexOf('emea') > -1 ? '_EU' : '') // handle BIM 360 US and EU regions
   };
-  var documentId = 'urn:' + urn;
-  Autodesk.Viewing.Initializer(options, function onInitialized() {
-    viewerApp = new Autodesk.Viewing.ViewingApplication('forgeViewer');
-    viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D);
-    viewerApp.loadDocument(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
-  });
-}
 
-function onDocumentLoadSuccess(doc) {
-  // We could still make use of Document.getSubItemsWithProperties()
-  // However, when using a ViewingApplication, we have access to the **bubble** attribute,
-  // which references the root node of a graph that wraps each object from the Manifest JSON.
-  var viewables = viewerApp.bubble.search({ 'type': 'geometry' });
-  if (viewables.length === 0) {
-    console.error('Document contains no viewables.');
-    return;
+  Autodesk.Viewing.Initializer(options, () => {
+    viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['Autodesk.Sample.MiniMapExtension', 'MyAwesomeExtension'] });
+    viewer.start();
+    var documentId = 'urn:' + urn;
+    Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
+  });
+
+  function onDocumentLoadSuccess(doc) {
+    // if a viewableId was specified, load that view, otherwise the default view
+    var viewables = (viewableId ? doc.getRoot().findByGuid(viewableId) : doc.getRoot().getDefaultGeometry());
+    viewer.loadDocumentNode(doc, viewables).then(i => {
+      // any additional action here?
+    });
   }
 
-  // Choose any of the avialble viewables
-  viewerApp.selectItem(viewables[0].data, onItemLoadSuccess, onItemLoadFail);
-}
-
-function onDocumentLoadFailure(viewerErrorCode) {
-  console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode);
-}
-
-function onItemLoadSuccess(viewer, item) {
-  // item loaded, any custom action?
-}
-
-function onItemLoadFail(errorCode) {
-  console.error('onItemLoadFail() - errorCode:' + errorCode);
+  function onDocumentLoadFailure(viewerErrorCode) {
+    console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode);
+  }
 }
 
 function getForgeToken(callback) {
-  jQuery.ajax({
-    url: '/api/forge/oauth/token',
-    success: function (res) {
-      callback(res.access_token, res.expires_in)
-    }
+  fetch('/api/forge/oauth/token').then(res => {
+    res.json().then(data => {
+      callback(data.access_token, data.expires_in);
+    });
   });
 }
 ```

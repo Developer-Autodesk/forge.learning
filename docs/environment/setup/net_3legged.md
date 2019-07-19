@@ -1,4 +1,4 @@
-[nodejs setup](environment/setup/net.md ':include :type=markdown')
+[net setup](environment/setup/net.md ':include :type=markdown')
 
 ## Global.asax
 
