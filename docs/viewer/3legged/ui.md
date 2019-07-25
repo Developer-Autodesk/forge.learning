@@ -157,17 +157,7 @@ Create a **index.html** file with:
 
 #### ** Migration Guide **
 
-# Migration Guide v6 to v7
-
-## Description
-
-This guide is intended for developers who have been using v6 and are upgrading to v7.
-
-The tables indicate changes from v6 to v7. Developers should review the changes and update their code based on the changes noted in v7. Refer to the final column for instructions and description of the changes.
-
-The code below assumes that symbol av stands for Autodesk.Viewing namespace global variable.
-
-For details please visit: https://forge.autodesk.com/en/docs/viewer/v7/change_history/changelog_v7/migration_guide_v6_to_v7/
+Please visit the [Forge website](https://forge.autodesk.com/en/docs/viewer/v7/change_history/changelog_v7/migration_guide_v6_to_v7/) for a complete guide for developers who have been using v6 (or older) and are upgrading to v7.
 
 <!-- tabs:end -->
 
@@ -317,12 +307,13 @@ function showUser() {
 
 ## ForgeViewer.js
 
-Now this file will handle the Viewer initialization. The following code is based on the Autodesk Forge Viewer [Basic Application](https://developer.autodesk.com/en/docs/viewer/v2/tutorials/basic-application/). Under `js` folder, create a **ForgeViewer.js** file with:
-
+Now this file will handle the Viewer initialization. Under `js` folder, create a **ForgeViewer.js** file with:
 
 <!-- tabs:start -->
 
 #### ** Viewer v7 **
+
+The following code is based on the Autodesk Forge Viewer [Basic](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/initialization/) tutorial.
 
 ```javascript
 var viewer;
@@ -366,6 +357,8 @@ function getForgeToken(callback) {
 ```
 
 #### ** Viewer v6 **
+
+The following code is based on the Autodesk Forge Viewer [Basic Application](https://forge.autodesk.com/en/docs/viewer/v6/tutorials/basic-application/) tutorial.
 
 ```javascript
 var viewerApp;
@@ -428,6 +421,10 @@ function getForgeToken(callback) {
   });
 }
 ```
+
+#### ** Migration Guide **
+
+Please visit the [Forge Migration Guide ](https://forge.autodesk.com/en/docs/viewer/v7/change_history/changelog_v7/migration_guide_v6_to_v7/) for a complete documentation for developers who have been using v6 (or older) and are upgrading to v7.
 
 <!-- tabs:end -->
 
