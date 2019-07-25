@@ -1,56 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <title>Autodesk Forge</title>
-  <link rel="icon" href="_media/favicon.ico">
+  <title>forge.learning-master - ### To view tutorials, please visit [learnforge.autodesk.io](http://learnforge.autodesk.io).</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="keywords" content="Autodesk, Forge, 3D web, WebGL">
-  <meta name="description" content="Learn the basics of authentication, data management, file translation, and model rendering, with our quickstart guides.">
+  <meta name="description" content="### To view tutorials, please visit [learnforge.autodesk.io](http://learnforge.autodesk.io).">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify@4.6.7/lib/themes/vue.css" title="vue">
-  <link rel="stylesheet" href="//unpkg.com/docsify-copy-code@1.0.0/styles.css">
-  <style>
-    nav.app-nav li ul {
-      min-width: 100px;
-    }
-  </style>
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
 </head>
-
 <body>
-  <script src="//unpkg.com/docsify-copy-code@1.0.0/index.js"></script>
-  <div id="app">Loading ...</div>
+  <div id="app"></div>
   <script>
     window.$docsify = {
-      auto2top: true,
-      coverpage: false,
-      executeScript: true,
-      loadSidebar: true,
-      alias: {
-        '/.*/_sidebar.md': '/_sidebar.md'
-      },
-      maxLevel: 4,
-      subMaxLevel: 3,
-      name: 'Autodesk Forge',
-      nameLink: 'http://developer.autodesk.com',
-      search: {
-        paths: 'auto',
-      },
-      ga: 'UA-86813615-5',
-      //disqus: 'learnforge',
-      formatUpdated: '{MM}/{DD} {HH}:{mm}',
-      plugins: [
-        window.DocsifyCopyCodePlugin.init(),
-        function (hook, vm) {
-          hook.beforeEach(function (html) {
-            var email = 'Questions on this tutorial? [Ask on Stackoverflow](https://stackoverflow.com/questions/ask?tags=[autodesk-forge]) or [email us](mailto:forge.help@autodesk.com?subject=About tutorial page /' + vm.route.file + ')\n'
-            return html
-              + '\n\n----\n'
-              + email
-          })
-        }
-      ]
+      name: 'forge.learning-master',
+      repo: ''
     }
   </script>
   <script src="//unpkg.com/docsify@4.6.7/lib/docsify.min.js"></script>
@@ -68,5 +31,4 @@
   <!--<script src="libs/disqus.js"></script>-->
   <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
 </body>
-
 </html>
