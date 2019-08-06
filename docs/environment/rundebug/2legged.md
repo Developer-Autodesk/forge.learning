@@ -10,7 +10,11 @@ Right-click on the newly created bucket and choose **Upload file** (this trigger
 
 To upload .rvt file in a bucket, first we need to download one. Use the below link to download sample RVT, DWG, IPT files. 
 
-[Click here to download](https://myshare.autodesk.com/personal/varun_devrao_patil_autodesk_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fvarun%5Fdevrao%5Fpatil%5Fautodesk%5Fcom%2FDocuments%2Fmodels%2Ezip&parent=%2Fpersonal%2Fvarun%5Fdevrao%5Fpatil%5Fautodesk%5Fcom%2FDocuments&cid=9f5caaa3-45f0-4f77-a98a-8c54fcecd4d8)
+[Click here to download sample .rvt file](https://knowledge.autodesk.com/support/revit-products/getting-started/caas/CloudHelp/cloudhelp/2019/ENU/Revit-GetStarted/files/GUID-61EF2F22-3A1F-4317-B925-1E85F138BE88-htm.html)
+
+[Click here to download sample .dwg file](https://knowledge.autodesk.com/support/autocad-mechanical/downloads/caas/downloads/content/autocad-mechanical-2019-sample-files.html)
+
+[Click here to download sample .ipj models](https://knowledge.autodesk.com/support/inventor/troubleshooting/caas/downloads/content/inventor-sample-files.html)
 
  Then expand the bucket tree node, right-click on the file, select **Translate** (This triggers the Model Derivative JOB). After a moment your file should be ready, click on the file again to show it in the Viewer.
 
