@@ -78,12 +78,28 @@ Just like in the basic skeleton, the toolbar button uses a **CSS** styling (see 
 
 Finally, [load the extension](/viewer/extensions/skeleton?id=loading-the-extension) using the same code as the **basic skeleton** (of course, adjust the names). For your reference, here are the 2 changes needed: include the `<script>` on **index.html** and include the extension on viewer creation:
 
+ Open the **/index.html** file and add the following line :
+
 ```html
 <script src="/js/handleselectionextension.js"></script>
 ```
 
+In the **/www/js/ForgeViewer.js** find the following line:
+
+```javascript
+viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'));
+```
+
+And replace with:
+
 ```javascript
 viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['HandleSelectionExtension'] });
+```
+
+Note :- If one extension is already loaded then HandleSelectionExtension can be added using **comma (',')**  in an array:
+
+```javascript
+viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions['MyAwesomeExtension','HandleSelectionExtension'] }); 
 ```
 
 At this point the extension should load with a toolbar icon, but it doesn't do anything.
