@@ -12,7 +12,9 @@ To upload .rvt file in a bucket, first we need to download one. Use the below li
 
 [Click here to download sample .rvt files](https://knowledge.autodesk.com/support/revit-products/getting-started/caas/CloudHelp/cloudhelp/2019/ENU/Revit-GetStarted/files/GUID-61EF2F22-3A1F-4317-B925-1E85F138BE88-htm.html)
 
-[Click here to download sample .dwg files](https://knowledge.autodesk.com/support/autocad-mechanical/downloads/caas/downloads/content/autocad-mechanical-2019-sample-files.html)
+[Click here to download sample AutoCAD *mechanical* .dwg files](https://knowledge.autodesk.com/support/autocad-mechanical/downloads/caas/downloads/content/autocad-mechanical-2019-sample-files.html)
+
+[Click here to download sample AutoCAD *vanilla* .dwg files]([https://knowledge.autodesk.com/support/autocad/downloads/caas/downloads/content/autocad-sample-files.html](https://github.com/Developer-Autodesk/forge.learning/pull/url))
 
 [Click here to download sample .ipj models](https://knowledge.autodesk.com/support/inventor/troubleshooting/caas/downloads/content/inventor-sample-files.html)
 
