@@ -88,6 +88,12 @@ The extension skeleton is ready, now open the **/index.html** file and add the f
 <script src="/js/myawesomeextension.js"></script>
 ```
 
+Note :-   Make sure while loading the extensions <scripts> code, load it below the ForgeViewer.js 
+
+![](_media/forge/extension_example.png)
+
+
+
 Finally we need to tell the Viewer to load the extension, in the **/www/js/ForgeViewer.js** find the following line:
 
 ```javascript
