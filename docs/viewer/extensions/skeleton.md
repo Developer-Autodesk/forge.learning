@@ -41,8 +41,11 @@ class MyAwesomeExtension extends Autodesk.Viewing.Extension {
 
         // Add a new button to the toolbar group
         this._button = new Autodesk.Viewing.UI.Button('myAwesomeExtensionButton');
-        this._button.onClick = (ev) => { alert('Hello World!'); };
+        this._button.onClick = (ev) => {
+            // Execute an action here
+        };
         this._button.setToolTip('My Awesome Extension');
+        this._button.addClass('myAwesomeExtensionIcon');
         this._group.addControl(this._button);
     }
 }
@@ -57,7 +60,7 @@ Autodesk.Viewing.theExtensionManager.registerExtension('MyAwesomeExtension', MyA
 The toolbar button uses a **CSS** styling (see call to `.addClass` on the code). At the **/css/main.css** add the following:
 
 ```css
-#myAwesomeExtensionButton {
+.myAwesomeExtensionIcon {
     background-image: url(/img/myAwesomeIcon.png);
     background-size: 24px;
     background-repeat: no-repeat;
