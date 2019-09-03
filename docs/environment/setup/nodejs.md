@@ -162,4 +162,4 @@ The project is ready! At this point your project should look like this:
 
 ![](_media/nodejs/vs_code_project.png) 
 
-> The **package-lock.json** was created by **npm**, don't worry :wink: 
+> The **package-lock.json** was created by **npm**, don't worry

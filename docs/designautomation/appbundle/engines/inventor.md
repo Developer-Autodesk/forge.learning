@@ -213,7 +213,7 @@ This will copy the DLL from /bin/debug/ into .bundle/Contents folder, then use [
 
 ![](_media/designautomation/inventor/post_build.png)
 
-If you build the `UpdateIPTParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great! :wink:
+If you build the `UpdateIPTParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great!
 
 ![](_media/designautomation/inventor/build_output.png)
 

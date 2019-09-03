@@ -173,7 +173,7 @@ This will copy the DLL from /bin/debug/ into .bundle/Contents folder, then use [
 
 > Note how the **Post-build event** uses the project and folder names, so make sure you're using this names.
 
-If you build the `UpdateDWGParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great! :wink:
+If you build the `UpdateDWGParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great!
 
 ![](_media/designautomation/autocad/build_output.png)
 
