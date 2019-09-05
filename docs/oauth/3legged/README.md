@@ -6,4 +6,4 @@ To use a web app as an example, this means that your app first needs to redirect
 
 A user needs to authorize access to his/her data. A **3-legged** token is required.
 
-Choose your language: [NodeJS](oauth/3legged/nodejs) | [.NET](oauth/3legged/net)
+Choose your language: [Node.js](oauth/3legged/nodejs) | [.NET Framework](oauth/3legged/net) | [.NET Core](oauth/3legged/netcore)

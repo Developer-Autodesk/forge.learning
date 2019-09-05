@@ -2,7 +2,7 @@
 
 Create a folder on your machine, do not use spaces and avoid special chars. For this tutorial, let's use **forgesample**.
 
-Open **Visual Code**, then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder. 
+Open **Visual Code**, then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder.
 
 Now we need the terminal, go to menu **View** >> **Integrated Terminal**. A window should appear on the bottom. Type the following command and follow the steps.
 
@@ -15,9 +15,9 @@ This creates the **composer.json** file, which defines which packages our projec
 ## Install packages
 
 By default, a PHP project is empty, so we need to install a few packages with **composer require**. Let's start with a basic **PHP** server, **klein** for router handling, **phpdotenv** to load environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically, of course, **Autodesk Forge**.
-* Check [klein](https://packagist.org/packages/klein/klein) if you want to know more about usage of klein. 
-* Check [phpdotenv](https://packagist.org/packages/vlucas/phpdotenv) if you want to know more about usage of phpdotenv. 
-* Check [Autodesk Forge](https://packagist.org/packages/autodesk/forge-client) if you want to know more about usage of Forge PHP SDK. 
+* Check [klein](https://packagist.org/packages/klein/klein) if you want to know more about usage of klein.
+* Check [phpdotenv](https://packagist.org/packages/vlucas/phpdotenv) if you want to know more about usage of phpdotenv.
+* Check [Autodesk Forge](https://packagist.org/packages/autodesk/forge-client) if you want to know more about usage of Forge PHP SDK.
 
 
 !> Run one **composer require** at a time.
@@ -28,7 +28,7 @@ composer require klein/klein
 composer require vlucas/phpdotenv
 ```
 
-> The libary would be also saved on the **composer.json** file. 
+> The libary would be also saved on the **composer.json** file.
 
 Now your folder should have a **vendor** folder and your **composer.json** should look like:
 
@@ -47,8 +47,8 @@ Now your folder should have a **vendor** folder and your **composer.json** shoul
     "require": {
         "autodesk/forge-client": "^1.0",
         "klein/klein": "^2.1",
-        "vlucas/phpdotenv": "^2.4.0"
-    }  
+        "vlucas/phpdotenv": "^3.0.0"
+    }
 }
 ```
 
@@ -62,7 +62,7 @@ For consitency with other Forge samples, create a **/server/** folder for all se
 
 At this point, you project should be something like:
 
-![](_media/php/vs_code_explorer.png) 
+![](_media/php/vs_code_explorer.png)
 
 
 ## index.php
@@ -126,9 +126,9 @@ This file routes the API requests.
 
 ## .htaccess
 This file is used to do URL Rewrite for Apache, we will direct the following URL:
-1. Redirect home page to **/www/index.html** 
+1. Redirect home page to **/www/index.html**
 2. Redirect js & css files to folder **www**
-3. Redirect any API call to be prefixed with **index.php** 
+3. Redirect any API call to be prefixed with **index.php**
 
 please check [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) for more details.
 
@@ -153,7 +153,7 @@ please check [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) 
 ```
 
 
-## .env 
+## .env
 
 !> It's important to define **ID & Secret** as environment variables so our project can use it for authorized requests..
 
@@ -176,12 +176,13 @@ use Dotenv\Dotenv;
 class ForgeConfig{
     private static $forge_id = null;
     private static $forge_secret = null;
+    public static $prepend_bucketkey = true; //toggle client ID prefix to avoid conflict with existing buckets
 
     public static function getForgeID(){
       $forge_id = getenv('FORGE_CLIENT_ID');
       if(!$forge_id){
         // load the environment variable from .env into your application
-        $dotenv = new Dotenv(__DIR__);
+        $dotenv = Dotenv::create(__DIR__);
         $dotenv->load();
         $forge_id = getenv('FORGE_CLIENT_ID');
      }
@@ -192,7 +193,7 @@ class ForgeConfig{
       $forge_secret = getenv('FORGE_CLIENT_SECRET');
       if(!$forge_secret){
         // load the environment variable from .env into your application
-        $dotenv = new Dotenv(__DIR__);
+        $dotenv = Dotenv::create(__DIR__);
         $dotenv->load();
         $forge_secret = getenv('FORGE_CLIENT_SECRET');
      }
@@ -208,7 +209,7 @@ class ForgeConfig{
     public static function getScopePublic(){
       // Will update the scope to viewables:read when #13 of autodesk/forge-client is fixed
       return ['data:read'];
-    } 
+    }
 }
 ```
 
@@ -216,7 +217,7 @@ We are getting our ENV variables here by loading the .env file with the code lik
 
 ```php
 <?php
-    $dotenv = new Dotenv(__DIR__);
+    $dotenv = Dotenv::create(__DIR__);
     $dotenv->load();
     $forge_secret = getenv('FORGE_CLIENT_SECRET');
     $forge_secret = getenv('FORGE_CLIENT_SECRET');
@@ -230,8 +231,8 @@ Last we see there are 2 definitions about scopes. These scopes give our Token th
 
 Project is ready! At this point your project should have:
 
-![](_media/php/vs_code_project.png) 
+![](_media/php/vs_code_project.png)
 
-> The **composer.lock** was created by Composer install, don't worry :wink: 
+> The **composer.lock** was created by Composer install, don't worry
 
 Next: [Authenticate](oauth/2legged/)

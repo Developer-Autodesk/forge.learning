@@ -20,4 +20,4 @@ To navigate and access BIM 360 Team, Fusion Team, BIM 360 Docs, A360 Personal, a
 
 At this section, let's create an endpoint to returns list of **Hubs**, **Projects**, **Folders**, **Items** (files) and respective **Versions** (which can be viewed on Viewer).
  
-Choose your language: [NodeJS](datamanagement/hubs/nodejs) | [.NET](datamanagement/hubs/net)
+Choose your language: [Node.js](datamanagement/hubs/nodejs) | [.NET Framework](datamanagement/hubs/net) | [.NET Core](datamanagement/hubs/netcore)

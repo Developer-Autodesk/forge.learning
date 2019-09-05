@@ -1,61 +1,59 @@
-# Translate Model (NodeJS)
+# Translate Model (Node.js)
 
 To translate a file we just need one endpoint.
 
-## modelderivative.js
+## routes/modelderivative.js
 
-Create a `/server/modelderivative.js` file with the following content:
+Create a `routes/modelderivative.js` file with the following content:
 
 ```javascript
-'use strict';
+const express = require('express');
+const {
+    DerivativesApi,
+    JobPayload,
+    JobPayloadInput,
+    JobPayloadOutput,
+    JobSvfOutputPayload
+} = require('forge-apis');
 
-// web framework
-var express = require('express');
-var router = express.Router();
+const { getClient, getInternalToken } = require('./common/oauth');
 
-// Forge NPM
-var forgeSDK = require('forge-apis');
+let router = express.Router();
 
-// handle json requests
-var bodyParser = require('body-parser');
-var jsonParser = bodyParser.json();
+// Middleware for obtaining a token for each request.
+router.use(async (req, res, next) => {
+    const token = await getInternalToken();
+    req.oauth_token = token;
+    req.oauth_client = getClient();
+    next();
+});
 
-// actually perform the token operation
-var oauth = require('./oauth');
-
-// Create a new bucket 
-router.post('/api/forge/modelderivative/jobs', jsonParser, function (req, res) {
-    oauth.getTokenInternal().then(function (credentials) {
-        // prepare the translation job payload
-        var postJob = new forgeSDK.JobPayload();
-        postJob.input = new forgeSDK.JobPayloadInput();
-        postJob.input.urn = req.body.objectName;
-        postJob.output = new forgeSDK.JobPayloadOutput(
-            [new forgeSDK.JobSvfOutputPayload()]
-        );
-        postJob.output.formats[0].type = 'svf';
-        postJob.output.formats[0].views = ['2d', '3d'];
-
-        // create the derivative API 
-        var derivativesApi = new forgeSDK.DerivativesApi();
-        // post the job
-        derivativesApi.translate(postJob, {}, oauth.OAuthClient(), credentials)
-            .then(function (data) {
-                res.status(200).end();
-            }).catch(function (e) {
-                console.log('Error at Model Derivative job:');
-                console.log(e);
-                res.status(500).json({ error: e.error.body })
-            });
-    });
+// POST /api/forge/modelderivative/jobs - submits a new translation job for given object URN.
+// Request body must be a valid JSON in the form of { "objectName": "<translated-object-urn>" }.
+router.post('/jobs', async (req, res, next) => {
+    let job = new JobPayload();
+    job.input = new JobPayloadInput();
+    job.input.urn = req.body.objectName;
+    job.output = new JobPayloadOutput([
+        new JobSvfOutputPayload()
+    ]);
+    job.output.formats[0].type = 'svf';
+    job.output.formats[0].views = ['2d', '3d'];
+    try {
+        // Submit a translation job using [DerivativesApi](https://github.com/Autodesk-Forge/forge-api-nodejs-client/blob/master/docs/DerivativesApi.md#translate).
+        await new DerivativesApi().translate(job, {}, req.oauth_client, req.oauth_token);
+        res.status(200).end();
+    } catch(err) {
+        next(err);
+    }
 });
 
 module.exports = router;
 ```
 
-The **jobs** endpoint receives the **bucketKey** and **objectName** and post the [translation job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
+The **jobs** endpoint receives the **objectName** and posts the [translation job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
 
-To summarize, at this point your **NodeJS** project should be like:
+To summarize, at this point your **NodeJS** project should look like this:
 
 ![](_media/nodejs/vs_code_allfiles.png)
 
