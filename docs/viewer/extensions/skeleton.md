@@ -7,58 +7,48 @@ This step of the tutorial describes the basic skeleton of an extension with a to
 Let's get started, each extension should be a JavaScript file and implement, at least, the `.load` and `.unload` functions. Create a file in the UI folder **/js/myawesomeextension.js** and copy the following content. 
 
 ```javascript
-// *******************************************
-// My Awesome Extension
-// *******************************************
-function MyAwesomeExtension(viewer, options) {
-    Autodesk.Viewing.Extension.call(this, viewer, options);
+class MyAwesomeExtension extends Autodesk.Viewing.Extension {
+    constructor(viewer, options) {
+        super(viewer, options);
+        this._group = null;
+        this._button = null;
+    }
+
+    load() {
+        console.log('MyAwesomeExtensions has been loaded');
+        return true;
+    }
+
+    unload() {
+        // Clean our UI elements if we added any
+        if (this._group) {
+            this._group.removeControl(this._button);
+            if (this._group.getNumberOfControls() === 0) {
+                this.viewer.toolbar.removeControl(this._group);
+            }
+        }
+        console.log('MyAwesomeExtensions has been unloaded');
+        return true;
+    }
+
+    onToolbarCreated() {
+        // Create a new toolbar group if it doesn't exist
+        this._group = this.viewer.toolbar.getControl('allMyAwesomeExtensionsToolbar');
+        if (!this._group) {
+            this._group = new Autodesk.Viewing.UI.ControlGroup('allMyAwesomeExtensionsToolbar');
+            this.viewer.toolbar.addControl(this._group);
+        }
+
+        // Add a new button to the toolbar group
+        this._button = new Autodesk.Viewing.UI.Button('myAwesomeExtensionButton');
+        this._button.onClick = (ev) => {
+            // Execute an action here
+        };
+        this._button.setToolTip('My Awesome Extension');
+        this._button.addClass('myAwesomeExtensionIcon');
+        this._group.addControl(this._button);
+    }
 }
-
-MyAwesomeExtension.prototype = Object.create(Autodesk.Viewing.Extension.prototype);
-MyAwesomeExtension.prototype.constructor = MyAwesomeExtension;
-
-MyAwesomeExtension.prototype.load = function () {
-    // any custom initialization required? add here
-    return true;
-};
-
-MyAwesomeExtension.prototype.onToolbarCreated = function () {
-    var _this = this;
-
-    // prepare to execute the button action
-    var myAwesomeToolbarButton = new Autodesk.Viewing.UI.Button('runMyAwesomeCode');
-    myAwesomeToolbarButton.onClick = function (e) {
-
-        // **********************
-        //
-        //
-        // Execute an action here
-        //
-        //
-        // **********************
-
-        alert('I am an extension');
-
-    };
-    // myAwesomeToolbarButton CSS class should be defined on your .css file
-    // you may include icons, below is a sample class:
-    myAwesomeToolbarButton.addClass('myAwesomeToolbarButton');
-    myAwesomeToolbarButton.setToolTip('My Awesome extension');
-
-    // SubToolbar
-    this.subToolbar = (this.viewer.toolbar.getControl("MyAppToolbar") ?
-        this.viewer.toolbar.getControl("MyAppToolbar") :
-        new Autodesk.Viewing.UI.ControlGroup('MyAppToolbar'));
-    this.subToolbar.addControl(myAwesomeToolbarButton);
-
-    this.viewer.toolbar.addControl(this.subToolbar);
-};
-
-MyAwesomeExtension.prototype.unload = function () {
-    // remove toolbar
-    if (this.viewer.toolbar) this.viewer.toolbar.removeControl(this.subToolbar);
-    return true;
-};
 
 Autodesk.Viewing.theExtensionManager.registerExtension('MyAwesomeExtension', MyAwesomeExtension);
 ```
@@ -70,7 +60,7 @@ Autodesk.Viewing.theExtensionManager.registerExtension('MyAwesomeExtension', MyA
 The toolbar button uses a **CSS** styling (see call to `.addClass` on the code). At the **/css/main.css** add the following:
 
 ```css
-.myAwesomeToolbarButton {
+.myAwesomeExtensionIcon {
     background-image: url(/img/myAwesomeIcon.png);
     background-size: 24px;
     background-repeat: no-repeat;

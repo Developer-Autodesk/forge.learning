@@ -63,7 +63,7 @@ At this point, you project should have the following structure:
 
 ![](_media/nodejs/vs_code_explorer.png) 
 
-> The **package-lock.json** was created by **npm**, don't worry :wink: 
+> The **package-lock.json** was created by **npm**, don't worry
 
 ## launch.json
 

@@ -238,7 +238,7 @@ This will copy the DLL from /bin/debug/ into .bundle/Contents folder, then use [
 ![](_media/designautomation/max/post_build.png)
 > Note how the **Post-build event** uses the project and folder names, so make sure you're using these names.
 
-If you build the `UpdateMAXParam` project now you should see something like below in the **Output** window. Note that 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great! :wink:
+If you build the `UpdateMAXParam` project now you should see something like below in the **Output** window. Note that 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great!
 
 ![](_media/designautomation/max/build_output.png)
 

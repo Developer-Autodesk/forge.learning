@@ -8,7 +8,7 @@ This tutorial will guide you through creating a webapp that can upload an input 
 
 To modify your models, you need the following steps:
 
-1. [Create a server](environment/setup/2legged_da) << First time developer? You should start here :wink:
+1. [Create a server](environment/setup/2legged_da) << First time developer? You should start here
 2. [Basic app UI](designautomation/html/)
 3. [Prepare a plugin](designautomation/appbundle/)
 4. [Define an activity](designautomation/activity/)

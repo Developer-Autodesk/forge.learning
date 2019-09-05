@@ -233,6 +233,6 @@ Project is ready! At this point your project should have:
 
 ![](_media/php/vs_code_project.png)
 
-> The **composer.lock** was created by Composer install, don't worry :wink:
+> The **composer.lock** was created by Composer install, don't worry
 
 Next: [Authenticate](oauth/2legged/)
