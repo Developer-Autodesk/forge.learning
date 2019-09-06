@@ -6,5 +6,5 @@ This means that your app directly communicates with the Forge Platform for authe
 
 Authentication is required for accessing any resource on Forge. A **2-legged** token grants access to your application information.
 
-Choose your language: [Node.js](oauth/2legged/nodejs) | [.NET](oauth/2legged/net) | [Go](oauth/2legged/go) | [PHP](oauth/2legged/php) | [Java](oauth/2legged/java)
+Choose your language: [Node.js](oauth/2legged/nodejs) | [.NET Framework](oauth/2legged/net) | [.NET Core](oauth/2legged/netcore) | [Go](oauth/2legged/go) | [PHP](oauth/2legged/php) | [Java](oauth/2legged/java)
 

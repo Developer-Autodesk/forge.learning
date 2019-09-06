@@ -6,9 +6,9 @@ This step will help you create a basic Revit plugin for Design Automation. For m
 
 Right-click on the solution, the **Add** >> **New Project**. Select **Windows Desktop**, then **Class Library** and, finally, name it `UpdateRVTParam`. 
 
-> Please select .NET Framework 4.7. If not listed, [please install](https://dotnet.microsoft.com/download/thank-you/net47).
+> Please select .NET Framework 4.7. If not listed, [please install the Dev Pack](https://dotnet.microsoft.com/download/dotnet-framework/net47).
 
-Right-click on **References**, then **Add Reference** and **Browse** for `RevitAPI.dll` (by default under _C:\Program Files\Autodesk\Revit 201x\_ folder)
+Right-click on **References**, then **Add Reference** and **Browse** for `RevitAPI.dll` (by default under _C:\Program Files\Autodesk\Revit 201x\_ folder). Then right-click on this **RevitAPI** reference, go to **Properties**, then set **Copy Local** to **False**.
 
 Then right-click on the project, go to **Manage NuGet Packages...**, under **Browser** you can search for **DesignAutomation.Revit** and install `Autodesk.Forge.DesignAutomation.Revit` (choose the appropriate Revit version you need). Then search and install `Newtonsoft.Json` (which is used to parse input data in JSON format). 
 
@@ -185,8 +185,10 @@ This will copy the DLL from /bin/debug/ into .bundle/Contents folder, then use [
 
 > Note how the **Post-build event** uses the project and folder names, so make sure you're using this names.
 
-If you build the `UpdateRVTParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great! :wink:
+If you build the `UpdateRVTParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great!
 
 ![](_media/designautomation/revit/build_output.png)
+
+!> If the build output shows more than **2 folder, 5 files** copied, please go back and ensure **RevitAPI** reference is set to **Copy Local**:**False**. You may need to remove all DLLs from `UpdateRVTParam.bundle/Contents/` folder
 
 Next: [Upload the plugin](designautomation/appbundle/netcore)

@@ -1,5 +1,3 @@
-[net core setup](environment/setup/netcore.md ':include :type=markdown')
-
-Project is ready!
+[net setup](environment/setup/netcore.md ':include :type=markdown')
 
 Next: [Authenticate](oauth/2legged/)
