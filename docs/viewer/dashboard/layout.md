@@ -1,6 +1,6 @@
 # Adjust layout
 
-This step of the tutorial uses the basic layout of your app, but adds an extra collumn for charts.
+This step of the tutorial uses the basic layout of your app, but adds an extra column for charts.
 
 Let's create a new `dashboard` folder under `/js/` to place the new files.
 
@@ -39,7 +39,7 @@ class Dashboard {
     adjustLayout() {
         // this function may vary for layout to layout...
         // for learn forge tutorials, let's get the ROW and adjust the size of the 
-        // collumns so it can fit the new dashboard collumn
+        // columns so it can fit the new dashboard column
         var row = $(".row").children();
         $(row[0]).removeClass('col-sm-4').addClass('col-sm-2');
         $(row[1]).removeClass('col-sm-8').addClass('col-sm-6').after('<div class="col-sm-4" id="dashboard"></div>');
