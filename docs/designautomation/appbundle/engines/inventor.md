@@ -10,7 +10,7 @@ This step will help you create a basic Inventor plugin. For more information, pl
 
 Right-click on the solution, the **Add** >> **New Project**. Select **Visual C#**, then **Autodesk Inventor 2019 Addin** and, finally, name it `UpdateIPTParam`. Right-click on the project, go to **Manage NuGet Packages...**, under **Browser** you can search for **Newtonsoft** and install `Newtonsoft.Json`. 
 
-> Please select .NET Framework 4.7. If not listed, [please install](https://dotnet.microsoft.com/download/thank-you/net47).
+> Please select .NET Framework 4.7. If not listed, [please install the Dev Pack](https://dotnet.microsoft.com/download/dotnet-framework/net47).
 
 ![](_media/designautomation/inventor/new_project.gif)
 
@@ -213,7 +213,7 @@ This will copy the DLL from /bin/debug/ into .bundle/Contents folder, then use [
 
 ![](_media/designautomation/inventor/post_build.png)
 
-If you build the `UpdateIPTParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great! :wink:
+If you build the `UpdateIPTParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great!
 
 ![](_media/designautomation/inventor/build_output.png)
 

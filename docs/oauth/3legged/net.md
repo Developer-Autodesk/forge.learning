@@ -1,4 +1,4 @@
-# Authorize
+# Authorize (.NET Framework)
 
 For a basic *OAuth* implementation we need 1 file.
 
@@ -177,7 +177,5 @@ namespace forgesample.Controllers
 ```
 
 This code will store both **access tokens** on the session with the **refresh token** and **expiration time**. When it expires, it will use the refresh token to request 2 new access tokens (internal & public). Note how it contains 2 classes: `OAuthController` and `Credentials`, where the first exposes the endpoints and the second handles the access tokens (including refresh).
-
-!> Our server was specified with `https` access only and the cookie can only be read by the client and server. 
 
 Next: [List hubs & projects](/datamanagement/hubs/readme)

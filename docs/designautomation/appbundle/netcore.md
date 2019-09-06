@@ -123,7 +123,7 @@ That's where we actually define a new AppBundle:
 
 ```csharp
 /// <summary>
-/// Define a new activity
+/// Define a new appbundle
 /// </summary>
 [HttpPost]
 [Route("api/forge/designautomation/appbundles")]
@@ -143,7 +143,7 @@ public async Task<IActionResult> CreateAppBundle([FromBody]JObject appBundleSpec
     // get defined app bundles
     Page<string> appBundles = await _designAutomation.GetAppBundlesAsync();
 
-    // check if app bundle is already defined
+    // check if app bundle is already define
     dynamic newAppVersion;
     string qualifiedAppBundleId = string.Format("{0}.{1}+{2}", NickName, appBundleName, Alias);
     if (!appBundles.Data.Contains(qualifiedAppBundleId))

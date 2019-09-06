@@ -6,7 +6,7 @@ This step will help you create a basic AutoCAD plugin for Design Automation. For
 
 Right-click on the solution, the **Add** >> **New Project**. Select **Windows Desktop**, then **Class Library** and, finally, name it `UpdateDWGParam`. Then right-click on the project, go to **Manage NuGet Packages...**, under **Browser** you can search for **AutoCAD.NET** and install `AutoCAD.NET.Core` (which also installs `AutoCAD.NET.Model`). Then search and install `Newtonsoft.Json` (which is used to parse input data in JSON format).
 
-> Please select .NET Framework 4.7. If not listed, [please install](https://dotnet.microsoft.com/download/thank-you/net47).
+> Please select .NET Framework 4.7. If not listed, [please install the Dev Pack](https://dotnet.microsoft.com/download/dotnet-framework/net47).
 
 ![](_media/designautomation/autocad/new_project.gif)
 
@@ -173,7 +173,7 @@ This will copy the DLL from /bin/debug/ into .bundle/Contents folder, then use [
 
 > Note how the **Post-build event** uses the project and folder names, so make sure you're using this names.
 
-If you build the `UpdateDWGParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great! :wink:
+If you build the `UpdateDWGParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great!
 
 ![](_media/designautomation/autocad/build_output.png)
 

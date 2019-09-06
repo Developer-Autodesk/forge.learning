@@ -10,7 +10,6 @@
   <meta name="description" content="Learn the basics of authentication, data management, file translation, and model rendering, with our quickstart guides.">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify@4.6.7/lib/themes/vue.css" title="vue">
-  <link rel="stylesheet" href="//unpkg.com/docsify-copy-code@1.0.0/styles.css">
   <style>
     nav.app-nav li ul {
       min-width: 100px;
@@ -19,7 +18,6 @@
 </head>
 
 <body>
-  <script src="//unpkg.com/docsify-copy-code@1.0.0/index.js"></script>
   <div id="app">Loading ...</div>
   <script>
     window.$docsify = {
@@ -40,9 +38,14 @@
       ga: 'UA-86813615-5',
       //disqus: 'learnforge',
       formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      copyCode: {
+        buttonText: 'Copy to clipboard',
+        errorText: 'Error',
+        successText: 'Copied'
+      },
       plugins: [
-        window.DocsifyCopyCodePlugin.init(),
         function (hook, vm) {
+          window.DocsifyCopyCodePlugin.init(),
           hook.beforeEach(function (html) {
             var email = 'Questions on this tutorial? [Ask on Stackoverflow](https://stackoverflow.com/questions/ask?tags=[autodesk-forge]) or [email us](mailto:forge.help@autodesk.com?subject=About tutorial page /' + vm.route.file + ')\n'
             return html
@@ -64,8 +67,10 @@
   <script src="//unpkg.com/prismjs@1.11.0/components/prism-go.min.js"></script>
   <script src="//unpkg.com/prismjs@1.11.0/components/prism-php.min.js"></script>
   <script src="//unpkg.com/prismjs@1.11.0/components/prism-java.min.js"></script>
-  <script src="//unpkg.com/prismjs@1.11.0/components/prism-xml.min.js"></script>
+  <!--<script src="//unpkg.com/prismjs@1.11.0/components/prism-xml.min.js"></script>-->
   <!--<script src="libs/disqus.js"></script>-->
+  <script src="//unpkg.com/docsify-tabs@1"></script>
+  <script src="//unpkg.com/docsify-copy-code@2"></script>
 </body>
 
 </html>

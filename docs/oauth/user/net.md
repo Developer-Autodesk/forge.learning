@@ -1,4 +1,4 @@
-# User information
+# User information (.NET Framework)
 
 This endpoint will request the end-user information and return the **name** and **picture** (40px).
 

@@ -6,7 +6,7 @@ This tutorial will guide you through creating a webapp with the following UI: a 
 
 To view your model, you need the following steps:
 
-1. [Create a server](environment/setup/2legged) << First time developer? You should start here :wink:
+1. [Create a server](environment/setup/2legged) << First time developer? You should start here
 2. [Authenticate](oauth/2legged/)
 3. [Upload to OSS](datamanagement/oss/)
 4. [Translate the file](modelderivative/translate/)
@@ -16,7 +16,8 @@ To view your model, you need the following steps:
 If you want to download the project ready to use, visit the following repos:
 
 - [Node.js](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/nodejs)
-- [.NET](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/net)
+- [.NET Framework](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/net)
+- [.NET Core](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/netcore)
 - [Go](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/go)
 - [PHP](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/php)
 - [Java](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/java)

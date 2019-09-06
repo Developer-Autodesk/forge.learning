@@ -22,7 +22,7 @@ As an alternative solution, you may use [Visual Code](https://code.visualstudio.
 
 ## Other flavors & older versions
 
-For this tutorial, we don't need Professional or Enterprise features :wink:
+For this tutorial, we don't need Professional or Enterprise features
 
 .NET Core is not supported on older versions of Visual Studio.
 
