@@ -2,7 +2,7 @@
 
 This step of the tutorial uses the basic layout of your app, but adds an extra column for charts.
 
-Let's create a new `dashboard` folder under `/js/` to place the new files.
+Let's create a new `Dashboard` folder under `/js/` to place the new files.
 
 ## Dashboard.js
 

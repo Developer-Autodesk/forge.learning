@@ -2,6 +2,16 @@
 
 There are many libraries to create charts, for this sample let's use [Chart.js](https://www.chartjs.org/), very simple yet nice to use and with great visual.
 
+At the **index.html** add the `<script>` and `<link>` stylesheet below for the [Chart.js CDN](https://cdnjs.com/libraries/Chart.js) libraries reference. This should go inside the `<head>` 
+
+```html
+<!--Chart JS  packages-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" ></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
+```
+
+
+
 ## Category Bar chart
 
 Under `/js/dashboard/` folder create a new **PanelCategoryChart.js** file with the following content:
