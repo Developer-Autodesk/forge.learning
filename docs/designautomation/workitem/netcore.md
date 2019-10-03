@@ -91,7 +91,7 @@ public async Task<IActionResult> StartWorkitem([FromForm]StartWorkitemInput inpu
             { "onComplete", new XrefTreeArgument { Verb = Verb.Post, Url = callbackUrl } }
         }
     };
-    WorkItemStatus workItemStatus = await _designAutomation.CreateWorkItemsAsync(workItemSpec);
+    WorkItemStatus workItemStatus = await _designAutomation.CreateWorkItemAsync(workItemSpec);
 
     return Ok(new { WorkItemId = workItemStatus.Id });
 }
