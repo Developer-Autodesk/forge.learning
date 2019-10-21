@@ -6,20 +6,16 @@ Install any flavor of Visual Studio, for instance [Community](https://www.visual
 
 !> For a better experience, DO NOT use Visual code on this tutorial.
 
-## Visual Studio Community 2017
+## Visual Studio Community 2019
 
-If you are installing Visual Studio Community for the first time, make sure to select `ASP.NET and web development` workload for this tutorial. `.NET desktop development` worflow is need for **Design Automation** tutorial: **Modify my models**. Other **Workloads** are not required for this tutorial.
-
-In case Visual Studio Community is already installed, go to **Add or remove programs** >> **Apps & Features**, find Visual Studio Community and click **Modify**, then select the workload (as shown below). 
-
-![](_media/net/install_webcomponents.png)
+In Visual Studio Community 2019, there are no workloads selection in the beginning, `ASP.NET and web development with c#` is selected while creating project.
 
 ## Other flavors & older versions
 
 > For this tutorial, we don't need Professional or Enterprise features
 
-Older versions of Visual Studio use **Tools** (not workloads). This tutorial assumes 2017 version. For an existing older installation (e.g. Visual Studio Professional 2015), if web tools are not available, go to go to **Add or remove programs** >> **Apps & Features**, find Visual Studio and click **Modify**, then select as shown on the image below (the actuall naming may vary between versions).
+This tutorial assumes 2019 version. For an existing older installation (e.g. Visual Studio Professional 2017), go to Add or remove programs >> Apps & Features, find Visual Studio Community and click Modify, then select the workload (as shown below).
 
-![](_media/net/enable_webcomponents.png)
+![](_media/net/install_webcomponents.png)
 
 Next: [Authentication](oauth/)

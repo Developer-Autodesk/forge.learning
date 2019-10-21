@@ -1,6 +1,6 @@
 # Client-side files (.NET Framework)
 
-ASP.NET apps usually uses `.aspx` instead `.html`, but for this tutorial let's just use `.html` for simplicity.
+ASP.NET apps usually uses `.aspx` instead of `.html`, but for this tutorial let's just use `.html` for simplicity.
 
 Our .NET server is configured to serve files from root `/` folder. Let's organize like this:
 
