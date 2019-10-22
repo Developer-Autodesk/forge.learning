@@ -49,9 +49,9 @@ Learn more about [maxRequestLength](https://msdn.microsoft.com/en-us/library/sys
 
 Last, to make your app consistent with all other **Autodesk Forge** samples, let's change the port to **3000**: go to project **Properties** (right-click on project name), under **Web** tab, then change the **Project URL** to `http://localhost:3000`.
 
-![](_media/net/create_project_webapi.gif) 
+![](_media/net/port.png)
 
 !> In case you have just changed the port number, please make sure the protocol is **http** and not **https**
 
-![](_media/net/port.png) 
+ 
 

@@ -2,13 +2,13 @@
 
 The .NET engine is a built-in feature on Windows machines. 
 
-Install any flavor of Visual Studio, for instance [Community](https://www.visualstudio.com/vs/community) edition. 
+Any flavor of [Visual Studio](https://visualstudio.microsoft.com/vs/). Choose your preffered edition in dropdown. 
 
 !> For a better experience, DO NOT use Visual code on this tutorial.
 
 ## Visual Studio Community 2019
 
-In Visual Studio Community 2019, there are no workloads selection in the beginning, `ASP.NET and web development with c#` is selected while creating project.
+In Visual Studio 2019, there is no workloads tab in the beginning, `ASP.NET and web development with c#` is selected while creating project.
 
 ## Other flavors & older versions
 

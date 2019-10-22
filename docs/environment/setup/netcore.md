@@ -21,18 +21,18 @@ You may also check **Launch browser** and specify the **App URL** if you would t
 
 ![](_media/netcore/env_vars.png)
 
-Now open the **Startup.cs** and replace the contents of the `Startup` class with the following code to initialize our static file server for HTML & JavaScript files.
+Now open the **Startup.cs**, add `using IWebHostEnvironment = Microsoft.AspNetCore.Hosting.IWebHostEnvironment;` as dependency and replace the contents of the `Startup` class with the following code to initialize our static file server for HTML & JavaScript files. 
 
 ```csharp
 // This method gets called by the runtime. Use this method to add services to the container.
 // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddMvc();
+    services.AddMvc(options => options.EnableEndpointRouting = false);
 }
 
 // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
     if (env.IsDevelopment())
     {

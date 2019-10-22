@@ -4,7 +4,7 @@ For a basic *OAuth* implementation we need 1 file.
 
 ### OAuthController.cs
 
-Under **Controllers** folder, create a class named **OAuthController** in a class file with the same name (`OAuthController.cs`) and add the following content:
+Create folder named `Controller` at project root level, then create a class named **OAuthController** in a class file with the same name (`OAuthController.cs`) and add the following content:
 
 ```csharp
 using Autodesk.Forge;

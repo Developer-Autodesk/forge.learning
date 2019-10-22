@@ -6,7 +6,11 @@ The .NET Core **SDK** and **Runtime** may need to be installed on your machine, 
 
 ## Visual Studio (Windows)
 
-Any flavor of Visual Studio, for instance [Community](https://www.visualstudio.com/vs/community) edition.
+Any flavor of [Visual Studio](https://visualstudio.microsoft.com/vs/). Choose your preffered edition in dropdown.
+
+In Visual Studio 2019, there is no workloads tab in the beginning, `ASP.NET Core web development with c#` is selected while creating project.
+
+## Older versions
 
 If you are installing Visual Studio Community for the first time, make sure to select `ASP.NET and web development` workload for this tutorial. `.NET desktop development` worflow is need for **Design Automation** tutorial: **Modify my models**. Other **Workloads** are not required for this tutorial.
 
@@ -20,7 +24,7 @@ As an alternative solution, you may use [Visual Code](https://code.visualstudio.
 
 ![](_media/net/csharp_extension.png)
 
-## Other flavors & older versions
+## Other flavors
 
 For this tutorial, we don't need Professional or Enterprise features
 
