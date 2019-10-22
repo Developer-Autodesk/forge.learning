@@ -19,14 +19,15 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using IWebHostEnvironment = Microsoft.AspNetCore.Hosting.IWebHostEnvironment;
 
 namespace forgesample.Controllers
 {
     [ApiController]
     public class OSSController : ControllerBase
     {
-        private IHostingEnvironment _env;
-        public OSSController(IHostingEnvironment env) { _env = env; }
+        private IWebHostEnvironment _env;
+        public OSSController(IWebHostEnvironment env) { _env = env; }
         public string ClientId { get { return OAuthController.GetAppSetting("FORGE_CLIENT_ID").ToLower(); } }
 
         /// <summary>

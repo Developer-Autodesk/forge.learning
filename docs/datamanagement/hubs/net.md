@@ -59,8 +59,8 @@ namespace forgesample.Controllers
 
       return nodes;
     }
+  }
 }
-
 ```
 
 The above receives the request from the UI tree. The `id` parameter indicates the node that is being expanded: `#` means root node, so list hubs. After that it contains the `href` of the resource, so when expanding one `hub` the endpoint should return the projects for the hub. The above code calls different `get` functions. To complete it, also copy the following content to the file (inside the same `DataManagementController` class).

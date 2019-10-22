@@ -6,7 +6,7 @@ Go to menu **File** >> **New** >> **Project** and select **.NET Core** >> **ASP.
 
 Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk.Forge** and install `Autodesk.Forge` and `Autodesk.Forge.DesignAutomation`, where the first will be used to upload input and output results to OSS and the second to use Design Automation. 
 
-> Please check **Include prerelease** while searching for packages. Design Automation v3 is in beta (as of Jan/2019).
+> Please check **Include prerelease** while searching for packages. Design Automation v3 is in beta 5 (as of Jun/2019).
 
 ![](_media/netcore/create_project_da.gif) 
 
