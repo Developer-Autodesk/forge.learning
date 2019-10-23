@@ -34,7 +34,7 @@ namespace forgesample.Controllers
                 PublicToken = await Get2LeggedTokenAsync(new Scope[] { Scope.ViewablesRead });
                 PublicToken.ExpiresAt = DateTime.UtcNow.AddSeconds(PublicToken.expires_in);
             }
-            return PublicToken;
+            return PublicToken.ToString();
         }
 
         /// <summary>
