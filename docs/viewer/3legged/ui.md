@@ -19,7 +19,7 @@ Create a **index.html** file with:
 <html>
 
 <head>
-  <title>Autodesk Forge Tutorial</title>
+  <title>View Hub Models - Autodesk Forge</title>
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/favicon.ico">
   <!-- Common packages: jQuery, Bootstrap, jsTree -->
@@ -90,7 +90,7 @@ Create a **index.html** file with:
 <html>
 
 <head>
-  <title>Autodesk Forge Tutorial</title>
+  <title>View Hub Models - Autodesk Forge</title>
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/favicon.ico">
   <!-- Common packages: jQuery, Bootstrap, jsTree -->

@@ -52,7 +52,7 @@ Now open the **Startup.cs** and replace the content of the `Startup` class with 
 // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddMvc(options => options.EnableEndpointRouting = false).AddNewtonsoftJson();;
+    services.AddMvc(options => options.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddNewtonsoftJson();
     services.AddSignalR();
 }
 

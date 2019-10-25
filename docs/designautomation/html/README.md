@@ -11,7 +11,7 @@ Under **wwwroot** folder create the **index.html** file with the following conte
 <html>
 
 <head>
-    <title>Autodesk Forge - Design Automation</title>
+    <title>Modify Models - Autodesk Forge</title>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/raw/master/img/favicon.ico">
     <!-- Common packages: jQuery, Bootstrap -->

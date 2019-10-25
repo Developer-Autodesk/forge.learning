@@ -8,6 +8,8 @@ Go to menu **File** >> **New** >> **Project**. Select **C#** language and **Web*
 
 Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk.Forge** and install `Autodesk.Forge`.
 
+Repeat the last step: search and install `Microsoft.AspNetCore.Mvc.NewtonsoftJson` to handle JSON data. 
+
 ![](_media/netcore/create_project.gif)
 
 Right-click on the project, go to **Properties**, then under **Debug** tab see the **Environment Variables** section. `ASPNETCORE_ENVIRONMENT` should be already defined, so add:
@@ -28,7 +30,7 @@ Now open the **Startup.cs** and replace the contents of the `Startup` class with
 // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddMvc(options => options.EnableEndpointRouting = false);
+    services.AddMvc(options => options.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddNewtonsoftJson();
 }
 
 // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
