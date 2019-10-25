@@ -199,6 +199,7 @@ public async Task<IActionResult> CreateAppBundle([FromBody]JObject appBundleSpec
 As the `DesignAutomationHub` class is now defined (inside this controller), open the `Startup.cs` and, inside `Configure` method, add the following line:
 
 ```csharp
+app.UseRouting();
 app.UseEndpoints(routes =>
 {
     routes.MapHub<Controllers.DesignAutomationHub>("/api/signalr/designautomation");
