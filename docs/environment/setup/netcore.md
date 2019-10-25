@@ -4,11 +4,11 @@
 
 Go to menu **File** >> **New** >> **Project**. Select **C#** language and **Web** project type, finally select **ASP.NET Core Web Application**. Next, let's name it **forgeSample**. On the next dialog, select **Empty**. Please ensure **ASP.NET Core 3.0** is selected.
 
-Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk.Forge** and install `Autodesk.Forge`, where the first will be used to upload input and output results to OSS and the second to use Design Automation.
+!> If the project type or .NET Core 3.0 are not available, please review [Tools](environment/tools/netcore) section.
+
+Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk.Forge** and install `Autodesk.Forge`.
 
 ![](_media/netcore/create_project.gif)
-
-!> If **Web** & **ASP.NET** project types are not available, please review [Tools](environment/tools/net) section
 
 Right-click on the project, go to **Properties**, then under **Debug** tab see the **Environment Variables** section. `ASPNETCORE_ENVIRONMENT` should be already defined, so add:
 

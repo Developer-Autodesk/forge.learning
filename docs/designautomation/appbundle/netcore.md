@@ -37,7 +37,7 @@ namespace forgesample.Controllers
     public class DesignAutomationController : ControllerBase
     {
         // Used to access the application folder (temp location for files & bundles)
-        private IHostingEnvironment _env;
+        private IWebHostEnvironment _env;
         // used to access the SignalR Hub
         private IHubContext<DesignAutomationHub> _hubContext;
         // Local folder for bundles
@@ -50,7 +50,7 @@ namespace forgesample.Controllers
         DesignAutomationClient _designAutomation;
 
         // Constructor, where env and hubContext are specified
-        public DesignAutomationController(IHostingEnvironment env, IHubContext<DesignAutomationHub> hubContext, DesignAutomationClient api)
+        public DesignAutomationController(IWebHostEnvironment env, IHubContext<DesignAutomationHub> hubContext, DesignAutomationClient api)
         {
             _designAutomation = api;
             _env = env;
@@ -199,7 +199,7 @@ public async Task<IActionResult> CreateAppBundle([FromBody]JObject appBundleSpec
 As the `DesignAutomationHub` class is now defined (inside this controller), open the `Startup.cs` and, inside `Configure` method, add the following line:
 
 ```csharp
-app.UseSignalR(routes =>
+app.UseEndpoints(routes =>
 {
     routes.MapHub<Controllers.DesignAutomationHub>("/api/signalr/designautomation");
 });
