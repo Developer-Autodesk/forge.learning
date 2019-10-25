@@ -1,6 +1,8 @@
 # Basic app UI
 
-Let's start with the UI (HTML and JavaScript) files. Under **wwwroot** folder, create **bundles** and **js** folder.
+Let's start with the UI (HTML and JavaScript) files. At the root folder of your project, create a **wwwroot** folder, then create **bundles** and **js** subfolders. At this point, it should look like:
+
+![](_media/designautomation/netcore/basefolders.png)
 
 ## index.html
 

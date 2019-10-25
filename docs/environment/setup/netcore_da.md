@@ -4,7 +4,7 @@
 
 Go to menu **File** >> **New** >> **Project**. Select **C#** language and **Web** project type, finally select **ASP.NET Core Web Application**. Next, let's name it **forgeSample**. On the next dialog, select **Empty**. Please ensure **ASP.NET Core 3.0** is selected.
 
-!> If **Web** & **ASP.NET** project types are not available, please review [Tools](environment/tools/net) section.
+!> If the project type or .NET Core 3.0 are not available, please review [Tools](environment/tools/netcore) section.
 
 Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk.Forge** and install `Autodesk.Forge`. This will be used to upload input and output results to [OSS buckets](https://forge.autodesk.com/en/docs/data/v2/developers_guide/basics/).
 
