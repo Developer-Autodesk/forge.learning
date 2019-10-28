@@ -31,7 +31,7 @@ using WorkItem = Autodesk.Forge.DesignAutomation.Model.WorkItem;
 using WorkItemStatus = Autodesk.Forge.DesignAutomation.Model.WorkItemStatus;
 
 
-namespace forgesample.Controllers
+namespace forgeSample.Controllers
 {
     [ApiController]
     public class DesignAutomationController : ControllerBase

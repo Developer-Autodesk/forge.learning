@@ -36,7 +36,7 @@ using Autodesk.Forge.DesignAutomation;
 Then replace the **Program.cs** `Main()` method content with the following. This tells our application to load Forge Client ID & Secret from the environment variables defined above.
 
 ```csharp
-CreateWebHostBuilder(args).ConfigureAppConfiguration(builder =>
+CreateHostBuilder(args).ConfigureAppConfiguration(builder =>
 {
     builder.AddForgeAlternativeEnvironmentVariables();
 }).ConfigureServices((hostContext, services) =>
@@ -45,7 +45,13 @@ CreateWebHostBuilder(args).ConfigureAppConfiguration(builder =>
 }).Build().Run();
 ```
 
-Now open the **Startup.cs** and replace the content of the `Startup` class with the following code, which enables static file server (HTML & JS) and [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-2.2), used to push notifications to the client.
+Now open the **Startup.cs** and add the following namespace:
+
+```csharp
+using Microsoft.AspNetCore.Mvc;
+```
+
+The replace the content of the `Startup` class with the following code, which enables static file server (HTML & JS) and [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-2.2), used to push notifications to the client.
 
 ```csharp
 // This method gets called by the runtime. Use this method to add services to the container.
@@ -57,7 +63,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 
 // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
     app.UseFileServer();
     app.UseMvc();
@@ -78,7 +84,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Autodesk.Forge;
 
-namespace forgesample.Controllers
+namespace forgeSample.Controllers
 {
     [ApiController]
     public class OAuthController : ControllerBase

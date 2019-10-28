@@ -10,7 +10,7 @@ Visual Studio 2019 or newer is required, please visit [this link](https://visual
 
 **2. AutoCAD, Inventor or Revit**
 
-In order to develop, test and debug your Design Automation plugin: [AutoCAD](https://www.autodesk.com/products/autocad/overview) | [Inventor](https://www.autodesk.com/products/inventor/overview) | [Revit](https://www.autodesk.com/products/revit/overview).
+In order to develop, test and debug your Design Automation plugin, the respective desktop application (i.e. engine) is required. To download and install, go to the respective page and download: [AutoCAD](https://www.autodesk.com/products/autocad/overview) | [Inventor](https://www.autodesk.com/products/inventor/overview) | [Revit](https://www.autodesk.com/products/revit/overview) | [3ds Max](https://www.autodesk.com/products/3ds-max/overview).
 
 **3. ngrok**
 
