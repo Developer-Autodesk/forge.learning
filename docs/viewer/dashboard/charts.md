@@ -12,21 +12,25 @@ At the **index.html** add the `<script>` and `<link>` stylesheet below for the [
 
 
 
-## Category Bar chart
+## Bar chart
 
-Under `/js/dashboard/` folder create a new **PanelCategoryChart.js** file with the following content:
+Under `/js/dashboard/` folder create a new **PanelBarChart.js** file with the following content:
 
 ```javascript
-class CategoryChart extends DashboardPanelChart {
+class BarChart extends DashboardPanelChart {
+    constructor(property) {
+        super();
+        this.propertyToUse = property;
+    }
+
     load(parentDivId, viewer, modelData) {
-        super.load(parentDivId, this.constructor.name, viewer, modelData);
-        this.propertyToUse = 'Category';
+        if (!super.load(parentDivId, this.constructor.name, viewer, modelData)) return;
         this.drawChart();
     }
 
     drawChart() {
         var _this = this; // need this for the onClick event
-       
+
         var ctx = document.getElementById(this.canvasId).getContext('2d');
         var colors = this.generateColors(this.modelData.getLabels(this.propertyToUse).length);
 
@@ -61,26 +65,30 @@ class CategoryChart extends DashboardPanelChart {
 }
 ```
 
-## Materials Pie Chart
+## Pie Chart
 
-Under `/js/dashboard/` folder create a new **PanelMaterialChart.js** file with the following content:
+Under `/js/dashboard/` folder create a new **PanelPieChart.js** file with the following content:
 
 ```javascript
-class MaterialChart extends DashboardPanelChart {
+class PieChart extends DashboardPanelChart {
+    constructor(property) {
+        super();
+        this.propertyToUse = property;
+    }
+
     load(parentDivId, viewer, modelData) {
-        super.load(parentDivId, this.constructor.name, viewer, modelData);
-        this.propertyToUse = 'Material';
+        if (!super.load(parentDivId, this.constructor.name, viewer, modelData)) return;
         this.drawChart();
     }
 
     drawChart() {
         var _this = this; // need this for the onClick event
 
-        var ctx = document.getElementById(this.canvasId)
+        var ctx = document.getElementById(this.canvasId);
         var colors = this.generateColors(this.modelData.getLabels(this.propertyToUse).length);
 
         new Chart(ctx, {
-            type: 'pie',
+            type: 'doughnut',
             data: {
                 labels: this.modelData.getLabels(this.propertyToUse),
                 datasets: [{
@@ -106,8 +114,8 @@ class MaterialChart extends DashboardPanelChart {
 At the **index.html** add 2 `<script>` for these new files. This should go inside the `<head>` and after the **DashboardPanel.js**:
 
 ```html
-<script src="js/Dashboard/PanelCategoryChart.js"></script>
-<script src="js/Dashboard/PanelMaterialChart.js"></script>
+<script src="js/Dashboard/PanelBarChart.js"></script>
+<script src="js/Dashboard/PanelPieChart.js"></script>
 ```
 
 Your dashboard is now ready to run!

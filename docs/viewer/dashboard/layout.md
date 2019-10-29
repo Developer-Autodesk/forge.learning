@@ -17,8 +17,8 @@ $(document).ready(function () {
             // to make sure we get the viewer, let's use the global var NOP_VIEWER
             if (NOP_VIEWER === null || NOP_VIEWER === undefined) return;
             new Dashboard(NOP_VIEWER, [
-                new CategoryChart(),
-                new MaterialChart()
+                new BarChart('Material'),
+                new PieChart('Material')
             ])
         }
     });
@@ -55,34 +55,6 @@ class Dashboard {
                 panel.load('dashboard', viewer, data);
             });
         });
-    }
-}
-
-// Dashboard panel base
-class DashboardPanel {
-    load(parentDivId, divId, viewer) {
-        this.divId = divId;
-        this.viewer = viewer;
-        $('#' + parentDivId).append('<div id="' + divId + '" class="dashboardPanel"></div>');
-    }
-}
-
-// Dashboard panels for charts
-class DashboardPanelChart extends DashboardPanel {
-    load(parentDivId, divId, viewer, modelData) {
-        super.load(parentDivId, divId, viewer);
-        this.canvasId = divId + 'Canvas';
-        $('#' + divId).append('<canvas id="' + this.canvasId + '" width="400" height="400"></canvas>');
-        this.modelData = modelData;
-    }
-    generateColors(count) {
-        var background = []; var borders = [];
-        for (var i = 0; i < count; i++) {
-            var r = Math.round(Math.random() * 255); var g = Math.round(Math.random() * 255); var b = Math.round(Math.random() * 255);
-            background.push('rgba(' + r + ', ' + g + ', ' + b + ', 0.2)');
-            borders.push('rgba(' + r + ', ' + g + ', ' + b + ', 0.2)');
-        }
-        return { background: background, borders: borders };
     }
 }
 ```
