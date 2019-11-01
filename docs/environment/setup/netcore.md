@@ -8,7 +8,7 @@ Go to menu **File** >> **New** >> **Project**. Select **C#** language and **Web*
 
 Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk.Forge** and install `Autodesk.Forge`.
 
-Repeat the last step: search and install `Microsoft.AspNetCore.Mvc.NewtonsoftJson` to handle JSON data. 
+Repeat the last step at **Manage NuGet Packages**: search and install `Microsoft.AspNetCore.Mvc.NewtonsoftJson` to handle JSON data. 
 
 ![](_media/netcore/create_project.gif)
 

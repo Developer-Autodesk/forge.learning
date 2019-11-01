@@ -8,9 +8,7 @@ Go to menu **File** >> **New** >> **Project**. Select **C#** language and **Web*
 
 Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk.Forge** and install `Autodesk.Forge`. This will be used to upload input and output results to [OSS buckets](https://forge.autodesk.com/en/docs/data/v2/developers_guide/basics/).
 
-Repeat the last step: search and install `Autodesk.Forge.DesignAutomation` and `Microsoft.AspNetCore.Mvc.NewtonsoftJson` to handle JSON data. 
-
-> Please check **Include prerelease** while searching for packages. Design Automation v3 is in beta 5 (as of Jun/2019).
+Repeat the last step at **Manage NuGet Packages**: search and install `Autodesk.Forge.DesignAutomation` and `Microsoft.AspNetCore.Mvc.NewtonsoftJson` to handle JSON data. 
 
 ![](_media/netcore/create_project.gif) 
 
