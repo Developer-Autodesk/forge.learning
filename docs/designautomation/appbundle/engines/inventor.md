@@ -10,7 +10,7 @@ This step will help you create a basic Inventor plugin. For more information, pl
 
 ## Create a new project
 
-Right-click on the solution, the **Add** >> **New Project**. Select **Visual C#**, then **Autodesk Inventor 2019 Addin** and, finally, name it `UpdateIPTParam`. Right-click on the project, go to **Manage NuGet Packages...**, under **Browser** you can search for **Newtonsoft** and install `Newtonsoft.Json`. 
+Right-click on the solution, the **Add** >> **New Project**. Search for **Inventor** templates, then **Plugin project** and, finally, name it `UpdateIPTParam`. Right-click on the project, go to **Manage NuGet Packages...**, under **Browse** you can select `Newtonsoft.Json` and update (this package is already in the solution, if not, install)
 
 > Please select .NET Framework 4.7. If not listed, [please install the Dev Pack](https://dotnet.microsoft.com/download/dotnet-framework/net47).
 
@@ -111,31 +111,6 @@ namespace UpdateIPTParam
 }
 ```
 
-## PackageContents.xml
-
-Create a folder named `UpdateIPTParam.bundle` and, inside, a file named `PackageContents.xml`, then copy the following content to it. Learn more at the [PackageContents.xml Format Reference](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html).
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<ApplicationPackage SchedmaVersion="1.0" Version="1.0" ProductCode="{84fef6aa-abf5-43be-b176-bb6f0c1d6680}" Name="InventorDesignAutomation" Description="Sample Plugin for Inventor" Author="learnforge.autodesk.io">
-    <CompanyDetails Name="Autodesk, Inc" Url="http://learnforge.autodesk.io" Email="forge.help@autodesk.com" />
-    <Components>
-        <RuntimeRequirements  SeriesMax="R23" SeriesMin="R23" OS="Win64" Platform="Inventor" />
-        <ComponentEntry LoadOnAutoCADStartup="False" LoadOnCommandInvocation="False" AppDescription="Inventor .NET App to update value of Assembly and Parts parameters" ModuleName="./Contents/Autodesk.UpdateIPTParam.Inventor.addin" AppName="Inventor for Design Automation"/>
-    </Components>
-</ApplicationPackage>
-```
-
-Finally, create a subfolder named `Contents` and move the `Autodesk.UpdateIPTParam.Inventor.addin` to this folder.
-
-## Autodesk.UpdateIPTParam.Inventor.addin
-
-Change the type to: `<Addin Type="Plugin">`
-
-At this point, the project should look like:
-
-![](_media/designautomation/inventor/bundle_folders.png)
-
 ## Post-build event
 
 Now we need to ZIP the .bundle folder. Right-click on the project, select **Properties**, then open **Build Events** and copy the following into **Post-build event command line** field, as shown on the image below.
@@ -151,7 +126,7 @@ This will copy the DLL from /bin/debug/ into .bundle/Contents folder, then use [
 
 ![](_media/designautomation/inventor/post_build.png)
 
-If you build the `UpdateIPTParam` project now you should see something like this on the **Output** window. Note the 2 folders and 3 files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great!
+If you build the `UpdateIPTParam` project now you should see something like this on the **Output** window. Note the 2 folders and several files zipped. The zip file is created directly at the /wwwroot/bundles folder. This means you're doing great!
 
 ![](_media/designautomation/inventor/build_output.png)
 

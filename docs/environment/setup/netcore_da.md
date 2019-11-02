@@ -68,9 +68,9 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-Finally, create a **Controllers** folder, which will later host the WebAPI Controllers.
-
 ## OAuthController.cs
+
+Create a **Controllers** folder, which will host the WebAPI Controllers.
 
 We'll need an `access token` to read & write input & output files to OSS Buckets. Under **Controllers** folder, create a `OAuthController.cs` file with the following content:
 
@@ -133,6 +133,8 @@ namespace forgeSample.Controllers
 }
 ```
 
-Project is ready!
+Project is ready! At this point it should look like:
+
+![](_media/designautomation/netcore/basefiles_step1.png) 
 
 Next: [Basic app UI](designautomation/html/)
