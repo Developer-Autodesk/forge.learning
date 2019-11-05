@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.SessionState;
 
-namespace forgesample
+namespace forgeSample
 {
   public class WebApiApplication : System.Web.HttpApplication
   {

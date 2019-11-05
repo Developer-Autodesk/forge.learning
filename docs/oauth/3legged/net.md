@@ -17,7 +17,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.Http;
 
-namespace forgesample.Controllers
+namespace forgeSample.Controllers
 {
   public class OAuthController : ApiController
   {
