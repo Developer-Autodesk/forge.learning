@@ -12,7 +12,7 @@ using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace forgesample.Controllers
+namespace forgeSample.Controllers
 {
   public class UserController : ApiController
   {

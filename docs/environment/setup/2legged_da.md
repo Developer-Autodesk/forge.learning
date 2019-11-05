@@ -6,11 +6,11 @@ Your Client ID & Secret should be protected and keep confidential as all your fi
 
 **1. Visual Studio**
 
-Visual Studio 2017 or newer is required, please visit [this link](https://visualstudio.microsoft.com/vs/).
+Visual Studio 2019 or newer is required, please visit [this link](https://visualstudio.microsoft.com/vs/).
 
 **2. AutoCAD, Inventor or Revit**
 
-In order to develop, test and debug your Design Automation plugin: [AutoCAD](https://www.autodesk.com/products/autocad/overview) | [Inventor](https://www.autodesk.com/products/inventor/overview) | [Revit](https://www.autodesk.com/products/revit/overview).
+In order to develop, test and debug your Design Automation plugin, the respective desktop application (i.e. engine) is required. To download and install, go to the respective page and download: [AutoCAD](https://www.autodesk.com/products/autocad/overview) | [Inventor](https://www.autodesk.com/products/inventor/overview) | [Revit](https://www.autodesk.com/products/revit/overview) | [3ds Max](https://www.autodesk.com/products/3ds-max/overview).
 
 **3. ngrok**
 
@@ -22,6 +22,6 @@ After download, unzip it. Open the Windows **Command Line Prompt** (CMD) and nav
 
 > If running on non-Windows (e.g. MacOS), open the **Terminal** instead and follow the same steps.
 
-!> **Warning**: `ngrok` exposes your localhost server to the web while it is in use. Be sure to turn it off when your testing it done. Do not use this outside development environment
+!> **Warning**: `ngrok` exposes your localhost server to the web while it is in use. Be sure to turn it off when your testing it done. Do not use this outside development environment.
 
 Choose your language: [.NET Core](environment/setup/netcore_da)
