@@ -49,7 +49,7 @@ Now open the **Startup.cs** and add the following namespace:
 using Microsoft.AspNetCore.Mvc;
 ```
 
-The replace the content of the `Startup` class with the following code, which enables static file server (HTML & JS) and [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-2.2), used to push notifications to the client.
+Then replace the content of the `Startup` class with the following code, which enables static file server (HTML & JS) and [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-2.2), used to push notifications to the client.
 
 ```csharp
 // This method gets called by the runtime. Use this method to add services to the container.

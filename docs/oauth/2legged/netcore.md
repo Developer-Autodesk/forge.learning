@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
-namespace forgesample.Controllers
+namespace forgeSample.Controllers
 {
     [ApiController]
     public class OAuthController : ControllerBase
@@ -34,7 +34,7 @@ namespace forgesample.Controllers
                 PublicToken = await Get2LeggedTokenAsync(new Scope[] { Scope.ViewablesRead });
                 PublicToken.ExpiresAt = DateTime.UtcNow.AddSeconds(PublicToken.expires_in);
             }
-            return PublicToken.ToString();
+            return PublicToken;
         }
 
         /// <summary>

@@ -23,7 +23,13 @@ You may also check **Launch browser** and specify the **App URL** if you would t
 
 ![](_media/netcore/env_vars.png)
 
-Now open the **Startup.cs** and replace the contents of the `Startup` class with the following code to initialize our static file server for HTML & JavaScript files. 
+Now open the **Startup.cs** and add the following namespace:
+
+```csharp
+using Microsoft.AspNetCore.Mvc;
+```
+
+Then replace the contents of the `Startup` class with the following code to initialize our static file server for HTML & JavaScript files. 
 
 ```csharp
 // This method gets called by the runtime. Use this method to add services to the container.
