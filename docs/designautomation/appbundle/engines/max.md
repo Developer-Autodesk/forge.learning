@@ -209,10 +209,10 @@ This file will tell 3ds Max the modules to load (in this case the .NET API plugi
 		Url="http://forge.autodesk.com"
 		Email="noreply@autodesk.com" />
 
-	<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2019" SeriesMax="2019" />
+	<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2019" SeriesMax="2020" />
 		
 	<Components Description="assemblies parts">
-		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2019" SeriesMax="2019" />
+		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2019" SeriesMax="2020" />
 		<ComponentEntry AppName="UpdateMAXParam" Version="2019.0.0" ModuleName="./Contents/UpdateMAXParam.dll" AppDescription="The Sample Design Automation Plugin managed assembly module" />
 	</Components>
   
