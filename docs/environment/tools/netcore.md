@@ -15,13 +15,13 @@ Any flavor of [Visual Studio](https://visualstudio.microsoft.com/vs/), this tuto
 
 > For this tutorial, we don't need Professional or Enterprise features
 
-!> .NET Core is **NOT** supported on Visual Studio 2015.
+!> .NET Core is **NOT** supported in Visual Studio 2015 and .NET Core 3.0 is **NOT** supported in Visual Studio 2017.
 
 For a better experience, use the 2019 version. If you must use older versions already installed (e.g. Visual Studio Professional 2017), go to Add or remove programs >> Apps & Features, find Visual Studio Community and click Modify, then select the workload (as shown below). **.NET desktop development** is required for for **Modify your models** tutorial.
 
 ![](_media/net/workloads_2017.png)
 
-> > Make sure the [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download) is installed.
+> Make sure the [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download) is installed.
 
 ## Visual Code (MacOS/Linux)
 
