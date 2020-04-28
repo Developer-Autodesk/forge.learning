@@ -27,7 +27,7 @@ namespace forgeSample.Controllers
         [Route("api/forge/modelderivative/jobs")]
         public async Task<dynamic> TranslateObject([FromBody]TranslateObjectModel objModel)
         {
-            //dynamic oauth = await OAuthController.GetInternalAsync();
+            dynamic oauth = await OAuthController.GetInternalAsync();
 
             // prepare the payload
             List<JobPayloadItem> outputs = new List<JobPayloadItem>()
@@ -45,7 +45,7 @@ namespace forgeSample.Controllers
 
             // start the translation
             DerivativesApi derivative = new DerivativesApi();
-            //derivative.Configuration.AccessToken = oauth.access_token;
+            derivative.Configuration.AccessToken = oauth.access_token;
             dynamic jobPosted = await derivative.TranslateAsync(job);
             return jobPosted;
         }
