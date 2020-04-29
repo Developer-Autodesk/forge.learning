@@ -2,6 +2,8 @@
 
 This step will help you create a basic AutoCAD plugin for Design Automation. For more information, please visit [My First AutoCAD Plugin](https://knowledge.autodesk.com/support/autocad/learn-explore/caas/simplecontent/content/my-first-autocad-plug-overview.html) tutorial.
 
+> You may [download the Bundle ZIP](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateDWGParam.zip) into the `/forgeSample/wwwroot/bundles` folder and [skip this section](designautomation/appbundle/netcore)
+
 ## Create a new project
 
 Right-click on the solution, the **Add** >> **New Project**. Select **Windows Desktop**, then **Class Library** and, finally, name it `UpdateDWGParam`. Then right-click on the project, go to **Manage NuGet Packages...**, under **Browser** you can search for **AutoCAD.NET** and install `AutoCAD.NET.Core` (which also installs `AutoCAD.NET.Model`). Then search and install `Newtonsoft.Json` (which is used to parse input data in JSON format).

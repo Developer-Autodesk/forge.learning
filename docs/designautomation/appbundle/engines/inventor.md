@@ -2,6 +2,8 @@
 
 This step will help you create a basic Inventor plugin. For more information, please visit [My First Inventor Plugin](https://knowledge.autodesk.com/support/inventor-products/learn-explore/caas/simplecontent/content/my-first-inventor-plug-overview.html) tutorial.
 
+> You may [download the Bundle ZIP](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateIPTParam.zip) into the `/forgeSample/wwwroot/bundles` folder and [skip this section](designautomation/appbundle/netcore)
+
 ## Prerequisites
 
 - **Design Automation for Inventor** template: go to the Visual Studio Market Place, download and open it from [this link](https://marketplace.visualstudio.com/items?itemName=Autodesk.DesignAutomation), then follow the steps to install.
