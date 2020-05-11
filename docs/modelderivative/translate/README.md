@@ -4,7 +4,7 @@ The Model Derivative API allows users to represent and share their designs in di
 
 ![](/_media/forge/md_diagram.png)
 
-Not sure if your files are compatible? Check the [supported translations](https://developer.autodesk.com/en/docs/model-derivative/v2/overview/supported-translations/).
+Not sure if your files are compatible? Check the [supported translations](https://forge.autodesk.com/en/docs/model-derivative/v2/developers_guide/supported-translations/).
 
 In this section, let's call [POST Job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to start the translation process. Note that this endpoint is asynchronous and initiates a process that runs in the background, rather than keeping an open HTTP connection until completion.
 
