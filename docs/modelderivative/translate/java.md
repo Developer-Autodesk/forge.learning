@@ -111,7 +111,7 @@ Explictly expose the endpoint in `/web/WEB-INF/web.xml`, add the following conte
 </servlet-mapping>
 ```
 
-The **jobs** endpoint receives the **bucketKey** and **objectName** and post the [translation job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
+The **jobs** endpoint receives the **bucketKey** and **objectName** and post the [translation job](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
 
 At the end your `/web/WEB-INF/web.xml` should look like this:
 

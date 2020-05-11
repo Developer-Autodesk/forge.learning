@@ -60,7 +60,7 @@ func (service ForgeServices) translateObject(writer http.ResponseWriter, request
 }
 ```
 
-The **jobs** endpoint receives the **bucketKey** and **objectName** and post the [translation job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
+The **jobs** endpoint receives the **bucketKey** and **objectName** and post the [translation job](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
 
 To summarize, at this point your **Go** project should be like:
 
