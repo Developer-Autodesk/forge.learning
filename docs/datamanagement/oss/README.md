@@ -9,6 +9,10 @@ Each bucket also has a [retention policy](https://developer.autodesk.com/en/docs
  - **persistent**: Storage that persists until it’s deleted.
 
 In this section, let's create a few endpoints to create buckets, upload files, and list buckets & objects.
+
+> This tutorial code will prefix the bucket key with your Forge Client ID transparently, which should avoid duplicated names.
+
+!> Note that bucket keys must be of the form [-_.a-z0-9]{3,128}
  
-Choose your language: [NodeJS](datamanagement/oss/nodejs) | [.NET](datamanagement/oss/net) | [Go](datamanagement/oss/go) | [PHP](datamanagement/oss/php) | [Java](datamanagement/oss/java)
+Choose your language: [Node.js](datamanagement/oss/nodejs) | [.NET Framework](datamanagement/oss/net) | [.NET Core](datamanagement/oss/netcore) | [Go](datamanagement/oss/go) | [PHP](datamanagement/oss/php) | [Java](datamanagement/oss/java)
 

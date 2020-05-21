@@ -1,4 +1,4 @@
-# Translate the model (.NET)
+# Translate the model (.NET Framework)
 
 To translate a file we just need one endpoint.
 

@@ -28,5 +28,7 @@ Now on the server-side we need write access, so the **internal** token will use 
 > Answer this: where are the files you want to access and view? 
 > 
 > If on your computer or in some other place, then **View your models**. If the models are on any BIM 360 (Team, Design or Docs) or Fusion Team, then **View BIM 360 & Fusion models**.
+>
+> If you want to modify models, then say no more, check the **Modify your models** tutorial.
 
-Next: [View your models](tutorials/viewmodels) or [View BIM 360 & Fusion models](tutorials/viewhubmodels)
+Next: [View your models](tutorials/viewmodels) or [View BIM 360 & Fusion models](tutorials/viewhubmodels) or [Modify your models](tutorials/modifymodels)
