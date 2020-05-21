@@ -2,6 +2,8 @@
 
 This step will help you create a basic AutoCAD plugin for Design Automation. For more information, please visit [My First AutoCAD Plugin](https://knowledge.autodesk.com/support/autocad/learn-explore/caas/simplecontent/content/my-first-autocad-plug-overview.html) tutorial.
 
+> You may [download the Bundle ZIP](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateDWGParam.zip) into the `/forgeSample/wwwroot/bundles` folder and [skip this section](designautomation/appbundle/netcore)
+
 ## Create a new project
 
 Right-click on the solution, the **Add** >> **New Project**. Select **Windows Desktop**, then **Class Library** and, finally, name it `UpdateDWGParam`. Then right-click on the project, go to **Manage NuGet Packages...**, under **Browser** you can search for **AutoCAD.NET** and install `AutoCAD.NET.Core` (which also installs `AutoCAD.NET.Model`). Then search and install `Newtonsoft.Json` (which is used to parse input data in JSON format).
@@ -10,13 +12,13 @@ Right-click on the solution, the **Add** >> **New Project**. Select **Windows De
 
 ![](_media/designautomation/autocad/new_project.gif)
 
-As a result, the **package.config** should look like the following. These are the latest version as of Jan/2019.
+As a result, the **package.config** should look like the following. This sample uses version 20, which should work on all available versions. You may adjust to a specific version. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <packages>
-  <package id="AutoCAD.NET.Core" version="23.0.0" targetFramework="net47" />
-  <package id="AutoCAD.NET.Model" version="23.0.0" targetFramework="net47" />
+  <package id="AutoCAD.NET.Core" version="20.0.0" targetFramework="net47" />
+  <package id="AutoCAD.NET.Model" version="20.0.0" targetFramework="net47" />
   <package id="Newtonsoft.Json" version="12.0.1" targetFramework="net47" />
 </packages>
 ```
@@ -143,7 +145,7 @@ Create a folder named `UpdateDWGParam.bundle` and, inside, a file named `Package
 <ApplicationPackage SchemaVersion="1.0" Version="1.0" ProductCode="{F11EA57A-1E7E-4B6D-8E81-986B071E3E07}" Name="AutoCADDesignAutomation" Description="Sample Plugin for AutoCAD" Author="learnforge.autodesk.io>">
   <CompanyDetails Name="Autodesk, Inc" Url="http://learnforge.autodesk.io" Email="forge.help@autodesk.com"/>
   <Components>
-    <RuntimeRequirements OS="Win64" Platform="AutoCAD" SeriesMin="R23.0" SeriesMax="R23.0"/>
+    <RuntimeRequirements OS="Win64" Platform="AutoCAD"/>
     <ComponentEntry AppName="UpdateWindowParameters" ModuleName="./Contents/UpdateDWGParam.dll" AppDescription="AutoCAD .NET App to update parameters of Dynamic blockreference in AutoCAD Drawing" LoadOnCommandInvocation="True" LoadOnAutoCADStartup="True">
       <Commands GroupName="FPDCommands">
         <Command Global="UpdateParam" Local="UpdateParam"/>

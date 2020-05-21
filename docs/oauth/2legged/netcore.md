@@ -2,7 +2,7 @@
 
 ## OAuthController.cs
 
-Create folder named `Controller` at project root level, then create a class named **OAuthController** in a class file with the same name (`OAuthController.cs`) and add the following content:
+Create folder named `Controllers` at project root level, then create a class named **OAuthController** in a class file with the same name (`OAuthController.cs`) and add the following content:
 
 ```csharp
 using Autodesk.Forge;
@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
-namespace forgesample.Controllers
+namespace forgeSample.Controllers
 {
     [ApiController]
     public class OAuthController : ControllerBase
@@ -71,7 +71,7 @@ namespace forgesample.Controllers
         /// </summary>
         public static string GetAppSetting(string settingKey)
         {
-            return Environment.GetEnvironmentVariable(settingKey);
+            return Environment.GetEnvironmentVariable(settingKey).Trim();
         }
     }
 }

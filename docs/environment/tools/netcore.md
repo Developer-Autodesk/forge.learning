@@ -1,33 +1,34 @@
 # Tools (.NET Core)
 
-The .NET Core **SDK** and **Runtime** may need to be installed on your machine, please visit [.NET Core Downloads](https://dotnet.microsoft.com/download). 
+The .NET engine is a built-in feature on Windows machines, .NET Core is installed with Visual Studio.
 
-!> For **Modify your models** tutorials you need Visual Studio. Other tutorials can be done with Visual Code.
+## Visual Studio Community 2019
 
-## Visual Studio (Windows)
+Any flavor of [Visual Studio](https://visualstudio.microsoft.com/vs/), this tutorial uses the **Community** edition. [Download the installer](https://visualstudio.microsoft.com/vs/) and follow the steps, make sure to select **ASP.NET and web development** and **.NET desktop development** (required for **Modify your models** tutorial).
 
-Any flavor of [Visual Studio](https://visualstudio.microsoft.com/vs/). Choose your preffered edition in dropdown.
+!> For a better experience, DO NOT use Visual code on this tutorial.
 
-In Visual Studio 2019, there is no workloads tab in the beginning, `ASP.NET Core web development with c#` is selected while creating project.
+![](_media/net/workloads_2019.png)
 
-## Older versions
 
-If you are installing Visual Studio Community for the first time, make sure to select `ASP.NET and web development` workload for this tutorial. `.NET desktop development` worflow is need for **Design Automation** tutorial: **Modify my models**. Other **Workloads** are not required for this tutorial.
+## Other flavors & older versions
 
-In case Visual Studio Community is already installed, go to **Add or remove programs** >> **Apps & Features**, find Visual Studio Community and click **Modify**, then select the workload (as shown below). 
+> For this tutorial, we don't need Professional or Enterprise features
 
-![](_media/net/install_webcomponents.png)
+!> .NET Core is **NOT** supported in Visual Studio 2015 and .NET Core 3.0 is **NOT** supported in Visual Studio 2017.
 
-## Visual Code (Windows/MacOS/Linux)
+For a better experience, use the 2019 version. If you must use older versions already installed (e.g. Visual Studio Professional 2017), go to Add or remove programs >> Apps & Features, find Visual Studio Community and click Modify, then select the workload (as shown below). **.NET desktop development** is required for for **Modify your models** tutorial.
 
-As an alternative solution, you may use [Visual Code](https://code.visualstudio.com/). This requires the **C#** extension. Remember to install .NET Core SDK and Runtime.
+![](_media/net/workloads_2017.png)
+
+> Make sure the [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download) is installed.
+
+## Visual Code (MacOS/Linux)
+
+As an alternative solution, you may use [Visual Code](https://code.visualstudio.com/). This requires the **C#** extension. Remember to install [.NET Core 3.0 SDK and Runtime](https://dotnet.microsoft.com/download). 
+
+> Visual Studio (for Windows) is required to compile plugins for **Modify your models** tutorial.
 
 ![](_media/net/csharp_extension.png)
-
-## Other flavors
-
-For this tutorial, we don't need Professional or Enterprise features
-
-.NET Core is not supported on older versions of Visual Studio.
 
 Next: [Authentication](oauth/)

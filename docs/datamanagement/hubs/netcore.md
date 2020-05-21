@@ -147,10 +147,12 @@ private async Task<IList<jsTreeNode>> GetProjectContents(string href)
     string hubId = idParams[idParams.Length - 3];
     string projectId = idParams[idParams.Length - 1];
 
-    var project = await projectApi.GetProjectAsync(hubId, projectId);
-    var rootFolderHref = project.data.relationships.rootFolder.meta.link.href;
-
-    return await GetFolderContents(rootFolderHref);
+    var folders = await projectApi.GetProjectTopFoldersAsync(hubId, projectId);
+    foreach (KeyValuePair<string, dynamic> folder in new DynamicDictionaryItems(folders.data))
+    {
+        nodes.Add(new jsTreeNode(folder.Value.links.self.href, folder.Value.attributes.displayName, "folders", true));
+    }
+    return nodes;
 }
 
 private async Task<IList<jsTreeNode>> GetFolderContents(string href)
@@ -169,8 +171,10 @@ private async Task<IList<jsTreeNode>> GetFolderContents(string href)
     // check if folder specifies visible types
     JArray visibleTypes = null;
     dynamic folder = (await folderApi.GetFolderAsync(projectId, folderId)).ToJson();
-    if (folder.data.attributes != null && folder.data.attributes.extension != null && folder.data.attributes.extension.data != null && !(folder.data.attributes.extension.data is JArray) && folder.data.attributes.extension.data.visibleTypes != null)
+    if (folder.data.attributes != null && folder.data.attributes.extension != null && folder.data.attributes.extension.data != null && !(folder.data.attributes.extension.data is JArray) && folder.data.attributes.extension.data.visibleTypes != null){
         visibleTypes = folder.data.attributes.extension.data.visibleTypes;
+        visibleTypes.Add("items:autodesk.bim360:C4RModel"); // C4R models are not returned on visibleTypes, therefore add them here
+    }
 
     var folderContents = await folderApi.GetFolderContentsAsync(projectId, folderId);
     // the GET Folder Contents has 2 main properties: data & included (not always available)

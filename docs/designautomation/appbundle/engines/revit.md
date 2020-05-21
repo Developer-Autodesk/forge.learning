@@ -2,28 +2,26 @@
 
 This step will help you create a basic Revit plugin for Design Automation. For more information, please visit [My First Revit Plugin](https://knowledge.autodesk.com/support/revit-products/learn-explore/caas/simplecontent/content/my-first-revit-plug-overview.html) tutorial.
 
+> You may [download the Bundle ZIP](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateRVTParam.zip) into the `/forgeSample/wwwroot/bundles` folder and [skip this section](designautomation/appbundle/netcore)
+
 ## Create a new project
 
 Right-click on the solution, the **Add** >> **New Project**. Select **Windows Desktop**, then **Class Library** and, finally, name it `UpdateRVTParam`. 
 
-> Please select .NET Framework 4.7. If not listed, [please install the Dev Pack](https://dotnet.microsoft.com/download/dotnet-framework/net47).
+> Please select .NET Framework 4.8. If not listed, [please install the Dev Pack](https://dotnet.microsoft.com/download/dotnet-framework/net47).
 
 Right-click on **References**, then **Add Reference** and **Browse** for `RevitAPI.dll` (by default under _C:\Program Files\Autodesk\Revit 201x\_ folder). Then right-click on this **RevitAPI** reference, go to **Properties**, then set **Copy Local** to **False**.
 
 Then right-click on the project, go to **Manage NuGet Packages...**, under **Browser** you can search for **DesignAutomation.Revit** and install `Autodesk.Forge.DesignAutomation.Revit` (choose the appropriate Revit version you need). Then search and install `Newtonsoft.Json` (which is used to parse input data in JSON format). 
 
-> Please check **Include prerelease** while searching for packages. Design Automation for Revit is in beta (as of Jan/2019).
-
 ![](_media/designautomation/revit/new_project.gif)
-
-As a result, the **package.config** should look like the following. These are the latest version as of Jan/2019.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <packages>
-  <package id="Autodesk.Forge.DesignAutomation.Revit" version="2019.0.0" targetFramework="net47" />
-  <package id="Microsoft.CSharp" version="4.5.0" targetFramework="net47" />
-  <package id="Newtonsoft.Json" version="12.0.1" targetFramework="net47" />
+  <package id="Autodesk.Forge.DesignAutomation.Revit" version="2021.0.0" targetFramework="net48" />
+  <package id="Microsoft.CSharp" version="4.5.0" targetFramework="net48" />
+  <package id="Newtonsoft.Json" version="12.0.1" targetFramework="net48" />
 </packages>
 ```
 
@@ -138,7 +136,7 @@ Create a folder named `UpdateRVTParam.bundle` and, inside, a file named `Package
 <ApplicationPackage Name="RevitDesignAutomation" Description="Sample Plugin for Revit" Author="learnforge.autodesk.io">
   <CompanyDetails Name="Autodesk, Inc" Url="http://learnforge.autodesk.io" Email="forge.help@autodesk.com"/>
   <Components Description="Modify window parameters">
-    <RuntimeRequirements SeriesMax="R2019" SeriesMin="R2019" Platform="Revit" OS="Win64"/>
+    <RuntimeRequirements SeriesMax="R2021" SeriesMin="R2019" Platform="Revit" OS="Win64"/>
     <ComponentEntry LoadOnRevitStartup="True" LoadOnCommandInvocation="False" AppDescription="Modify Window Parameters" ModuleName="./Contents/Autodesk.Forge.Sample.DesignAutomation.Revit.addin" Version="1.0.0" AppName="Modify Window Parameters"/>
   </Components>
 </ApplicationPackage>

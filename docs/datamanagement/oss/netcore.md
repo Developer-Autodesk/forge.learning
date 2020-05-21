@@ -19,9 +19,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using IWebHostEnvironment = Microsoft.AspNetCore.Hosting.IWebHostEnvironment;
 
-namespace forgesample.Controllers
+namespace forgeSample.Controllers
 {
     [ApiController]
     public class OSSController : ControllerBase
@@ -119,7 +118,7 @@ namespace forgesample.Controllers
         public async Task<dynamic> UploadObject([FromForm]UploadFile input)
         {
             // save the file on the server
-            var fileSavePath = Path.Combine(_env.ContentRootPath, input.fileToUpload.FileName);
+            var fileSavePath = Path.Combine(_env.WebRootPath, Path.GetFileName(input.fileToUpload.FileName));
             using (var stream = new FileStream(fileSavePath, FileMode.Create))
                 await input.fileToUpload.CopyToAsync(stream);
 
@@ -134,7 +133,7 @@ namespace forgesample.Controllers
             using (StreamReader streamReader = new StreamReader(fileSavePath))
             {
                 uploadedObj = await objects.UploadObjectAsync(input.bucketKey,
-                       input.fileToUpload.FileName, (int)streamReader.BaseStream.Length, streamReader.BaseStream,
+                       Path.GetFileName(input.fileToUpload.FileName), (int)streamReader.BaseStream.Length, streamReader.BaseStream,
                        "application/octet-stream");
             }
 

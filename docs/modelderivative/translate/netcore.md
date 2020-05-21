@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace forgesample.Controllers
+namespace forgeSample.Controllers
 {
     [ApiController]
     public class ModelDerivativeController : ControllerBase
@@ -27,7 +27,7 @@ namespace forgesample.Controllers
         [Route("api/forge/modelderivative/jobs")]
         public async Task<dynamic> TranslateObject([FromBody]TranslateObjectModel objModel)
         {
-            //dynamic oauth = await OAuthController.GetInternalAsync();
+            dynamic oauth = await OAuthController.GetInternalAsync();
 
             // prepare the payload
             List<JobPayloadItem> outputs = new List<JobPayloadItem>()
@@ -45,7 +45,7 @@ namespace forgesample.Controllers
 
             // start the translation
             DerivativesApi derivative = new DerivativesApi();
-            //derivative.Configuration.AccessToken = oauth.access_token;
+            derivative.Configuration.AccessToken = oauth.access_token;
             dynamic jobPosted = await derivative.TranslateAsync(job);
             return jobPosted;
         }
@@ -62,6 +62,6 @@ namespace forgesample.Controllers
 }
 ```
 
-The **TranslateObject** receives the **bucketKey** and **objectName** and post the [translation job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
+The **TranslateObject** receives the **bucketKey** and **objectName** and post the [translation job](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
 
 Next: [Show on Viewer](viewer/2legged/)

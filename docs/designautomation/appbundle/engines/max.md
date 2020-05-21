@@ -7,6 +7,7 @@ This step will help you create a basic 3ds Max plugin for Design Automation. The
 
 Remember that for Design Automation, there should be no UI or prompts that cannot be automated. To automate the 3ds Max DA engine, you must provide some MAXScript. This is usually very easy as most customization can be exposed quickly to MAXScript (see [function publishing for C++](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_3ds_max_sdk_features_function_publishing_html) and [MAXScript .NET handling](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=GUID-779FD7AC-953D-4567-B2A8-60B1D8695B95))
 
+> You may [download the Bundle ZIP](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateMAXParam.zip) into the `/forgeSample/wwwroot/bundles` folder and [skip this section](designautomation/appbundle/netcore)
 
 ## Create a new .NET project
 
@@ -209,10 +210,10 @@ This file will tell 3ds Max the modules to load (in this case the .NET API plugi
 		Url="http://forge.autodesk.com"
 		Email="noreply@autodesk.com" />
 
-	<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2019" SeriesMax="2019" />
+	<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2019" SeriesMax="2021" />
 		
 	<Components Description="assemblies parts">
-		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2019" SeriesMax="2019" />
+		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2019" SeriesMax="2021" />
 		<ComponentEntry AppName="UpdateMAXParam" Version="2019.0.0" ModuleName="./Contents/UpdateMAXParam.dll" AppDescription="The Sample Design Automation Plugin managed assembly module" />
 	</Components>
   

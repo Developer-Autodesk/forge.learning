@@ -18,7 +18,7 @@ Create an **index.html** file with:
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Autodesk Forge Tutorial</title>
+  <title>View Models - Autodesk Forge</title>
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="https://github.com/Autodesk-Forge/learn.forge.viewmodels/raw/master/img/favicon.ico">
   <!-- Common packages: jQuery, Bootstrap, jsTree -->
@@ -105,7 +105,7 @@ Create an **index.html** file with:
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Autodesk Forge Tutorial</title>
+  <title>View Models - Autodesk Forge</title>
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="https://github.com/Autodesk-Forge/learn.forge.viewmodels/raw/master/img/favicon.ico">
   <!-- Common packages: jQuery, Bootstrap, jsTree -->
@@ -271,11 +271,10 @@ $(document).ready(function () {
 
 function createNewBucket() {
   var bucketKey = $('#newBucketKey').val();
-  var policyKey = $('#newBucketPolicyKey').val();
   jQuery.post({
     url: '/api/forge/oss/buckets',
     contentType: 'application/json',
-    data: JSON.stringify({ 'bucketKey': bucketKey, 'policyKey': policyKey }),
+    data: JSON.stringify({ 'bucketKey': bucketKey }),
     success: function (res) {
       $('#appBuckets').jstree(true).refresh();
       $('#createBucketModal').modal('toggle');
@@ -411,11 +410,11 @@ var viewer;
 function launchViewer(urn) {
   var options = {
     env: 'AutodeskProduction',
-    getAccessToken: getForgeToken,
+    getAccessToken: getForgeToken
   };
 
   Autodesk.Viewing.Initializer(options, () => {
-    viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'));
+    viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: [ 'Autodesk.DocumentBrowser'] });
     viewer.start();
     var documentId = 'urn:' + urn;
     Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);

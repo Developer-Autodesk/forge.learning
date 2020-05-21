@@ -1,12 +1,12 @@
 # Create a new project (.NET Framework)
 
-Go to menu **File** >> **New** >> **Project** and select **Web** >> **ASP.NET Web Application**. For this sample, let's name it **forgesample**. On the next dialog, select **Empty** and select **Web API**. 
+Go to menu **File** >> **New** >> **Project**. Select **C#** language and **Web** project type, finally select **ASP.NET Web Application (.NET Framework)**. Next, let's name it **forgeSample**, and please ensure **.NET Framework 4.7.2** is selected. On the next dialog, select **Empty** and check **Web API**.
 
-Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk Forge** and install it our **forgesample**. 
+!> If the project type or .NET Framework 4.7.2 are not available, please review [Tools](environment/tools/net) section.
+
+Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk Forge** and install it our **forgeSample**. 
 
 ![](_media/net/create_project_webapi.gif) 
-
-!> If **Web** & **ASP.NET** project types are not available, please review [Tools](environment/tools/net) section
 
 ## Web.Config
 
@@ -28,7 +28,7 @@ The ASP.NET engine limits the maximum request size to 4Mb and upload file size t
 
 ```xml
 <!-- httpRuntime targetFramework is already on your file, just add the maxRequestLength -->
-<httpRuntime targetFramework="4.6.1" maxRequestLength="2097151" />
+<httpRuntime targetFramework="4.7.2" maxRequestLength="2097151" />
 ```
 
 And add the **security** >> **requestFiltering** limit:

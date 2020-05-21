@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 
-namespace forgesample.Controllers
+namespace forgeSample.Controllers
 {
   public class OSSController : ApiController
   {
