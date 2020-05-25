@@ -2,7 +2,7 @@
 
 Create a folder on your machine, do not use spaces and avoid special chars. For this tutorial, let's use **forgesample**.
 
-Open **Visual Code**, then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder. 
+Open [Visual Code](https://code.visualstudio.com/download), then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder. 
 
 Now we need the terminal, go to menu **View** >> **Integrated Terminal**. A window should appear on the bottom. Type the following command and follow the steps. For consistency with other Forge samples, when prompted for **entry point:**, use **start.js**.
 
@@ -195,7 +195,49 @@ module.exports = {
 
 We are defining our ENV variables here. At the time of running our Express server, the values of these variables will be use to connect to the different Autodesk Forge services we will need.
 
-Last we see there are 2 scope definitions. The internal scopes give our access token the right permission for the use of the different services of the Forge Web Services (server-side). This tutorial is dedicated to the use of the Viewer, we will only need the "viewables:read" scope for public.
+## routes/common/oauth.js
+
+Now create a `common` subfolder in the `routes` folder, and prepare a `routes/common/oauth.js` file that will actually request
+the access token from Forge. This will be reused in other parts of this tutorial.
+
+```javascript
+const { AuthClientTwoLegged } = require('forge-apis');
+const config = require('../../config');
+
+// Tokens are auto-refreshed, keeping clients in simple cache
+let cache = {};
+
+// Since we got 3 calls at the first page loading, let's initialize this one now,
+// to avoid concurrent requests.
+getClient (/*config.scopes.internal*/);
+
+/**
+ * Initializes a Forge client for 2-legged authentication.
+ * @param {string[]} scopes List of resource access scopes.
+ * @returns {AuthClientTwoLegged} 2-legged authentication client.
+ */
+async function getClient(scopes) {
+    scopes = scopes || config.scopes.internal;
+    const key = scopes.join('+');
+    if ( cache[key] )
+        return (cache[key]);
+    
+    try {
+        const { client_id, client_secret } = config.credentials;
+        let client = new AuthClientTwoLegged(client_id, client_secret, scopes || config.scopes.internal, true);
+        let credentials = await client.authenticate();
+        cache[key] = client;
+        console.log (`OAuth2 client created for ${key}`);
+        return (client);
+    } catch ( ex ) {
+        return (null);
+    }
+}
+
+module.exports = {
+    getClient
+};
+```
 
 The project is ready! At this point your project should look like this:
 
@@ -203,4 +245,4 @@ The project is ready! At this point your project should look like this:
 
 > The **package-lock.json** was created by **npm**, don't worry
 
-Next: [Authenticate](oauth/2legged/nodejs_da.md)
+Next: [Basic app UI](designautomation/html/README.md)

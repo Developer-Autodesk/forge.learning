@@ -2,7 +2,7 @@
 
 This step will help you create a basic AutoCAD plugin for Design Automation. For more information, please visit [My First AutoCAD Plugin](https://knowledge.autodesk.com/support/autocad/learn-explore/caas/simplecontent/content/my-first-autocad-plug-overview.html) tutorial.
 
-> You may [download the Bundle ZIP](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateDWGParam.zip) into the `/forgeSample/wwwroot/bundles` folder and [skip this section](designautomation/appbundle/netcore)
+> You may [download the Bundle ZIP](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateDWGParam.zip) into the `/forgeSample/wwwroot/bundles` folder and [skip this section](designautomation/appbundle/common.md)
 
 ## Create a new project
 
