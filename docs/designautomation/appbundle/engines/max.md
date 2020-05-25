@@ -7,7 +7,7 @@ This step will help you create a basic 3ds Max plugin for Design Automation. The
 
 Remember that for Design Automation, there should be no UI or prompts that cannot be automated. To automate the 3ds Max DA engine, you must provide some MAXScript. This is usually very easy as most customization can be exposed quickly to MAXScript (see [function publishing for C++](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_3ds_max_sdk_features_function_publishing_html) and [MAXScript .NET handling](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=GUID-779FD7AC-953D-4567-B2A8-60B1D8695B95))
 
-> You may [download the Bundle ZIP](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateMAXParam.zip) into the `/forgeSample/wwwroot/bundles` folder and [skip this section](designautomation/appbundle/common.md)
+> You may [download the Bundle ZIP](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateMAXParam.zip) into the `/public/bundles/` (Node.js) or `/forgeSample/wwwroot/bundles` (.NET Core) folder and [skip this section](designautomation/appbundle/common.md)
 
 ## Create a new .NET project
 
@@ -225,6 +225,8 @@ Finally, create a subfolder named `Contents` and leave it empty. At this point, 
 ![](_media/designautomation/max/bundle_folders.png)
 
 ## Post-build event
+
+> For Node.js it is required to adjust the AppBundle ZIP output folder.
 
 Now we need to ZIP the .bundle folder. Right-click on the project, select **Properties**, then open **Build Events** and copy the following into **Post-build event command line** field, as shown on the image below.
 

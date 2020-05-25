@@ -1,4 +1,4 @@
-# Running & Debugging (NodeJS)
+# Running & Debugging (Node.js)
 
 Go to the **Debug** menu and select **Start debugging**. The "Debug Console" tab should appear on the bottom, as shown below:
 
