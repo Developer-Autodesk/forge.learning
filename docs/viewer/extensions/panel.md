@@ -102,7 +102,7 @@ getAllLeafComponents(callback) {
 
 ## Docking panel
 
-The extension will show the results on a Viewer [property panel](https://developer.autodesk.com/en/docs/viewer/v2/reference/javascript/propertypanel/). Copy the content to your extension **.js** file (anywhere on the file, outside other functions).
+The extension will show the results on a Viewer [property panel](https://forge.autodesk.com/en/docs/viewer/v7/reference/UI/PropertyPanel/). Copy the content to your extension **.js** file (anywhere on the file, outside other functions).
 
 ```javascript
 class ModelSummaryPanel extends Autodesk.Viewing.UI.PropertyPanel {

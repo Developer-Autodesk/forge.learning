@@ -1,7 +1,5 @@
 # Code for creating App Bundle (.NET Core)
 
-Now the ZIP bundle is ready, let's upload to Design Automation.
-
 ## DesignAutomationController.cs
 
 Under **Controllers** folder create a `DesignAutomationController.cs` with the following content. This is just the class, we'll define the endpoints later, but note the `DesignAutomationHub` at the end, which allow us push notifications to the client via [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-2.2).

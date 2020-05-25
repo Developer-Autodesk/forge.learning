@@ -4,4 +4,4 @@ Activity is the specification of an action that can be executed using a specifie
 
 In this tutorial sample, the activity has 2 inputs (file & JSON data) and 1 output (file).
 
-Choose your language: [.NET Core](designautomation/activity/netcore)
+Choose your language: [Node.js](designautomation/activity/nodejs) | [.NET Core](designautomation/activity/netcore)

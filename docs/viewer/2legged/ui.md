@@ -271,11 +271,10 @@ $(document).ready(function () {
 
 function createNewBucket() {
   var bucketKey = $('#newBucketKey').val();
-  var policyKey = $('#newBucketPolicyKey').val();
   jQuery.post({
     url: '/api/forge/oss/buckets',
     contentType: 'application/json',
-    data: JSON.stringify({ 'bucketKey': bucketKey, 'policyKey': policyKey }),
+    data: JSON.stringify({ 'bucketKey': bucketKey }),
     success: function (res) {
       $('#appBuckets').jstree(true).refresh();
       $('#createBucketModal').modal('toggle');

@@ -4,7 +4,7 @@ For a basic *OAuth* implementation we need 1 file.
 
 ### OAuthController.cs
 
-Create folder named `Controller` at project root level, then create a class named **OAuthController** in a class file with the same name (`OAuthController.cs`) and add the following content:
+Create folder named `Controllers` at project root level, then create a class named **OAuthController** in a class file with the same name (`OAuthController.cs`) and add the following content:
 
 ```csharp
 using Autodesk.Forge;
@@ -75,7 +75,7 @@ namespace forgeSample.Controllers
         }
 
         [HttpGet]
-        [Route("api/forge/callback/oauth")] // see Web.Config FORGE_CALLBACK_URL variable
+        [Route("api/forge/callback/oauth")] 
         public async Task<IActionResult> OAuthCallbackAsync(string code)
         {
             if (string.IsNullOrWhiteSpace(code)) return Redirect("/");
@@ -86,7 +86,7 @@ namespace forgeSample.Controllers
         }
 
         [HttpGet]
-        [Route("api/forge/clientid")] // see Web.Config FORGE_CALLBACK_URL variable
+        [Route("api/forge/clientid")] 
         public dynamic GetClientID()
         {
             return new { id = Credentials.GetAppSetting("FORGE_CLIENT_ID") };
