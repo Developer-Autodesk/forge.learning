@@ -62,7 +62,7 @@ class Utils {
 	/// Returns the directory where bindles are stored on the local machine.
 	/// </summary>
 	static get LocalBundlesFolder () {
-		return (_path.resolve(_path.join(__dirname, '../..', 'bundles')));
+		return (_path.resolve(_path.join(__dirname, '../', 'bundles')));
 	}
 
 	/// <summary>
@@ -199,7 +199,7 @@ class Utils {
 
 **2. App Bundle**
 
-Before creating activity, we need to define app bundle with plugin and selecting the appropriate engine, copy the following apis for managing these tasks:
+Before creating activity, we need to define app bundle with plugin and selecting the appropriate engine, copy the following apis after the utils class, for managing these tasks:
 
 ```javascript
 /// <summary>

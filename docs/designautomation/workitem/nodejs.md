@@ -1,6 +1,6 @@
 # Execute Workitem (Node.js)
 
-The following apis should be added to the `DesignAutomationController` js file.
+The following apis should be added to the `DesignAutomation` js file.
 
 **1. StartWorkitem**
 
@@ -226,8 +226,6 @@ router.delete('/forge/designautomation/account', async /*ClearAccount*/ (req, re
 	await api.deleteForgeApp('me');
 	res.status(200).end();
 });
-
-module.exports = router;
 ```
 
 Everything ready!
