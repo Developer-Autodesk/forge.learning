@@ -4,7 +4,7 @@ Create a folder on your machine, do not use spaces and avoid special chars. For 
 
 Open [Visual Code](https://code.visualstudio.com/download), then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder. 
 
-Now we need the terminal, go to menu **View** >> **Integrated Terminal**. A window should appear on the bottom. Type the following command and follow the steps. For consistency with other Forge samples, when prompted for **entry point:**, use **start.js**.
+Now we need the terminal, go to menu **View** >> **Terminal**. A window should appear on the bottom. Type the following command and follow the steps. For consistency with other Forge samples, when prompted for **entry point:**, use **start.js**.
 
 ```
 npm init
@@ -69,11 +69,11 @@ Create a **/routes/** folder for all server-side files and a **/public/** folder
 
 At this point, you project should have the following structure:
 
-![](_media/nodejs/vs_code_explorer.png) 
+![](_media/nodejs/vs_code_explorer_da.png) 
 
 ## launch.json
 
-This file indicates to Visual Studio Code how we should run our project. Go to menu **Debug** >> **Add Configuration...** and, in the **Select Environment** window that appears on the top, choose **Node.js**. In the **/.vscode/launch.json** file that is created, enter the following:
+This file indicates to Visual Studio Code how we should run our project. Go to menu **Run** >> **Add Configuration...** and, in the **Select Environment** window that appears on the top, choose **Node.js**. In the **/.vscode/launch.json** file that is created, enter the following:
 
 !> Note you need to enter your **Forge Client ID & Secret** at the indicated space.
 
@@ -157,6 +157,60 @@ module.exports = app;
 
 This file serves static files (e.g. `html`), and routes API requests.
 
+## socket.io.js
+
+In the root folder, create a file named `socket.io.js` with the following content:
+
+```javascript
+//
+// Copyright (c) 2019 Autodesk, Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+
+/*jshint esversion: 8 */
+
+module.exports =(app) => {
+
+	const http = require('http').Server(app);
+	const io = require('socket.io')(http);
+	app.io = io;
+
+	let clients = 0;
+	io.on('connection', (socket) => {
+		clients++;
+		console.log('a client is connected');
+
+		// Whenever someone disconnects this piece of code executed
+		socket.on('disconnect', function () {
+			clients--;
+			console.log('a client disconnected');
+		});
+	});
+
+	return ({
+		http: http,
+		io: io
+	});
+
+};
+```
 
 ## config.js
 
@@ -241,7 +295,7 @@ module.exports = {
 
 The project is ready! At this point your project should look like this:
 
-![](_media/nodejs/vs_code_project.png) 
+![](_media/nodejs/vs_code_project_da.png) 
 
 > The **package-lock.json** was created by **npm**, don't worry
 
