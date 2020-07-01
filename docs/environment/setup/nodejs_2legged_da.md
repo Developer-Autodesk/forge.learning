@@ -133,12 +133,12 @@ In the root folder, create a file named `server.js` with the following content:
 const _path = require('path');
 const express = require('express');
 const cookieSession = require('cookie-session');
-const config = require('../config');
+const config = require('./config');
 if (!config.credentials.client_id || !config.credentials.client_secret)
 	return (console.error('Missing FORGE_CLIENT_ID or FORGE_CLIENT_SECRET env variables.'));
 
 let app = express();
-app.use(express.static(_path.join(__dirname, '../public')));
+app.use(express.static(_path.join(__dirname, './public')));
 app.use(cookieSession({
 	name: 'forge_session',
 	keys: ['forge_secure_key'],
@@ -147,8 +147,7 @@ app.use(cookieSession({
 app.use(express.json({
 	limit: '50mb'
 }));
-app.use('/api/forge', require('./oauth'));
-app.use('/api', require('./DesignAutomation'));
+app.use('/api', require('./routes/DesignAutomation'));
 
 app.set('port', process.env.PORT || 3000);
 
@@ -223,7 +222,6 @@ module.exports = {
     credentials: {
         client_id: process.env.FORGE_CLIENT_ID,
         client_secret: process.env.FORGE_CLIENT_SECRET,
-        callback_url: process.env.FORGE_CALLBACK || process.env.FORGE_CALLBACK_URL,
         webhook_url: process.env.FORGE_WEBHOOK_URL
     },
     scopes: {
@@ -295,7 +293,7 @@ module.exports = {
 
 The project is ready! At this point your project should look like this:
 
-![](_media/nodejs/vs_code_project_da.png) 
+![](_media/nodejs/vs_code_project_da.PNG) 
 
 > The **package-lock.json** was created by **npm**, don't worry
 
