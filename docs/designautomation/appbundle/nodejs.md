@@ -22,8 +22,8 @@ const router = express.Router();
 const {
 	getClient,
 	getInternalToken
-} = require('../common/oauth');
-const config = require('../../config');
+} = require('./common/oauth');
+const config = require('../config');
 const dav3 = require('autodesk.forge.designautomation');
 const ForgeAPI = require('forge-apis');
 
@@ -62,7 +62,7 @@ class Utils {
 	/// Returns the directory where bindles are stored on the local machine.
 	/// </summary>
 	static get LocalBundlesFolder () {
-		return (_path.resolve(_path.join(__dirname, '../', 'bundles')));
+		return (_path.resolve(_path.join(__dirname, '../', 'public/bundles')));
 	}
 
 	/// <summary>
