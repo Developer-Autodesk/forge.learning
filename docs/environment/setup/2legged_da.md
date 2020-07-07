@@ -14,8 +14,8 @@ After download, unzip it. Open the Windows **Command Line Prompt** (CMD) and nav
 
 ![](/_media/designautomation/ngrok.gif)
 
-> If running on non-Windows (e.g. MacOS), open the **Terminal** instead and follow the same steps.
+> If running on non-Windows (e.g. MacOS), open the **Terminal** instead and follow the same steps, but you need to prefix with `./`
 
 !> **Warning**: `ngrok` exposes your localhost server to the web while it is in use. Be sure to turn it off when your testing it done. Do not use this outside development environment
 
-Setup Project, choose your language: [Node.js](environment/setup/nodejs_2legged_da) | [.NET Core](environment/setup/netcore_da)
+Setup Project, choose your language: [Node.js](environment/setup/nodejs_da) | [.NET Core](environment/setup/netcore_da)

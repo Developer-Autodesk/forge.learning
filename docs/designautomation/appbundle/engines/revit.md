@@ -191,4 +191,4 @@ If you build the `UpdateRVTParam` project now you should see something like this
 
 !> If the build output shows more than **2 folder, 5 files** copied, please go back and ensure **RevitAPI** reference is set to **Copy Local**:**False**. You may need to remove all DLLs from `UpdateRVTParam.bundle/Contents/` folder
 
-Next: [Upload the plugin](designautomation/appbundle/netcore)
+Next: [Upload the plugin](designautomation/appbundle/common)

@@ -10,7 +10,7 @@ At this section we will create a basic plugin that update `width` and `height` p
 
 ### Additional prerequisites 
 
-For the next session you can use the pre-build plugin. If you decide to build it, you will need:
+For the next session you can use the pre-build plugin. Or if you decide to build it, you will need:
 
 - **Visual Studio**: Visual Studio 2017 or newer is required, please visit [this link](https://visualstudio.microsoft.com/vs/).
 
@@ -19,7 +19,5 @@ For the next session you can use the pre-build plugin. If you decide to build it
 ***
 
 For the next step, choose the **Engine**, which is the Autodesk application where you plugin will run. You'll need the respective application installed in order to compile, debug and test locally.
-
-> Checkpoint: at this point you should have a Visual Studio solution with 1 project (forgesample webapp).
 
 Choose the engine: [AutoCAD](/designautomation/appbundle/engines/autocad) | [Inventor](/designautomation/appbundle/engines/inventor) | [Revit](/designautomation/appbundle/engines/revit) | [3ds Max](/designautomation/appbundle/engines/max)

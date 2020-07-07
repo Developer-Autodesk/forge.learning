@@ -263,4 +263,4 @@ To execute this locally, we could do test a a command-line prompt with something
 ```
 Later in this tutorial you will see these same instructions being sent to the 3ds Max Design Automation engine.
 
-Next: [Upload the plugin](designautomation/appbundle/netcore)
+Next: [Upload the plugin](designautomation/appbundle/common)

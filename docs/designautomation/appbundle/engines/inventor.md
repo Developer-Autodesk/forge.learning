@@ -134,4 +134,4 @@ If you build the `UpdateIPTParam` project now you should see something like this
 
 ![](_media/designautomation/inventor/build_output.png)
 
-Next: [Upload the plugin](designautomation/appbundle/netcore)
+Next: [Upload the plugin](designautomation/appbundle/common)

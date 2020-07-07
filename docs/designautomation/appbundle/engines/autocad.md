@@ -181,4 +181,4 @@ If you build the `UpdateDWGParam` project now you should see something like this
 
 ![](_media/designautomation/autocad/build_output.png)
 
-Next: [Upload the plugin](designautomation/appbundle/netcore)
+Next: [Upload the plugin](designautomation/appbundle/common)

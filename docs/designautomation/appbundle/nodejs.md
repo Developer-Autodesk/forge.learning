@@ -1,19 +1,17 @@
 # Code for creating App Bundle (Node Js)
 
 
-Inside `route/` folder create `DesignAutomation.js` file.
-In this file we will write all the apis.
+Inside `route/` folder create `DesignAutomation.js` file. In this file we will write all the endpoints.
 
 **1. Utils**
 
-Before creating apis, we will add Utils class consisting of all the utility functions like creating design automation sdk instance, uploading file and few more helpfull functions which are used in apis.
+Before creating endpoints, we will add Utils class consisting of all the utility functions like creating design automation SDK instance, uploading file and few more helpfull functions which are used in this sample.
 
 ```javascript
 const _path = require('path');
 const _fs = require('fs');
 const _url = require('url');
 const express = require('express');
-//const http = require('http');
 const http = require('https');
 const formdata = require('form-data');
 const bodyParser = require('body-parser');
@@ -48,8 +46,6 @@ class Utils {
 			let FetchRefresh = async (data) => { // data is undefined in a fetch, but contains the old credentials in a refresh
 				let client = await getClient();
 				let credentials = client.getCredentials();
-				// The line below is for testing
-				//credentials.expires_in = 30; credentials.expires_at = new Date(Date.now() + credentials.expires_in * 1000);
 				return (credentials);
 			};
 			dav3Instance.authManager.authentications['2-legged'].fetchToken = FetchRefresh;
@@ -104,12 +100,7 @@ class Utils {
 	/// Create a new DAv3 client/API with default settings
 	/// </summary>
 	static async dav3API (oauth2) {
-		// There is 2 alternatives to setup an API instance, providing the access_token directly
-		// let apiClient2 = new dav3.AutodeskForgeDesignAutomationClient(/*config.client*/);
-		// apiClient2.authManager.authentications['2-legged'].accessToken = oauth2.access_token;
-		//return (new dav3.AutodeskForgeDesignAutomationApi(apiClient));
-
-		// Or use the Auto-Refresh feature
+		// Auto-Refresh feature
 		let apiClient = await Utils.Instance();
 		return (new dav3.AutodeskForgeDesignAutomationApi(apiClient));
 	}
@@ -199,7 +190,7 @@ class Utils {
 
 **2. App Bundle**
 
-Before creating activity, we need to define app bundle with plugin and selecting the appropriate engine, copy the following apis after the utils class, for managing these tasks:
+Before creating activity, we need to define app bundle with plugin and selecting the appropriate engine. Copy & paste the following endpoint after the utils class:
 
 ```javascript
 /// <summary>
@@ -260,13 +251,6 @@ router.post('/forge/designautomation/appbundles', async /*CreateAppBundle*/ (req
 	let newAppVersion = null;
 	const qualifiedAppBundleId = `${Utils.NickName}.${appBundleName}+${Utils.Alias}`;
 	if (!appBundles.data.includes(qualifiedAppBundleId)) {
-		// create an appbundle (version 1)
-		// const appBundleSpec = {
-		// 		package: appBundleName,
-		// 		engine: engineName,
-		// 		id: appBundleName,
-		// 		description: `Description for ${appBundleName}`
-		// 	};
 		const appBundleSpec = dav3.AppBundle.constructFromObject({
 			package: appBundleName,
 			engine: engineName,
@@ -283,7 +267,7 @@ router.post('/forge/designautomation/appbundles', async /*CreateAppBundle*/ (req
 		}
 
 		// create alias pointing to v1
-		const aliasSpec = //dav3.Alias.constructFromObject({
+		const aliasSpec = 
 		{
 			id: Utils.Alias,
 			version: 1
@@ -298,7 +282,7 @@ router.post('/forge/designautomation/appbundles', async /*CreateAppBundle*/ (req
 		}
 	} else {
 		// create new version
-		const appBundleSpec = //dav3.AppBundle.constructFromObject({
+		const appBundleSpec = 
 		{
 			engine: engineName,
 			description: appBundleName
@@ -313,7 +297,7 @@ router.post('/forge/designautomation/appbundles', async /*CreateAppBundle*/ (req
 		}
 
 		// update alias pointing to v+1
-		const aliasSpec = //dav3.AliasPatch.constructFromObject({
+		const aliasSpec = 
 		{
 			version: newAppVersion.Version
 		};
@@ -329,16 +313,6 @@ router.post('/forge/designautomation/appbundles', async /*CreateAppBundle*/ (req
 
 	// upload the zip with .bundle
 	try {
-		// curl https://bucketname.s3.amazonaws.com/
-		// -F key = apps/myApp/myfile.zip
-		// -F content-type = application/octet-stream
-		// -F policy = eyJleHBpcmF0aW9uIjoiMjAxOC0wNi0yMVQxMzo...(trimmed)
-		// -F x-amz-signature = 800e52d73579387757e1c1cd88762...(trimmed)
-		// -F x-amz-credential = AKIAIOSFODNN7EXAMPLE/20180621/us-west-2/s3/aws4_request/
-		// -F x-amz-algorithm = AWS4-HMAC-SHA256
-		// -F x-amz-date = 20180621T091656Z
-		// -F file=@E:myfile.zip
-		//
 		// The ‘file’ field must be at the end, all fields after ‘file’ will be ignored.
 		await Utils.uploadFormDataWithFile(
 			packageZipPath,
