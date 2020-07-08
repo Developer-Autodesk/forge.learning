@@ -2,7 +2,7 @@
 
 This step will help you create a basic AutoCAD plugin for Design Automation. For more information, please visit [My First AutoCAD Plugin](https://knowledge.autodesk.com/support/autocad/learn-explore/caas/simplecontent/content/my-first-autocad-plug-overview.html) tutorial.
 
-> You may [download the Bundle ZIP](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateDWGParam.zip) into the `/forgeSample/wwwroot/bundles` folder and [skip this section](designautomation/appbundle/netcore)
+> You may [download the Bundle ZIP](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateDWGParam.zip) into the `/public/bundles/` (Node.js) or `/forgeSample/wwwroot/bundles` (.NET Core) folder and [skip this section](designautomation/appbundle/common.md)
 
 ## Create a new project
 
@@ -161,6 +161,8 @@ Finally, create a subfolder named `Contents` and leave it empty. At this point, 
 
 ## Post-build event
 
+> For Node.js it is required to adjust the AppBundle ZIP output folder.
+
 Now we need to ZIP the .bundle folder. Right-click on the project, select **Properties**, then open **Build Events** and copy the following into **Post-build event command line** field, as shown on the image below.
 
 ```
@@ -179,4 +181,4 @@ If you build the `UpdateDWGParam` project now you should see something like this
 
 ![](_media/designautomation/autocad/build_output.png)
 
-Next: [Upload the plugin](designautomation/appbundle/netcore)
+Next: [Upload the plugin](designautomation/appbundle/common)

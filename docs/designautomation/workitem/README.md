@@ -6,4 +6,4 @@ The relationship between an Activity and WorkItem can be thought of as a “func
 
 In this tutorial sample, the workitem specifies the input file URL, the input JSON data with the new parameter values, and the destination URL for the output file. This sample will upload the input file to a OSS bucket before starting the workitem.
 
-Choose your language: [.NET Core](designautomation/workitem/netcore)
+Choose your language: [Node.js](designautomation/workitem/nodejs) | [.NET Core](designautomation/workitem/netcore)

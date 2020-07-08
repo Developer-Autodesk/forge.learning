@@ -32,6 +32,8 @@ The ZIP bundles are copied to the `wwwroot/bundles` after you Build the respecti
 
 A easy trick to ensure the correct DLL was uploaded to Design Automation is to check it's date. [This StackOverflow answer](https://stackoverflow.com/a/1600990) shows how to get the Linker Date (i.e. when the DLL was compiled), with that you can show it on the begining of your code. Note the dates are on the server timezone.
 
+> Plugin is written in `C#` irrespective of server language.
+ 
 ```csharp
 LogTrace("DLL {0} compiled on {1}",
     System.IO.Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location),
@@ -40,4 +42,4 @@ LogTrace("DLL {0} compiled on {1}",
 
 Ready? Let's run it!
 
-Choose your language: [.NET Core](environment/rundebug/netcore)
+Choose your language: [Node.js](environment/rundebug/nodejs_da) | [.NET Core](environment/rundebug/netcore)
