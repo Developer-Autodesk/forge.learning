@@ -1,4 +1,4 @@
-# Upload app bundle
+# Upload AppBundle
 
 Now the ZIP bundle is ready, let's upload to Design Automation.
 

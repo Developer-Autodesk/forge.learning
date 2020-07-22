@@ -299,4 +299,4 @@ The final result should look like:
 ![](_media/designautomation/nodejs/basefiles.PNG)
 
 
-Next: [Prepare a plugin](designautomation/appbundle/)
+Next: [Prepare an AppBundle (plugin)](designautomation/appbundle/)

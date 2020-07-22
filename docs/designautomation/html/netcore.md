@@ -269,4 +269,4 @@ At this point you can run your project, just hit **play**, the HTML interface sh
 
 ![](_media/net/start_debug.png) 
 
-Next: [Prepare a plugin](designautomation/appbundle/)
+Next: [Prepare an AppBundle (plugin)](designautomation/appbundle/)

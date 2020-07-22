@@ -1,4 +1,4 @@
-# Prepare a plugin
+# Prepare an AppBundle (plugin)
 
 Design Automation uses .bundle just like the Autodesk App Store, meaning you need to create a `PackageContents.xml` and a ZIP with the `DLL` (and other required files). For detailed information on how to create them, please visit [Autodesk App Store Developer Center](https://www.autodesk.com/developer-network/app-store).
 

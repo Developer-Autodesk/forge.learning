@@ -17,7 +17,7 @@
 - [Modify your models](tutorials/modifymodels.md)
   - [Create a server](environment/setup/2legged_da.md)
   - [Basic app UI](designautomation/html/)
-  - [Prepare a plugin](designautomation/appbundle/)
+  - [Prepare an AppBundle (plugin)](designautomation/appbundle/)
   - [Define an activity](designautomation/activity/)
   - [Execute workitem](designautomation/workitem/)
 - [Run & Debug](environment/rundebug/readme.md)

@@ -1,4 +1,4 @@
-# Code for creating App Bundle (.NET Core)
+# Code for creating AppBundle (.NET Core)
 
 ## DesignAutomationController.cs
 
@@ -81,7 +81,7 @@ Look at the `bundles` folder and return a list of .ZIP files.
 
 ```csharp
 /// <summary>
-/// Names of app bundles on this project
+/// Names of AppBundles on this project
 /// </summary>
 [HttpGet]
 [Route("api/appbundles")]
@@ -138,10 +138,10 @@ public async Task<IActionResult> CreateAppBundle([FromBody]JObject appBundleSpec
     string packageZipPath = Path.Combine(LocalBundlesFolder, zipFileName + ".zip");
     if (!System.IO.File.Exists(packageZipPath)) throw new Exception("Appbundle not found at " + packageZipPath);
 
-    // get defined app bundles
+    // get defined AppBundles
     Page<string> appBundles = await _designAutomation.GetAppBundlesAsync();
 
-    // check if app bundle is already define
+    // check if AppBundle is already define
     dynamic newAppVersion;
     string qualifiedAppBundleId = string.Format("{0}.{1}+{2}", NickName, appBundleName, Alias);
     if (!appBundles.Data.Contains(qualifiedAppBundleId))
