@@ -138,7 +138,7 @@ namespace UpdateDWGParam
 
 ## PackageContents.xml
 
-Create a folder named `UpdateDWGParam.bundle` and, inside, a file named `PackageContents.xml`, then copy the following content to it. Learn more at the [PackageContents.xml Format Reference](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html). This file defines the new AutoCAD custom command `UpdateParam` that will be called when Design Automation executes.
+Create a folder named `UpdateDWGParam.bundle` and, inside, a file named `PackageContents.xml`, then copy the following content to it. Learn more at the [PackageContents.xml Format Reference](https://help.autodesk.com/view/ACD/2021/ENU/?guid=GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0). This file defines the new AutoCAD custom command `UpdateParam` that will be called when Design Automation executes.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
