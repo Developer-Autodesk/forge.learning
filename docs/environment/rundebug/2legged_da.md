@@ -4,7 +4,7 @@ Now that your app is ready, it's time to run it. This is where we can test and c
 
 ## Using the sample
 
-At the top-roght, click on **Configure** to define AppBundle & Activity. This only need to be done once. Specify the new `width` and `height` on the left panel, select the `input file` and click on `Start workitem`. The right panel should show the results.
+At the top-right, click on **Configure** to define AppBundle & Activity. This only need to be done once. Specify the new `width` and `height` on the left panel, select the `input file` and click on `Start workitem`. The right panel should show the results.
 
 You can find [sample files here](https://github.com/Developer-Autodesk/learn.forge.designautomation/tree/master/sample%20files).
 

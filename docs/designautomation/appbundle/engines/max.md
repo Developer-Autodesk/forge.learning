@@ -30,7 +30,7 @@ The project should contain a `Class1.cs` class, let's rename the file to `Comman
 
 ## Commands.cs
 
-This is the main code that will run with 3ds Max. Copy the following content into `Command.cs`. There are three classes to handle the Design Automation porcessing. First is the `InputParams` that will be used to interface with the JSON input data. Next is `ParameterChanger` class that is used to iterate the scene, and find all Casement Windows (but could be any object types as identified by the class ids). Finally the `RuntimeExecute` is used to take the input and drive the automation. Also note there is a specialized logging that will output information to the Design Automation console. See the LogTrace function. Note that the `ILogSys` 3ds Max managed class is used for this, and the flags used with the `LogEntry` API indicated are necessary for the output to show in the Design Automation console. 
+This is the main code that will run with 3ds Max. Copy the following content into `Command.cs`. There are three classes to handle the Design Automation processing. First is the `InputParams` that will be used to interface with the JSON input data. Next is `ParameterChanger` class that is used to iterate the scene, and find all Casement Windows (but could be any object types as identified by the class ids). Finally the `RuntimeExecute` is used to take the input and drive the automation. Also note there is a specialized logging that will output information to the Design Automation console. See the LogTrace function. Note that the `ILogSys` 3ds Max managed class is used for this, and the flags used with the `LogEntry` API indicated are necessary for the output to show in the Design Automation console. 
 
 ```csharp
 using System;
