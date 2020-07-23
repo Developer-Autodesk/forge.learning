@@ -11,7 +11,11 @@ Remember that for Design Automation, there should be no UI or prompts that canno
 
 ## Create a new .NET project
 
-Right-click on the solution, the **Add** >> **New Project**. Select **Windows Desktop**, then **Class Library** and, finally, name it `UpdateMAXParam`. You will then need to reference the Autodesk.Max.Dll managed assembly (3ds Max .NET API core module). This module is found in the 3dsmax.exe folder and when referencing, make sure to turn off the "Copy Local" flag. There are a few other modules used for .NET API support (see [The 3ds Max .NET SDK](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_3ds_max__net_sdk_html)), but for this tutorial we will use only Autodesk.Max.dll. Then search and install `Newtonsoft.Json` (which is used to parse input data in JSON format).
+Right-click on the solution, and then **Add** >> **New Project**. Select **Windows Desktop**, then **Class Library** and, finally, name it `UpdateMAXParam`. 
+
+You will then need to reference the Autodesk.Max.dll managed assembly (3ds Max .NET API core module). This module is found in the 3dsmax.exe folder and when referencing, make sure to turn off the "Copy Local" flag. There are a few other modules used for .NET API support (see [The 3ds Max .NET SDK](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_3ds_max__net_sdk_html)), but for this tutorial we will use only Autodesk.Max.dll. 
+
+Then search and install `Newtonsoft.Json` (which is used to parse input data in JSON format).
 
 > Please select .NET Framework 4.7. If not listed, [please install the Dev Pack](https://dotnet.microsoft.com/download/dotnet-framework/net47).
 

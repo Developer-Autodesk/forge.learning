@@ -265,7 +265,7 @@ The final result should look like:
 
 ![](_media/designautomation/netcore/basefiles.png)
 
-At this point you can run your project, just hit **play**, the HTML interface should open, indicating that your project was created correctly. None of the buttons should work... let's move forward.
+At this point you can run/debug your project, hitting the **play** button in Visual Studio. It will launch the HTML interface of the app in a browser. None of the buttons are ready to work yet... let's continue.
 
 ![](_media/net/start_debug.png) 
 
