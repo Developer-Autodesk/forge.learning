@@ -34,9 +34,13 @@ The project should contain a `Class1.cs` class, let's rename the file to `Comman
 
 ## PackageContents.xml
 
-Create a folder named `UpdateMAXParam.bundle` and inside this folder add a file named `PackageContents.xml`. Copy the content listed below in the XML section into the PackageContents.xml file. Learn more at the [PackageContents.xml Format Reference](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_packagexml_format_html). For more 3ds Max specific information for packaging your 3ds Max plugins see here [Packaging Plugins](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_html)
+Create a folder named `UpdateMAXParam.bundle` and inside this folder add a file named `PackageContents.xml` that will be the AppBundle descriptor. Copy the content listed below in the XML section into the PackageContents.xml file. 
 
-This file will tell 3ds Max the modules to load (in this case the .NET API plugin assembly we are creating, but can also include MAXScripts, Python, and/or C++ plugins.) Because the plugin is being loaded through this feature, you only need to worry about the instructions to trigger your automation job. Please note that a unique ID for both ProductCode and UpgradeCode are required for 3ds Max to correctly load your code. See above mentioned documentation for details.
+This file will tell 3ds Max the modules to load. In this case points to the .NET API plugin assembly we will compile, but it can also include MAXScripts, Python, and/or C++ plugins. Because the dll plugin is being loaded through this feature, you only need to worry later about the instructions to trigger your automation job. Please note that a unique ID for both ProductCode and UpgradeCode are required for 3ds Max to correctly load your code. 
+
+> You can learn about the [PackageContents.xml Format Reference](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_packagexml_format_html). 
+> For more 3ds Max specific information for packaging your 3ds Max plugins, please see here [Packaging Plugins](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_html)
+
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -70,13 +74,19 @@ This file will tell 3ds Max the modules to load (in this case the .NET API plugi
 </ApplicationPackage>
 ```
 
-Finally, create a subfolder named `Contents` and leave it empty. At this point, the project should look like:
+Create a subfolder named `Contents` and leave it empty. At this point, the project should look like:
 
 ![](_media/designautomation/max/bundle_folders.png)
 
 ## Commands.cs
 
-This is the main code that will run with 3ds Max. Copy the following content into `Command.cs`. There are three classes to handle the Design Automation processing. First is the `InputParams` that will be used to interface with the JSON input data. Next is `ParameterChanger` class that is used to iterate the scene, and find all Casement Windows (but could be any object types as identified by the class ids). Finally the `RuntimeExecute` is used to take the input and drive the automation. Also note there is a specialized logging that will output information to the Design Automation console. See the LogTrace function. Note that the `ILogSys` 3ds Max managed class is used for this, and the flags used with the `LogEntry` API indicated are necessary for the output to show in the Design Automation console. 
+This is the main code that will run within 3ds Max. Copy the following content into `Command.cs`. There are three classes to handle the Design Automation processing. 
+
+1. `InputParams` will interface with the JSON input data. 
+2. `ParameterChanger` iterates through the scene, and find all Casement Windows models in our sample. It could also be any object types as identified by the class ids. 
+3. `RuntimeExecute` takes the input and drives the automation. 
+
+Note there is a specialized logging that will output information to the Design Automation console. See the `LogTrace` function. Note that the `ILogSys` 3ds Max managed class is used for this, and the flags used with the `LogEntry` API indicated are necessary for the output to be shown in the Design Automation console. 
 
 ```csharp
 using System;
@@ -240,7 +250,7 @@ del /F "$(ProjectDir)..\forgesample\wwwroot\bundles\UpdateMAXParam.zip"
 "C:\Program Files\7-Zip\7z.exe" a -tzip "$(ProjectDir)../forgesample/wwwroot/bundles/UpdateMAXParam.zip" "$(ProjectDir)UpdateMAXParam.bundle\" -xr0!*.pdb
 ```
 
-This will copy the DLL from /bin/debug/ into .bundle/Contents folder, then use [7zip](https://www.7-zip.org/) to create a zip, then finally copy the ZIP into /bundles folders of the webapp.
+This will copy the compiled DLL from /bin/debug/ into .bundle/Contents folder. It will then use [7zip](https://www.7-zip.org/) to create a zip. And finally it will copy the ZIP into /bundles folders of the webapp.
 
 ![](_media/designautomation/max/post_build.png)
 > Note how the **Post-build event** uses the project and folder names, so make sure you're using these names.
