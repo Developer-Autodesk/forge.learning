@@ -4,7 +4,7 @@ The following methods should be added to the `DesignAutomationController` class.
 
 **1. StartWorkitem**
 
-This is where we actually start the Design Automation. The `StartWorkitemInput` is just a data structure. This method also uploads the input file to an OSS Bucket and define that the output should be saved at the same bucket. To help you identify the files, both input and output uses the same original file name, but with a suffix (`input` or `output`) plus a time stamp.
+The `StartWorkitemInput` class uploads the input file to an OSS Bucket and define that the output should be saved at the same bucket. To help you identify the files, both input and output uses the same original file name, but with a suffix (`input` or `output`) plus a time stamp.
 
 ```csharp
 /// <summary>
@@ -106,11 +106,11 @@ public class StartWorkitemInput
 }
 ```
 
-> Note how the `StartWorkitemInput` class is defined **inside** de **DesignAutomationController**, this is correct and it's used as input parameter for `StartWorkitem` method.
+> Note how the `StartWorkitemInput` class is defined **inside** **DesignAutomationController**, this is correct and it's used as input parameter for `StartWorkitem` method.
 
 **2. OnCallback**
 
-When the workitem is done, Design Automation will callback our app (using the ngrok forwarding URL). This function will handle it and push a notification to the client (using SignalR Hub).
+When the workitem is done, Design Automation will callback our app (using the **ngrok** forwarding URL). This function will handle it and push a notification to the client (using **SignalR** Hub).
 
 ```csharp
 /// <summary>
