@@ -32,6 +32,48 @@ As a result, the **package.config** should look like the following for the Newto
 
 The project should contain a `Class1.cs` class, let's rename the file to `Command.cs` (for consistency). 
 
+## PackageContents.xml
+
+Create a folder named `UpdateMAXParam.bundle` and inside this folder add a file named `PackageContents.xml`. Copy the content listed below in the XML section into the PackageContents.xml file. Learn more at the [PackageContents.xml Format Reference](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_packagexml_format_html). For more 3ds Max specific information for packaging your 3ds Max plugins see here [Packaging Plugins](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_html)
+
+This file will tell 3ds Max the modules to load (in this case the .NET API plugin assembly we are creating, but can also include MAXScripts, Python, and/or C++ plugins.) Because the plugin is being loaded through this feature, you only need to worry about the instructions to trigger your automation job. Please note that a unique ID for both ProductCode and UpgradeCode are required for 3ds Max to correctly load your code. See above mentioned documentation for details.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage 
+	SchemaVersion="1.0" 
+	AutodeskProduct="3ds Max" 
+    Name="Sample Design Automation Plugin for 3ds Max"
+    Description="A sample package to update parameters of a 3ds Max scene file containing a casement window"
+	AppVersion="2019.0.0" 
+	FriendlyVersion="2019.0.0" 
+	ProductType="Application" 
+	SupportedLocales="Enu" 
+	AppNameSpace="apps.autodesk.com" 
+	Author="Autodesk Forge" 
+    ProductCode="{6A8D06F4-C3DD-42DD-A69E-9B9617A7ABC0}"
+	UpgradeCode="{CE88CEA5-47F6-423E-B9EC-E9FA683B5228}"
+    >
+
+	<CompanyDetails Name="Autodesk"
+		Phone=" "
+		Url="http://forge.autodesk.com"
+		Email="noreply@autodesk.com" />
+
+	<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2019" SeriesMax="2021" />
+		
+	<Components Description="assemblies parts">
+		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2019" SeriesMax="2021" />
+		<ComponentEntry AppName="UpdateMAXParam" Version="2019.0.0" ModuleName="./Contents/UpdateMAXParam.dll" AppDescription="The Sample Design Automation Plugin managed assembly module" />
+	</Components>
+  
+</ApplicationPackage>
+```
+
+Finally, create a subfolder named `Contents` and leave it empty. At this point, the project should look like:
+
+![](_media/designautomation/max/bundle_folders.png)
+
 ## Commands.cs
 
 This is the main code that will run with 3ds Max. Copy the following content into `Command.cs`. There are three classes to handle the Design Automation processing. First is the `InputParams` that will be used to interface with the JSON input data. Next is `ParameterChanger` class that is used to iterate the scene, and find all Casement Windows (but could be any object types as identified by the class ids). Finally the `RuntimeExecute` is used to take the input and drive the automation. Also note there is a specialized logging that will output information to the Design Automation console. See the LogTrace function. Note that the `ILogSys` 3ds Max managed class is used for this, and the flags used with the `LogEntry` API indicated are necessary for the output to show in the Design Automation console. 
@@ -186,48 +228,6 @@ namespace Autodesk.Forge.Sample.DesignAutomation.Max
 }
 ```
 
-## PackageContents.xml
-
-Create a folder named `UpdateMAXParam.bundle` and inside this folder add a file named `PackageContents.xml`. Copy the content listed below in the XML section into the PackageContents.xml file. Learn more at the [PackageContents.xml Format Reference](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_packagexml_format_html). For more 3ds Max specific information for packaging your 3ds Max plugins see here [Packaging Plugins](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_html)
-
-This file will tell 3ds Max the modules to load (in this case the .NET API plugin assembly we are creating, but can also include MAXScripts, Python, and/or C++ plugins.) Because the plugin is being loaded through this feature, you only need to worry about the instructions to trigger your automation job. Please note that a unique ID for both ProductCode and UpgradeCode are required for 3ds Max to correctly load your code. See above mentioned documentation for details.
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationPackage 
-	SchemaVersion="1.0" 
-	AutodeskProduct="3ds Max" 
-    Name="Sample Design Automation Plugin for 3ds Max"
-    Description="A sample package to update parameters of a 3ds Max scene file containing a casement window"
-	AppVersion="2019.0.0" 
-	FriendlyVersion="2019.0.0" 
-	ProductType="Application" 
-	SupportedLocales="Enu" 
-	AppNameSpace="apps.autodesk.com" 
-	Author="Autodesk Forge" 
-    ProductCode="{6A8D06F4-C3DD-42DD-A69E-9B9617A7ABC0}"
-	UpgradeCode="{CE88CEA5-47F6-423E-B9EC-E9FA683B5228}"
-    >
-
-	<CompanyDetails Name="Autodesk"
-		Phone=" "
-		Url="http://forge.autodesk.com"
-		Email="noreply@autodesk.com" />
-
-	<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2019" SeriesMax="2021" />
-		
-	<Components Description="assemblies parts">
-		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2019" SeriesMax="2021" />
-		<ComponentEntry AppName="UpdateMAXParam" Version="2019.0.0" ModuleName="./Contents/UpdateMAXParam.dll" AppDescription="The Sample Design Automation Plugin managed assembly module" />
-	</Components>
-  
-</ApplicationPackage>
-```
-
-Finally, create a subfolder named `Contents` and leave it empty. At this point, the project should look like:
-
-![](_media/designautomation/max/bundle_folders.png)
-
 ## Post-build event
 
 > For Node.js it is required to adjust the AppBundle ZIP output folder.
@@ -249,6 +249,8 @@ If you build the `UpdateMAXParam` project now you should see something like belo
 
 ![](_media/designautomation/max/build_output.png)
 
+## Testing locally
+
 At this point, you could test the functionality using the 3ds Max batch tool. It works similarly to the 3ds Max Design Automation engine and is a good way to test all your automation locally before sending the job to the Forge DA cloud services. For .NET Classes to be instantiated in MAXScript environment, we can use the `dotNetClass` MAXScript function. For this sample project, the MAXScript code would look like this:
 
 ```MAXScript
@@ -261,7 +263,7 @@ fn UpdateParam =
 UpdateParam()
 ```
 
-To execute this locally, we could do test a a command-line prompt with something like this:
+To execute this locally, we could do test a command-line prompt with something like this:
 ```CommandLine
 "%ADSK_3DSMAX_x64_2019%\3dsmaxbatch.exe" -sceneFile <myTestScene>.max da_script.ms
 ```
