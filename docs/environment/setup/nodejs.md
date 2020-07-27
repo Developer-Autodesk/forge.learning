@@ -65,7 +65,7 @@ At this point, you project should have the following structure:
 
 ## launch.json
 
-This file indicates to Visual Studio Code how we should run our project. Go to menu **Debug** >> **Add Configuration...** and, in the **Select Environment** window that appears on the top, choose **Node.js**. In the **/.vscode/launch.json** file that is created, enter the following:
+This file indicates to Visual Studio Code how we should run our project. Go to menu **Run** >> **Add Configuration...** and, in the **Select Environment** window that appears on the top, choose **Node.js**. In the **/.vscode/launch.json** file that is created, enter the following:
 
 !> Note you need to enter your **Forge Client ID & Secret** at the indicated space.
 
