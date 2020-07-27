@@ -1,8 +1,6 @@
-# Code for creating AppBundle (.NET Core)
+# Create and upload AppBundle (.NET Core)
 
-## DesignAutomationController.cs
-
-Under **Controllers** folder create a `DesignAutomationController.cs` with the following content. This is just the class, we'll define the endpoints later, but note the `DesignAutomationHub` at the end, which allow us push notifications to the client via [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-2.2).
+Under **Controllers** folder create a `DesignAutomationController.cs` with the following content. This is the class basics, where we will add the endpoints. Note the `DesignAutomationHub` at the end, which allow us push notifications to the client, using [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-2.2).
 
 ```csharp
 using Autodesk.Forge;
