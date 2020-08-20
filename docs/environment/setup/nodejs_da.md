@@ -4,7 +4,7 @@ Create a folder on your machine, do not use spaces and avoid special chars. For 
 
 Open [Visual Code](https://code.visualstudio.com/download), then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder. 
 
-Now we need the terminal, go to menu **View** >> **Terminal**. A window should appear on the bottom. Type the following command and follow the steps. For consistency with other Forge samples, when prompted for **entry point:**, use **start.js**.
+Now we need the terminal, go to menu **View** >> **Terminal**. A window should appear on the bottom. Type the following command and follow the steps, you can safely accept the default suggestion, except **entry point:**, use **start.js** (which is used on most of Forge samples).
 
 ```
 npm init
@@ -50,8 +50,8 @@ Finally open the **package.json** and, inside `"scripts"`, add `"start": "node s
     "body-parser": "^1.19.0",
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
-    "forge-apis": "^0.4.8",
-    "form-data": "^2.5.1",
+    "forge-apis": "^0.7.3",
+    "form-data": "^3.0.0",
     "multer": "^1.4.2",
     "socket.io": "^2.3.0"
   }
@@ -103,13 +103,13 @@ This file indicates to Visual Studio Code how we should run our project. Go to m
 
 ## start.js
 
-In the root folder, create a `start.js` file with:
+This file starts an **express** server. In the root folder, create a `start.js` file with:
 
 !> File names are case-sensitive for some deployments, like **Heroku**. For this tutorial, let's use lower-case.
 
 ```javascript
-const app = require('./routes/server');
-const socketIO = require('./routes/socket.io')(app);
+const app = require('./server');
+const socketIO = require('./socket.io')(app);
 
 let server = socketIO.http.listen(app.get('port'), () => {
     console.log(`Server listening on port ${app.get('port')}`);
@@ -123,11 +123,9 @@ server.on('error', (err) => {
 }) ;
 ```
 
-This file starts an **express** server.
-
 ## server.js
 
-In the root folder, create a file named `server.js` with the following content:
+This file serves static files (e.g. `html`), and routes API requests. In the root folder, create a file named `server.js` with the following content:
 
 ```javascript
 const _path = require('path');
@@ -154,37 +152,11 @@ app.set('port', process.env.PORT || 3000);
 module.exports = app;
 ```
 
-This file serves static files (e.g. `html`), and routes API requests.
-
 ## socket.io.js
 
 In the root folder, create a file named `socket.io.js` with the following content:
 
 ```javascript
-//
-// Copyright (c) 2019 Autodesk, Inc.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-//
-
-/*jshint esversion: 8 */
-
 module.exports =(app) => {
 
 	const http = require('http').Server(app);
@@ -207,7 +179,6 @@ module.exports =(app) => {
 		http: http,
 		io: io
 	});
-
 };
 ```
 
@@ -245,8 +216,8 @@ module.exports = {
 };
 ```
 
-We are defining our ENV variables here. At the time of running our Express server, the values of these variables will be use to connect to the different Autodesk Forge services we will need.
-
+We are using the environment variables here. At the time of running our Express server, the values of these variables will be used to connect to Autodesk Forge.
+com
 ## routes/common/oauth.js
 
 Now create a `common` subfolder in the `routes` folder, and prepare a `routes/common/oauth.js` file that will actually request

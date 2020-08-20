@@ -1,10 +1,10 @@
 # Execute Workitem (Node.js)
 
-The following apis should be added to the `DesignAutomation` js file.
+The following apis should be added to the `DesignAutomation` js file before the last line `module.exports = router;`
 
 **1. StartWorkitem**
 
-This is where we actually start the Design Automation. This api also uploads the input file to an OSS Bucket and define that the output should be saved at the same bucket. To help you identify the files, both input and output uses the same original file name, but with a suffix (`input` or `output`) plus a time stamp.
+This is where we actually start the Design Automation. This endpoint also uploads the input file to an OSS Bucket and define that the output should be saved at the same bucket. To help you identify the files, both input and output uses the same original file name, but with a suffix (`input` or `output`) plus a time stamp. 
 
 ```javascript
 /// <summary>
@@ -25,7 +25,6 @@ router.post('/forge/designautomation/workitems', multer({
 	// save the file on the server
 	const ContentRootPath = _path.resolve(_path.join(__dirname, '../..'));
 	const fileSavePath = _path.join(ContentRootPath, _path.basename(req.file.originalname));
-	//const stream = _fs.createReasStream(fileSavePath, FileMode.Create)) await input.inputFile.CopyToAsync(stream);
 
 	// upload file to OSS Bucket
 	// 1. ensure bucket existis
@@ -67,16 +66,6 @@ router.post('/forge/designautomation/workitems', multer({
 		url: "data:application/json, " + JSON.stringify(inputJson).replace(/"/g, "'")
 	};
 	// 3. output file
-	// const outputFileNameOSS = `${new Date().toISOString().replace (/[-T:\.Z]/gm, '').substring(0, 14)}_output_${_path.basename(req.file.originalname)}`; // avoid overriding
-	// const outputFileArgument = {
-	// 	url: `https://developer.api.autodesk.com/oss/v2/buckets/${bucketKey}/objects/${outputFileNameOSS}`,
-	// 	verb: dav3.Verb.put,
-	// 	headers: {
-	// 		Authorization: `Bearer ${req.oauth_token.access_token}`
-	// 	}
-	// };
-
-	// Better to use a presigned url to avoid the token to expire
 	const outputFileNameOSS = `${new Date().toISOString().replace(/[-T:\.Z]/gm, '').substring(0, 14)}_output_${_path.basename(req.file.originalname)}`; // avoid overriding
 	let signedUrl = null;
 	try {
@@ -100,7 +89,6 @@ router.post('/forge/designautomation/workitems', multer({
 		}));
 	}
 	const outputFileArgument = {
-		//url: `https://developer.api.autodesk.com/oss/v2/buckets/${bucketKey}/objects/${outputFileNameOSS}`,
 		url: signedUrl,
 		headers: {
 			Authorization: '',
@@ -163,7 +151,6 @@ router.post('/forge/callback/designautomation', async /*OnCallback*/ (req, res) 
 		http.get(
 			bodyJson.reportUrl,
 			response => {
-				//socketIO.to(req.query.id).emit('onComplete', response);
 				response.setEncoding('utf8');
 				let rawData = '';
 				response.on('data', (chunk) => {
@@ -174,7 +161,6 @@ router.post('/forge/callback/designautomation', async /*OnCallback*/ (req, res) 
 				});
 			}
 		);
-		//socketIO.to(req.query.id).emit('downloadReport', bodyJson.reportUrl);
 
 		const objectsApi = new ForgeAPI.ObjectsApi();
 		const bucketKey = Utils.NickName.toLowerCase() + '-designautomation';

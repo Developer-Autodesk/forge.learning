@@ -1,5 +1,5 @@
 # Basic UI
 
-The Viewer is a client-side library, based on pure `HTML5` and `JavaScript`. But there are a few tips for each server-side implementation: 
+The interface is based on vanilla `HTML5` & `JavaScript`. It essentially the same for any server-side, but there are a few differences: the Websocket implementation uses socket.io (Node.js) or SignalR (.NET Core).
 
 Choose your language: [Node.js](designautomation/html/nodejs.md) | [.NET Core](designautomation/html/netcore.md)

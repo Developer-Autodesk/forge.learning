@@ -2,7 +2,7 @@
 
 **Activity**
 
-Now we will write apis for creating new activity and getting the existing activities, copy the following apis into `DesignAutomation.js` file before the last line `module.exports = router;`:
+Now we will write endpoints for creating new activity and getting the existing activities, copy the following code into `DesignAutomation.js` file before the last line `module.exports = router;`:
 
 ```javascript
 /// <summary>
@@ -33,7 +33,6 @@ router.post('/forge/designautomation/activities', async /*CreateActivity*/ (req,
 	const qualifiedActivityId = `${Utils.NickName}.${activityName}+${Utils.Alias}`;
 	if (!activities.data.includes(qualifiedActivityId)) {
 		// define the activity
-		// ToDo: parametrize for different engines...
 		const engineAttributes = Utils.EngineAttributes(engineName);
 		const commandLine = engineAttributes.commandLine.replace('{0}', appBundleName);
 		const activitySpec = {
