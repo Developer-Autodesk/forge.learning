@@ -163,7 +163,7 @@ router.post('/forge/callback/designautomation', async /*OnCallback*/ (req, res) 
 		http.get(
 			bodyJson.reportUrl,
 			response => {
-				//socketIO.emit('onComplete', response);
+				//socketIO.to(req.query.id).emit('onComplete', response);
 				response.setEncoding('utf8');
 				let rawData = '';
 				response.on('data', (chunk) => {
@@ -174,7 +174,7 @@ router.post('/forge/callback/designautomation', async /*OnCallback*/ (req, res) 
 				});
 			}
 		);
-		//socketIO.emit('downloadReport', bodyJson.reportUrl);
+		//socketIO.to(req.query.id).emit('downloadReport', bodyJson.reportUrl);
 
 		const objectsApi = new ForgeAPI.ObjectsApi();
 		const bucketKey = Utils.NickName.toLowerCase() + '-designautomation';
@@ -191,10 +191,10 @@ router.post('/forge/callback/designautomation', async /*OnCallback*/ (req, res) 
 				},
 					req.oauth_client, req.oauth_token
 				);
-				socketIO.emit('downloadResult', signedUrl.body.signedUrl);
+				socketIO.to(req.query.id).emit('downloadResult', signedUrl.body.signedUrl);
 			} catch (ex) {
 				console.error(ex);
-				socketIO.emit('onComplete', 'Failed to create presigned URL for outputFile.\nYour outputFile is available in your OSS bucket.');
+				socketIO.to(req.query.id).emit('onComplete', 'Failed to create presigned URL for outputFile.\nYour outputFile is available in your OSS bucket.');
 			}
 		}
 
