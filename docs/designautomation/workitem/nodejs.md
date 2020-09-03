@@ -177,10 +177,10 @@ router.post('/forge/callback/designautomation', async /*OnCallback*/ (req, res) 
 				},
 					req.oauth_client, req.oauth_token
 				);
-				socketIO.emit('downloadResult', signedUrl.body.signedUrl);
+				socketIO.to(req.query.id).emit('downloadResult', signedUrl.body.signedUrl);
 			} catch (ex) {
 				console.error(ex);
-				socketIO.emit('onComplete', 'Failed to create presigned URL for outputFile.\nYour outputFile is available in your OSS bucket.');
+				socketIO.to(req.query.id).emit('onComplete', 'Failed to create presigned URL for outputFile.\nYour outputFile is available in your OSS bucket.');
 			}
 		}
 
