@@ -29,7 +29,7 @@ class DataManagement{
          // get the request body
          $body = json_decode(file_get_contents('php://input', 'r'), true);
          
-         $bucketKey = $body['bucketKey'];
+         $bucketKey = ForgeConfig::$prepend_bucketkey?(strtolower(ForgeConfig::getForgeID()).'_'.$body['bucketKey']):$body['bucketKey'];
          // $policeKey = $body['policyKey'];
          $policeKey = "transient";
  
@@ -62,8 +62,10 @@ class DataManagement{
                  $bucketsLength = count($buckets);
                  $bucketlist = array();
                  for($i=0; $i< $bucketsLength; $i++){
-                     $bucketInfo = array('id'=>$buckets[$i]['bucketKey'],
-                                         'text'=>$buckets[$i]['bucketKey'],
+                     $cbkey = $buckets[$i]['bucketKey'];
+                     $cbtext = ForgeConfig::$prepend_bucketkey&&strpos($cbkey, strtolower(ForgeConfig::getForgeID())) === 0? end(explode('_', $cbkey)):$cbkey;
+                     $bucketInfo = array('id'=>$cbkey,
+                                         'text'=> $cbtext,
                                          'type'=>'bucket',
                                          'children'=>true
                      );
