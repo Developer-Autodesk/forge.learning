@@ -74,7 +74,7 @@ git merge upstream/master
 
 Now sync all changes.
 
-When sample is ready, create a **pull request** for the branch of the language (e.g. `net`, `nodejs`). 
+When sample is ready, create a **pull request** for the branch of the language (e.g. `net`, `node.js`). 
 
 ### Variables
 

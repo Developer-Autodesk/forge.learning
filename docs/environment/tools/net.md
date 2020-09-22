@@ -1,25 +1,24 @@
-# Tools (.NET)
+# Tools (.NET Framework)
 
-The .NET engine is a built-in feature on Windows machines. 
+The .NET engine is a built-in feature on Windows machines.
 
-Install any flavor of Visual Studio, for instance [Community](https://www.visualstudio.com/vs/community) edition. 
+## Visual Studio Community 2019
+
+Any flavor of [Visual Studio](https://visualstudio.microsoft.com/vs/), this tutorial uses the **Community** edition. [Download the installer](https://visualstudio.microsoft.com/vs/) and follow the steps, make sure to select **ASP.NET and web development** and **.NET desktop development** (required for **Modify your models** tutorial).
 
 !> For a better experience, DO NOT use Visual code on this tutorial.
 
-## Visual Studio Community 2017
+![](_media/net/workloads_2019.png)
 
-If you are installing Visual Studio Community for the first time, make sure to select `ASP.NET and web development` workload for this tutorial. Other **Workloads** are not required for this tutorial.
 
-In case Visual Studio Community is already installed, go to **Add or remove programs** >> **Apps & Features**, find Visual Studio Community and click **Modify**, then select the workload (as shown below). 
+## Other flavors & older versions of Visual Studio
 
-![](_media/net/install_webcomponents.png)
+> For this tutorial, we don't need Professional or Enterprise features
 
-## Other flavors & older versions
+For a better experience, use the 2019 version. If you must use older versions already installed (e.g. Visual Studio Professional 2017), go to Add or remove programs >> Apps & Features, find Visual Studio Community and click Modify, then select the workload (as shown below). **.NET desktop development** is required for for **Modify your models** tutorial.
 
-> For this tutorial, we don't need Professional or Enterprise features :wink:
+![](_media/net/workloads_2017.png)
 
-Older versions of Visual Studio use **Tools** (not workloads). This tutorial assumes 2017 version. For an existing older installation (e.g. Visual Studio Professional 2015), if web tools are not available, go to go to **Add or remove programs** >> **Apps & Features**, find Visual Studio and click **Modify**, then select as shown on the image below (the actuall naming may vary between versions).
-
-![](_media/net/enable_webcomponents.png)
+> Make sure the [.NET Framework 4.7.2 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net472) is installed.
 
 Next: [Authentication](oauth/)

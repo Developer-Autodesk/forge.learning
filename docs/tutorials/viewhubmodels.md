@@ -6,7 +6,7 @@ This tutorial will guide you creating a webapp with the following UI: on the lef
 
 To view your model, you need the following steps:
 
-1. [Create a server](environment/setup/3legged) << First time developer? You should start here :wink:
+1. [Create a server](environment/setup/3legged) << First time developer? You should start here
 2. [Authorize](oauth/3legged/)
 3. [List hubs & projects](datamanagement/hubs/readme)
 4. [User information](oauth/user/readme)
@@ -15,8 +15,9 @@ To view your model, you need the following steps:
 
 If you want to download the project ready to use, visit the following repos:
 
-- [NodeJS](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/nodejs)
-- [.NET](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/net)
+- [Node.js](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/nodejs)
+- [.NET Framework](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/net)
+- [.NET Core](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/netcore)
 
 Ready to start coding?
 

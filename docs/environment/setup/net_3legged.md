@@ -1,4 +1,4 @@
-[nodejs setup](environment/setup/net.md ':include :type=markdown')
+[net setup](environment/setup/net.md ':include :type=markdown')
 
 ## Global.asax
 
@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.SessionState;
 
-namespace forgesample
+namespace forgeSample
 {
   public class WebApiApplication : System.Web.HttpApplication
   {
