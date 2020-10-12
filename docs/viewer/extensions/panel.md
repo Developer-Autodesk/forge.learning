@@ -4,7 +4,7 @@ This section uses the **basic skeleton** from previous section, but let's rename
 
 ## Create the extension
 
-As each extension should be a separeted JavaScript file, create a file in the UI folder **/js/dockingpanelextension.js** and copy the following content (which is same as the basic skeleton, except with a different name): 
+As each extension should be a separeted JavaScript file, create a file in the UI folder **/js/modelsummaryextension.js** and copy the following content (which is same as the basic skeleton, except with a different name): 
 
 ```javascript
 class ModelSummaryExtension extends Autodesk.Viewing.Extension {
@@ -71,7 +71,7 @@ Just like in the basic skeleton, the toolbar button uses a **CSS** styling (see 
 Finally, [load the extension](/viewer/extensions/skeleton?id=loading-the-extension) using the same code as the **basic skeleton** (of course, adjust the names). For your reference, here are the 2 changes needed: include the `<script>` on **index.html** and include the extension on viewer creation:
 
 ```html
-<script src="/js/dockingpanelextension.js"></script>
+<script src="/js/modelsummaryextension.js"></script>
 ```
 
 ```javascript
