@@ -111,25 +111,25 @@ class Utils {
 	static EngineAttributes (engine) {
 		if (engine.includes('3dsMax'))
 			return ({
-				commandLine: '$(engine.path)\\3dsmaxbatch.exe -sceneFile $(args[inputFile].path) $(settings[script].path)',
+				commandLine: '$(engine.path)\\3dsmaxbatch.exe -sceneFile \"$(args[inputFile].path)\" \"$(settings[script].path)\"',
 				extension: 'max',
 				script: "da = dotNetClass(\'Autodesk.Forge.Sample.DesignAutomation.Max.RuntimeExecute\')\nda.ModifyWindowWidthHeight()\n"
 			});
 		if (engine.includes('AutoCAD'))
 			return ({
-				commandLine: '$(engine.path)\\accoreconsole.exe /i $(args[inputFile].path) /al $(appbundles[{0}].path) /s $(settings[script].path)',
+				commandLine: '$(engine.path)\\accoreconsole.exe /i \"$(args[inputFile].path)\" /al \"$(appbundles[{0}].path)\" /s \"$(settings[script].path)\"',
 				extension: 'dwg',
 				script: "UpdateParam\n"
 			});
 		if (engine.includes('Inventor'))
 			return ({
-				commandLine: '$(engine.path)\\InventorCoreConsole.exe /i $(args[inputFile].path) /al $(appbundles[{0}].path)',
+				commandLine: '$(engine.path)\\InventorCoreConsole.exe /i \"$(args[inputFile].path)\" /al \"$(appbundles[{0}].path)\"',
 				extension: 'ipt',
 				script: ''
 			});
 		if (engine.includes('Revit'))
 			return ({
-				commandLine: '$(engine.path)\\revitcoreconsole.exe /i $(args[inputFile].path) /al $(appbundles[{0}].path)',
+				commandLine: '$(engine.path)\\revitcoreconsole.exe /i \"$(args[inputFile].path)\" /al \"$(appbundles[{0}].path)\"',
 				extension: 'rvt',
 				script: ''
 			});
