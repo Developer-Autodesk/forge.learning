@@ -92,7 +92,7 @@ viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer')
 Note :- If one extension is already loaded then HandleSelectionExtension can be added using **comma (',')**  in an array:
 
 ```javascript
-viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions['MyAwesomeExtension','HandleSelectionExtension'] }); 
+viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['MyAwesomeExtension','HandleSelectionExtension'] }); 
 ```
 
 At this point the extension should load with a toolbar icon, but it doesn't do anything.
