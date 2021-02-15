@@ -1,4 +1,4 @@
-# Code for creating App Bundle (Node Js)
+# Create and upload AppBundle (Node Js)
 
 
 Inside `route/` folder create `DesignAutomation.js` file. In this file we will write all the endpoints.
@@ -188,13 +188,13 @@ class Utils {
 }
 ```
 
-**2. App Bundle**
+**2. AppBundle**
 
-Before creating activity, we need to define app bundle with plugin and selecting the appropriate engine. Copy & paste the following endpoint after the utils class:
+Before creating activity, we need to define AppBundle with plugin and selecting the appropriate engine. Copy & paste the following endpoint after the utils class:
 
 ```javascript
 /// <summary>
-/// Names of app bundles on this project
+/// Names of AppBundles on this project
 /// </summary>
 router.get('/appbundles', async /*GetLocalBundles*/ (req, res) => {
 	// this folder is placed under the public folder, which may expose the bundles
@@ -236,7 +236,7 @@ router.post('/forge/designautomation/appbundles', async /*CreateAppBundle*/ (req
 	// check if ZIP with bundle is here
 	const packageZipPath = _path.join(Utils.LocalBundlesFolder, zipFileName + '.zip');
 
-	// get defined app bundles
+	// get defined AppBundles
 	const api = await Utils.dav3API(req.oauth_token);
 	let appBundles = null;
 	try {
@@ -247,7 +247,7 @@ router.post('/forge/designautomation/appbundles', async /*CreateAppBundle*/ (req
 			diagnostic: 'Failed to get the Bundle list'
 		}));
 	}
-	// check if app bundle is already define
+	// check if AppBundle is already define
 	let newAppVersion = null;
 	const qualifiedAppBundleId = `${Utils.NickName}.${appBundleName}+${Utils.Alias}`;
 	if (!appBundles.data.includes(qualifiedAppBundleId)) {

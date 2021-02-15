@@ -4,7 +4,7 @@ The following apis should be added to the `DesignAutomation` js file before the 
 
 **1. StartWorkitem**
 
-This is where we actually start the Design Automation. This endpoint also uploads the input file to an OSS Bucket and define that the output should be saved at the same bucket. To help you identify the files, both input and output uses the same original file name, but with a suffix (`input` or `output`) plus a time stamp. 
+This endpoint uploads the input file to an OSS Bucket and define that the output should be saved at the same bucket. To help you identify the files, both input and output uses the same original file name, but with a suffix (`input` or `output`) plus a time stamp. 
 
 ```javascript
 /// <summary>

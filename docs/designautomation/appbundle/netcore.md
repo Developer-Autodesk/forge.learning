@@ -1,8 +1,6 @@
-# Code for creating App Bundle (.NET Core)
+# Create and upload AppBundle (.NET Core)
 
-## DesignAutomationController.cs
-
-Under **Controllers** folder create a `DesignAutomationController.cs` with the following content. This is just the class, we'll define the endpoints later, but note the `DesignAutomationHub` at the end, which allow us push notifications to the client via [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-2.2).
+Under **Controllers** folder create a `DesignAutomationController.cs` with the following content. This is the class basics, where we will add the endpoints. Note the `DesignAutomationHub` at the end, which allow us push notifications to the client, using [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-2.2).
 
 ```csharp
 using Autodesk.Forge;
@@ -81,7 +79,7 @@ Look at the `bundles` folder and return a list of .ZIP files.
 
 ```csharp
 /// <summary>
-/// Names of app bundles on this project
+/// Names of AppBundles on this project
 /// </summary>
 [HttpGet]
 [Route("api/appbundles")]
@@ -138,10 +136,10 @@ public async Task<IActionResult> CreateAppBundle([FromBody]JObject appBundleSpec
     string packageZipPath = Path.Combine(LocalBundlesFolder, zipFileName + ".zip");
     if (!System.IO.File.Exists(packageZipPath)) throw new Exception("Appbundle not found at " + packageZipPath);
 
-    // get defined app bundles
+    // get defined AppBundles
     Page<string> appBundles = await _designAutomation.GetAppBundlesAsync();
 
-    // check if app bundle is already define
+    // check if AppBundle is already define
     dynamic newAppVersion;
     string qualifiedAppBundleId = string.Format("{0}.{1}+{2}", NickName, appBundleName, Alias);
     if (!appBundles.Data.Contains(qualifiedAppBundleId))
