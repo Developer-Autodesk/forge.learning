@@ -14,9 +14,9 @@ Create a new **Dashboard.js** file under `/js/dashboard/` folder with the follow
 $(document).ready(function () {
     $(document).on('DOMNodeInserted', function (e) {
         if ($(e.target).hasClass('orbit-gizmo')) {
-            // to make sure we get the viewer, let's use the global var NOP_VIEWER
-            if (NOP_VIEWER === null || NOP_VIEWER === undefined) return;
-            new Dashboard(NOP_VIEWER, [
+            // here, viewer represents the variable defined at viewer initialization
+            if (viewer === null || viewer === undefined) return;
+            new Dashboard(viewer, [
                 new BarChart('Material'),
                 new PieChart('Material')
             ])
@@ -40,6 +40,10 @@ class Dashboard {
         // this function may vary for layout to layout...
         // for learn forge tutorials, let's get the ROW and adjust the size of the 
         // columns so it can fit the new dashboard column, also we added a smooth transition css class for a better user experience
+        let dashdiv = document.getElementById('dashboard');
+        if(!!dashdiv){
+            dashdiv.parentElement.removeChild(dashdiv);
+        }
         var row = $(".row").children();
         $(row[0]).removeClass('col-sm-4').addClass('col-sm-2 transition-width');
         $(row[1]).removeClass('col-sm-8').addClass('col-sm-7 transition-width').after('<div class="col-sm-3 transition-width" id="dashboard"></div>');
