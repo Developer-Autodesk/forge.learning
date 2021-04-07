@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 
-namespace forgeSample.Controllers
+namespace forgesample.Controllers
 {
   public class OSSController : ApiController
   {
@@ -53,7 +53,7 @@ namespace forgeSample.Controllers
         // as we have the id (bucketKey), let's return all 
         ObjectsApi objects = new ObjectsApi();
         objects.Configuration.AccessToken = oauth.access_token;
-        var objectsList = await objects.GetObjectsAsync(id, 100);
+        var objectsList = objects.GetObjects(id);
         foreach (KeyValuePair<string, dynamic> objInfo in new DynamicDictionaryItems(objectsList.items))
         {
           nodes.Add(new TreeNode(Base64Encode((string)objInfo.Value.objectId), 
