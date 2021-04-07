@@ -118,9 +118,9 @@ let server = socketIO.http.listen(app.get('port'), () => {
 server.on('error', (err) => {
     if (err.errno === 'EACCES') {
         console.error(`Port ${app.get('port')} already in use.\nExiting...`);
-	    process.exit (1) ;
-	}
-}) ;
+        process.exit(1);
+    }
+});
 ```
 
 ## server.js
@@ -133,18 +133,19 @@ const express = require('express');
 const cookieSession = require('cookie-session');
 const config = require('./config');
 if (!config.credentials.client_id || !config.credentials.client_secret)
-	return (console.error('Missing FORGE_CLIENT_ID or FORGE_CLIENT_SECRET env variables.'));
+    return (console.error('Missing FORGE_CLIENT_ID or FORGE_CLIENT_SECRET env variables.'));
 
 let app = express();
 app.use(express.static(_path.join(__dirname, './public')));
 app.use(cookieSession({
-	name: 'forge_session',
-	keys: ['forge_secure_key'],
-	maxAge: 60 * 60 * 1000 // 1 hour, same as the 2 legged lifespan token
+    name: 'forge_session',
+    keys: ['forge_secure_key'],
+    maxAge: 60 * 60 * 1000 // 1 hour, same as the 2 legged lifespan token
 }));
 app.use(express.json({
-	limit: '50mb'
+    limit: '50mb'
 }));
+// app.use('/api/forge', require('./routes/common/oauth'));
 app.use('/api', require('./routes/DesignAutomation'));
 
 app.set('port', process.env.PORT || 3000);
@@ -193,6 +194,7 @@ module.exports = {
     credentials: {
         client_id: process.env.FORGE_CLIENT_ID,
         client_secret: process.env.FORGE_CLIENT_SECRET,
+        callback_url: process.env.FORGE_CALLBACK || process.env.FORGE_CALLBACK_URL,
         webhook_url: process.env.FORGE_WEBHOOK_URL
     },
     scopes: {
@@ -203,21 +205,22 @@ module.exports = {
     },
     client: {
         circuitBreaker: {
-			threshold: 11,
-			interval: 1200
-		},
-		retry: {
-			maxNumberOfRetries: 7,
-			backoffDelay: 4000,
-			backoffPolicy: 'exponentialBackoffWithJitter'
-		},
-		requestTimeout: 13000
+            threshold: 11,
+            interval: 1200
+        },
+        retry: {
+            maxNumberOfRetries: 7,
+            backoffDelay: 4000,
+            backoffPolicy: 'exponentialBackoffWithJitter'
+        },
+        requestTimeout: 13000
     }
 };
 ```
 
 We are using the environment variables here. At the time of running our Express server, the values of these variables will be used to connect to Autodesk Forge.
 com
+
 ## routes/common/oauth.js
 
 Now create a `common` subfolder in the `routes` folder, and prepare a `routes/common/oauth.js` file that will actually request
@@ -244,7 +247,7 @@ async function getClient(scopes) {
     const key = scopes.join('+');
     if ( cache[key] )
         return (cache[key]);
-    
+
     try {
         const { client_id, client_secret } = config.credentials;
         let client = new AuthClientTwoLegged(client_id, client_secret, scopes || config.scopes.internal, true);

@@ -76,7 +76,7 @@ Under **public** folder create the **index.html** file with the following conten
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Cancel"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Define new AppBundle & Activity</h4>
+                    <h4 class="modal-title" id="myModalLabel">Create/Update AppBundle & Activity</h4>
                 </div>
                 <div class="modal-body">
                   <div class="alert alert-warning"><center>Define AppBundle &amp; Activity only once.<br />Redefine only when your plugin code change (creates a new version).</center></div>
@@ -94,7 +94,7 @@ Under **public** folder create the **index.html** file with the following conten
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-danger" id="clearAccount">Clear account</button>
-                    <button type="button" class="btn btn-primary" id="createAppBundleActivity">Define activity</button>
+                    <button type="button" class="btn btn-primary" id="createAppBundleActivity">Create/Update</button>
                 </div>
             </div>
         </div>
