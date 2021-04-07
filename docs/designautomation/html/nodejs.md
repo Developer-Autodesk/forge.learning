@@ -19,7 +19,7 @@ Under **public** folder create the **index.html** file with the following conten
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- Socket.io -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <!-- Files for this project -->
     <script src="/js/ForgeDesignAutomation.js"></script>
 </head>
