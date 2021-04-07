@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace forgeSample.Controllers
 {
-    public class UserController : ControllerBase
+  public class UserController : ControllerBase
   {
     [HttpGet]
     [Route("api/forge/user/profile")]
