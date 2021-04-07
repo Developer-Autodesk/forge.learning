@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace forgeSample.Controllers
+namespace forgesample.Controllers
 {
   public class DataManagementController : ApiController
   {

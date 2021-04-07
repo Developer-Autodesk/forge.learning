@@ -17,7 +17,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.Http;
 
-namespace forgeSample.Controllers
+namespace forgesample.Controllers
 {
   public class OAuthController : ApiController
   {
@@ -26,6 +26,12 @@ namespace forgeSample.Controllers
     public async Task<AccessToken> GetPublicTokenAsync()
     {
       Credentials credentials = await Credentials.FromSessionAsync();
+
+      if(credentials == null)
+      {
+        var msg = new HttpResponseMessage(HttpStatusCode.Unauthorized) { ReasonPhrase = "No credentials were available at this session!" };
+        throw new HttpResponseException(msg);
+      }
 
       // return the public (viewables:read) access token
       return new AccessToken()
