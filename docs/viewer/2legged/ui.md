@@ -428,8 +428,8 @@ function onDocumentLoadSuccess(doc) {
   });
 }
 
-function onDocumentLoadFailure(viewerErrorCode) {
-  console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode);
+function onDocumentLoadFailure(viewerErrorCode, viewerErrorMsg) {
+  console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode + '\n- errorMessage:' + viewerErrorMsg);
 }
 
 function getForgeToken(callback) {
@@ -485,8 +485,8 @@ function onDocumentLoadSuccess(doc) {
   viewerApp.selectItem(viewables[0].data, onItemLoadSuccess, onItemLoadFail);
 }
 
-function onDocumentLoadFailure(viewerErrorCode) {
-  console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode);
+function onDocumentLoadFailure(viewerErrorCode, viewerErrorMsg) {
+  console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode + '\n- errorMessage:' + viewerErrorMsg);
 }
 
 function onItemLoadSuccess(viewer, item) {
