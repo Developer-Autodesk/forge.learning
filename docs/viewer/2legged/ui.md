@@ -17,6 +17,7 @@ Create an **index.html** file with:
 ```html
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>View Models - Autodesk Forge</title>
   <meta charset="utf-8" />
@@ -35,6 +36,7 @@ Create an **index.html** file with:
   <script src="js/ForgeTree.js"></script>
   <script src="js/ForgeViewer.js"></script>
 </head>
+
 <body>
   <!-- Fixed navbar by Bootstrap: https://getbootstrap.com/examples/navbar-fixed-top/ -->
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -84,9 +86,12 @@ Create an **index.html** file with:
           <h4 class="modal-title" id="myModalLabel">Create new bucket</h4>
         </div>
         <div class="modal-body">
-          <input type="text" id="newBucketKey" class="form-control"> For demonstration purposes, objects (files) are 
-          NOT automatically translated. After you upload, right click on
-          the object and select "Translate". Bucket keys must be of the form [-_.a-z0-9]{3,128}
+          <input type="text" id="newBucketKey" class="form-control"> For demonstration purposes, objects (files)
+          are NOT automatically translated. After you upload, right click on
+          the object and select "Translate". Note: Technically your bucket name is required to be globally unique across
+          the entire platform - to keep things simple with this tutorial your client ID will be prepended by default to
+          your bucket name and in turn masked by the UI so you only have to make sure your bucket name is unique within
+          your current Forge app.
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -96,6 +101,7 @@ Create an **index.html** file with:
     </div>
   </div>
 </body>
+
 </html>
 ```
 

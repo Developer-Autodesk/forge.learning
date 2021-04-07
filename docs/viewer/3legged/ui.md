@@ -80,7 +80,7 @@ Create a **index.html** file with:
     </div>
   </div>
 </body>
-<iframe id="hiddenFrame" style="visibility: hidden; display:none" />
+<iframe id="hiddenFrame" style="visibility: hidden; display: none" />
 </html>
 ```
 #### ** Viewer v6 **
@@ -166,12 +166,12 @@ Please visit the [Forge website](https://forge.autodesk.com/en/docs/viewer/v7/ch
 CSS is a language that describes the style of an HTML document. Learn more at [W3Schools](https://www.w3schools.com/css/). For this tutorial, create a **main.css** under `css` folder with:
 
 ```css
-html, body{
+html, body {
   min-height: 100%;
   height: 100%;
 }
 
-.fill{
+.fill {
   height: calc(100vh - 100px);
 }
 
