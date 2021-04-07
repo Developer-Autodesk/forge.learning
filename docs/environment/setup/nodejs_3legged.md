@@ -20,7 +20,6 @@ By default, a Node.js project is empty, so we need to install a few packages wit
 
 ```
 npm install express --save
-npm install multer --save
 npm install cookie-session --save
 npm install forge-apis --save
 ```
@@ -36,8 +35,7 @@ Finally open the **package.json** and, inside `"scripts"`, add `"start": "node s
   "description": "",
   "main": "start.js",
   "scripts": {
-    "start": "node start.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node start.js"
   },
   "author": "",
   "license": "ISC",
