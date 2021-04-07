@@ -107,7 +107,6 @@ public async Task<List<string>> GetAvailableEngines()
 {
     dynamic oauth = await OAuthController.GetInternalAsync();
     List<string> allEngines = new List<string>();
-    
     // define Engines API
     string paginationToken = null;
     while (true)
@@ -116,11 +115,9 @@ public async Task<List<string>> GetAvailableEngines()
         allEngines.AddRange(engines.Data);
         if (engines.PaginationToken == null)
             break;
-            
         paginationToken = engines.PaginationToken;
     } 
     allEngines.Sort();
-    
     return allEngines; // return list of engines
 }
 ```
@@ -198,7 +195,7 @@ public async Task<IActionResult> CreateAppBundle([FromBody]JObject appBundleSpec
     foreach (KeyValuePair<string, string> x in newAppVersion.UploadParameters.FormData) request.AddParameter(x.Key, x.Value);
     request.AddFile("file", packageZipPath);
     request.AddHeader("Cache-Control", "no-cache");
-    await uploadClient.ExecuteTaskAsync(request);
+    await uploadClient.ExecuteAsync(request);
 
     return Ok(new { AppBundle = qualifiedAppBundleId, Version = newAppVersion.Version });
 }

@@ -19,7 +19,7 @@ Under **wwwroot** folder create the **index.html** file with the following conte
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- .NET SignalR -->
-    <script src="//unpkg.com/@aspnet/signalr@1.1.0/dist/browser/signalr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.7/signalr.min.js"></script>
     <!-- Files for this project -->
     <script src="/js/ForgeDesignAutomation.js"></script>
 </head>
@@ -79,7 +79,7 @@ Under **wwwroot** folder create the **index.html** file with the following conte
                     <h4 class="modal-title" id="myModalLabel">Create/Update AppBundle & Activity</h4>
                 </div>
                 <div class="modal-body">
-                  <div class="alert alert-warning"><center>Define AppBundle &amp; Activity only once.<br />Redefine only when your plugin code change (creates a new version).</center></div>
+                  <div class="alert alert-warning"><center>You just need to define AppBundle &amp; Activity once.<br />If the plugin code changed, redefine (creates a new version).</center></div>
                     <div class="form-group">
                         <label for="localBundles">Select a local AppBundle:</label>
                         <select class="form-control" id="localBundles"> </select>
