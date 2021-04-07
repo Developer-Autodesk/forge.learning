@@ -218,10 +218,17 @@ router.get('/appbundles', async /*GetLocalBundles*/ (req, res) => {
 /// </summary>
 router.get('/forge/designautomation/engines', async /*GetAvailableEngines*/ (req, res) => {
 	let that = this;
-	try {
-		const api = await Utils.dav3API(req.oauth_token);
-		let engines = await api.getEngines();
-		res.json(engines.data.sort()); // return list of engines
+    let Allengines = [];
+    let paginationToken = null;
+    try {
+        const api = await Utils.dav3API(req.oauth_token);
+        while (true) {
+            let engines = await api.getEngines({'page':paginationToken});
+            Allengines = Allengines.concat(engines.data)
+            if (engines.paginationToken == null) break;
+            paginationToken = engines.paginationToken;
+        }
+        res.json(Allengines.sort()); // return list of engines
 	} catch (ex) {
 		console.error(ex);
 		res.json([]);
