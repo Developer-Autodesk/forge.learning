@@ -50,16 +50,16 @@ Finally open the **package.json** and, inside `"scripts"`, add `"start": "node s
     "body-parser": "^1.19.0",
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
-    "forge-apis": "^0.7.3",
-    "form-data": "^3.0.0",
+    "forge-apis": "^0.8.5",
+    "form-data": "^4.0.0",
     "multer": "^1.4.2",
-    "socket.io": "^2.3.0"
+    "socket.io": "^4.0.1"
   }
 }
 
 ```
 
-> The version number (e.g. forge-apis 0.4.8) may vary, it was the latest version when this tutorial was created.
+> The version number (e.g. forge-apis 0.8.5) may vary, it was the latest version when this tutorial was created.
 
 ## Files and Folders
 
@@ -85,7 +85,7 @@ This file indicates to Visual Studio Code how we should run our project. Go to m
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "type": "pwa-node",
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/start.js",
