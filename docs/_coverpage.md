@@ -8,5 +8,5 @@
 - Extract metada & translate files
 - Interact with models
 
-[Developer Portal](http://developer.autodesk.com)
+[Developer Portal](http://forge.autodesk.com)
 [Get Started](#learn-autodesk-forge)

@@ -17,10 +17,7 @@ const formdata = require('form-data');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const router = express.Router();
-const {
-    getClient,
-    getInternalToken
-} = require('./common/oauth');
+const { getClient } = require('./common/oauth');
 const config = require('../config');
 const dav3 = require('autodesk.forge.designautomation');
 const ForgeAPI = require('forge-apis');

@@ -43,7 +43,7 @@ Create a **index.html** file with:
     <div class="container-fluid">
       <ul class="nav navbar-nav left">
         <li>
-          <a href="http://developer.autodesk.com" target="_blank">
+          <a href="http://forge.autodesk.com" target="_blank">
             <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20">
           </a>
         </li>
@@ -114,7 +114,7 @@ Create a **index.html** file with:
     <div class="container-fluid">
       <ul class="nav navbar-nav left">
         <li>
-          <a href="http://developer.autodesk.com" target="_blank">
+          <a href="http://forge.autodesk.com" target="_blank">
             <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20">
           </a>
         </li>

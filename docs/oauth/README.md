@@ -4,7 +4,7 @@ OAuth, specifically OAuth2, is the open standard used across the Forge Platform 
 
 ## 2-legged vs 3-legged
 
-Learn more about the [2-legged workflow](https://developer.autodesk.com/en/docs/oauth/v2/tutorials/get-2-legged-token/) used in the [View your models](tutorials/viewmodels) tutorial, and the [3-legged workflow](https://developer.autodesk.com/en/docs/oauth/v2/tutorials/get-3-legged-token/) used in the [View BIM 360 & Fusion models](tutorials/viewhubmodels) tutorial.
+Learn more about the [2-legged workflow](https://forge.autodesk.com/en/docs/oauth/v2/tutorials/get-2-legged-token/) used in the [View your models](tutorials/viewmodels) tutorial, and the [3-legged workflow](https://forge.autodesk.com/en/docs/oauth/v2/tutorials/get-3-legged-token/) used in the [View BIM 360 & Fusion models](tutorials/viewhubmodels) tutorial.
 
 ## Scopes
 
@@ -15,7 +15,7 @@ Scopes serve two principal functions:
 - **Privacy and Control**: In a three-legged context, they act as a mechanism for requesting and securing permission to act on an end user’s behalf in specified ways.
 - **Security**: In both two- and three-legged contexts, they ensure that if you lose control of your token, it cannot be misused to access resources for which it was not intended.
 
-[Learn more](https://developer.autodesk.com/en/docs/oauth/v2/overview/scopes/)
+[Learn more](https://forge.autodesk.com/en/docs/oauth/v2/overview/scopes/)
 
 ## Public and Internal tokens
 

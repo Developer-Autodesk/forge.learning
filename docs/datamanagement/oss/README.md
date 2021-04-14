@@ -2,7 +2,7 @@
 
 In Forge OSS (Object Storage Service), files are stored as objects in buckets. Apart from giving your app the ability to download data from the broader Forge ecosystem, it also provides the functionality to manage your app’s own buckets and objects (including creation, listing, deleting, uploading, and downloading).
 
-Each bucket also has a [retention policy](https://developer.autodesk.com/en/docs/data/v2/overview/retention-policy/) that determines object retention time:
+Each bucket also has a [retention policy](https://forge.autodesk.com/en/docs/data/v2/overview/retention-policy/) that determines object retention time:
 
  - **transient**: Cache-like storage that persists for only 24 hours, ideal for ephemeral objects. **For this tutorial, let's use this policy**.
  - **temporary**: Storage that persists for 30 days.
