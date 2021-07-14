@@ -93,8 +93,14 @@ import java.sql.Date;
 
 import com.autodesk.client.auth.OAuth2TwoLegged;
 
-@WebServlet({ "/oauthtoken" })
+@WebServlet(name = "oauthtoken", 
+			urlPatterns = {"/api/forge/oauth/token", "/oauthtoken"})
 public class oauthtoken extends HttpServlet {
+
+    private static final long serialVersionUID = 1L;
+
+	public oauthtoken() {
+	}
 
 	public oauthtoken() {
 	}
@@ -139,27 +145,13 @@ public class oauthtoken extends HttpServlet {
 }
 ```
 
-Note the `@WebServlet` annotation to make the class `oauthtoken` as web service by [WebServlet](http://blog.caucho.com/2009/10/06/servlet-30-tutorial-weblistener-webservlet-webfilter-and-webinitparam/). 
+Note the `@WebServlet` annotation to make the class `oauthtoken` as web service by [WebServlet](https://www.javaguides.net/2019/02/webservlet-annotation-example.html). The attribute **urlPatterns** specifies the final url to access this endpoint.
 
-Finally expose the endpoint in `src/webapp/WEB-INF/web.xml`, replace the existing content with:
+To verify this endpoint works well, switch to [Run and Debug Java](//environment/rundebug/java?id=running-amp-debugging-java), input **FORGE_CLIENT_ID** and **FORGE_CLIENT_SECRET**. Finally run or debug.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	version="3.1">
+When the application runs, open browser, and input http://localhost:3000/api/forge/oauth/token. If a response is printed in the page with the access_token, that means the endpoint /api/forge/oauth/token is defined correctly.
 
-	<servlet>
-		<servlet-name>oauthtoken</servlet-name>
-		<servlet-class>forgesample.oauthtoken</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>oauthtoken</servlet-name>
-		<url-pattern>/api/forge/oauth/token</url-pattern>
-	</servlet-mapping>
+![](_media/java/endpoint_oauth.png)
 
-</web-app>
-```
 
 Next: [Upload file to OSS](/datamanagement/oss/)
