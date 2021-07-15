@@ -1,4 +1,4 @@
-# Authorize
+# Authorize (.NET Framework)
 
 For a basic *OAuth* implementation we need 1 file.
 
@@ -26,6 +26,12 @@ namespace forgesample.Controllers
     public async Task<AccessToken> GetPublicTokenAsync()
     {
       Credentials credentials = await Credentials.FromSessionAsync();
+
+      if(credentials == null)
+      {
+        var msg = new HttpResponseMessage(HttpStatusCode.Unauthorized) { ReasonPhrase = "No credentials were available at this session!" };
+        throw new HttpResponseException(msg);
+      }
 
       // return the public (viewables:read) access token
       return new AccessToken()
@@ -177,7 +183,5 @@ namespace forgesample.Controllers
 ```
 
 This code will store both **access tokens** on the session with the **refresh token** and **expiration time**. When it expires, it will use the refresh token to request 2 new access tokens (internal & public). Note how it contains 2 classes: `OAuthController` and `Credentials`, where the first exposes the endpoints and the second handles the access tokens (including refresh).
-
-!> Our server was specified with `https` access only and the cookie can only be read by the client and server. 
 
 Next: [List hubs & projects](/datamanagement/hubs/readme)

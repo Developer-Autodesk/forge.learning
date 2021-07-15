@@ -1,4 +1,4 @@
-# Translate the model (.NET)
+# Translate the model (.NET Framework)
 
 To translate a file we just need one endpoint.
 
@@ -61,6 +61,6 @@ namespace forgesample.Controllers
 }
 ```
 
-The **TranslateObject** receives the **bucketKey** and **objectName** and post the [translation job](https://developer.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
+The **TranslateObject** receives the **bucketKey** and **objectName** and post the [translation job](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/) to extract 2D & 3D views of the model. 
 
 Next: [Show on Viewer](viewer/2legged/)

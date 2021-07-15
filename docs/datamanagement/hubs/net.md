@@ -1,8 +1,10 @@
-# List hubs & projects
+# List hubs & projects (.NET Framework)
 
 ## DataManagementController.cs
 
 Create a .NET WebAPI Controller named **DataManagementController** (see [how to create a controller](environment/setup/net_controller)) and add the following content:
+
+> Note that a few errors will appear, to be fixed right after.
 
 ```csharp
 using Autodesk.Forge;
@@ -57,8 +59,8 @@ namespace forgesample.Controllers
 
       return nodes;
     }
+  }
 }
-
 ```
 
 The above receives the request from the UI tree. The `id` parameter indicates the node that is being expanded: `#` means root node, so list hubs. After that it contains the `href` of the resource, so when expanding one `hub` the endpoint should return the projects for the hub. The above code calls different `get` functions. To complete it, also copy the following content to the file (inside the same `DataManagementController` class).
@@ -146,10 +148,12 @@ private async Task<IList<jsTreeNode>> GetProjectContents(string href)
   string hubId = idParams[idParams.Length - 3];
   string projectId = idParams[idParams.Length - 1];
 
-  var project = await projectApi.GetProjectAsync(hubId, projectId);
-  var rootFolderHref = project.data.relationships.rootFolder.meta.link.href;
-
-  return await GetFolderContents(rootFolderHref);
+  var folders = await projectApi.GetProjectTopFoldersAsync(hubId, projectId);
+  foreach (KeyValuePair<string, dynamic> folder in new DynamicDictionaryItems(folders.data))
+  {
+    nodes.Add(new jsTreeNode(folder.Value.links.self.href, folder.Value.attributes.displayName, "folders", true));
+  }
+  return nodes;
 }
 
 private async Task<IList<jsTreeNode>> GetFolderContents(string href)
