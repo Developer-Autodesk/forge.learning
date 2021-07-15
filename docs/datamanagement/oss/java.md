@@ -30,8 +30,11 @@ import com.autodesk.client.api.*;
 import com.autodesk.client.model.*;
 
 
-@WebServlet({ "/oss" })
+@WebServlet(name = "oss", 
+			urlPatterns = {"/api/forge/oss/buckets", "/oss"})
 public class oss extends HttpServlet {
+
+    private static final long serialVersionUID = 1L;
 
 	public oss() {
 	}
@@ -213,8 +216,11 @@ import com.autodesk.client.ApiResponse;
 import com.autodesk.client.api.ObjectsApi;
 import com.autodesk.client.model.ObjectDetails;
 
-@WebServlet({ "/ossuploads" })
+@WebServlet(name = "ossuploads", 
+			urlPatterns = {"/api/forge/oss/objects", "/ossuploads"})
 public class ossuploads extends HttpServlet {
+
+    private static final long serialVersionUID = 1L;
 
 	public ossuploads() {
 	}
@@ -327,27 +333,6 @@ public class ossuploads extends HttpServlet {
 		super.destroy();
 	}
 }
-```
-
-Now explictly expose the endpoint in `/web/WEB-INF/web.xml`, add the following content before `</web-app>`:
-
-```xml
-<servlet>
-    <servlet-name>oss</servlet-name>
-    <servlet-class>forgesample.oss</servlet-class>
-</servlet>
-<servlet-mapping>
-    <servlet-name>oss</servlet-name>
-    <url-pattern>/api/forge/oss/buckets</url-pattern>
-</servlet-mapping>
-<servlet>
-    <servlet-name>ossuploads</servlet-name>
-    <servlet-class>forgesample.ossuploads</servlet-class>
-</servlet>
-<servlet-mapping>
-    <servlet-name>ossuploads</servlet-name>
-    <url-pattern>/api/forge/oss/objects</url-pattern>
-</servlet-mapping>
 ```
 
 Note how we reuse the `/src/main/java/oauth.java` file to call `.getTokenInternal()` on all functions. 

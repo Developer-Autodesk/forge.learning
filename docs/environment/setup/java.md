@@ -1,16 +1,21 @@
 # Create a new project (JAVA EE)
 
-Open [Eclipse Java EE IDE for Web Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen3), create a simple Maven project and select default Workspace location. Click on **Next**.
+Open [Eclipse Java EE IDE for Web Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen3). While writing this tutorial, the IDE version is [Eclipse 2021-03 (4.19)](https://www.eclipse.org/downloads/packages/release/2021-03/r)
 
-Select the maven archetype. On the list, filter **Artifact Id** as **maven-archetype-webapp** and click on **Next**.
+Create a simple Maven project and select default Workspace location. Click on **Next**. Select the maven archetype. On the list, filter **Artifact Id** with **maven-archetype-webapp** ,select **org.apache.maven.archetypes** and click on **Next**.
 
 Fill out below details: for this tutorial, we will name **Group Id** as **com.yourcompany** and **Artifact Id** as **forgesample**. Click Finish. Check the creation progress on the bottom right. This step creates Maven Project in your Eclipse Environment. 
 
 ![](_media/java/eclipse_create_project.gif)
 
-!> If you see error “The superclass “javax.servlet.http.HttpServlet” was not found on the Java Build Path index.jsp `/forgesample/src/main/webapp` add Apache Tomcat to your Targeted Runtimes. You get there by going to the project properties and then Targeted Runtimes, check the box as indicated below.
+!> If you see error “The superclass “javax.servlet.http.HttpServlet” was not found on the Java Build Path index.jsp `/forgesample/src/main/webapp`, please add Apache Tomcat to your Targeted Runtimes. You get there by going to the project properties and then Targeted Runtimes, check the box as indicated below.
 
-Now set **Targeted Runtime** to **Apache Tomcat**, then define server, select folder location and project to run. Finally **Run as** >> **Run as Server**.
+![](_media/java/eclipse_HttpServlet.png)
+
+![](_media/java/eclipse_target_runtime.png)
+
+
+Now set **Targeted Runtime** to **Apache Tomcat**, then define server, select folder location and project to run. Finally **Run as** >> **Run as Server**. (If you have not installed **Apache Tomcat**, please download it from [Apache Tomcat](https://tomcat.apache.org/download-90.cgi))
 
 ![](_media/java/eclipse_run_tomcat.gif)
 
@@ -22,13 +27,40 @@ Before we continue, we will switch the PORT of the server to maintain similarity
 
 Eclipse will run a local page in your IDE showing you Hello World! or you can always visit http://localhost:3000/forgesample/index.jsp to see your result.
 
+![](_media/java/eclipse_helloworld_default.png)
+
 To make sure it is your index.jsp the one running, go to **src/main/webapp/index.jsp** and change the text from Hello World! to Hello Forge!
+
+## Change Default Host URL
+With the steps above, our Java server is configured to serve files from `/forgesample`, so the default host url is http://localhost:3000/forgesample/. In the steps with building the HTTP endpoints, the connection url will be mapped to the format like http://localhost:3000/api/forge/oauth/token, http://localhost:3000/api/forge/oss/buckets, the default host url will needed to be updated to http://localhost:3000.
+
+So, let's fix by setting the path to nothing in the Eclipse web modules, which enables access the project without any path component in the URL (i.e. ROOT). Locate Tomcat Server page, click **Modules** tab at the bottom-left of the page. In the list of **Web Modules**, select forgesample. Next click __Edit__. In the popup dialog, change the path to '/' only. Click OK and save the update.
+
+![](_media/java/eclipse_webmodules_path.gif)
+
+![](_media/java/eclipse_server_default_host.png)
+
+Now, click this Maven project, **Run as** >> **Run as Server**. Eclipse will run a local page in your IDE showing you Hello World! or you can always visit http://localhost:3000/index.jsp to see your result.
+
+![](_media/java/eclipse_helloworld_default_new_host.png)
+
 
 You are all set, your Server is running succesfully now. :)
 
 ## Setup Pom.xml
 
 Open the `pom.xml` file (via **Project Explorer**), copy & paste the content below. Change [groupId] to the string that indicates your role such as **com.mycompany**.
+
+Maven 3.0 and above deprecated LATEST and RELEASE metaversions ([see this discussion](https://stackoverflow.com/questions/30571/how-do-i-tell-maven-to-use-the-latest-version-of-a-dependency)], if you need latest version of **Forge JAVA SDK**, please check on [Maven Center](https://search.maven.org/search?q=a:forge-java-sdk) and update with the specific version number accordingly. 
+  ```
+    <dependency>
+            <groupId>com.autodesk</groupId>
+            <artifactId>forge-java-sdk</artifactId> 
+            <version> input the latest version if needed </version>
+    </dependency>
+  ```
+
+!> Note:  When writing this tutorial, Tomcat 9.0 or 8.5 is adopted. If working with Tomcat 10 and above, the javax.* package has been renamed to jakarta.* package. The examples of proper pom.xml declarations for Tomcat 10+, Tomcat 9-, JEE 9+ and JEE 8- is available in this answer: [Tomcat casting servlets to javax.servlet.Servlet instead of jakarta.servlet.http.HttpServlet](https://stackoverflow.com/questions/65703840/tomcat-casting-servlets-to-javax-servlet-servlet-instead-of-jakarta-servlet-http/65704617#65704617) 
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -44,8 +76,8 @@ Open the `pom.xml` file (via **Project Explorer**), copy & paste the content bel
       <!-- JAVA SDK of Autodesk: com-autodesk-client -->
         <dependency>
             <groupId>com.autodesk</groupId>
-            <artifactId>com-autodesk-client</artifactId>
-            <version>1.0.1</version>
+            <artifactId>forge-java-sdk</artifactId>
+            <version>1.0.2</version>
         </dependency>
         <dependency>
             <groupId>com.sun.jersey</groupId>
@@ -286,7 +318,7 @@ public class config {
 
     // set environment variables or hard-code here 
     public static class credentials{
-        public static String client_id = System.getenv("FORGE_CLIENT_ID");
+        public static String client_id = ''System.getenv("FORGE_CLIENT_ID")'';
         public static String client_secret = System.getenv("FORGE_CLIENT_SECRET");
     }; 
 
