@@ -9,50 +9,9 @@ For this, we would need just one file.
 
 Create a `/server/oauth.go` file. This file will take care of exposing the abovementioned endpoint. 
 
-```go
-package server
+[oauth.go](_snippets/viewmodels/go/oauth.go ':include :type=code go')
 
-import (
-	"net/http"
-	"encoding/json"
-)
-
-// AccessTokenResponse reflects the data expected by frontend when asking for a token
-type AccessTokenResponse struct {
-	AccessToken string `json:"access_token"`
-	ExpiresIn   int32  `json:"expires_in"`
-}
-
-// getAccessToken returns a valid access token in the form of {'access_token':value, 'expires_in':value}
-func (service ForgeServices) getAccessToken(writer http.ResponseWriter, request *http.Request) {
-
-	if request.Method != http.MethodGet {
-		http.Error(writer, "Unsupported request method", http.StatusMethodNotAllowed)
-		return
-	}
-
-	writer.Header().Add("Content-Type", "application/json")
-	encoder := json.NewEncoder(writer)
-	bearer, err := service.Authenticate("viewables:read")
-
-	if err != nil {
-		http.Error(writer, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	err = encoder.Encode(AccessTokenResponse{
-		bearer.AccessToken,
-		bearer.ExpiresIn,
-	})
-
-	if err != nil {
-		http.Error(writer, err.Error(), http.StatusInternalServerError)
-	}
-
-}
-```
-
-This will assure that any `GET /api/forge/oauth/token` call to our server, will return an access token in form of
+This will assure that any `GET /api/forge/oauth/token` call to our oauth, will return an access token in form of
 
 ```json
 {
