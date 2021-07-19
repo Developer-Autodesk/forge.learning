@@ -32,25 +32,7 @@ composer require vlucas/phpdotenv
 
 Now your folder should have a **vendor** folder and your **composer.json** should look like:
 
-```json
-{
-    "name": "yourcompanyname/forgesample",
-    "description": "a forge sample of PHP",
-    "type": "project",
-    "license": "ISC",
-    "authors": [
-        {
-            "name": "Your Name",
-            "email": "name@example.com"
-        }
-    ],
-    "require": {
-        "autodesk/forge-client": "^1.0",
-        "klein/klein": "^2.1",
-        "vlucas/phpdotenv": "^3.0.0"
-    }
-}
-```
+[composer.json](_snippets/viewmodels/php/composer.json ':include :type=code json')
 
 > The version number (e.g. forge-client 1.0) may vary, this was the latest version when tutorial was created.
 
@@ -71,55 +53,7 @@ Now, under **root** folder, create a file named `index.php`.
 
 !> Note: when you are developing the app, you need to create the endpoint implementation like AccessToken/DataManagement/ModelDerivative first, and then create the routes by this file, but as an introduction, to make it clear, we will introduce this file first:
 
-```php
-<?php
-session_start();
-include_once "./vendor/autoload.php";
-include_once "./server/oauthtoken.php";
-include_once "./server/modelderivative.php";
-include_once "./server/oss.php";
-include_once "./server/config.php";
-include_once "./server/oauth.php";
-
-use Klein\Klein;
-use Autodesk\ForgeServices\AccessToken;
-use Autodesk\ForgeServices\ModelDerivative;
-use Autodesk\ForgeServices\DataManagement;
-
-$klein = new Klein();
-
-// Get the access token
-$klein->respond('GET', '/api/forge/oauth/token', function () {
-    $accessToken = new AccessToken();
-    return $accessToken->getAccessToken();
-});
-
-// Get all the buckets & objects
-$klein->respond('GET', '/api/forge/oss/buckets', function () {
-    $dataManagement = new DataManagement();
-    return $dataManagement->getBucketsAndObjects();
-});
-
-// Create a new bucket
-$klein->respond('POST', '/api/forge/oss/buckets', function(){
-    $dataManagement = new DataManagement();
-    return $dataManagement->createOneBucket();
-});
-
-// Upload a file to a bucket
-$klein->respond('POST', '/api/forge/oss/objects', function () {
-    $dataManagement = new DataManagement();
-    return $dataManagement->uploadFile();
-});
-
-// Start translate the model
-$klein->respond('POST', '/api/forge/modelderivative/jobs', function () {
-    $modelDerivative = new ModelDerivative();
-    return $modelDerivative->translateFile();
-});
-
-$klein->dispatch();
-```
+[index.php](_snippets/viewmodels/php/index.php ':include :type=code php')
 
 This file routes the API requests.
 
@@ -132,26 +66,7 @@ This file is used to do URL Rewrite for Apache, we will direct the following URL
 
 please check [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) for more details.
 
-```json
-<IfModule mod_rewrite.c>
- RewriteEngine on
- RewriteBase /
-
- RewriteCond %{REQUEST_URI} !^/www(.*)$
- RewriteCond %{REQUEST_URI} ^/$
- RewriteRule ^(.*)$ /www/index.html [NC,R=301],L]
-
- RewriteCond %{REQUEST_URI} !^/www(.*)$
- RewriteCond %{REQUEST_URI} ^.*.(js|css)$
- RewriteRule ^(.*)$ /www/$1 [NC,R=301],L]
-
- RewriteCond %{REQUEST_URI} !^/www(.*)$
- RewriteCond %{REQUEST_FILENAME} !-d
- RewriteCond %{REQUEST_FILENAME} !-f
- RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
-</IfModule>
-```
-
+[.htaccess](_snippets/viewmodels/php/_htaccess ':include :type=xml')
 
 ## .env
 
@@ -168,50 +83,7 @@ We will talk about how to load the environment variables in next section.
 
 Under **/server/** create a file named `config.php` with the following content:
 
-```php
-<?php
-namespace Autodesk\ForgeServices;
-use Dotenv\Dotenv;
-
-class ForgeConfig{
-    private static $forge_id = null;
-    private static $forge_secret = null;
-    public static $prepend_bucketkey = true; //toggle client ID prefix to avoid conflict with existing buckets
-
-    public static function getForgeID(){
-      $forge_id = getenv('FORGE_CLIENT_ID');
-      if(!$forge_id){
-        // load the environment variable from .env into your application
-        $dotenv = Dotenv::create(__DIR__);
-        $dotenv->load();
-        $forge_id = getenv('FORGE_CLIENT_ID');
-     }
-      return $forge_id;
-    }
-
-    public static function getForgeSecret(){
-      $forge_secret = getenv('FORGE_CLIENT_SECRET');
-      if(!$forge_secret){
-        // load the environment variable from .env into your application
-        $dotenv = Dotenv::create(__DIR__);
-        $dotenv->load();
-        $forge_secret = getenv('FORGE_CLIENT_SECRET');
-     }
-      return $forge_secret;
-    }
-
-    // Required scopes for your application on server-side
-    public static function getScopeInternal(){
-      return ['bucket:create', 'bucket:read', 'data:read', 'data:create', 'data:write'];
-    }
-
-    // Required scope of the token sent to the client
-    public static function getScopePublic(){
-      // Will update the scope to viewables:read when #13 of autodesk/forge-client is fixed
-      return ['data:read'];
-    }
-}
-```
+[config.php](_snippets/viewmodels/php/config.php ':include :type=code php')
 
 We are getting our ENV variables here by loading the .env file with the code like:
 
