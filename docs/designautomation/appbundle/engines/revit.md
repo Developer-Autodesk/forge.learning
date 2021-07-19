@@ -16,14 +16,7 @@ Then right-click on the project, go to **Manage NuGet Packages...**, under **Bro
 
 ![](_media/designautomation/revit/new_project.gif)
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<packages>
-  <package id="Autodesk.Forge.DesignAutomation.Revit" version="2021.0.0" targetFramework="net48" />
-  <package id="Microsoft.CSharp" version="4.5.0" targetFramework="net48" />
-  <package id="Newtonsoft.Json" version="12.0.1" targetFramework="net48" />
-</packages>
-```
+[package.config](_snippets/modifymodels/engines/revit/package.config ':include :type=code xml')
 
 The project should contain a `Class1.cs` class, let's rename the file to `Commands.cs` (for consistency). 
 
@@ -35,133 +28,19 @@ At this point, the project should look like the following:
 
 This is the main code that will run with Revit. Copy the following content into `Commands.cs`. The main point of interest is the `DesignAutomationReadyEvent` event, triggered when the application is ready to run. The `HandleDesignAutomationReadyEvent` implements our custom code.
 
-```csharp
-using Autodesk.Revit.ApplicationServices;
-using Autodesk.Revit.Attributes;
-using Autodesk.Revit.DB;
-using DesignAutomationFramework;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.IO;
-
-namespace Autodesk.Forge.Sample.DesignAutomation.Revit
-{
-    [Transaction(TransactionMode.Manual)]
-    [Regeneration(RegenerationOption.Manual)]
-    public class Commands : IExternalDBApplication
-    {
-        //Path of the project(i.e)project where your Window family files are present
-        string OUTPUT_FILE = "OutputFile.rvt";
-
-        public ExternalDBApplicationResult OnStartup(ControlledApplication application)
-        {
-            DesignAutomationBridge.DesignAutomationReadyEvent += HandleDesignAutomationReadyEvent;
-            return ExternalDBApplicationResult.Succeeded;
-        }
-
-        private void HandleDesignAutomationReadyEvent(object sender, DesignAutomationReadyEventArgs e)
-        {
-            LogTrace("Design Automation Ready event triggered...");
-            e.Succeeded = true;
-            EditWindowParametersMethod(e.DesignAutomationData.RevitDoc);
-        }
-
-        private void EditWindowParametersMethod(Document doc)
-        {
-            InputParams inputParameters = JsonConvert.DeserializeObject<InputParams>(File.ReadAllText("params.json"));
-
-            //Modifying the window parameters
-            //Open transaction
-            using (Transaction trans = new Transaction(doc))
-            {
-                trans.Start("Update window parameters");
-
-                //Filter for windows
-                FilteredElementCollector WindowCollector = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Windows).WhereElementIsNotElementType();
-                IList<ElementId> windowIds = WindowCollector.ToElementIds() as IList<ElementId>;
-
-                foreach (ElementId windowId in windowIds)
-                {
-                    Element Window = doc.GetElement(windowId);
-                    FamilyInstance FamInst = Window as FamilyInstance;
-                    FamilySymbol FamSym = FamInst.Symbol;
-                    SetElementParameter(FamSym, BuiltInParameter.WINDOW_HEIGHT, inputParameters.Height);
-                    SetElementParameter(FamSym, BuiltInParameter.WINDOW_WIDTH, inputParameters.Width);
-                }
-
-                //To save all the changes commit the transaction 
-                trans.Commit();
-            }
-
-            //Save the updated file by overwriting the existing file
-            ModelPath ProjectModelPath = ModelPathUtils.ConvertUserVisiblePathToModelPath(OUTPUT_FILE);
-            SaveAsOptions SAO = new SaveAsOptions();
-            SAO.OverwriteExistingFile = true;
-
-            //Save the project file with updated window's parameters
-            LogTrace("Saving file...");
-            doc.SaveAs(ProjectModelPath, SAO);
-        }
-
-        public ExternalDBApplicationResult OnShutdown(ControlledApplication application)
-        {
-            return ExternalDBApplicationResult.Succeeded;
-        }
-
-        private void SetElementParameter(FamilySymbol FamSym, BuiltInParameter paraMeter, double parameterValue)
-        {
-            FamSym.get_Parameter(paraMeter).Set(parameterValue);
-        }
-
-        public class InputParams
-        {
-            public double Width { get; set; }
-            public double Height { get; set; }
-        }
-
-        /// <summary>
-        /// This will appear on the Design Automation output
-        /// </summary>
-        private static void LogTrace(string format, params object[] args) { System.Console.WriteLine(format, args); }
-    }
-}
-```
+[Commands.cs](_snippets/modifymodels/engines/revit/Commands.cs ':include :type=code csharp')
 
 ## PackageContents.xml
 
 Create a folder named `UpdateRVTParam.bundle` and, inside, a file named `PackageContents.xml`, then copy the following content to it. Learn more at the [PackageContents.xml Format Reference](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html). This file tells Revit to load our `.addin` plugin.
 
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<ApplicationPackage Name="RevitDesignAutomation" Description="Sample Plugin for Revit" Author="learnforge.autodesk.io">
-  <CompanyDetails Name="Autodesk, Inc" Url="http://learnforge.autodesk.io" Email="forge.help@autodesk.com"/>
-  <Components Description="Modify window parameters">
-    <RuntimeRequirements SeriesMax="R2021" SeriesMin="R2019" Platform="Revit" OS="Win64"/>
-    <ComponentEntry LoadOnRevitStartup="True" LoadOnCommandInvocation="False" AppDescription="Modify Window Parameters" ModuleName="./Contents/Autodesk.Forge.Sample.DesignAutomation.Revit.addin" Version="1.0.0" AppName="Modify Window Parameters"/>
-  </Components>
-</ApplicationPackage>
-```
+[PackageContents.xml](_snippets/modifymodels/engines/revit/PackageContents.xml ':include :type=code xml')
 
 ## Autodesk.Forge.Sample.DesignAutomation.Revit.addin
 
 Under `UpdateRVTParam.bundle` folder create a subfolder named `Contents` and, inside this folder, a new file called `Autodesk.Forge.Sample.DesignAutomation.Revit.addin`. This tells Revit how to load the plugin.
 
-```xml
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<RevitAddIns>
-  <AddIn Type="DBApplication">
-    <Name>Modify Window Parameters</Name>
-    <FullClassName>Autodesk.Forge.Sample.DesignAutomation.Revit.Commands</FullClassName>
-    <Text>Revit for Design Automation</Text>
-    <Description>Revit for Design Automation</Description>
-    <VisibilityMode>AlwaysVisible</VisibilityMode>
-    <Assembly>.\UpdateRVTParam.dll</Assembly>
-    <AddInId>000BD853-36E4-461f-9171-C5ACEDA4E723</AddInId>
-    <VendorId>ADSK</VendorId>
-    <VendorDescription>Autodesk, Inc, www.autodesk.com</VendorDescription>
-  </AddIn>
-</RevitAddIns>
-```
+[Autodesk.Forge.Sample.DesignAutomation.Revit.addin](_snippets/modifymodels/engines/revit/Autodesk.Forge.Sample.DesignAutomation.Revit.addin ':include :type=code xml')
 
 At this point, the project should look like:
 
