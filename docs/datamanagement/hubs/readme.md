@@ -1,6 +1,6 @@
 # List hubs & projects (Data Management)
 
-The [Data Management API](https://developer.autodesk.com/en/docs/data/v2/overview/) provides a unified and consistent way to access data across **Hubs** for BIM 360 Team, Fusion Team (formerly known as A360 Team), BIM 360 Docs and A360 Personal.
+The [Data Management API](https://forge.autodesk.com/en/docs/data/v2/overview/) provides a unified and consistent way to access data across **Hubs** for BIM 360 Team, Fusion Team (formerly known as A360 Team), BIM 360 Docs and A360 Personal.
 
 ![](_media/datamanagement/entities_and_domains.png)
 

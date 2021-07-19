@@ -41,33 +41,8 @@ set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
 
 Write the following into `main.go`, previously created in the rood folder:
 
-```go
-package main
+[main.go](_snippets/viewmodels/go/main.go ':include :type=code go')
 
-import (
-	"log"
-	"os"
-
-	"forgesample/server"
-)
-
-const (
-	PORT = ":3000"
-)
-
-func main() {
-
-	clientID := os.Getenv("FORGE_CLIENT_ID")
-	clientSecret := os.Getenv("FORGE_CLIENT_SECRET")
-
-	if clientID == "" || clientSecret == "" {
-		log.Fatal("The FORGE_CLIENT_ID and FORGE_CLIENT_SECRET env vars are not set. \nExiting ...")
-	}
-
-	log.Println("Starting server on port ", PORT)
-	server.StartServer(PORT, clientID, clientSecret)
-}
-```
 The purpose of this file is to setup Forge credentials and start the server.    
 Note the import `forgesample/server`, in your case it should match your folder, as you will make use of server files from your project.  
 Note also how we get the ID & Secret to setup our server, or failing if one of them is not found.
@@ -76,49 +51,8 @@ Note also how we get the ID & Secret to setup our server, or failing if one of t
 
 Now, under **/server/** folder, create a file named `server.go` with:
 
-```go
-package server
+[server.go](_snippets/viewmodels/go/server.go ':include :type=code go')
 
-import (
-	"log"
-	"net/http"
-
-	"github.com/apprentice3d/forge-api-go-client/dm"
-	"github.com/apprentice3d/forge-api-go-client/md"
-	"github.com/apprentice3d/forge-api-go-client/oauth"
-)
-
-// ForgeServices holds reference to all services required in this server
-type ForgeServices struct {
-	oauth.TwoLeggedAuth
-	dm.BucketAPI
-	md.ModelDerivativeAPI
-}
-
-func StartServer(port, clientID, clientSecret string) {
-
-	service := ForgeServices{
-		oauth.NewTwoLeggedClient(clientID, clientSecret),
-		dm.NewBucketAPIWithCredentials(clientID, clientSecret),
-		md.NewAPIWithCredentials(clientID, clientSecret),
-	}
-
-	// serving static files
-	static := http.FileServer(http.Dir("www"))
-	http.Handle("/", static)
-
-	// defining other endpoints
-	http.HandleFunc("/api/forge/oauth/token", service.getAccessToken)
-	http.HandleFunc("/api/forge/oss/buckets", service.manageBuckets)
-	http.HandleFunc("/api/forge/oss/objects", service.manageObjects)
-	http.HandleFunc("/api/forge/modelderivative/jobs", service.translateObject)
-
-	if err := http.ListenAndServe(port, nil); err != nil {
-		log.Fatal(err.Error())
-	}
-
-}
-```
 This file prepares the server and serves the static files (e.g. `html`, `js`) and routes the API requests.
 
 Note that the Go approach is relying on [forge-api-go-client](https://github.com/apprentice3d/forge-api-go-client), and

@@ -6,64 +6,13 @@ This section uses the **basic skeleton** from previous section, but let's rename
 
 As each extension should be a separeted JavaScript file, create a file in the UI folder **/js/handleselectionextension.js** and copy the following content (which is same as the basic skeleton, except with a different name): 
 
-```javascript
-class HandleSelectionExtension extends Autodesk.Viewing.Extension {
-    constructor(viewer, options) {
-        super(viewer, options);
-        this._group = null;
-        this._button = null;
-    }
+[js/handleselectionextension.js](_snippets/extensions/js/handleselectionextension.1.js ':include :type=code javascript')
 
-    load() {
-        console.log('HandleSelectionExtension has been loaded');
-        return true;
-    }
-
-    unload() {
-        // Clean our UI elements if we added any
-        if (this._group) {
-            this._group.removeControl(this._button);
-            if (this._group.getNumberOfControls() === 0) {
-                this.viewer.toolbar.removeControl(this._group);
-            }
-        }
-        console.log('HandleSelectionExtension has been unloaded');
-        return true;
-    }
-
-    onToolbarCreated() {
-        // Create a new toolbar group if it doesn't exist
-        this._group = this.viewer.toolbar.getControl('allMyAwesomeExtensionsToolbar');
-        if (!this._group) {
-            this._group = new Autodesk.Viewing.UI.ControlGroup('allMyAwesomeExtensionsToolbar');
-            this.viewer.toolbar.addControl(this._group);
-        }
-
-        // Add a new button to the toolbar group
-        this._button = new Autodesk.Viewing.UI.Button('handleSelectionExtensionButton');
-        this._button.onClick = (ev) => {
-            // Execute an action here
-        };
-        this._button.setToolTip('Handle Selection Extension');
-        this._button.addClass('handleSelectionExtensionIcon');
-        this._group.addControl(this._button);
-    }
-}
-
-Autodesk.Viewing.theExtensionManager.registerExtension('HandleSelectionExtension', HandleSelectionExtension);
-```
 ## Toolbar CSS
 
 Just like in the basic skeleton, the toolbar button uses a **CSS** styling. In the **/css/main.css** add the following:
 
-```css
-.handleSelectionExtensionIcon {
-    background-image: url(https://github.com/encharm/Font-Awesome-SVG-PNG/raw/master/white/png/24/object-group.png);
-    background-size: 24px;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-```
+[css/main.css](_snippets/extensions/css/main.2.css ':include :type=code css')
 
 > You can use your own images or from a library, in this case let's use [Font Awesome](https://fontawesome.com/) icons in PNG format.
 
@@ -92,7 +41,7 @@ viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer')
 Note :- If one extension is already loaded then HandleSelectionExtension can be added using **comma (',')**  in an array:
 
 ```javascript
-viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions['MyAwesomeExtension','HandleSelectionExtension'] }); 
+viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['MyAwesomeExtension','HandleSelectionExtension'] }); 
 ```
 
 At this point the extension should load with a toolbar icon, but it doesn't do anything.
@@ -101,31 +50,7 @@ At this point the extension should load with a toolbar icon, but it doesn't do a
 
 Now it's time to replace the `Execute an action here` placeholder inside the `.onClick` function. For this sample, let's isolate the selection. Copy the following content to your extension **.js** file inside the `.onClick` function:
 
-```javascript
-// Get current selection
-const selection = this.viewer.getSelection();
-this.viewer.clearSelection();
-// Anything selected?
-if (selection.length > 0) {
-    let isolated = [];
-    // Iterate through the list of selected dbIds
-    selection.forEach((dbId) => {
-        // Get properties of each dbId
-        this.viewer.getProperties(dbId, (props) => {
-            // Output properties to console
-            console.log(props);
-            // Ask if want to isolate
-            if (confirm(`Isolate ${props.name} (${props.externalId})?`)) {
-                isolated.push(dbId);
-                this.viewer.isolate(isolated);
-            }
-        });
-    });
-} else {
-    // If nothing selected, restore
-    this.viewer.isolate(0);
-}
-```
+[js/handleselectionextension.js](_snippets/extensions/js/handleselectionextension.2.js ':include :type=code javascript')
 
 ## Conclusion
 

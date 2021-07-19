@@ -4,7 +4,7 @@
 
 **Documentation**
 
- - [Developer Portal](https://developer.autodesk.com/) is the "source of truth" on Forge!
+ - [Developer Portal](https://forge.autodesk.com/) is the "source of truth" on Forge!
 
 **Samples**
 
