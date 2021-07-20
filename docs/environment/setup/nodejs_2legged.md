@@ -28,26 +28,7 @@ npm install forge-apis --save
 
 Finally open the **package.json** and, inside `"scripts"`, add `"start": "node start.js",` line. Now your folder should have a **node_modules** folder and your **package.json** should look like this:
 
-```json
-{
-  "name": "forgesample",
-  "version": "1.0.0",
-  "description": "",
-  "main": "start.js",
-  "scripts": {
-    "start": "node start.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.16.2",
-    "forge-apis": "^0.4.1",
-    "multer": "^1.3.0"
-  }
-}
-
-```
+[package.json](_snippets/viewmodels/node/package.json ':include :type=code json')
 
 > The version number (e.g. forge-apis 0.4.1) may vary, it was the latest version when this tutorial was created.
 
@@ -69,27 +50,7 @@ This file indicates to Visual Studio Code how we should run our project. Go to m
 
 !> Note you need to enter your **Forge Client ID & Secret** at the indicated space.
 
-```json
-{
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/start.js",
-            "env": {
-                "FORGE_CLIENT_ID": "your id here",
-                "FORGE_CLIENT_SECRET": "your secret here",
-                "FORGE_CALLBACK_URL": "http://localhost:3000/api/forge/callback/oauth"
-            }
-        }
-    ]
-}
-```
+[launch.json](_snippets/viewmodels/node/launch.json ':include :type=code json')
 
 > It's important to define **ID & Secret** as environment variables so our project can later be deployed online. More on this later, in **Deployment**.
 
@@ -99,29 +60,7 @@ In the root folder, create a `start.js` file with:
 
 !> File names are case-sensitive for some deployments, like **Heroku**. For this tutorial, let's use lower-case.
 
-```javascript
-const path = require('path');
-const express = require('express');
-
-const PORT = process.env.PORT || 3000;
-const config = require('./config');
-if (config.credentials.client_id == null || config.credentials.client_secret == null) {
-    console.error('Missing FORGE_CLIENT_ID or FORGE_CLIENT_SECRET env. variables.');
-    return;
-}
-
-let app = express();
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json({ limit: '50mb' }));
-app.use('/api/forge/oauth', require('./routes/oauth'));
-app.use('/api/forge/oss', require('./routes/oss'));
-app.use('/api/forge/modelderivative', require('./routes/modelderivative'));
-app.use((err, req, res, next) => {
-    console.error(err);
-    res.status(err.statusCode).json(err);
-});
-app.listen(PORT, () => { console.log(`Server listening on port ${PORT}`); });
-```
+[start.js](_snippets/viewmodels/node/start.js ':include :type=code javascript')
 
 This file starts an **express** server, serves static files (e.g. `html`), and routes API requests.
 
@@ -129,23 +68,7 @@ This file starts an **express** server, serves static files (e.g. `html`), and r
 
 In the root folder, create a file named `config.js` with the following content:
 
-```javascript
-// Autodesk Forge configuration
-module.exports = {
-    // Set environment variables or hard-code here
-    credentials: {
-        client_id: process.env.FORGE_CLIENT_ID,
-        client_secret: process.env.FORGE_CLIENT_SECRET,
-        callback_url: process.env.FORGE_CALLBACK_URL
-    },
-    scopes: {
-        // Required scopes for the server-side application
-        internal: ['bucket:create', 'bucket:read', 'data:read', 'data:create', 'data:write'],
-        // Required scope for the client-side viewer
-        public: ['viewables:read']
-    }
-};
-```
+[config.js](_snippets/viewmodels/node/config.js ':include :type=code javascript')
 
 We are defining our ENV variables here. At the time of running our Express server, the values of these variables will be use to connect to the different Autodesk Forge services we will need.
 
