@@ -1,0 +1,9 @@
+# 実行とデバッグ(Node.js)
+
+**デバッグ(Debug)**メニューに移動し、**デバッグを開始(Start debugging)**を選択します。次に示すように、\[デバッグコンソール]タブが下部に表示されます。
+
+![](_media/nodejs/vs_code_debug.png) 
+
+ブラウザを開き、[http://localhost:3000](http://localhost:3000) に移動します。
+
+次へ:[Deployment](deployment/)
