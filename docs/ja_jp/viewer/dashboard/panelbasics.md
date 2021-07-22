@@ -27,7 +27,7 @@ data['Category']['Walls'] = [123, 456, 789];
 
 ## DashboardPanel.js
 
-(Viewer Extension チュートリアルの) [getAllLeafComponents](viewer/extensions/panel?id=enumerate-leaf-nodes) メソッドを再利用してモデル上に表示されているすべての dbId を検索し、次に `getProperties` を使用して情報を取得します。それは生データです。 
+(Viewer Extension チュートリアルの) [getAllLeafComponents](/ja_jp/viewer/extensions/panel?id=enumerate-leaf-nodes) メソッドを再利用してモデル上に表示されているすべての dbId を検索し、次に `getProperties` を使用して情報を取得します。それは生データです。 
 
 `/js/dashboard/` フォルダの下に、次の内容を含む新しい **DashboardPanel.js** を作成します。
 
@@ -39,4 +39,4 @@ data['Category']['Walls'] = [123, 456, 789];
 <script src="js/Dashboard/DashboardPanel.js"></script>  
 ```
 
-次へ:[チャートを追加する](viewer/dashboard/charts)
+次へ:[チャートを追加する](/ja_jp/viewer/dashboard/charts)

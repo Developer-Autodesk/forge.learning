@@ -4,4 +4,4 @@
 
 このチュートリアルサンプルでは、アクティビティに2つの入力(ファイルとJSONデータ)と1つの出力(ファイル)があります。
 
-言語を選択:[Node.js](designautomation/activity/nodejs) | [.NET Core](designautomation/activity/netcore)
+言語を選択:[Node.js](/ja_jp/designautomation/activity/nodejs) | [.NET Core](/ja_jp/designautomation/activity/netcore)

@@ -6,4 +6,4 @@ ActivityとWorkItemの関係は、それぞれ「関数定義」と「関数呼�
 
 このチュートリアルのサンプルでは、workitemで入力ファイルのURL、新しいパラメータ値を持つ入力JSONデータ、出力ファイルの出力先のURLを指定します。このサンプルでは、作業アイテムを開始する前に、入力ファイルをOSSバケットにアップロードします。
 
-言語を選択:[Node.js](designautomation/workitem/nodejs) | [.NET Core](designautomation/workitem/netcore)
+言語を選択:[Node.js](/ja_jp/designautomation/workitem/nodejs) | [.NET Core](/ja_jp/designautomation/workitem/netcore)

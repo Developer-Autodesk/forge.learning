@@ -2,7 +2,7 @@
 
 ## OAuthController.cs
 
-**OAuthController** という名前の .NET WebAPI コントローラを作成し([コントローラの作成方法](environment/setup/net_controller)を参照)、次のコンテンツを追加します。
+**OAuthController** という名前の .NET WebAPI コントローラを作成し([コントローラの作成方法](/ja_jp/environment/setup/net_controller)を参照)、次のコンテンツを追加します。
 
 [OAuthController.cs](_snippets/viewmodels/net/OAuthController.cs ':include :type=code csharp')
 
@@ -14,4 +14,4 @@
 
 コメントに従って、**GetAppSetting** は **Web.Config** ファイルから ID とシークレットを取得します。
 
-次へ:[OSSにファイルをアップロード](/datamanagement/oss/)
+次へ:[OSSにファイルをアップロード](/ja_jp/datamanagement/oss/)

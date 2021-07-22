@@ -1,6 +1,6 @@
 # 延長スケルトン
 
-チュートリアルのこの手順では、ツールバー ボタンを使用して拡張機能の基本スケルトンについて説明します。このスケルトンにより、`.onClick` 関数内のコードがトリガされます。実際のサンプルの[Handling Selection](viewer/extensions/selection) に進むことができます。
+チュートリアルのこの手順では、ツールバー ボタンを使用して拡張機能の基本スケルトンについて説明します。このスケルトンにより、`.onClick` 関数内のコードがトリガされます。実際のサンプルの[Handling Selection](/ja_jp/viewer/extensions/selection) に進むことができます。
 
 ## 延長を作成する
 
@@ -49,4 +49,4 @@ viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer')
 !>独自の拡張子を作成する場合は、名前を変更してください。名前は一意である必要があります。 
 
 
-次へ:[選択を処理する](viewer/extensions/selection)
+次へ:[選択を処理する](/ja_jp/viewer/extensions/selection)

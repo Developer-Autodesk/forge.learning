@@ -21,4 +21,4 @@
 
 > [.NET Framework 4.7.2 Developer Pack ](https://dotnet.microsoft.com/download/dotnet-framework/net472) がインストールされていることを確認してください。
 
-次へ:[認証](oauth/)
+次へ:[認証](/ja_jp/oauth/)

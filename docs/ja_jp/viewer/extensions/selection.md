@@ -18,7 +18,7 @@
 
 ## エクステンションをロード
 
-最後に、[基本スケルトン](/viewer/extensions/skeleton?id=loading-the-extension)と同じコードを使用して、拡張子をロードします(もちろん、名前を調整します)。参照する場合は、次の 2 つの変更が必要です。`<script>を **index.html** に追加し、ビューアの作成時に拡張機能を含めます。`
+最後に、[基本スケルトン](/ja_jp/viewer/extensions/skeleton?id=loading-the-extension)と同じコードを使用して、拡張子をロードします(もちろん、名前を調整します)。参照する場合は、次の 2 つの変更が必要です。`<script>を **index.html** に追加し、ビューアの作成時に拡張機能を含めます。`
 
  **/index.html** ファイルを開き、次の行を追加します。
 
@@ -71,4 +71,4 @@ viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer')
 - **.forEach()** はコレクションを反復する場合、これは JavaScript 機能です。[詳細](https://www.w3schools.com/jsref/jsref_forEach.asp)
 - **.push()** を使用して配列の項目を含める場合は、[詳細を参照してください。](https://www.w3schools.com/jsref/jsref_push.asp)
 
-次へ:[ドッキングパネル](viewer/extensions/panel)
+次へ:[ドッキングパネル](/ja_jp/viewer/extensions/panel)

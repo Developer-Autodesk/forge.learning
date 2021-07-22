@@ -6,4 +6,4 @@
 
 ユーザは、データへのアクセスを許可する必要があります。**3 本足の ** トークンが必要です。
 
-言語を選択:[Node.js](oauth/3legged/nodejs) | [.NET Framework](oauth/3legged/net) | [.NET Core](oauth/3legged/netcore)
+言語を選択:[Node.js](/ja_jp/oauth/3legged/nodejs) | [.NET Framework](/ja_jp/oauth/3legged/net) | [.NET Core](/ja_jp/oauth/3legged/netcore)

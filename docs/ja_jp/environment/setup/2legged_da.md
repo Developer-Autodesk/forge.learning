@@ -2,7 +2,7 @@
 
 クライアントIDとシークレットは保護し、機密にする必要があります。すべてのファイルがアカウントにバインドされるためです。Webアプリケーションの場合は、サーバに保持します。このセクションでは、ローカル開発サーバの作成方法を説明します。
 
-必要なソフトウェアについては、[ツール](environment/tools/)セクションを確認してください。
+必要なソフトウェアについては、[ツール](/ja_jp/environment/tools/)セクションを確認してください。
 
 ### 前提条件
 
@@ -18,4 +18,4 @@
 
 !> **警告**: `ngrok` は、使用中に localhost サーバを Web に公開します。テストが完了したら、必ずオフにしてください。この開発環境の外部では使用しない
 
-プロジェクトをセットアップ、言語を選択:[Node.js](environment/setup/nodejs_da) | [.NET Core](environment/setup/netcore_da)
+プロジェクトをセットアップ、言語を選択:[Node.js](/ja_jp/environment/setup/nodejs_da) | [.NET Core](/ja_jp/environment/setup/netcore_da)

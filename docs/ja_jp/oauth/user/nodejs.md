@@ -8,4 +8,4 @@
 
 [routes/user.js](_snippets/viewhubmodels/node/routes/user.js ':include :type=code javascript')
 
-次へ:[ビューアに表示](viewer/3legged/readme)
+次へ:[ビューアに表示](/ja_jp/viewer/3legged/readme)

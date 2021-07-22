@@ -14,4 +14,4 @@
 
 上記のコードのコメントに従って、**GetAppSetting** は単に **Web.Config** ファイルから ID とシークレットを取得します。
 
-次へ:[OSSにファイルをアップロード](/datamanagement/oss/)
+次へ:[OSSにファイルをアップロード](/ja_jp/datamanagement/oss/)

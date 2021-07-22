@@ -35,4 +35,4 @@
         xdebug.remote_autostart=1
 
 
-次へ:[認証](oauth/)
+次へ:[認証](/ja_jp/oauth/)

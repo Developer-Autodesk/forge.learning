@@ -20,4 +20,4 @@ BIM 360 Team、Fusion Team、BIM 360 Docs、A360 Personal、およびOSSデー�
 
 このセクションでは、**ハブ**、**プロジェクト**、**フォルダ**、**項目**(ファイル)およびそれぞれの **バージョン**(ビューアで表示)のリストを返すエンドポイントを作成します。
  
-言語を選択:[Node.js](datamanagement/hubs/nodejs) | [.NET Framework](datamanagement/hubs/net) | [.NET Core](datamanagement/hubs/netcore)
+言語を選択:[Node.js](/ja_jp/datamanagement/hubs/nodejs) | [.NET Framework](/ja_jp/datamanagement/hubs/net) | [.NET Core](/ja_jp/datamanagement/hubs/netcore)

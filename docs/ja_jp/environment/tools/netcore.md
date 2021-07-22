@@ -31,4 +31,4 @@
 
 ![](_media/net/csharp_extension.png)
 
-次へ:[認証](oauth/)
+次へ:[認証](/ja_jp/oauth/)

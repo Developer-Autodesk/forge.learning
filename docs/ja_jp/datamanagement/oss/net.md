@@ -8,7 +8,7 @@
 
 ## OSSController.cs
 
-**OSSController** という名前の .NET WebAPI コントローラを作成し([コントローラの作成方法](environment/setup/net_controller)を参照)、次のコンテンツを追加します。
+**OSSController** という名前の .NET WebAPI コントローラを作成し([コントローラの作成方法](/ja_jp/environment/setup/net_controller)を参照)、次のコンテンツを追加します。
 
 [OSSController.cs](_snippets/viewmodels/net/OSSController.cs ':include :type=code csharp')
 
@@ -16,4 +16,4 @@
 
 !> クライアント(ブラウザ)から Autodesk Forge に直接ファイルをアップロードできますが、クライアントに **書き込み可能** アクセス トークン(**安全ではない**)を指定する必要があります。
 
-次へ:[ファイルを変換する](modelderivative/translate/)
+次へ:[ファイルを変換する](/ja_jp/modelderivative/translate/)

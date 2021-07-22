@@ -4,7 +4,7 @@ OAuth、特にOAuth2は、トークンベースの認証および承認のため
 
 ## 2本足と3本足
 
-[2 本足のワークフロー](https://forge.autodesk.com/en/docs/oauth/v2/tutorials/get-2-legged-token/)([モデルの表示](tutorials/viewmodels)チュートリアルで使用)および [3 本足のワークフロー](https://forge.autodesk.com/en/docs/oauth/v2/tutorials/get-3-legged-token/)([BIM 360 および Fusion モデルの表示](tutorials/viewhubmodels)チュートリアルで使用)の詳細を学習します。
+[2 本足のワークフロー](https://forge.autodesk.com/en/docs/oauth/v2/tutorials/get-2-legged-token/)([モデルの表示](/ja_jp/tutorials/viewmodels)チュートリアルで使用)および [3 本足のワークフロー](https://forge.autodesk.com/en/docs/oauth/v2/tutorials/get-3-legged-token/)([BIM 360 および Fusion モデルの表示](/ja_jp/tutorials/viewhubmodels)チュートリアルで使用)の詳細を学習します。
 
 ## スコープ
 
@@ -31,4 +31,4 @@ OAuth、特にOAuth2は、トークンベースの認証および承認のため
 >
 > モデルを変更する場合は、**「モデルを変更する」チュートリアルを確認してください。**
 
-次へ:[モデルを表示](tutorials/viewmodels)または [BIM 360 と Fusion モデルを表示](tutorials/viewhubmodels)または [モデルを修正](tutorials/modifymodels)
+次へ:[モデルを表示](/ja_jp/tutorials/viewmodels)または [BIM 360 と Fusion モデルを表示](/ja_jp/tutorials/viewhubmodels)または [モデルを修正](/ja_jp/tutorials/modifymodels)

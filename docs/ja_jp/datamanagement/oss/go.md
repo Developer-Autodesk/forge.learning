@@ -25,4 +25,4 @@
 
 !> クライアント(ブラウザ)から Autodesk Forge に直接ファイルをアップロードできますが、クライアントに **書き込み可能** アクセス トークン(**安全ではない**)を指定する必要があります。
 
-次へ:[ファイルを変換する](modelderivative/translate/)
+次へ:[ファイルを変換する](/ja_jp/modelderivative/translate/)

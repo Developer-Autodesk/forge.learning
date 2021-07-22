@@ -32,4 +32,4 @@ set GOPATH=C:\GOPROJECTS
  -`github.com/sqs/goreturns` \- autocomplete function returns for you;    
  -`github.com/tpng/gopkgs` \- ヘルプ のプロパティを指定します。
 
-次へ:[認証](oauth/)
+次へ:[認証](/ja_jp/oauth/)

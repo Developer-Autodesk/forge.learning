@@ -6,4 +6,4 @@ Visual Studioは、コンピュータ上のすべてのブラウザを認識し�
 
 ![](_media/net/start_debug.png) 
 
-次へ:[ビューアの拡張機能](tutorials/extensions)
+次へ:[ビューアの拡張機能](/ja_jp/tutorials/extensions)

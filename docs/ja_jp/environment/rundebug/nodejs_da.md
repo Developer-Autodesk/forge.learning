@@ -6,4 +6,4 @@
 
 ブラウザを開き、[http://localhost:3000](http://localhost:3000) に移動します。
 
-次へ:[Deployment](deployment/)
+次へ:[Deployment](/ja_jp/deployment/)

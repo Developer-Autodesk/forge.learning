@@ -1,6 +1,6 @@
 # 実行とデバッグ(PHP)
 
-**PHP Server** および **PHP Debug** 拡張機能がビジュアル コードにインストールされていることを確認します。インストールされていない場合は、最初に [**ツール**](environment/tools/php)セクションを確認してください。
+**PHP Server** および **PHP Debug** 拡張機能がビジュアル コードにインストールされていることを確認します。インストールされていない場合は、最初に [**ツール**](/ja_jp/environment/tools/php)セクションを確認してください。
 
 ## サーバを開始/停止
 
@@ -30,4 +30,4 @@ VS Code からコマンド パレットを開き、コマンド **Serve Project 
 ![](_media/php/vs_code_debug.gif) 
 
 
-次へ:[ビューアの拡張機能](tutorials/extensions)
+次へ:[ビューアの拡張機能](/ja_jp/tutorials/extensions)

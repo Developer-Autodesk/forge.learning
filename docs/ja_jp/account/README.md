@@ -28,4 +28,4 @@ Autodesk ForgeアカウントがメインIDになります。
 
 あなたは今は行き着いています!
 
-次へ:[ツール](environment/tools/)
+次へ:[ツール](/ja_jp/environment/tools/)

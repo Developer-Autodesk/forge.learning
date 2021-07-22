@@ -94,4 +94,4 @@ Maven 3.0 以降の非推奨の最新バージョンおよびリリース メタ
 
  ![](_media/java/Eclipse_config_class.png)
 
-次へ:[認証](oauth/2legged/)
+次へ:[認証](/ja_jp/oauth/2legged/)

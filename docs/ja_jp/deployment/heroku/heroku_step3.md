@@ -8,7 +8,7 @@ git push heroku master
 
 ## 環境変数を設定する
 
-ローカル開発とプロダクション用にキーとテクニックを持つベストプラクティスです。Forge Developer Portal でアプリにアクセスし、[新しいアプリを作成します](/account/?id=create-an-app)(たとえば、**forge サンプル プロダクション**)。 
+ローカル開発とプロダクション用にキーとテクニックを持つベストプラクティスです。Forge Developer Portal でアプリにアクセスし、[新しいアプリを作成します](/ja_jp/account/?id=create-an-app)(たとえば、**forge サンプル プロダクション**)。 
 
 [Herok Dashboard](https://dashboard.heroku.com/) にサインインします。このダッシュボードにアプリを表示します。**設定**に移動し、次のビデオに示すように、**環境設定変数**を作成します。
 

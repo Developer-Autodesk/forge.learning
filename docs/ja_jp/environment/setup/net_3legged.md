@@ -1,4 +1,4 @@
-[net setup](environment/setup/net.md ':include :type=markdown')
+[net setup](/ja_jp/environment/setup/net.md ':include :type=markdown')
 
 ## Global.asax
 
@@ -8,4 +8,4 @@
 
 プロジェクトの準備ができました。
 
-次へ:[承認](oauth/3legged/)
+次へ:[承認](/ja_jp/oauth/3legged/)

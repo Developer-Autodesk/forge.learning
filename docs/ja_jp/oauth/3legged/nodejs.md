@@ -18,4 +18,4 @@
 
 !> サーバは `https` アクセスのみで指定されており、cookie はクライアントとサーバによってのみ読み取ることができます。 
 
-次へ:[ハブとプロジェクトをリスト](/datamanagement/hubs/readme)
+次へ:[ハブとプロジェクトをリスト](/ja_jp/datamanagement/hubs/readme)

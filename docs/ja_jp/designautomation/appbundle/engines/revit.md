@@ -2,7 +2,7 @@
 
 この手順では、設計の自動化に使用する基本的なRevitプラグインを作成します。詳細については、[My First Revit Plugin](https://knowledge.autodesk.com/support/revit-products/learn-explore/caas/simplecontent/content/my-first-revit-plug-overview.html) チュートリアルをご覧ください。
 
-> バンドル ZIP  を [bundles/](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateRVTParam.zip) (Node.js)または `/forgeSample/wwwroot/bundles` (.NET Core)フォルダおよび [このセクションをスキップ](designautomation/appbundle/common.md)できます
+> バンドル ZIP  を [bundles/](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateRVTParam.zip) (Node.js)または `/forgeSample/wwwroot/bundles` (.NET Core)フォルダおよび [このセクションをスキップ](/ja_jp/designautomation/appbundle/common.md)できます
 
 ## 新規プロジェクトを作成
 
@@ -70,4 +70,4 @@ del /F "$(ProjectDir)..\forgesample\wwwroot\bundles\UpdateRVTParam.zip"
 
 !> ビルド出力に **2 フォルダ以上のファイル ** が表示される場合は、前に戻って **RevitAPI** リファレンスが **Copy Local**:**False** に設定されていることを確認してください。場合によっては、`UpdateRVTParam.bundle/Contents/` フォルダからすべての DLL を削除する必要があります
 
-次へ:[プラグインをアップロード](designautomation/appbundle/common)
+次へ:[プラグインをアップロード](/ja_jp/designautomation/appbundle/common)

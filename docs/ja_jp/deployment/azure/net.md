@@ -2,7 +2,7 @@
 
 ここでは、[Visual Studio 2017](https://visualstudio.microsoft.com/vs/) の Web アプリとして .NET サンプル Forge アプリを Azure App Service に配置する手順について説明します。
 
-このチュートリアルでは、[前の章](tutorials/viewhubmodels)で説明した ViewHubModels サンプルを使用します。[Github リポジトリから完全なサンプルを取得することができます。](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/net)同じ手順は、**モデルの表示**チュートリアル コードでも使用できます。
+このチュートリアルでは、[前の章](/ja_jp/tutorials/viewhubmodels)で説明した ViewHubModels サンプルを使用します。[Github リポジトリから完全なサンプルを取得することができます。](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/net)同じ手順は、**モデルの表示**チュートリアル コードでも使用できます。
 
 開始する前に、[Microsoft Azure Computing Platform & Services](https://signup.azure.com/) にサインインまたはサインアップし、[体験版アカウント](https://azure.microsoft.com/en-us/free/?cdn=disable)を作成します。これには $200 クレジットと 12 ヵ月間無料が含まれます
 
@@ -29,7 +29,7 @@
 - ブラウザのAzureポータルでもアプリを作成できます。ブラウザでアプリケーションを作成する場合は、```Marketplace``` から ```API アプリケーション``` を選択し、Visual Studio で ```配置プロファイル```をパブリッシュまたは作成する場合は、```既存のアプリケーション```を選択します
 
   ![](_media/deployment/azure/app_dashboard.png)
-- ```API アプリ```を作成したら、ローカルの Git リポジトリから配置することができます。詳細については、[ここ](deployment/azure/node)を参照してください
+- ```API アプリ```を作成したら、ローカルの Git リポジトリから配置することができます。詳細については、[ここ](/ja_jp/deployment/azure/node)を参照してください
 
 ### その他の配置オプション
 - [Visual Code](https://azure.microsoft.com/en-us/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)/[Visual Studio](../node)
@@ -47,7 +47,7 @@
 # その他の測定値
 <!--
 This will be live soon (as another version of the tutorial)
-- Adapt this sample app to the [.NET Core Framework](https://docs.microsoft.com/en-us/dotnet/core/) and deploy it as a [Azure Web App](deployment/azure/node)
+- Adapt this sample app to the [.NET Core Framework](https://docs.microsoft.com/en-us/dotnet/core/) and deploy it as a [Azure Web App](/ja_jp/deployment/azure/node)
 -->
 - [Application Insights](https://azure.microsoft.com/en-us/services/monitor/)、[Cost Management](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview)、[Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/18)、[その他の Azure クラウド ツールと機能](https://azure.microsoft.com/en-us/services/)をお試しください
 - [リソース グループ](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)、[サービス プラン](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)、[Azure テンプレート](https://azure.microsoft.com/en-us/resources/templates/)、および [ステージング環境](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots)とは何ですか?

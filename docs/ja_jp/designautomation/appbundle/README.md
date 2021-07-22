@@ -20,4 +20,4 @@
 
 次の手順では、**Engine** を選択します。これは、プラグインを実行する Autodesk アプリケーションです。ローカルでコンパイル、デバッグ、テストを行うには、それぞれのアプリケーションをインストールする必要があります。
 
-エンジンを選択します。[AutoCAD](/designautomation/appbundle/engines/autocad) | [Inventor](/designautomation/appbundle/engines/inventor) | [Revit](/designautomation/appbundle/engines/revit) | [3ds Max](/designautomation/appbundle/engines/max)
+エンジンを選択します。[AutoCAD](/ja_jp/designautomation/appbundle/engines/autocad) | [Inventor](/ja_jp/designautomation/appbundle/engines/inventor) | [Revit](/ja_jp/designautomation/appbundle/engines/revit) | [3ds Max](/ja_jp/designautomation/appbundle/engines/max)

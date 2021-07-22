@@ -2,7 +2,7 @@
 
 メニュー **File** >> **New** >> **Project** に移動します。**C#** language および **Web** プロジェクト タイプを選択し、最後に **ASP.NET Web アプリケーション(.NET Framework)**を選択します。次に、**forgeSample** という名前を付け、**.NET Framework 4.7.2** が選択されていることを確認します。次のダイアログで、**空にする(Empty)**を選択し、**Web API** をチェックします。
 
-!> プロジェクト タイプまたは .NET Framework 4.7.2 が使用できない場合は、[ツール](environment/tools/net)セクションを確認してください。
+!> プロジェクト タイプまたは .NET Framework 4.7.2 が使用できない場合は、[ツール](/ja_jp/environment/tools/net)セクションを確認してください。
 
 Autodesk Forge NuGet パッケージをインストールします。プロジェクト(**ソリューション エクスプローラ**)を右クリックし、**NuGet パッケージの管理** を選択し、**Autodesk Forge ** を参照して、**forgeSample** をインストールします。 
 

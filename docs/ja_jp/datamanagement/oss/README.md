@@ -14,5 +14,5 @@ Forge OSS (オブジェクトストレージサービス)では、ファイル�
 
 !>バケットキーの形式は\[-_.a-z0-9]{3,128}である必要があります
  
-言語を選択:[Node.js](datamanagement/oss/nodejs) | [.NET Framework](datamanagement/oss/net) | [.NET Core](datamanagement/oss/netcore) | [Go](datamanagement/oss/go) | [PHP](datamanagement/oss/php) | [Java](datamanagement/oss/java)
+言語を選択:[Node.js](/ja_jp/datamanagement/oss/nodejs) | [.NET Framework](/ja_jp/datamanagement/oss/net) | [.NET Core](/ja_jp/datamanagement/oss/netcore) | [Go](/ja_jp/datamanagement/oss/go) | [PHP](/ja_jp/datamanagement/oss/php) | [Java](/ja_jp/datamanagement/oss/java)
 

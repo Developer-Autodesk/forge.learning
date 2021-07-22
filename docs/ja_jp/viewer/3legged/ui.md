@@ -66,4 +66,4 @@ v6 (またはそれ以前)を使用していて v7 にアップグレードし�
 
 準備は?アプリを実行する時間が来ました。
 
-次へ:[アプリを実行する](environment/rundebug/3legged)
+次へ:[アプリを実行する](/ja_jp/environment/rundebug/3legged)

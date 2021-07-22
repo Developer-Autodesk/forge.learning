@@ -17,4 +17,4 @@
 すべての関数で `/server/oauth.php` ファイルを再利用して `.getTokenInternal()` を呼び出す方法に注意してください。
 
 
-次へ:[ファイルを変換する](modelderivative/translate/)
+次へ:[ファイルを変換する](/ja_jp/modelderivative/translate/)

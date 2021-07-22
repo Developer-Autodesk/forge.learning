@@ -6,5 +6,5 @@
 
 Forge上のリソースにアクセスするには、認証が必要です。**2 本足の ** トークンは、アプリケーション情報へのアクセスを許可します。
 
-言語を選択:[Node.js](oauth/2legged/nodejs) | [.NET Framework](oauth/2legged/net) | [.NET Core](oauth/2legged/netcore) | [Go](oauth/2legged/go) | [PHP](oauth/2legged/php) | [Java](oauth/2legged/java)
+言語を選択:[Node.js](/ja_jp/oauth/2legged/nodejs) | [.NET Framework](/ja_jp/oauth/2legged/net) | [.NET Core](/ja_jp/oauth/2legged/netcore) | [Go](/ja_jp/oauth/2legged/go) | [PHP](/ja_jp/oauth/2legged/php) | [Java](/ja_jp/oauth/2legged/java)
 

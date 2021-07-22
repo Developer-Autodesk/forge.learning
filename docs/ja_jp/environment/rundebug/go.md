@@ -80,4 +80,4 @@ go get -u github.com/derekparker/delve/cmd/dlv
 
 
 
-次へ:[ビューアの拡張機能](tutorials/extensions)
+次へ:[ビューアの拡張機能](/ja_jp/tutorials/extensions)

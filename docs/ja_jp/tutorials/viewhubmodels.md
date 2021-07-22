@@ -6,11 +6,11 @@
 
 モデルを表示するには、次の手順を実行する必要があります。
 
-1. [サーバを作成します。](environment/setup/3legged) << 初回の開発者?ここから始めるべきです
-2. [承認](oauth/3legged/)
-3. [ハブとプロジェクトをリスト](datamanagement/hubs/readme)
-4. [ユーザ情報](oauth/user/readme)
-5. [ビューアに表示](viewer/3legged/readme)
+1. [サーバを作成します。](/ja_jp/environment/setup/3legged) << 初回の開発者?ここから始めるべきです
+2. [承認](/ja_jp/oauth/3legged/)
+3. [ハブとプロジェクトをリスト](/ja_jp/datamanagement/hubs/readme)
+4. [ユーザ情報](/ja_jp/oauth/user/readme)
+5. [ビューアに表示](/ja_jp/viewer/3legged/readme)
 
 
 使用可能なプロジェクトをダウンロードする場合は、次の場所にアクセスしてください。
@@ -21,4 +21,4 @@
 
 コーディングを開始する準備ができていますか?
 
-次へ:[サーバを作成する](environment/setup/3legged)
+次へ:[サーバを作成する](/ja_jp/environment/setup/3legged)

@@ -6,11 +6,11 @@
 
 モデルを表示するには、次の手順を実行する必要があります。
 
-1. [サーバを作成します。](environment/setup/2legged) << 初回の開発者?ここから始めるべきです
-2. [認証](oauth/2legged/)
-3. [OSSにアップロード](datamanagement/oss/)
-4. [ファイルを変換する](modelderivative/translate/)
-5. [ビューアに表示](viewer/2legged/)
+1. [サーバを作成します。](/ja_jp/environment/setup/2legged) << 初回の開発者?ここから始めるべきです
+2. [認証](/ja_jp/oauth/2legged/)
+3. [OSSにアップロード](/ja_jp/datamanagement/oss/)
+4. [ファイルを変換する](/ja_jp/modelderivative/translate/)
+5. [ビューアに表示](/ja_jp/viewer/2legged/)
 
 
 使用可能なプロジェクトをダウンロードする場合は、次の場所にアクセスしてください。
@@ -24,4 +24,4 @@
 
 コーディングを開始する準備ができていますか?
 
-次へ:[サーバを作成する](environment/setup/2legged)
+次へ:[サーバを作成する](/ja_jp/environment/setup/2legged)

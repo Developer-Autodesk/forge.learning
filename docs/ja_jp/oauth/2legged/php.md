@@ -14,4 +14,4 @@
 
 [oauth.php](_snippets/viewmodels/php/oauth.php ':include :type=code php')
 
-次へ:[OSSにファイルをアップロード](/datamanagement/oss/)
+次へ:[OSSにファイルをアップロード](/ja_jp/datamanagement/oss/)

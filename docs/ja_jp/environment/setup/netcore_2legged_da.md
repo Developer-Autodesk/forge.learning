@@ -24,4 +24,4 @@ Visual Studio 2017 以降が必要です。[このリンク](https://visualstudi
 
 !> **警告**: `ngrok` は、使用中に localhost サーバを Web に公開します。テストが完了したら、必ずオフにしてください。この開発環境の外部では使用しない
 
-次のステップ:[プロジェクトを設定](environment/setup/netcore_da)
+次のステップ:[プロジェクトを設定](/ja_jp/environment/setup/netcore_da)
