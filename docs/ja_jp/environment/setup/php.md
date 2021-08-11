@@ -14,7 +14,7 @@ composer init
 
 ## パッケージをインストール
 
-既定では、PHP プロジェクトは空なので、**composer を使用するパッケージをいくつかインストールする必要があります。**まず、基本的な **PHP** サーバ、**klein**、ルータ処理の **phpdotenv** を使用して、`.env` から `getenv()`、`$_ENV` および `$_SERVER` を自動的にロードします。 span id="9">Autodesk Forge. * Klein の使用法の詳細については、[klein](https://packagist.org/packages/klein/klein) を確認してください。 * phpdotenv の使用法の詳細については、[phpdotenv](https://packagist.org/packages/vlucas/phpdotenv) を確認してください。 * Php SDK の使用法の詳細については、[Autodesk Forge](https://packagist.org/packages/autodesk/forge-client) を確認してください。
+既定では、PHP プロジェクトは空なので、**composer を使用するパッケージをいくつかインストールする必要があります。**まず、基本的な **PHP** サーバ、**クライン**、そして **phpdotenv** を使用して、`.env` から `getenv()`、`$_ENV`、および `$_SERVER` から環境変数をロードします。もちろん、**Autodesk** のチェックをしてください。 ="10">クラインの使用法の詳細を知りたい場合は、[phpdotenv](https://packagist.org/packages/vlucas/phpdotenv) を確認してください。 * Forge PHP SDK の使用法の詳細を知りたい場合は、[Autodesk Forge](https://packagist.org/packages/autodesk/forge-client) を確認してください。
 
 
 !> 一度に 1 つの **composer が ** を必要とします。
@@ -46,7 +46,7 @@ composer require vlucas/phpdotenv
 
 ## index.php
 
-次に、**root** フォルダの下に、`index.php` という名前のファイルを作成します。
+ここで、**root** フォルダの下に、`index.php` という名前のファイルを作成します。
 
 !>注:アプリを開発する場合は、まずAccessToken/DataManagement/ModelDerivativeなどのエンドポイント実装を作成し、次にこのファイルでルートを作成する必要がありますが、概要として、このファイルを最初に導入します。
 
@@ -75,7 +75,7 @@ composer require vlucas/phpdotenv
 
 ## Config.php
 
-**/server/** の下に、`config.php` という名前のファイルを作成し、次の内容を含めます。
+**/server/** の下に、次の内容で `config.php` という名前のファイルを作成します。
 
 [config.php](_snippets/viewmodels/php/config.php ':include :type=code php')
 

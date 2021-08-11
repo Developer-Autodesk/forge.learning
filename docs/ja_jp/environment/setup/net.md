@@ -10,7 +10,7 @@ Autodesk Forge NuGet パッケージをインストールします。プロジ�
 
 ## Web.Config
 
-**Web.Config** ファイルで、Forge Client ID & Secret エントリ(アプリの作成時に取得)を追加します。既定では、`<appSettings></appSettings>` は `<configuration>` の後で、`<system.web>` の前に既に存在している必要があります。次に示すように調整します。
+**Web.Config** ファイルで、Forge Client ID & Secret エントリ(アプリの作成時に取得)を追加します。既定では、`<configuration>`の後と`<system.web>`の前に`<appSettings></appSettings>`が既に存在する必要があります。次に示すように調整します。
 
 ```xml
 ....
@@ -24,7 +24,7 @@ Autodesk Forge NuGet パッケージをインストールします。プロジ�
 ....
 ```
 
-ASP.NETエンジンは、要求の最大サイズを4MBに制限し、アップロードするファイルサイズを30MBに制限します。この制限を最大に変更することができます(または、必要に応じて調整することもできます)。`web.config` ファイルで、`httpRuntime` を検索し、次のように `maxRequestLength` を追加します。
+ASP.NETエンジンは、要求の最大サイズを4MBに制限し、アップロードするファイルサイズを30MBに制限します。この制限を最大に変更することができます(または、必要に応じて調整することもできます)。`web.config`ファイルで、`httpRuntime`を検索して、次のように`maxRequestLength`を追加します。
 
 ```xml
 <!-- httpRuntime targetFramework is already on your file, just add the maxRequestLength -->
@@ -47,7 +47,7 @@ ASP.NETエンジンは、要求の最大サイズを4MBに制限し、アップ�
 
 ## ポート
 
-最後に、アプリを他のすべての **Autodesk Forge** サンプルと一致させるには、ポートを **3000** に変更します。プロジェクト **Properties** に移動し、**Web** タブの下で **プロジェクト URL** を {<span=>http://localhost:3000<<span=} に変更します。
+最後に、アプリを他のすべての **Autodesk Forge** サンプルと一致させるには、ポートを **3000** に変更します。プロジェクト **Properties** (プロジェクト名を右クリック)に移動し、**Web** タブの下で **Project URL** を {<meta=} に変更します。
 
 ![](_media/net/port.png)
 

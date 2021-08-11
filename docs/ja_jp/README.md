@@ -21,7 +21,7 @@ Forgeを使用すると、設計およびエンジニアリング用のデータ
   - [モデルを修正します。](/ja_jp/tutorials/modifymodels)\: クラウド上の DWG、IPT、RVT、MAX ファイルのデータを更新します。
 - [実行とデバッグ](/ja_jp/environment/rundebug/readme.md)\: コードをローカルで実行し、ヒントとコツを表示します。
 - [ビューア エクステンション](/ja_jp/tutorials/extensions.md)\: ビューアにボタンとパネルを追加します。
-- [Deployment](/ja_jp/deployment/):**AWS**、**Azure**、**Herok** および **AppHarbor** の展開を段階的に行います。
+- [配置](/ja_jp/deployment/):**AWS**、**Azure**、**Herok** および **AppHarbor** の展開を段階的に行います。
 
 準備はよろしいですか? 
 

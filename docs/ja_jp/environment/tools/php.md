@@ -16,7 +16,7 @@
 
 > このチュートリアルでは、すべての既定のインストールオプションを使用します。
 
-最後に、Visual Code 用に **PHP Server** および **PHP Debug** の拡張機能をインストールします。 - Visual Code Extension manager (左側、下部アイコン) - Type `PHP` を入力し、`PHP Debug` および `PHP Server` プラグインを選択してインストールします。
+最後に、Visual Code 用に **PHP Server** および **PHP Debug** の拡張機能をインストールします。 - Visual Code Extension manager (左側、下部アイコン) - Type `PHP` and select/install `PHP Debug` & `PHP Server` plugin.
 
 ![](_media/php/vs_code_extension.png) 
 

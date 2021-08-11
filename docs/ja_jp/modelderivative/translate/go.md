@@ -4,7 +4,7 @@
 
 ## modelderivative.go
 
-次の内容で `/server/modelderivative.go` ファイルを作成します。
+次の内容を使用して`/server/modelderivative.go`ファイルを作成します。
 
 [modelderivative.go](_snippets/viewmodels/go/modelderivative.go ':include :type=code go')
 

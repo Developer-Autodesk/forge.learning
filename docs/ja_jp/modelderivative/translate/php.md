@@ -4,7 +4,7 @@
 
 ## ModelDerivative.php
 
-次の内容で `/server/modelderivative.php` ファイルを作成します。
+次の内容を使用して`/server/modelderivative.php`ファイルを作成します。
 
 [modelderivative.php](_snippets/viewmodels/php/modelderivative.php ':include :type=code php')
 

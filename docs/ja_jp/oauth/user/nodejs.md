@@ -4,7 +4,7 @@
 
 ## routes/user.js
 
-`routes/user.js` ファイルを作成し、次の内容をコピーします。
+`routes/user.js`ファイルを作成し、次の内容をコピーします。
 
 [routes/user.js](_snippets/viewhubmodels/node/routes/user.js ':include :type=code javascript')
 

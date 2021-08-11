@@ -1,6 +1,6 @@
 # 新しいプロジェクトを作成(Go)
 
-`$GOPATH` の内部には、ソース コードの `/src` フォルダを作成します。スペースを使用せず、特殊文字を使用しないでください。このチュートリアルのサブフォルダ**forgesample** です。最終結果は **$GOPATH/src/forgesample** である必要があります。
+`$GOPATH`内にソースコード用の`/src`フォルダを作成します。スペースを使用せず、特殊文字を使用しないでください。このチュートリアルのサブフォルダ**forgesample** です。最終結果は **$GOPATH/src/forgesample** である必要があります。
 
 **ビジュアル コード**を開き、メニュー **ファイル**に移動して、**開く**(MacOS)または **開く**(Windows)を選択し、新しく作成されたフォルダを選択します。 
 
@@ -11,7 +11,7 @@
 
 その他の Forge サンプルと整合性を保つため、すべてのサーバ側ファイルに **/server/** フォルダを作成し、すべてのクライアント側ファイルに **/www/** を作成します。
 
-ルート フォルダで、メイン フォルダに `./main.go` を作成します。これはアプリのエントリ ポイントになります。
+ルートフォルダで、メインフォルダに`./main.go`を作成します。これはアプリのエントリポイントになります。
 	
 この時点で、プロジェクトは次のようになります。
 
@@ -39,12 +39,12 @@ set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
 
 ## main.go
 
-以前にルート フォルダに作成した `main.go` に次のように書き込みます。
+以前にルートフォルダに作成した`main.go`に次のように書き込みます。
 
 [main.go](_snippets/viewmodels/go/main.go ':include :type=code go')
 
 このファイルの目的は、Forge資格情報を設定し、サーバを起動することです。    
-プロジェクトのサーバ ファイルを使用するため、インポート `forgesample/server` はフォルダと一致している必要があります。  
+プロジェクトのサーバファイルを使用するため、インポート`forgesample/server`はフォルダと一致する必要があります。  
 また、IDとシークレットを取得してサーバを設定したり、いずれかのサーバが見つからない場合に失敗する方法にも注意してください。
 
 ## server.go
@@ -53,7 +53,7 @@ set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
 
 [server.go](_snippets/viewmodels/go/server.go ':include :type=code go')
 
-このファイルはサーバを準備し、静的ファイル(`html`、`js` など)を提供し、API 要求をルーティングします。
+このファイルはサーバを準備し、静的ファイル(`html`、`js`など)を提供し、API要求をルーティングします。
 
 Go の方法は [forge-api-go-client](https://github.com/apprentice3d/forge-api-go-client) に依存しており、このライブラリを使用するには、ターミナルで呼び出して取得する必要があります。
 
@@ -61,9 +61,9 @@ Go の方法は [forge-api-go-client](https://github.com/apprentice3d/forge-api-
 	go get -u github.com/apprentice3d/forge-api-go-client
 ```
 
-Go はこれを `$GOPATH/src/github.com/apprentice3d/forge-api-go-client` にコピーします。これにより、このプロジェクトと Go で作成された将来のすべてのプロジェクトで使用できるようになります。
+Goはファイルを`$GOPATH/src/github.com/apprentice3d/forge-api-go-client`にコピーします。これにより、このファイルやGoで記述された今後のすべてのプロジェクトで使用できるようになります。
 
-このライブラリは、タスクに適切な範囲を持つトークンを要求するように設計されています。このため、`ForgeService` 構造体があります。
+このライブラリは、タスクに適切な範囲を持つトークンを要求するように設計されています。このため、`ForgeService`構造体があります。
 
 ```go
 // ForgeServices holds reference to all services required in this server

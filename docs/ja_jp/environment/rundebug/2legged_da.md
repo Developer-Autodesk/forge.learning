@@ -4,7 +4,7 @@
 
 ## サンプルを使用する
 
-右上で、**Configure** をクリックして AppBundle と Activity を定義します。これは一度だけ行う必要があります。新しい `width` と `height` を左側のパネルで指定し、`入力ファイル`を選択して、`Start workitem` をクリックします。右側のパネルに結果が表示されます。
+右上で、**Configure** をクリックして AppBundle と Activity を定義します。これは一度だけ行う必要があります。左側のパネルで新しい`width`と`height`を指定し、`input file`を選択して`Start workitem`をクリックします。右側のパネルに結果が表示されます。
 
 [のサンプル ファイルは、](https://github.com/Developer-Autodesk/learn.forge.designautomation/tree/master/sample%20files)こちらにあります。
 
@@ -26,13 +26,13 @@
 
 **3\.環境設定フォームにAppBundleが表示されません**
 
-ZIP バンドルは、それぞれのプラグインをビルドした後、`wwwroot/bundles` にコピーされます。`ビルド後`イベントが正しく定義され、ビルド後に実行されていることを確認してください。
+ZIPバンドルは、対応するプラグインをビルドした後に`wwwroot/bundles`にコピーされます。ビルド後に`Post-build`イベントが正しく定義され、実行されていることを確認します。
 
 **4\.正しいDLLがアップロードされたことを確認する**
 
 正しいDLLが設計オートメーションにアップロードされたことを確認するための簡単な方法は、その日付を確認することです。[この StackOverflow の答えは、リンカーの日付(つまり DLL がコンパイルされた場合)を取得する方法を示しています。この日付は、コードの先頭に表示されます。](https://stackoverflow.com/a/1600990)日付はサーバのタイムゾーンに設定されています。
 
-> プラグインは、サーバ言語に関係なく、`C#` で記述されます。
+> プラグインは、サーバ言語に関係なく`C#`で記述されます。
  
 ```csharp
 LogTrace("DLL {0} compiled on {1}",

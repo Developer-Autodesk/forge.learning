@@ -18,7 +18,7 @@
 
 ## エクステンションをロード
 
-最後に、[基本スケルトン](/ja_jp/viewer/extensions/skeleton?id=loading-the-extension)と同じコードを使用して、拡張子をロードします(もちろん、名前を調整します)。参照する場合は、次の 2 つの変更が必要です。`<script>を **index.html** に追加し、ビューアの作成時に拡張機能を含めます。`
+最後に、[基本スケルトン](/ja_jp/viewer/extensions/skeleton?id=loading-the-extension)と同じコードを使用して、拡張子をロードします(もちろん、名前を調整します)。参照する場合は、次の 2 つの変更が必要です。**index.html** に `<script>` を追加し、ビューアの作成時に拡張機能を含めます。
 
  **/index.html** ファイルを開き、次の行を追加します。
 
@@ -48,7 +48,7 @@ viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer')
 
 ## .onClick関数を実装する
 
-ここで、`` 関数を置き換えて、`.onClick` 関数内のプレースホルダでアクションを実行します。このサンプルでは、選択を分離します。次の内容を、**.js** ファイルの `.onClick` 関数内の拡張子にコピーします。
+ここで、`.onClick`関数内の`Execute an action here`プレースホルダを置き換えます。このサンプルでは、選択を分離します。次の内容を、`.onClick` 関数内の拡張子 **.js ** ファイルにコピーします。
 
 [js/handleselectionextension.js](_snippets/extensions/js/handleselectionextension.2.js ':include :type=code javascript')
 
@@ -64,7 +64,7 @@ viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer')
 
 - **.getSelection()** は、モデルから **dbId** の配列を返し、**.clearSelection()** を返します
 - **.getProperties()** は、コールバックを介して指定された dbId のすべてのプロパティを返す非同期メソッドです。これはビューアで一般的に使用されます。[コールバックの詳細](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
-- **.isolate()** method makes all other elements transparent ("ghosted")
+- **.isolate()** メソッドは、他のすべての要素を透明にします("ghosted")
 
 その他の学習ポイント:
 

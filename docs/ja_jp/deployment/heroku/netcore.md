@@ -4,7 +4,7 @@
 
 Visual Studio用のGithubテンプレートを使用してみましょう: https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-> ビジュアル コードを使用する場合は、`.vscode` (環境変数を持つ `launch.json` のフォルダ)を追加することを検討してください。
+> ビジュアルコードを使用する場合は、`.vscode` (環境変数を持つ`launch.json`のフォルダ)を追加することを検討してください。
 
 [step2](/ja_jp/deployment/heroku/heroku_step2.md ':include :type=markdown')
 

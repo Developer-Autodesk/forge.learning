@@ -16,10 +16,10 @@
 
 **1\.Webポータルでアプリを作成する**
 
-- ```リソース グループ ``` と ```Web アプリ ``` を作成します。
+- ```Resource Group```と ```Web App```
 
   ![](_media/deployment/azure/create_web_app_1.png)
-- ```ランタイム スタック```を ```NodeJs``` に設定し、```作成(Create)```をクリックします
+- ```Runtime Stack```を```NodeJs```に設定して、 ```Create```
 
   ![](_media/deployment/azure/create_web_app_node.png)
 - アプリの作成には時間がかかる場合があります。すべてが完了したら、アプリに移動して設定を確認します
@@ -28,7 +28,7 @@
 
 **2\.Azure CLIを使用してアプリを作成する**
 
-- 次のコマンドを使用して、```リソース グループ ``` および ```Web アプリケーション ``` を作成します。
+- 以下のコマンドを使用して、```Resource Group``` (または既存のものを使用)と```Web App```を作成します。
 
 ```bash
 # login with credentials explicitly or simply use 'azure login' to log in with a browser session or authorisation code
@@ -46,19 +46,19 @@ az webapp create --name <nameofyourapp> --plan myAppServicePlan --resource-group
 
 # アプリを配置する
 
-このチュートリアルでは、```Local Git``` を使用してコードを配置します。これは、WebポータルとCLIを使用して実行できます
+このチュートリアルでは、```Local Git```を使用してコードを配置します。これは、WebポータルとCLIを使用して実行できます
 
 **1\.Webポータルを使用して配置する**
 
-- 配置センターに移動して、配置設定を設定します`````` ![](_media/deployment/azure/deployment_settings_1.png)
+- 配置設定を設定するには、```Deployment Center```に移動します ![](_media/deployment/azure/deployment_settings_1.png)
 
 - ビルドサーバを選択 ![](_media/deployment/azure/deployment_settings_kudu.png)
 
-- 配置ソースを```ローカル git ``` に設定します ![](_media/deployment/azure/deployment_settings_localgit_1.png)
+- 配置ソースの設定先 ```Local Git``` ![](_media/deployment/azure/deployment_settings_localgit_1.png)
 
-- 右側のハイライト表示されたボタンをクリックして Azure CLI を開き、```az webapp deployment user set --user-name $username --password $password``` を実行して、展開資格情報を構成し、結果の Git url を記録します ![](_media/deployment/azure/deployment_settings_azure.png)
+- 右側のハイライト表示されたボタンをクリックしてAzure CLIを開き、```az webapp deployment user set --user-name $username --password $password```を実行して配置資格情報を構成し、結果のGit urlを記録します ![](_media/deployment/azure/deployment_settings_azure.png)
 
-- Forge アプリケーションの資格情報(```FORGE_CLIENT_ID``` および ```FORGE_CLIENT_SECRET```)とコールバック URL (次のパターン ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```)を使用して環境変数を設定します ![](_media/deployment/azure/portalAppSettings.png)
+- Forgeアプリの資格情報(```FORGE_CLIENT_ID```と```FORGE_CLIENT_SECRET```)とコールバックURL (次のパターン```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```)を使用して、環境変数を設定します ![](_media/deployment/azure/portalAppSettings.png)
 
 **2\.CLIを使用した配置**
 

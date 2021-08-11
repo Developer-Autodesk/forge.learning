@@ -1,4 +1,4 @@
-[net setup](/ja_jp/environment/setup/net.md ':include :type=markdown')
+[ネットセットアップ](/ja_jp/environment/setup/net.md ':include :type=markdown')
 
 プロジェクトの準備ができました。
 

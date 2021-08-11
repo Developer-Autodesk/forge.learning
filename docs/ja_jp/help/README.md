@@ -20,6 +20,6 @@
 
 [汎用Forge](https://stackoverflow.com/questions/tagged/autodesk-forge)
 
-このチュートリアルで使用します。[Data Management](https://stackoverflow.com/questions/tagged/autodesk-data-management) | [Model Derivative](https://stackoverflow.com/questions/tagged/autodesk-model-derivative) | [Viewer](https://stackoverflow.com/questions/tagged/autodesk-viewer) | [Design Automation](https://stackoverflow.com/questions/tagged/autodesk-designautomation)
+このチュートリアルで使用します。[データ管理](https://stackoverflow.com/questions/tagged/autodesk-data-management) | [モデル導関数](https://stackoverflow.com/questions/tagged/autodesk-model-derivative) | [ビューア](https://stackoverflow.com/questions/tagged/autodesk-viewer) | [設計の自動化](https://stackoverflow.com/questions/tagged/autodesk-designautomation)
 
 その他のAPI:[Webhooks](https://stackoverflow.com/questions/tagged/autodesk-webhooks) | [BIM 360](https://stackoverflow.com/questions/tagged/autodesk-bim360)

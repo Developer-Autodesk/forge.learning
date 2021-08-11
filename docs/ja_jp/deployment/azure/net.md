@@ -12,24 +12,24 @@
 
 # Azureを作成して配置
 
-- Visual Studioでサンプルプロジェクトを開きます。プロジェクトを右クリックするか、```Build > Publish``` を選択して、```Azure App Service``` へのパブリッシュを開始します ![](_media/deployment/azure/create_web_app_net.png)
+- Visual Studioでサンプルプロジェクトを開きます。プロジェクトを右クリックするか、```Build > Publish```を選択してパブリッシュを開始します ```Azure App Service``` ![](_media/deployment/azure/create_web_app_net.png)
 
 - サインインするか、Azure無償アカウントを作成 ![](_media/deployment/azure/create_web_app_net_2.png) ![](_media/deployment/azure/create_web_app_net_3.png)
 
-- ```Name``` と ```Plan``` を設定します。これに応じて、```Name``` はグローバルに一意である必要があり、以前にコールバック URL で指定された名前と一致する必要があります。これはアプリの URL に入ります。```Create``` をクリックして配置を開始します ![](_media/deployment/azure/create_web_app_net_4.png)
+- ```Name```と```Plan```を設定します。したがって、```Name```はグローバルに一意である必要があり、以前にコールバックURLで指定された名前と一致する必要があることに注意してください。これはアプリのURLに反映されます。配置を開始するには、```Create```をクリックします ![](_media/deployment/azure/create_web_app_net_4.png)
 
 - ビルド出力で配置の詳細を確認してください。また、新しいプロファイルが自動的に作成され、今後このアプリにソリューションを直接配置できるようになり、これらの手順を繰り返す必要がなくなりました ![](_media/deployment/azure/net_app_published_result.png)
 
-- Forge アプリケーションの資格情報(```FORGE_CLIENT_ID``` および ```FORGE_CLIENT_SECRET```)とコールバック URL (次のパターン ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```)を使用して環境変数を設定します ![](_media/deployment/azure/vsAppSettings.png)
+- Forgeアプリの資格情報(```FORGE_CLIENT_ID```と```FORGE_CLIENT_SECRET```)とコールバックURL (次のパターン```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```)を使用して、環境変数を設定します ![](_media/deployment/azure/vsAppSettings.png)
 
-完了```サイト URL ``` をクリックして、アプリケーションの動作を確認します
+完了```Site URL```をクリックして、アプリが動作していることを確認します
 
 # 代替方法
 
-- ブラウザのAzureポータルでもアプリを作成できます。ブラウザでアプリケーションを作成する場合は、```Marketplace``` から ```API アプリケーション``` を選択し、Visual Studio で ```配置プロファイル```をパブリッシュまたは作成する場合は、```既存のアプリケーション```を選択します
+- ブラウザのAzureポータルでもアプリを作成できます。ブラウザでアプリを作成するときは```Marketplace```から```API App```を選択し、Visual Studioで```Deployment Profile```をパブリッシュまたは作成するときは```Existing App```を選択します
 
   ![](_media/deployment/azure/app_dashboard.png)
-- ```API アプリ```を作成したら、ローカルの Git リポジトリから配置することができます。詳細については、[ここ](/ja_jp/deployment/azure/node)を参照してください
+- ```API App``` を作成したら、ローカルの Git リポジトリから配置できます。詳細については、[こちらを参照してください。](/ja_jp/deployment/azure/node)
 
 ### その他の配置オプション
 - [Visual Code](https://azure.microsoft.com/en-us/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)/[Visual Studio](../node)

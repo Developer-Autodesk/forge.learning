@@ -4,7 +4,7 @@
 
 ## routes/modelderivative.js
 
-次の内容で `routes/modelderivative.js` ファイルを作成します。
+次の内容を使用して`routes/modelderivative.js`ファイルを作成します。
 
 [routes/modelderivative.js](_snippets/viewmodels/node/routes/modelderivative.js ':include :type=code javascript')
 

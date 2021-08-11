@@ -10,13 +10,13 @@
 
 ## ツールバーCSS
 
-基本スケルトンと同様に、ツールバー ボタンも **CSS** スタイルを使用します(コードの `.addClass` の呼び出しを参照してください)。**/css/main.css** で、次を追加します。
+基本スケルトンと同様に、ツールバー ボタンも **CSS** スタイルを使用します(コードの `.addClass` の呼び出しを参照)。**/css/main.css** で、次を追加します。
 
 [css/main.css](_snippets/extensions/css/main.3.css ':include :type=code css')
 
 ## エクステンションをロード
 
-最後に、[基本スケルトン](/ja_jp/viewer/extensions/skeleton?id=loading-the-extension)と同じコードを使用して、拡張子をロードします(もちろん、名前を調整します)。参照する場合は、次の 2 つの変更が必要です。`<script>を **index.html** に追加し、ビューアの作成時に拡張機能を含めます。`
+最後に、[基本スケルトン](/ja_jp/viewer/extensions/skeleton?id=loading-the-extension)と同じコードを使用して、拡張子をロードします(もちろん、名前を調整します)。参照する場合は、次の 2 つの変更が必要です。**index.html** に `<script>` を追加し、ビューアの作成時に拡張機能を含めます。
 
 ```html
 <script src="/js/modelsummaryextension.js"></script>
@@ -26,13 +26,13 @@
 viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['ModelSummaryExtension'] });
 ```
 
-> `extensions` がどのように配列であるかに注意してください。複数のextension をロードすることができます。たとえば、前の選択サンプルをロードして、これをロードするには、代わりに `['HandleSelectionExtension', 'ModelSummaryExtension']` を使用します。かっこいいでしょ?
+> `extensions`がどのように配列であるかに注意してください。複数の拡張子をロードすることができます。たとえば、以前の選択サンプルをロードして、これをロードするには、代わりに`['HandleSelectionExtension', 'ModelSummaryExtension']`を使用します。かっこいいでしょ?
 
 この時点で、エクステンションはツールバーアイコンを使用してロードする必要がありますが、何も実行しません。
 
 ## リーフノードを列挙する
 
-ビューアには、カテゴリ(ファミリやパーツ定義など)を含むモデルのすべての要素が含まれているため、リーフノードを列挙する必要があります。これは、モデルの実際のインスタンスを意味します。次の `getAllLeafComponents()` 関数を拡張クラスに追加する必要があります。これは、[このブログ投稿](https://forge.autodesk.com/blog/enumerating-leaf-nodes-viewer)に基づいています。 
+ビューアには、カテゴリ(ファミリやパーツ定義など)を含むモデルのすべての要素が含まれているため、リーフノードを列挙する必要があります。これは、モデルの実際のインスタンスを意味します。次の`getAllLeafComponents()`関数を拡張クラスに追加する必要があります。これは、[このブログ投稿](https://forge.autodesk.com/blog/enumerating-leaf-nodes-viewer)に基づいています。 
 
 [js/modelsummaryextension.js](_snippets/extensions/js/modelsummaryextension.2.js ':include :type=code javascript')
 
@@ -44,11 +44,11 @@ viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer')
 
 ## .onClick関数を実装する
 
-ここで、`Execute a action here ` placeholder inside `onClick` 関数内のプレースホルダを置き換えます。このサンプルでは、まずプロパティパネルを表示し、リーフノードを列挙し、次にリーフノードの特定のプロパティセットを取得し、次に、これらのプロパティのオカレンスを数えて、パネルに結果を表示します。 
+ここで、`onClick`関数内の`Execute an action here`プレースホルダを置き換えます。このサンプルでは、まずプロパティパネルを表示し、リーフノードを列挙し、次にリーフノードの特定のプロパティセットを取得し、次に、これらのプロパティのオカレンスを数えて、パネルに結果を表示します。 
 
-!> 次のコードでは、****モデルに適用されるプロパティ名に`filteredProps` を調整する必要があります。たとえば、**マテリアル ** は大部分のモデルに存在するため、`const filteredProps = ['Material'];` を使用して試すことができます
+!> 下のコードでは、**** をモデルに適用されるプロパティ名に調整する必要があります。たとえば、**材料**は、ほぼすべてのモデルに存在するため、次を試すことができます。 `const filteredProps = ['Material'];`
 
-次の内容を、エクステンションのボタンの `onClick` 関数内のエクステンション **.js** ファイルにコピーします。
+次の内容を、拡張機能のボタンの `onClick` 関数内の拡張子 **.js ** ファイルにコピーします。
 
 [js/modelsummaryextension.js](_snippets/extensions/js/modelsummaryextension.4.js ':include :type=code javascript')
 
@@ -58,7 +58,7 @@ viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer')
 
 ![](_media/javascript/js_dockingpanel.gif)
 
-> 前述のように、モデルに適した **filteredProps** を定義する必要があります。上記のビデオでは、`['Material', 'Design Status', 'Type Name']; ` を使用しました。これは両方のモデルで機能します。
+> 前述のように、モデルに適した **filteredProps** を定義する必要があります。上記のビデオでは、両方のモデルで動作する`['Material', 'Design Status', 'Type Name'];`を使用しました。
 
 主な学習ポイント:
 

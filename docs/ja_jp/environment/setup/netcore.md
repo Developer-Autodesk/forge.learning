@@ -6,20 +6,20 @@
 
 !> プロジェクト タイプまたは .NET Core 3.0 が使用できない場合は、[ツール](/ja_jp/environment/tools/netcore)セクションを確認してください。
 
-Autodesk Forge NuGet パッケージをインストールします。プロジェクト(**ソリューション エクスプローラ**)を右クリックし、**NuGet パッケージの管理** を選択し、**Autodesk.Forge ** を参照して `Autodesk.Forge ` をインストールします。
+Autodesk Forge NuGet パッケージをインストールします。プロジェクト(**ソリューション エクスプローラ**)を右クリックし、**NuGet パッケージの管理** を選択し、**Autodesk.Forge を参照**して **Autodesk.Forge** をインストールします。
 
 ** NuGet パッケージの管理**で最後の手順を繰り返します。次に、`Microsoft.AspNetCore.Mvc.NewtonsoftJson` を検索してインストールし、JSON データを処理します。 
 
 ![](_media/netcore/create_project.gif)
 
-プロジェクトを右クリックして、**プロパティ**に移動し、**デバッグ(Debug)**タブの下の**環境変数(Environment Variables)**セクションを参照してください。`ASPNETCORE_ENVIRONMENT` は既に定義されている必要があるため、次を追加します。
+プロジェクトを右クリックして、**プロパティ**に移動し、**デバッグ** タブの下で、**環境変数** セクションを参照してください。`ASPNETCORE_ENVIRONMENT` は既に定義されている必要があるため、次を追加します。
 
-- `ASPHNETCORE_URLS`: `http://localhost:3000` を使用します。
-- `FORGE_CLIENT_ID`\: ここで ID を使用します
-- `FORGE_CLIENT_SECRET`\: ここで秘密を使用します
-- `FORGE_CALLBACK_URL`\: このサンプルでは、`http://localhost:3000/api/forge/callback/oauth` を使用します。
+- `ASPNETCORE_URLS`:使用 `http://localhost:3000`
+- `FORGE_CLIENT_ID`:ここでidを使用
+- `FORGE_CLIENT_SECRET`:ここで秘密を使用してください
+- `FORGE_CALLBACK_URL`:このサンプルでは、 `http://localhost:3000/api/forge/callback/oauth`
 
-また、デバッグ時にブラウザでアプリを自動的に起動する場合は、**Launch browser** をチェックして、**App URL** を指定することもできます。**アプリケーション URL** フィールドを `http://localhost:3000` に調整します。最後に、信頼できる証明書を設定せずにローカルでアプリケーションを実行するため、** Enable SSL** オプションをオフにします。設定は次のようになります。
+また、デバッグ時にブラウザでアプリを自動的に起動する場合は、**Launch browser** をチェックして、**App URL** を指定することもできます。**App URL** フィールドを `http://localhost:3000` に調整します。最後に、信頼できる証明書を設定せずにローカルでアプリケーションを実行するため、** Enable SSL** オプションをオフにします。設定は次のようになります。
 
 ![](_media/netcore/env_vars.png)
 
@@ -29,7 +29,7 @@ Autodesk Forge NuGet パッケージをインストールします。プロジ�
 using Microsoft.AspNetCore.Mvc;
 ```
 
-次に、`Startup` クラスの内容を次のコードに置き換えて、HTML および JavaScript ファイル用の静的ファイル サーバを初期化します。 
+次に、`Startup`クラスの内容を次のコードに置き換えて、HTMLおよびJavaScriptファイル用の静的ファイルサーバを初期化します。 
 
 ```csharp
 // This method gets called by the runtime. Use this method to add services to the container.

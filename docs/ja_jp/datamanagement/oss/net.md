@@ -12,7 +12,7 @@
 
 [OSSController.cs](_snippets/viewmodels/net/OSSController.cs ':include :type=code csharp')
 
-[jsTree](https://www.jstree.com/) をサポートする予定なので、**GetOSSAsync** は `id=#` および `id=bucketKey` として渡されたバケット キーのオブジェクトの場合は、バケットを返す必要があります。**CreateBucket** は、バケットを作成するために **bucketKey** パラメータを必要とします。最後に、**UploadObject** はクライアント(ブラウザ)からファイルを受け取り、**/App_Data/** に一時的に保存してから、それぞれのバケットにアップロードします。
+[jsTree](https://www.jstree.com/) をサポートする予定なので、**GetOSSAsync** は `id` querystring パラメータを返し、`id=#` と `id=bucketKey` として渡されたバケット キーのオブジェクトを返す必要があります。**CreateBucket** は、バケットを作成するために **bucketKey** パラメータを必要とします。最後に、**UploadObject** はクライアント(ブラウザ)からファイルを受け取り、**/App_Data/** に一時的に保存してから、それぞれのバケットにアップロードします。
 
 !> クライアント(ブラウザ)から Autodesk Forge に直接ファイルをアップロードできますが、クライアントに **書き込み可能** アクセス トークン(**安全ではない**)を指定する必要があります。
 

@@ -2,7 +2,7 @@
 
 **アクティビティ**
 
-次に、新しいアクティビティを作成して既存のアクティビティを取得するためのエンドポイントを記述し、最後の行 `module.exports = router;` の前に、次のコードを `DesignAutomation.js` ファイルにコピーします。
+ここで、新しいアクティビティを作成して既存のアクティビティを取得するためのエンドポイントを記述し、次のコードを`DesignAutomation.js`ファイルにコピーしてから、最後の行`module.exports = router;`を開きます。
 
 [routes/DesignAutomation.js](_snippets/modifymodels/node/routes/DesignAutomation.3.js ':include :type=code javascript')
 

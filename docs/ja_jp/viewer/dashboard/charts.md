@@ -2,7 +2,7 @@
 
 チャートを作成するためのライブラリは多数あります。このサンプルでは、[Chart.js](https://www.chartjs.org/) を使用します。これは非常にシンプルですが、使いやすく、ビジュアルにも優れています。
 
-**index.html** で、`<script> ` および `<link> ` スタイルシートを [Chart.js CDN](https://cdnjs.com/libraries/Chart.js) ライブラリ リファレンスの下に追加します。これは `<head>` の内側に入ります 
+**index.html** で、` および `<link>` スタイルシートを[Chart.js CDN](https://cdnjs.com/libraries/Chart.js) ライブラリ リファレンスの下に追加します。これは、 `<head>` 
 
 ```html
 <!--Chart JS  packages-->
@@ -12,24 +12,24 @@
 
 ## 棒グラフ
 
-`/js/dashboard/` フォルダの下に、次の内容を含む新しい **PanelBarChart.js** ファイルを作成します。
+`/js/dashboard/` フォルダで、次の内容を含む新しい **PanelBarChart.js** ファイルが作成されます。
 
 [js/PanelBarChart.js](_snippets/dashboard/js/PanelBarChart.js ':include :type=code javascript')
 
 ## 円グラフ
 
-`/js/dashboard/` フォルダの下に、次の内容を含む新しい **PanelPieChart.js** ファイルを作成します。
+`/js/dashboard/` フォルダで、次の内容を含む新しい **PanelPieChart.js** ファイルが作成されます。
 
 [js/PanelPieChart.js](_snippets/dashboard/js/PanelPieChart.js ':include :type=code javascript')
 
-**index.html**で、これらの新しいファイルに 2 つの `<script>` を追加します。これは、`<head>` の内部で、**DashboardPanel.js** の後になります。
+**index.html**で、これらの新しいファイルに 2 つの `<script>` を追加します。これは、`<head>` 内で、**DashboardPanel.js** の後に続く必要があります。
 
 ```html
 <script src="js/Dashboard/PanelBarChart.js"></script>
 <script src="js/Dashboard/PanelPieChart.js"></script>
 ```
 
-ダッシュボードを実行する準備ができました。ブラウザを起動し、`http://localhost3000` に移動してモデルを選択します。
+ダッシュボードを実行する準備ができました。ブラウザを起動し、`http://localhost3000`に移動してモデルを選択します。
 
 # トラブルシューティング
 
@@ -37,7 +37,7 @@
 
 ![](_media/javascript/js_dashboard_propertymissing.png)
 
-この問題を解決するには、`Dashboard.js` (`/js/dashboard/` フォルダの下)に移動し、7 行目と 8 行目でプロパティ名を調整します。
+これを修正するには、`Dashboard.js` (`/js/dashboard/`フォルダの下)に移動し、7行目と8行目でプロパティ名を調整します。
 
 ```javascript
 new BarChart('Material'),
@@ -50,4 +50,4 @@ new PieChart('Material')
 
 > ブラウザコンソールは、Web開発とデバッグに不可欠です。[Chrome](https://developers.google.com/web/tools/chrome-devtools/console/)、[Edge](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console)、[Firefox](https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console) および [Safari](https://developer.apple.com/safari/tools/) に使用する方法について説明します。
 
-次へ:[Deployment](/ja_jp/deployment/)
+次へ:[配置](/ja_jp/deployment/)

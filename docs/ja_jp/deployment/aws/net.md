@@ -10,7 +10,7 @@ AWS Toolkit for Visual Studioは、Microsoft Windows上で実行されるMicroso
 
 ## プロジェクトを準備する
 
-Elastic Beanstalk は `appSettings` をオーバーライドできないため、パブリッシュする前に削除する必要があります。実際には、`web.release.config` ファイルに次のコードを追加すると非常に簡単です。次のセクション、**段階的**には、これを説明するビデオが含まれています。
+Elastic Beanstalkは`appSettings`をオーバーライドできないため、パブリッシュする前に削除する必要があります。実際には、`web.release.config`ファイルに次のコードを追加すると非常に簡単です。次のセクション、**段階的**には、これを説明するビデオが含まれています。
 
 ```xml
 <appSettings>
@@ -23,4 +23,4 @@ Elastic Beanstalk は `appSettings` をオーバーライドできないため�
 
 これは、AWS Elastic Beanstalkにデプロイする方法に関する7分のビデオです。
 
-[Video](https://www.youtube.com/embed/49X4ROI6PWs ':include :type=iframe width=100% height=400px')
+[ビデオ](https://www.youtube.com/embed/49X4ROI6PWs ':include :type=iframe width=100% height=400px')

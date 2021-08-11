@@ -2,7 +2,7 @@
 
 この手順は、基本的なInventorプラグインを作成する場合に役立ちます。詳細については、[My First Inventor Plugin](https://knowledge.autodesk.com/support/inventor-products/learn-explore/caas/simplecontent/content/my-first-inventor-plug-overview.html) チュートリアルをご覧ください。
 
-> バンドル ZIP  を [bundles/](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateIPTParam.zip) (Node.js)または `/forgeSample/wwwroot/bundles` (.NET Core)フォルダおよび [このセクションをスキップ](/ja_jp/designautomation/appbundle/common.md)できます
+> バンドル ZIP  を [`bundles/` (Node.js) または `/forgeSample/wwwroot/bundles` (.NET Core) フォルダに [このセクションをスキップ](/ja_jp/designautomation/appbundle/common.md)できます
 
 ## 前提条件
 
@@ -20,7 +20,7 @@
 
 ## SampleAutomation.cs
 
-`SampleAutomation.cs` ファイルを開き、次の内容をコピーします。ここで、`Run` メソッドでパラメータが更新されます。
+`SampleAutomation.cs`ファイルを開き、次の内容をコピーします。ここで、`Run`メソッドの下でパラメータが更新されます。
 
 [SampleAutomation.cs](_snippets/modifymodels/engines/inventor/SampleAutomation.cs ':include :type=code csharp')
 
@@ -41,7 +41,7 @@ del /F "$(ProjectDir)..\forgesample\wwwroot\bundles\UpdateIPTParam.zip"
 
 ![](_media/designautomation/inventor/post_build.png)
 
-`UpdateIPTParam` プロジェクトを構築すると、**出力(Output)**ウィンドウにこのような表示が表示されます。2つのフォルダと複数のファイルが圧縮されていることに注意してください。zipファイルは、/wwwroot/bundlesフォルダに直接作成されます。これは、素晴らしいパフォーマンスを実現していることを意味します。
+`UpdateIPTParam` プロジェクトを構築すると、**出力(Output)**ウィンドウに次のように表示されます。2つのフォルダと複数のファイルが圧縮されていることに注意してください。zipファイルは、/wwwroot/bundlesフォルダに直接作成されます。これは、素晴らしいパフォーマンスを実現していることを意味します。
 
 ![](_media/designautomation/inventor/build_output.png)
 

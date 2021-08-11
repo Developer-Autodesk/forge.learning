@@ -1,6 +1,6 @@
 # アクティビティを定義する(.NET Core)
 
-次のメソッドを `DesignAutomationController` クラスに追加する必要があります。
+次のメソッドを`DesignAutomationController`クラスに追加する必要があります。
 
 **1\.EngineAttributes**
 
@@ -16,7 +16,7 @@
 
 **3\.GetDefinedActivities**
 
-また、定義されたすべてのアクティビティを返すメソッドも必要になります。ユーザが定義した名前のみを返します(ニック名として `Forge Client Id` を使用し、プリフィックスとして表示されます)。
+また、定義されたすべてのアクティビティを返すメソッドも必要になります。ユーザが定義した名前のみを返します(ニック名として`Forge Client Id`を使用します。この名前はプリフィックスとして表示されます)。
 
 [DesignAutomationController.cs](_snippets/modifymodels/netcore/DesignAutomationController.7.cs ':include :type=code csharp')
 

@@ -30,5 +30,5 @@
   - [レイアウトを調整](/ja_jp/viewer/dashboard/layout)
   - [データを準備](/ja_jp/viewer/dashboard/panelbasics)
   - [チャートを追加する](/ja_jp/viewer/dashboard/charts)
-- [Deployment](/ja_jp/deployment/)
+- [配置](/ja_jp/deployment/)
 - [サポートとオンラインリソース](/ja_jp/help/)

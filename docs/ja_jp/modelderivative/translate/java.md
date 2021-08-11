@@ -4,7 +4,7 @@
 
 ## modelderivative.java
 
-`/src/main/java/modelderivative.java` という名前の新しい Java クラスを次の内容で作成します。 
+次のコンテンツを使用して、`/src/main/java/modelderivative.java`という名前の新しいJavaクラスを作成します。 
 
 [modelderivative.java](_snippets/viewmodels/java/modelderivative.java ':include :type=code java')
 

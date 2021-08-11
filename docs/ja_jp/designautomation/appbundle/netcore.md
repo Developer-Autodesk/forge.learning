@@ -2,15 +2,15 @@
 
 ## DesignAutomationController.cs
 
-**Controllers** フォルダの下に、次の内容で `DesignAutomationController.cs` を作成します。これは単なるクラスで、後でエンドポイントを定義しますが、最後に `DesignAutomationHub` を指定します。これにより、[SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-3.1) を介してクライアントに通知をプッシュすることができます。
+**Controllers** フォルダの下に、次の内容で `DesignAutomationController.cs` を作成します。これは単なるクラスで、後でエンドポイントを定義しますが、最後の `DesignAutomationHub` に注意してください。これにより、[SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-3.1) を介してクライアントに通知をプッシュすることができます。
 
 [DesignAutomationController.cs](_snippets/modifymodels/netcore/DesignAutomationController.1.cs ':include :type=code csharp')
 
-このクラスにいくつかのエンドポイントを追加します。次のメソッドは、`DesignAutomationController` クラス内でコピーする必要があります。
+このクラスにいくつかのエンドポイントを追加します。次のメソッドは、`DesignAutomationController`クラス内でコピーする必要があります。
 
 **1\.GetLocalBundles**
 
-`bundles` フォルダを見て、.ZIP ファイルのリストを返します。
+`bundles`フォルダを見て、.ZIPファイルのリストを返します。
 
 [DesignAutomationController.cs](_snippets/modifymodels/netcore/DesignAutomationController.2.cs ':include :type=code csharp')
 
@@ -26,7 +26,7 @@
 
 [DesignAutomationController.cs](_snippets/modifymodels/netcore/DesignAutomationController.4.cs ':include :type=code csharp')
 
-`DesignAutomationHub` クラスが(このコントローラ内で)定義されたので、`Startup.cs` を開き、`Configure` メソッド内で次の行を追加します。
+`DesignAutomationHub`クラスが(このコントローラ内で)定義されたので、`Startup.cs`を開き、`Configure`メソッド内で次の行を追加します。
 
 ```csharp
 app.UseRouting();

@@ -8,7 +8,7 @@
 
 ![](_media/java/eclipse_create_project.gif)
 
-!> 「Java Build Path index.jsp `/forgesample/src/main/webapp` にスーパークラス「javax.servlet.http.HttpServlet」が見つかりませんでした。ターゲット ランタイムに Apache Tomcat を追加してください。プロジェクトのプロパティに移動し、次に示すようにTargeted Runtimesに移動して、チェックボックスをオンにします。
+!>エラー「スーパークラス"javax.servlet.http.HttpServlet"がJava Build Path index.jsp `/forgesample/src/main/webapp`で見つからなかった」が表示された場合は、Apache Tomcatをターゲットのランタイムに追加してください。プロジェクトのプロパティに移動し、次に示すようにTargeted Runtimesに移動して、チェックボックスをオンにします。
 
 ![](_media/java/eclipse_HttpServlet.png)
 
@@ -32,7 +32,7 @@ Eclipseは、Hello World!を示すローカルページをIDEで実行します�
 index.jsp が実行中であることを確認するには、**src/main/webapp/index.jsp** に移動し、テキストを Hello World! から Hello Forge! に変更します。
 
 ## 既定のホストURLを変更
-上記の手順では、`/forgesample` からファイルを提供するように Java サーバを設定しているため、既定のホストの URL は http://localhost:3000/forgesample/ です。HTTPエンドポイントを構築する手順では、接続URLはhttp://localhost:3000/api/forge/oauth/tokenやhttp://localhost:3000/api/forge/oss/bucketsなどの形式にマッピングされます。既定のホストURLはhttp://localhost:3000に更新する必要があります。
+上記の手順では、`/forgesample`からファイルを提供するようにJavaサーバが設定されているため、既定のホストURLはhttp://localhost:3000/forgesample/です。HTTPエンドポイントを構築する手順では、接続URLはhttp://localhost:3000/api/forge/oauth/tokenやhttp://localhost:3000/api/forge/oss/bucketsなどの形式にマッピングされます。既定のホストURLはhttp://localhost:3000に更新する必要があります。
 
 そこで、Eclipse Webモジュール内のパスを何も設定せずに、URL(ルート)内のパスコンポーネントを持たないプロジェクトにアクセスできるように、パスを設定して修正します。Tomcat サーバーのページを探し、ページの左下にある **Modules** タブをクリックします。**Web モジュール**のリストで、forgesample を選択します。次に、__編集 __ をクリックします。ポップアップダイアログで、パスを「/」のみに変更します。\[OK]をクリックして、更新を保存します。
 
@@ -82,7 +82,7 @@ Maven 3.0 以降の非推奨の最新バージョンおよびリリース メタ
 
 ![](_media/java/Eclipse_maven_java_class.png)
 
-次の内容をコピーして `config.java` ファイルに貼り付けます。
+次の内容をコピーして`config.java`ファイルに貼り付けます。
 
 [config.java](_snippets/viewmodels/java/config.java ':include :type=code java')
 

@@ -8,13 +8,13 @@
 
 ## OSS.php
 
-次の内容で `/server/oss.php` ファイルを作成します。
+次の内容を使用して`/server/oss.php`ファイルを作成します。
 
 [oss.php](_snippets/viewmodels/php/oss.php ':include :type=code php')
 
-[jsTree](https://www.jstree.com/) をサポートする予定なので、**GET oss/buckets** は `id` querystring パラメータを返し、`id=#` および `id=bucketKey` として渡されたバケット キーのオブジェクトを返す必要があります。アップロードのエンドポイントで、アップロードに問題が発生しました。後で確認します。
+[jsTree](https://www.jstree.com/) をサポートする予定なので、**GET oss/buckets** は `id` querystring パラメータを返し、`id=#` と指定された bucketKey のオブジェクトが `id=bucketKey` として渡された場合にバケットを返す必要があります。アップロードのエンドポイントで、アップロードに問題が発生しました。後で確認します。
 
-すべての関数で `/server/oauth.php` ファイルを再利用して `.getTokenInternal()` を呼び出す方法に注意してください。
+すべての関数で`/server/oauth.php`ファイルを再利用して`.getTokenInternal()`を呼び出す方法に注意してください。
 
 
 次へ:[ファイルを変換する](/ja_jp/modelderivative/translate/)

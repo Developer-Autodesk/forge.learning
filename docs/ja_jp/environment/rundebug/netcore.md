@@ -6,4 +6,4 @@ Visual Studioで作成した.NET Core ASP.NETプロジェクトは空である�
 
 ![](_media/net/start_debug.png)
 
-次へ:[Deployment](/ja_jp/deployment/)
+次へ:[配置](/ja_jp/deployment/)

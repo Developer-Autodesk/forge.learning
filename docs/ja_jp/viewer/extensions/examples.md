@@ -19,4 +19,4 @@
 
 - [カスタム プロパティ](https://forge.autodesk.com/blog/custom-properties-viewer-net-lambda-dynamodb)\: データベース(AWS DynamoDB)にカスタム プロパティを保存し、REST エンドポイントを介して提供する .NET WebAPI コードを使用します。 
 
-次へ:[Deployment](/ja_jp/deployment/)
+次へ:[配置](/ja_jp/deployment/)

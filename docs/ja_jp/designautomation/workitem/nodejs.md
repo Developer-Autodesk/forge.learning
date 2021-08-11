@@ -1,10 +1,10 @@
 # Workitemを実行(Node.js)
 
-次の api は、最後の行 `module.exports = router;` の前に `DesignAutomation` js ファイルに追加する必要があります。
+次のapiは、最後の行の前に`DesignAutomation` jsファイルに追加する必要があります `module.exports = router;`
 
 **1\.StartWorkitem**
 
-ここで、設計の自動化を実際に開始します。このエンドポイントは、入力ファイルをOSSバケットにアップロードし、出力を同じバケットに保存するように定義します。ファイルを識別しやすくするために、入力と出力の両方で元のファイル名が同じになりますが、接尾辞(`input` または `output`)にタイム スタンプが付加されます。 
+ここで、設計の自動化を実際に開始します。このエンドポイントは、入力ファイルをOSSバケットにアップロードし、出力を同じバケットに保存するように定義します。ファイルを識別しやすくするために、入力と出力の両方で元のファイル名が同じになりますが、接尾辞(`input`または`output`)とタイムスタンプが付けられます。 
 
 [routes/DesignAutomation.js](_snippets/modifymodels/node/routes/DesignAutomation.4.js ':include :type=code javascript')
 

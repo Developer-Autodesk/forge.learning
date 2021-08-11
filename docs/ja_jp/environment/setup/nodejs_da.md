@@ -31,7 +31,7 @@ npm install socket.io --save
 
 > `--save` パラメータは、モジュールが依存関係として **package.json** ファイルに含まれる必要があることを示します。
 
-最後に **package.json** を開き、`"scripts"` 内で `"start": "node start.js"、` 行を追加します。これで、フォルダに **node_modules** フォルダが作成され、**package.json** は次のようになります。
+最後に **package.json** を開き、`"scripts"` 内で `"start": "node start.js",` 行を追加します。これで、フォルダに **node_modules** フォルダが作成され、**package.json** は次のようになります。
 
 [package.json](_snippets/modifymodels/node/package.json ':include :type=code json')
 
@@ -59,7 +59,7 @@ npm install socket.io --save
 
 ## start.js
 
-このファイルは、**express** サーバを起動します。ルート フォルダで、次のファイルを使用して `start.js` ファイルを作成します。
+このファイルは、**express** サーバを起動します。ルートフォルダで、次のファイルを使用して`start.js`ファイルを作成します。
 
 !> ファイル名は、**Herok** のような一部の配置では大文字と小文字が区別されます。このチュートリアルでは、小文字を使用します。
 
@@ -67,19 +67,19 @@ npm install socket.io --save
 
 ## server.js
 
-このファイルは静的ファイル(`html` など)を提供し、API 要求をルーティングします。ルート フォルダで、`server.js` という名前のファイルを作成し、次の内容を指定します。
+このファイルは静的ファイル(`html`など)を提供し、API要求をルーティングします。ルートフォルダで、`server.js`という名前のファイルを次の内容で作成します。
 
 [server.js](_snippets/modifymodels/node/server.js ':include :type=code javascript')
 
 ## socket.io.js
 
-ルート フォルダで、`socket.io.js` という名前のファイルを作成し、次の内容を指定します。
+ルートフォルダで、`socket.io.js`という名前のファイルを次の内容で作成します。
 
 [socket.io.js](_snippets/modifymodels/node/socket.io.js ':include :type=code javascript')
 
 ## config.js
 
-ルート フォルダで、`config.js` という名前のファイルを作成し、次の内容を指定します。
+ルートフォルダで、`config.js`という名前のファイルを次の内容で作成します。
 
 [config.js](_snippets/modifymodels/node/config.js ':include :type=code javascript')
 
@@ -87,7 +87,7 @@ npm install socket.io --save
 
 ## routes/common/oauth.js
 
-次に、`routes` フォルダに `common` サブフォルダを作成し、Forge から実際にアクセス トークンを要求する `routes/common/oauth.js` ファイルを準備します。このチュートリアルの他の部分では、この設定が再利用されます。
+次に、`routes`フォルダに`common`サブフォルダを作成し、Forgeから実際にアクセストークンを要求する`routes/common/oauth.js`ファイルを準備します。このチュートリアルの他の部分では、この設定が再利用されます。
 
 [routes/common/oauth.js](_snippets/modifymodels/node/routes/common/oauth.js ':include :type=code javascript')
 

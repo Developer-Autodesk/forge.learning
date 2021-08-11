@@ -10,16 +10,16 @@
 
 ## oss.go
 
-`/server/oss.go` ファイルを作成します。このファイルは最初の 2 つのフィーチャを処理し、次の内容を含める必要があります。
+最初の2つのフィーチャを処理し、次の内容を含める`/server/oss.go`ファイルを作成します。
 
 [oss.go](_snippets/viewmodels/go/oss.go ':include :type=code go')
 
-フロントエンドで [jsTree](https://www.jstree.com/) をサポートする予定です。したがって、**GET oss/buckets** は、`id` クエリー文字列パラメータのハンドルを返し、`id=#` および `id=bucketKey` として渡された指定の bucketKey のオブジェクトを返す必要があります。
+フロントエンドで [jsTree](https://www.jstree.com/) をサポートする予定です。したがって、**GET oss/buckets** は、`id` querystring パラメータのハンドルを返し、`id=#` および `id=bucketKey` として渡された指定の bucketKey のオブジェクトを返す必要があります。
 
 
 ## uploader.go
 
-次の内容で `/server/uploader.go` ファイルを作成します。
+次の内容を使用して`/server/uploader.go`ファイルを作成します。
 
 [uploader.go](_snippets/viewmodels/go/uploader.go ':include :type=code go')
 

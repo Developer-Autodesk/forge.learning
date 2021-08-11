@@ -8,7 +8,7 @@ VS Code からコマンド パレットを開き、コマンド **Serve Project 
 
 ![](_media/php/vs_code_debug.png) 
 
-ブラウザを開き、`http://localhost:3000` に移動します。
+ブラウザを開いて次の場所に移動します: `http://localhost:3000`
 
 
 ## デバッグ

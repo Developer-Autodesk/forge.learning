@@ -18,7 +18,7 @@
 - [Node.js](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/nodejs)
 - [.NET Framework](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/net)
 - [.NET Core](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/netcore)
-- [Go](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/go)
+- [移動](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/go)
 - [PHP](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/php)
 - [Java](https://github.com/Autodesk-Forge/learn.forge.viewmodels/tree/java)
 

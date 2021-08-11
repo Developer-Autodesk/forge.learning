@@ -6,15 +6,15 @@
 
 BIM 360 Team、Fusion Team、BIM 360 Docs、A360 Personal、およびOSSデータにナビゲートしてアクセスするには、次の用語に精通している必要があります。
 
-- `ハブ`\: BIM 360 Team ハブ、Fusion Team ハブ、BIM 360 Docs アカウント、または A360 Personal ハブ
-- `プロジェクト`\: BIM 360 Team、Fusion Team、BIM 360 Docs、または A360 Personal プロジェクト
-- `folders`\: プロジェクト内の項目の論理組織
-- `items`\: dwg、pdf、Fusion の設計や図面など、1 つまたは複数のバージョンのファイルです
-- `versions`\: アイテムの特定の状態。ファイルの特定のバージョンに類似
-- `buckets`\: グローバルに一意な名前を持つオブジェクトのコンテナ
-- `objects`\: URN またはキーで識別され、特定のバケットに格納されているバイナリ データ
+- `hubs`: BIM 360 Teamハブ、Fusion Teamハブ、BIM 360 Docsアカウント、またはA360パーソナルハブ
+- `projects`: BIM 360 Team、Fusion Team、BIM 360 Docs、またはA360パーソナルプロジェクト
+- `folders`:プロジェクト内の項目の論理組織
+- `items`: dwg、pdf、Fusionの設計や図面など、1つまたは複数のバージョンのファイル
+- `versions`:アイテムの特定の状態。ファイルの特定のバージョンに類似
+- `buckets`:グローバルに一意の名前を持つオブジェクトのコンテナ
+- `objects`:特定のバケットに格納されているURNまたはキーで識別されるバイナリデータ
 
-> 各 **BIM 360 Docs** アカウントは、現在のユーザがアクセスできる 1 つのハブになります。これらのハブを識別するには、`attribute.extension.type` を **hub:autodesk.bim360:Account** にする必要があります。または、**id** の`b.接頭辞をチェックします。` 
+> 各 **BIM 360 Docs** アカウントは、現在のユーザがアクセスできる 1 つのハブになります。これらのハブを識別するには、`attribute.extension.type` が **hub:autodesk.bim360:Account** である必要があります。または、**id** の `b.` 接頭辞を確認します。 
 
 ![](_media/datamanagement/hub_extension_types.png)
 

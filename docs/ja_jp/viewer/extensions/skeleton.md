@@ -1,22 +1,22 @@
 # 延長スケルトン
 
-チュートリアルのこの手順では、ツールバー ボタンを使用して拡張機能の基本スケルトンについて説明します。このスケルトンにより、`.onClick` 関数内のコードがトリガされます。実際のサンプルの[Handling Selection](/ja_jp/viewer/extensions/selection) に進むことができます。
+このチュートリアルの手順では、`.onClick`関数内でコードをトリガするツールバーボタンを持つ拡張機能の基本スケルトンについて説明します。実際のサンプルの[Handling Selection](/ja_jp/viewer/extensions/selection) に進むことができます。
 
 ## 延長を作成する
 
-それでは、各拡張子は JavaScript ファイルで、少なくとも `.load` 関数と `.unload` 関数を実装する必要があります。UI フォルダ **/js/myawesomeextension.js** にファイルを作成し、次の内容をコピーします。 
+まず、各拡張子はJavaScriptファイルで、少なくとも`.load`関数と`.unload`関数を実装する必要があります。UI フォルダ **/js/myawesomeextension.js** にファイルを作成し、次の内容をコピーします。 
 
 [js/myawesomeextension.js](_snippets/extensions/js/myawesomeextension.js ':include :type=code javascript')
 
-!> 上記のコードには、`` コメントでアクションを実行するプレースホルダが含まれています。このアクションはカスタム コードで置き換える必要があります。
+!>上記のコードには`Execute an action here`コメントを持つプレースホルダが含まれています。このコメントはカスタムコードで置き換える必要があります。
 
 ## ツールバーCSS
 
-ツールバー ボタンは、**CSS** スタイルを使用します(コードの `.addClass` の呼び出しを参照してください)。**/css/main.css** で、次を追加します。
+ツールバー ボタンは、**CSS** スタイルを使用します(コードの `.addClass` の呼び出しを参照)。**/css/main.css** で、次を追加します。
 
 [css/main.css](_snippets/extensions/css/main.1.css ':include :type=code css')
 
-!> `background-image` URL は、プロジェクトの既存のファイルに合わせて調整する必要があります。ビューアは24ピクセルのイメージを使用します。
+!> `background-image` URLは、プロジェクトの既存のファイルに合わせて調整する必要があります。ビューアは24ピクセルのイメージを使用します。
 
 ## エクステンションをロード
 
@@ -44,7 +44,7 @@ viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer')
 viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['MyAwesomeExtension'] });
 ```
 
-この時点で、エクステンションがロードされ、ツールバー ボタンが表示されますが、何も実行されません(`.onClick` 関数にプレースホルダ コメントのみが存在することに注意してください)。これは、拡張機能を作成するために使用できる基本スケルトンです。 
+この時点で、拡張機能がロードされ、ツールバーボタンが表示されますが、何も実行されません(`.onClick`関数にプレースホルダのコメントのみがあることに注意してください)。これは、拡張機能を作成するために使用できる基本スケルトンです。 
 
 !>独自の拡張子を作成する場合は、名前を変更してください。名前は一意である必要があります。 
 

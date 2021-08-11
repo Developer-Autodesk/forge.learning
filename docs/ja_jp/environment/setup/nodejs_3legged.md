@@ -26,7 +26,7 @@ npm install forge-apis --save
 
 > `--save` パラメータは、モジュールが依存関係として **package.json** ファイルに含まれる必要があることを示します。
 
-最後に **package.json** を開き、`"scripts"` 内で `"start": "node start.js"、` 行を追加します。これで、フォルダに **node_modules** フォルダが作成され、**package.json** は次のようになります。
+最後に **package.json** を開き、`"scripts"` 内で `"start": "node start.js",` 行を追加します。これで、フォルダに **node_modules** フォルダが作成され、**package.json** は次のようになります。
 
 [package.json](_snippets/viewhubmodels/node/package.json ':include :type=code json')
 
@@ -56,17 +56,17 @@ npm install forge-apis --save
 
 ## start.js
 
-ルート フォルダで、次のファイルを使用して `start.js` ファイルを作成します。
+ルートフォルダで、次のファイルを使用して`start.js`ファイルを作成します。
 
 !> ファイル名は、**Herok** のような一部の配置では大文字と小文字が区別されます。このチュートリアルでは、小文字を使用します。
 
 [start.js](_snippets/viewhubmodels/node/start.js ':include :type=code javascript')
 
-このファイルは **express ** サーバを起動し、静的ファイル(`html` など)を提供し、API 要求をルーティングします。
+このファイルは、**express ** サーバを起動し、静的ファイル(`html` など)を提供し、API 要求をルーティングします。
 
 ## config.js
 
-ルート フォルダで、`config.js` という名前のファイルを作成し、次の内容を指定します。
+ルートフォルダで、`config.js`という名前のファイルを次の内容で作成します。
 
 [config.js](_snippets/viewhubmodels/node/config.js ':include :type=code javascript')
 

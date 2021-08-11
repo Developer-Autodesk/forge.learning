@@ -1,8 +1,8 @@
 # プラグインを準備する
 
-デザイン オートメーションは Autodesk App Store と同様に .bundle を使用します。つまり、`PackageContents.xml` と `DLL` (およびその他の必須ファイル)を使用した ZIP を作成する必要があります。作成方法の詳細については、[ Autodesk App Store デベロッパー センター](https://www.autodesk.com/developer-network/app-store)をご覧ください。
+設計オートメーションはAutodesk App Storeと同様に.bundleを使用します。つまり、`PackageContents.xml` (および他の必須ファイル)を使用して`DLL` (およびZIP)を作成する必要があります。作成方法の詳細については、[ Autodesk App Store デベロッパー センター](https://www.autodesk.com/developer-network/app-store)をご覧ください。
 
-このセクションでは、`width` および `height` パラメータを更新する基本プラグインを作成し、結果のファイルを保存します。また、サポート ファイル(`PackageContents.xml`)と、ファイルを配置するフォルダ構造も含まれます。最後に、設計オートメーションにアップロードする準備が整った.ZIPファイルを作成します。
+このセクションでは、`width`および`height`パラメータを更新する基本プラグインを作成し、結果のファイルを保存します。また、サポートファイル(`PackageContents.xml`)と、ファイルを配置するフォルダ構造も含まれます。最後に、設計オートメーションにアップロードする準備が整った.ZIPファイルを作成します。
 
 ### 前提条件
 

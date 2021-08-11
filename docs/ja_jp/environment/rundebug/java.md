@@ -14,6 +14,6 @@ Tomcat サーバが実行されていないことを確認し、**Run** メニ�
 
 ![](_media/java/Eclipse_start_server_final.png) 
 
-ブラウザを開き、`http://localhost:3000` に移動します。
+ブラウザを開いて次の場所に移動します: `http://localhost:3000`
 
 次へ:[ビューアの拡張機能](/ja_jp/tutorials/extensions)

@@ -35,13 +35,13 @@ CSSは、HTMLドキュメントのスタイルを説明する言語です。詳�
 
 ## ForgeTree.js
 
-このファイルは、すべてのバケットを一覧表示するツリービューを処理します。`js` フォルダの下に、次の内容で **ForgeTree.js** ファイルを作成します。
+このファイルは、すべてのバケットを一覧表示するツリービューを処理します。`js` フォルダで、次の内容を含む **ForgeTree.js** ファイルが作成されます。
 
 [ForgeTree.js](_snippets/viewmodels/common/ForgeTree.js ':include :type=code javascript')
 
 ## ForgeViewer.js
 
-このファイルはビューアの初期化を処理するようになりました。`js` フォルダで、次のファイルを使用して **ForgeViewer.js** ファイルを作成します。
+このファイルはビューアの初期化を処理するようになりました。`js` フォルダで、次の項目を指定して **ForgeViewer.js** ファイルを作成します。
 
 <!-- tabs:start -->
 
