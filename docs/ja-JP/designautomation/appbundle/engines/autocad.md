@@ -2,7 +2,7 @@
 
 この手順では、Design Automation のための基本的な AutoCAD プラグインを作成します。詳細については、[My First AutoCAD Plugin](https://knowledge.autodesk.com/support/autocad/learn-explore/caas/simplecontent/content/my-first-autocad-plug-overview.html) チュートリアルを参照してください。
 
-> `bundles/` (Node.js)または `/forgeSample/wwwroot/bundles` (.NET Core)に[バンドル ZIP をダウンロード](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateDWGParam.zip)してある場合は、[このセクションをスキップ](designautomation/appbundle/common.md)して構いません。
+> `bundles/` (Node.js)または `/forgeSample/wwwroot/bundles` (.NET Core)に[バンドル ZIP をダウンロード](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateDWGParam.zip)してある場合は、[このセクションをスキップ](/ja-JP/designautomation/appbundle/common.md)して構いません。
 
 ## 新しいプロジェクトを作成する
 
@@ -56,4 +56,4 @@ del /F "$(ProjectDir)..\forgesample\wwwroot\bundles\UpdateDWGParam.zip"
 
 ![](_media/designautomation/autocad/build_output.png)
 
-次の作業:[プラグインをアップロードする](designautomation/appbundle/common)
+次の作業:[プラグインをアップロードする](/ja-JP/designautomation/appbundle/common)

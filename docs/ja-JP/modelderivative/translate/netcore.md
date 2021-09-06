@@ -10,4 +10,4 @@
 
 **TranslateObject** は **bucketKey** および **objectName** を受け取り、[変換ジョブ](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)を送信して、モデルの 2D ビューおよび 3D ビューを抽出します。 
 
-次の作業:[ビューアに表示する](viewer/2legged/)
+次の作業:[ビューアに表示する](/ja-JP/viewer/2legged/)

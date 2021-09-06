@@ -6,4 +6,4 @@
 
 このチュートリアルのサンプルでは、作業項目で入力ファイルの URL、新しいパラメータ値を持つ入力 JSON データ、出力ファイルの出力先の URL を指定します。このサンプルでは、作業項目を開始する前に、入力ファイルを OSS バケットにアップロードします。
 
-言語を選択:[Node.js](designautomation/workitem/nodejs) | [.NET Core](designautomation/workitem/netcore)
+言語を選択:[Node.js](/ja-JP/designautomation/workitem/nodejs) | [.NET Core](/ja-JP/designautomation/workitem/netcore)

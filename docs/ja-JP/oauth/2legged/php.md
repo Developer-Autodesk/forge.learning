@@ -14,4 +14,4 @@ Forge に対してアクセス トークンを実際に要求する `/sever/oaut
 
 [oauth.php](_snippets/viewmodels/php/oauth.php ':include :type=code php')
 
-次の作業:[ファイルを OSS にアップロードする](/datamanagement/oss/)
+次の作業:[ファイルを OSS にアップロードする](/ja-JP/datamanagement/oss/)

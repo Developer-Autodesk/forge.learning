@@ -6,4 +6,4 @@ Visual Studio で作成した WebAPI プロジェクトにはファイルが含�
 
 ![](_media/net/start_debug.png) 
 
-次の作業:[ビューアの拡張機能](tutorials/extensions)
+次の作業:[ビューアの拡張機能](/ja-JP/tutorials/extensions)

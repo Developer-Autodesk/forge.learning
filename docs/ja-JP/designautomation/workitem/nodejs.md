@@ -22,4 +22,4 @@
 
 準備が完了しました!
 
-次の作業:[実行とデバッグ](environment/rundebug/2legged_da)
+次の作業:[実行とデバッグ](/ja-JP/environment/rundebug/2legged_da)

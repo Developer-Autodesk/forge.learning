@@ -6,4 +6,4 @@
 
 ブラウザを開き、[http://localhost:3000](http://localhost:3000) に移動します。
 
-次の作業:[ビューアの拡張機能](tutorials/extensions)
+次の作業:[ビューアの拡張機能](/ja-JP/tutorials/extensions)

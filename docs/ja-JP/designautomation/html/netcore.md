@@ -22,4 +22,4 @@
 
 ![](_media/net/start_debug.png) 
 
-次の作業:[プラグインを準備する](designautomation/appbundle/)
+次の作業:[プラグインを準備する](/ja-JP/designautomation/appbundle/)

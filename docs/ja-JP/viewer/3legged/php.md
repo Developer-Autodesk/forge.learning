@@ -1,3 +1,3 @@
-[nodejs のセットアップ](viewer/php.md ':include :type=markdown')
+[nodejs のセットアップ](/ja-JP/viewer/php.md ':include :type=markdown')
 
-次の作業:[ビューア(クライアント側)](viewer/3legged/ui)
+次の作業:[ビューア(クライアント側)](/ja-JP/viewer/3legged/ui)

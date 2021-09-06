@@ -16,4 +16,4 @@
 
 プロパティを介して公開される `Credentials` の再利用方法に注意してください。
 
-次の作業:[ユーザ情報](oauth/user/readme)
+次の作業:[ユーザ情報](/ja-JP/oauth/user/readme)

@@ -10,4 +10,4 @@
 
 ![](_media/designautomation/define_activity.gif)
 
-次の作業:[作業項目を実行する](designautomation/workitem/README.md)
+次の作業:[作業項目を実行する](/ja-JP/designautomation/workitem/README.md)

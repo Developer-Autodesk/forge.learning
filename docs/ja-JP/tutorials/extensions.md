@@ -4,8 +4,8 @@
 
 このチュートリアルでは、ビューアの拡張機能を作成する方法について説明します。 
 
-> このチュートリアルでは、「[モデルを表示する](tutorials/viewmodels.md)」や「[BIM 360 および Fusion のモデルを表示する](tutorials/viewhubmodels.md)」のチュートリアルのように、ビューアとアプリが必要です。ビューアは、ファイルがホストされている場所に関係なく同じです。
+> このチュートリアルでは、「[モデルを表示する](/ja-JP/tutorials/viewmodels.md)」や「[BIM 360 および Fusion のモデルを表示する](/ja-JP/tutorials/viewhubmodels.md)」のチュートリアルのように、ビューアとアプリが必要です。ビューアは、ファイルがホストされている場所に関係なく同じです。
 
 コーディングを開始する準備はできましたか?
 
-次の作業:[基本スケルトン](viewer/extensions/skeleton.md)
+次の作業:[基本スケルトン](/ja-JP/viewer/extensions/skeleton.md)

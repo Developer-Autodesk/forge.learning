@@ -10,7 +10,7 @@
 
 !> プラグイン コードが変更された場合は、新しい AppBundle をアップロードしてバージョンを(v1 から v2 などに)引き上げる必要があります。このサンプルでは、新しい AppBundle をアップロードするたびに新しいバージョンが作成されます。
 
-> 入力ファイルと出力ファイルの両方が OSS バケットに保存されます。これらを表示するには、「[モデルを表示する](tutorials/viewmodels)」のチュートリアルを使用してください。
+> 入力ファイルと出力ファイルの両方が OSS バケットに保存されます。これらを表示するには、「[モデルを表示する](/ja-JP/tutorials/viewmodels)」のチュートリアルを使用してください。
 
 ![](_media/tutorials/run_sample_modifymodels.gif)
 
@@ -42,4 +42,4 @@ LogTrace("DLL {0} compiled on {1}",
 
 準備ができたら、実行してみましょう!
 
-言語を選択:[Node.js](environment/rundebug/nodejs_da) | [.NET Core](environment/rundebug/netcore)
+言語を選択:[Node.js](/ja-JP/environment/rundebug/nodejs_da) | [.NET Core](/ja-JP/environment/rundebug/netcore)

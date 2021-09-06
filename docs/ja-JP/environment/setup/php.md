@@ -101,4 +101,4 @@ PHP サーバの実行時に、これらの変数の値を使用して、必要�
 
 > **composer.lock** は、Composer のインストールによって作成されました。心配はいりません
 
-次の作業:[認証する](oauth/2legged/)
+次の作業:[認証する](/ja-JP/oauth/2legged/)

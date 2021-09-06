@@ -18,7 +18,7 @@
 
 ## 拡張機能をロードする
 
-最後に、**基本スケルトン**と同じコードを使用して、[拡張子をロード](/viewer/extensions/skeleton?id=loading-the-extension)します(もちろん、名前を調整します)。参考のために、次に、必要な 2 つの変更を示します。**index.html** に `<script>` を含めて、ビューアを作成するときに拡張機能をインクルードします。
+最後に、**基本スケルトン**と同じコードを使用して、[拡張子をロード](/ja-JP/viewer/extensions/skeleton?id=loading-the-extension)します(もちろん、名前を調整します)。参考のために、次に、必要な 2 つの変更を示します。**index.html** に `<script>` を含めて、ビューアを作成するときに拡張機能をインクルードします。
 
  **/index.html** ファイルを開き、次の行を追加します。
 
@@ -71,4 +71,4 @@ viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer')
 - **.forEach()** はコレクション内で反復処理を行う JavaScript 機能です。[詳細](https://www.w3schools.com/jsref/jsref_forEach.asp)
 - **.push()** は配列に項目を追加します。[詳細](https://www.w3schools.com/jsref/jsref_push.asp)
 
-次の作業:[ドッキング パネル](viewer/extensions/panel)
+次の作業:[ドッキング パネル](/ja-JP/viewer/extensions/panel)

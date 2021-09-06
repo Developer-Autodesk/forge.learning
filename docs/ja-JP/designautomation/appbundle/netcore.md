@@ -40,4 +40,4 @@ app.UseEndpoints(routes =>
 
 ![](_media/designautomation/list_engines.png)
 
-次の作業:[アクティビティを定義する](designautomation/activity/)
+次の作業:[アクティビティを定義する](/ja-JP/designautomation/activity/)

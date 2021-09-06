@@ -19,4 +19,4 @@
 ![](_media/designautomation/nodejs/basefiles.PNG)
 
 
-次の作業:[プラグインを準備する](designautomation/appbundle/)
+次の作業:[プラグインを準備する](/ja-JP/designautomation/appbundle/)

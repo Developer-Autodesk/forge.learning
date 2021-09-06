@@ -2,7 +2,7 @@
 
 ## DataManagementController.cs
 
-**DataManagementController** という名前の .NET WebAPI コントローラを作成し(「[コントローラの作成方法](environment/setup/net_controller)」を参照)、次の内容を追加します。
+**DataManagementController** という名前の .NET WebAPI コントローラを作成し(「[コントローラの作成方法](/ja-JP/environment/setup/net_controller)」を参照)、次の内容を追加します。
 
 > いくつかのエラーが表示され、直後に修正されます。
 
@@ -16,4 +16,4 @@
 
 プロパティを介して公開される `Credentials` の再利用方法に注意してください。
 
-次の作業:[ユーザ情報](oauth/user/readme)
+次の作業:[ユーザ情報](/ja-JP/oauth/user/readme)

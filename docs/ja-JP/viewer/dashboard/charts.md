@@ -50,4 +50,4 @@ new PieChart('Material')
 
 > ブラウザ コンソールは、Web 開発とデバッグに不可欠です。[Chrome](https://developers.google.com/web/tools/chrome-devtools/console/)、[Edge](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console)、[Firefox](https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console)、および [Safari](https://developer.apple.com/safari/tools/) での使用方法について説明します。
 
-次の作業:[配置](deployment/)
+次の作業:[配置](/ja-JP/deployment/)

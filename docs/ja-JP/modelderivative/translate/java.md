@@ -14,4 +14,4 @@
 
 ![](_media/java/Eclipse_server_side.png)
 
-次の作業:[ビューアに表示する](viewer/2legged/)
+次の作業:[ビューアに表示する](/ja-JP/viewer/2legged/)

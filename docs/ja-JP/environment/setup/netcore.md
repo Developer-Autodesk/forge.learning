@@ -4,7 +4,7 @@
 
 **File** メニュー >> **New** >> **Project** の順に選択します。**C#** 言語および **Web** プロジェクト タイプを選択し、最後に **ASP.NET Core Web Application** を選択します。次に、プロジェクトに **forgeSample** という名前を付けます。次のダイアログで、**Empty** を選択します。**ASP.NET Core 3.0** が選択されていることを確認してください。
 
-!> プロジェクトのタイプまたは .NET Core 3.0 が使用できない場合は、[Tools](environment/tools/netcore) セクションを確認してください。
+!> プロジェクトのタイプまたは .NET Core 3.0 が使用できない場合は、[Tools](/ja-JP/environment/tools/netcore) セクションを確認してください。
 
 Autodesk Forge NuGet パッケージをインストールする: プロジェクト(**Solution Explorer**)を右クリックし、**Manage NuGet Package** を選択し、**Browse** で **Autodesk Forge** を検索して、`Autodesk.Forge` をインストールします。
 

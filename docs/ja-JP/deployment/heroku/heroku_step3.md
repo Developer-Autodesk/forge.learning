@@ -8,7 +8,7 @@ git push heroku master
 
 ## 環境変数を設定する
 
-ローカル開発と本稼働用のキーとシークレットを用意するためのベスト プラクティスです。そのため、Forge Developer Portal でアプリにアクセスして、[新しいアプリを作成します](/account/?id=create-an-app)。たとえば、**forge sample production** などです。 
+ローカル開発と本稼働用のキーとシークレットを用意するためのベスト プラクティスです。そのため、Forge Developer Portal でアプリにアクセスして、[新しいアプリを作成します](/ja-JP/account/?id=create-an-app)。たとえば、**forge sample production** などです。 
 
 [Heroku Dashboard](https://dashboard.heroku.com/) にサイン インします。ここにアプリがリストされます。**Settings** に移動し、次のビデオに示すように、**環境設定変数**を作成します。
 

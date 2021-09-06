@@ -27,4 +27,4 @@
 ![](_media/java/endpoint_oauth.png)
 
 
-次の作業:[ファイルを OSS にアップロードする](/datamanagement/oss/)
+次の作業:[ファイルを OSS にアップロードする](/ja-JP/datamanagement/oss/)

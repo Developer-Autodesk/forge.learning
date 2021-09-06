@@ -2,7 +2,7 @@
 
 この手順は、基本的な Inventor プラグインを作成する場合に役立ちます。詳細については、[My First Inventor Plugin](https://knowledge.autodesk.com/support/inventor-products/learn-explore/caas/simplecontent/content/my-first-inventor-plug-overview.html) チュートリアルを参照してください。
 
-> `bundles/` (Node.js)または `/forgeSample/wwwroot/bundles` (.NET Core)に[バンドル ZIP をダウンロード](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateIPTParam.zip)してある場合は、[このセクションをスキップ](designautomation/appbundle/common.md)して構いません。
+> `bundles/` (Node.js)または `/forgeSample/wwwroot/bundles` (.NET Core)に[バンドル ZIP をダウンロード](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateIPTParam.zip)してある場合は、[このセクションをスキップ](/ja-JP/designautomation/appbundle/common.md)して構いません。
 
 ## 前提条件
 
@@ -45,4 +45,4 @@ del /F "$(ProjectDir)..\forgesample\wwwroot\bundles\UpdateIPTParam.zip"
 
 ![](_media/designautomation/inventor/build_output.png)
 
-次の作業:[プラグインをアップロードする](designautomation/appbundle/common)
+次の作業:[プラグインをアップロードする](/ja-JP/designautomation/appbundle/common)

@@ -32,4 +32,4 @@ set GOPATH=C:\GOPROJECTS
  -`github.com/sqs/goreturns` - 関数の戻り値をオートコンプリートします。    
  -`github.com/tpng/gopkgs` \- インストールされたパッケージを追跡するのに役立ちます。
 
-次の作業:[認証](oauth/)
+次の作業:[認証](/ja-JP/oauth/)

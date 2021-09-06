@@ -20,4 +20,4 @@ BIM 360 Team、Fusion Team、BIM 360 Docs、A360 Personal、および OSS デー
 
 このセクションでは、**ハブ**、**プロジェクト**、**フォルダ**、**項目**(ファイル)およびそれぞれの**バージョン**(ビューアで表示)の戻り値リストへの端点を作成します。
  
-言語を選択:[Node.js](datamanagement/hubs/nodejs) | [.NET Framework](datamanagement/hubs/net) | [.NET Core](datamanagement/hubs/netcore)
+言語を選択:[Node.js](/ja-JP/datamanagement/hubs/nodejs) | [.NET Framework](/ja-JP/datamanagement/hubs/net) | [.NET Core](/ja-JP/datamanagement/hubs/netcore)

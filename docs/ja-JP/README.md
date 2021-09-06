@@ -12,17 +12,17 @@ Forge を使用すると、設計およびエンジニアリングのデータ�
 
 ## このチュートリアルの内容
 
-- [コーディングを開始する前に](account/)\: アカウントを作成してアクティブにします。
-- [ツール](environment/tools/)\: Autodesk Forge を使用する Web アプリを作成するために必要な開発ツールです。
-- [OAuth](oauth/)\: セキュリティと認証について簡単に説明します。
+- [コーディングを開始する前に](/ja-JP/account/)\: アカウントを作成してアクティブにします。
+- [ツール](/ja-JP/environment/tools/)\: Autodesk Forge を使用する Web アプリを作成するために必要な開発ツールです。
+- [OAuth](/ja-JP/oauth/)\: セキュリティと認証について簡単に説明します。
 - 以下の手順を示すチュートリアル: 
-  - [モデルを表示する](tutorials/viewmodels)\: 3D モデルを Web にアップロードして表示します。
-  - [BIM 360 と Fusion のモデルを表示する](tutorials/viewhubmodels)\: 独自の Web アプリで BIM 360 と Fusion のモデルにアクセスして表示します。
-  - [モデルを修正する](tutorials/modifymodels)\: クラウド上の DWG、IPT、RVT、MAX ファイルのデータを更新します。
-- [実行とデバッグ](environment/rundebug/readme.md)\: コードをローカルに実行します(ヒントとテクニックを紹介します)。
-- [ビューアの拡張機能](tutorials/extensions.md)\: ビューアにボタンとパネルを追加します。
-- [配置](deployment/):**AWS**、**Azure**、**Herok**、および **AppHarbor** を段階的に配置します。
+  - [モデルを表示する](/ja-JP/tutorials/viewmodels)\: 3D モデルを Web にアップロードして表示します。
+  - [BIM 360 と Fusion のモデルを表示する](/ja-JP/tutorials/viewhubmodels)\: 独自の Web アプリで BIM 360 と Fusion のモデルにアクセスして表示します。
+  - [モデルを修正する](/ja-JP/tutorials/modifymodels)\: クラウド上の DWG、IPT、RVT、MAX ファイルのデータを更新します。
+- [実行とデバッグ](/ja-JP/environment/rundebug/readme.md)\: コードをローカルに実行します(ヒントとテクニックを紹介します)。
+- [ビューアの拡張機能](/ja-JP/tutorials/extensions.md)\: ビューアにボタンとパネルを追加します。
+- [配置](/ja-JP/deployment/):**AWS**、**Azure**、**Herok**、および **AppHarbor** を段階的に配置します。
 
 準備はよろしいでしょうか？ 
 
-次の作業:[コーディングを開始する前に](account/)
+次の作業:[コーディングを開始する前に](/ja-JP/account/)

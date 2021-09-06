@@ -14,4 +14,4 @@
 
 ここで、`routes/common/oauth.js` からの認証ヘルパーを再利用する方法に注意してください。
 
-次の作業:[ユーザ情報](oauth/user/readme)
+次の作業:[ユーザ情報](/ja-JP/oauth/user/readme)

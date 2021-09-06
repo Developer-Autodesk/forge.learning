@@ -78,4 +78,4 @@ npm install forge-apis --save
 
 ![](_media/nodejs/vs_code_project.png) 
 
-次の作業:[承認する](oauth/3legged/)
+次の作業:[承認する](/ja-JP/oauth/3legged/)

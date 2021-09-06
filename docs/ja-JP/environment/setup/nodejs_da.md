@@ -97,4 +97,4 @@ npm install socket.io --save
 
 > **package-lock.json** は **npm** によって作成されましたが、問題はありません。
 
-次の作業:[基本アプリの UI](designautomation/html/README.md)
+次の作業:[基本アプリの UI](/ja-JP/designautomation/html/README.md)

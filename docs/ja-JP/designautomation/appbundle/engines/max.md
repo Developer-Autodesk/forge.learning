@@ -4,7 +4,7 @@
 
 Design Automation の場合、自動化できない UI やプロンプトがないようにする必要があります。3ds Max DA エンジンを自動化するには、いくつかの MAXScript を指定する必要があります。ほとんどのカスタマイズは MAXScript にすばやく公開できるため、通常これは非常に簡単です(「[C++ の関数の公開](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_3ds_max_sdk_features_function_publishing_html)」および「[MAXScript .NET の処理](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=GUID-779FD7AC-953D-4567-B2A8-60B1D8695B95)」を参照)
 
-> `bundles/` (Node.js)または `/forgeSample/wwwroot/bundles` (.NET Core)に[バンドル ZIP をダウンロード](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateMAXParam.zip)してある場合は、[このセクションをスキップ](designautomation/appbundle/common.md)して構いません。
+> `bundles/` (Node.js)または `/forgeSample/wwwroot/bundles` (.NET Core)に[バンドル ZIP をダウンロード](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateMAXParam.zip)してある場合は、[このセクションをスキップ](/ja-JP/designautomation/appbundle/common.md)して構いません。
 
 ## 新しい .NET プロジェクトを作成する
 
@@ -77,4 +77,4 @@ UpdateParam()
 ```
 このチュートリアルの後半では、3ds Max Design Automation エンジンに送信されるのと同じこれらの手順を確認します。
 
-次の作業:[プラグインをアップロードする](designautomation/appbundle/common)
+次の作業:[プラグインをアップロードする](/ja-JP/designautomation/appbundle/common)

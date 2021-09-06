@@ -20,4 +20,4 @@ Design Automation は、Autodesk App Store と同じように .bundle を使用�
 
 次の手順では、**Engine** を選択します。これは、プラグインを実行する Autodesk アプリケーションです。ローカルでコンパイル、デバッグ、テストを行うには、それぞれのアプリケーションをインストールする必要があります。
 
-エンジンを選択します。[AutoCAD](/designautomation/appbundle/engines/autocad) | [Inventor](/designautomation/appbundle/engines/inventor) | [Revit](/designautomation/appbundle/engines/revit) | [3ds Max](/designautomation/appbundle/engines/max)
+エンジンを選択します。[AutoCAD](/ja-JP/designautomation/appbundle/engines/autocad) | [Inventor](/ja-JP/designautomation/appbundle/engines/inventor) | [Revit](/ja-JP/designautomation/appbundle/engines/revit) | [3ds Max](/ja-JP/designautomation/appbundle/engines/max)

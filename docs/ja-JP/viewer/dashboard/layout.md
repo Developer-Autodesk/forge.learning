@@ -25,4 +25,4 @@
 
 [css/main.css](_snippets/dashboard/css/main.css ':include :type=code css')
 
-次の作業:[パネルの基本](viewer/dashboard/panelbasics)
+次の作業:[パネルの基本](/ja-JP/viewer/dashboard/panelbasics)

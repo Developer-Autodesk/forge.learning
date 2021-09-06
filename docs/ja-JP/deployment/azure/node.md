@@ -2,7 +2,7 @@
 
 ここでは、[Azure Web ポータル](https://azure.microsoft.com/en-us/features/azure-portal/)および [Git](https://git-scm.com/) を使用して Web アプリとして Node.js のサンプル Forge アプリを Azure App Service に配置する手順について説明します。
 
-このチュートリアルでは、[前の章](tutorials/viewhubmodels)で説明した ViewHubModels サンプルを使用します。[Github リポジトリ](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/nodejs)から完全なサンプルを取得することができます。同じ手順を、**モデルの表示**チュートリアル コードでも使用できます。
+このチュートリアルでは、[前の章](/ja-JP/tutorials/viewhubmodels)で説明した ViewHubModels サンプルを使用します。[Github リポジトリ](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/nodejs)から完全なサンプルを取得することができます。同じ手順を、**モデルの表示**チュートリアル コードでも使用できます。
 
 開始する前に、[Microsoft Azure Computing Platform & Services](https://azure.microsoft.com/) に[サインインまたはサインアップ](https://signup.azure.com/)し、[体験版アカウント](https://azure.microsoft.com/en-us/free/?cdn=disable)を作成します。これには $200 クレジットが含まれ、12 ヵ月間無料です。
 

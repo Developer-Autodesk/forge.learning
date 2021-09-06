@@ -10,4 +10,4 @@
 
 準備ができたら、実行してみましょう!
 
-言語を選択:[Node.js](environment/rundebug/nodejs) | [.NET Framework](environment/rundebug/net) | [.NET Core](environment/rundebug/netcore)
+言語を選択:[Node.js](/ja-JP/environment/rundebug/nodejs) | [.NET Framework](/ja-JP/environment/rundebug/net) | [.NET Core](/ja-JP/environment/rundebug/netcore)

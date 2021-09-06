@@ -6,7 +6,7 @@
 
 このファイルが、アプリの入り口になります。この例では、[DOM](https://www.w3schools.com/js/js_htmldom.asp) の操作に [jQuery](https://jquery.com)、スタイル設定に [Bootstrap](https://getbootstrap.com/)、バケットとオブジェクトの一覧表示に [jsTree](https://www.jstree.com) を使用します。これらのすべてのライブラリは [CDN](https://cdnjs.com/) ([Content Delivery Network](https://en.wikipedia.org/wiki/Content_delivery_network))から取得されています。
 
-もちろん、Autodesk Forge Viewer ライブラリ(viewer3d.min.js、three.min.js、style.min.css)も使用されます。
+もちろん、Autodesk Forge Viewer ライブラリ(/ja-JP/viewer3d.min.js、three.min.js、style.min.css)も使用されます。
 
 次の内容を含む **index.html** ファイルを作成します。
 
@@ -66,4 +66,4 @@ v6 以前を使用していた開発者が v7 にアップグレードするた�
 
 すべての設定が完了したら、アプリを実行できます。
 
-次の作業:[アプリを実行する](environment/rundebug/3legged)
+次の作業:[アプリを実行する](/ja-JP/environment/rundebug/3legged)

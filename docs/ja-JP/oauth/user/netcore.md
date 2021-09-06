@@ -8,4 +8,4 @@
 
 [UserController.cs](_snippets/viewhubmodels/netcore/UserController.cs ':include :type=code csharp')
 
-次の作業:[ビューアに表示する](viewer/3legged/readme)
+次の作業:[ビューアに表示する](/ja-JP/viewer/3legged/readme)

@@ -17,4 +17,4 @@
 
 準備ができたら、実行してみましょう!
 
-言語を選択:[Node.js](environment/rundebug/nodejs) | [.NET Framework](environment/rundebug/net) | [.NET Core](environment/rundebug/netcore) | [Go](environment/rundebug/go) | [PHP](environment/rundebug/php) | [Java](environment/rundebug/java)
+言語を選択:[Node.js](/ja-JP/environment/rundebug/nodejs) | [.NET Framework](/ja-JP/environment/rundebug/net) | [.NET Core](/ja-JP/environment/rundebug/netcore) | [Go](/ja-JP/environment/rundebug/go) | [PHP](/ja-JP/environment/rundebug/php) | [Java](/ja-JP/environment/rundebug/java)

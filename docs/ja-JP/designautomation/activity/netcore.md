@@ -24,4 +24,4 @@
 
 ![](_media/designautomation/define_activity.gif)
 
-次の作業:[作業項目を実行する](designautomation/workitem/)
+次の作業:[作業項目を実行する](/ja-JP/designautomation/workitem/)

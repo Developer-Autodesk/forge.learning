@@ -95,4 +95,4 @@ func StartServer(port, clientID, clientSecret string) {
 ![](_media/go/vs_code_project.png) 
 
 
-次の作業:[認証する](oauth/2legged/)
+次の作業:[認証する](/ja-JP/oauth/2legged/)

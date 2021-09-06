@@ -4,8 +4,8 @@
 
 ## UserController.cs
 
-**UserController** という名前の .NET WebAPI コントローラを作成し(「[コントローラの作成方法](environment/setup/net_controller)」を参照)、次の内容を追加します。
+**UserController** という名前の .NET WebAPI コントローラを作成し(「[コントローラの作成方法](/ja-JP/environment/setup/net_controller)」を参照)、次の内容を追加します。
 
 [UserController.cs](_snippets/viewhubmodels/net/UserController.cs ':include :type=code csharp')
 
-次の作業:[ビューアに表示する](viewer/3legged/readme)
+次の作業:[ビューアに表示する](/ja-JP/viewer/3legged/readme)

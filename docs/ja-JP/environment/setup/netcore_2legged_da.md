@@ -24,4 +24,4 @@ Design Automation によるモデルの修正が終了すると、通知が返�
 
 !> **警告**: `ngrok` は、使用中に localhost サーバを Web に公開します。テストが完了したら、必ずオフにしてください。このツールは、開発環境の外部では使用しなでください。
 
-次のステップ:[プロジェクトをセットアップする](environment/setup/netcore_da)
+次のステップ:[プロジェクトをセットアップする](/ja-JP/environment/setup/netcore_da)

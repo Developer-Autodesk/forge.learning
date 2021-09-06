@@ -28,4 +28,4 @@ Autodesk Forge アカウントがメイン ID になります。
 
 準備が完了しました。
 
-次の作業:[ツール](environment/tools/)
+次の作業:[ツール](/ja-JP/environment/tools/)

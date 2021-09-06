@@ -2,7 +2,7 @@
 
 すべてのファイルがアカウントにバインドされるため、クライアント ID とシークレットを保護し、機密を維持する必要があります。Web アプリケーションの場合は、サーバに保存してください。このセクションでは、ローカル開発サーバを作成するための準備方法を示します。
 
-必要なソフトウェアについては、「[ツール](environment/tools/)」セクションを確認してください。
+必要なソフトウェアについては、「[ツール](/ja-JP/environment/tools/)」セクションを確認してください。
 
 ### 前提条件
 
@@ -18,4 +18,4 @@ Design Automation によるモデルの修正が終了すると、通知が返�
 
 !> **警告**: `ngrok` は、使用中に localhost サーバを Web に公開します。テストが完了したら、必ずオフにしてください。このツールは、開発環境の外部では使用しなでください。
 
-プロジェクトを設定し、言語を選択します:[Node.js](environment/setup/nodejs_da) | [.NET Core](environment/setup/netcore_da)
+プロジェクトを設定し、言語を選択します:[Node.js](/ja-JP/environment/setup/nodejs_da) | [.NET Core](/ja-JP/environment/setup/netcore_da)

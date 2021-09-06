@@ -18,4 +18,4 @@
 
 !> サーバを指定するには、`https` アクセスを使用する必要がありました。cookie はクライアントとサーバのみが読み取ることができます。 
 
-次の作業:[ハブとプロジェクトを一覧表示する](/datamanagement/hubs/readme)
+次の作業:[ハブとプロジェクトを一覧表示する](/ja-JP/datamanagement/hubs/readme)
