@@ -113,6 +113,58 @@ docsify serve ./docs
 
 Open `http://localhost:3000`
 
+# I18n
+
+In order to add a new localization to the project, follow these steps:
+
+1. Create a new folder under _docs_, and name it based on the corresponding
+[language code](http://www.lingoes.net/en/translator/langcode.htm), for example, _zh-CN_
+2. Add all the localized content to the new folder; the file naming and folder structure
+of the new content should copy the structure of the _docs_ folder itself, for example:
+
+```
+docs/
+    account/
+        README.md
+    datamanagement/
+    ...
+    zh-CN/
+        account/
+            README.md
+        datamanagement/
+        ...
+```
+
+3. Use the _update-locale-links_ script to prefix links with the corresponding language code;
+for example, the following command will go through all files under _docs/zh-CN_, and replace
+links like `[Viewer](viewer/2legged/)` (note that Docsify considers this to be an _absolute_
+path!) with `[Viewer](/zh-CN/viewer/2legged/)`:
+
+```bash
+# from within the project's root folder
+./update-locale-links zh-CN
+```
+
+4. Update the `alias` property in _docs/index.html_ to make sure that localized pages
+use the corresponding localized sidebar; map `/<lang-code>/.*_sidebar.md`
+to `/<lang-code>/_sidebar.md`, for example, like so:
+
+```diff
+    // ...
+    alias: {
++         '/zh-CN/.*_sidebar.md': '/zh-CN/_sidebar.md',
+        '/.*/_sidebar.md': '/_sidebar.md'
+    },
+    // ...
+```
+
+5. Add a link to the new localized content to _docs/_navbar.md_; for example:
+
+```diff
+* [EN](/)
++ * [ZH-CN](/zh-CN/)
+```
+
 # License
 
 This sample is licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT). Please see the [LICENSE](LICENSE) file for full details.
