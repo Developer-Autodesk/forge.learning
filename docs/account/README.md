@@ -4,15 +4,9 @@ Your Autodesk Forge account is your main identity.
 
 ## Creating your Forge account
 
-Go to [Forge Developer Portal](https://forge.autodesk.com/), click the “SIGN UP” button to create an account or "SIGN IN" to use an existing account. If you create a new account, be sure to click the link in the verification email that will be sent to you.
+Go to [Forge Developer Portal](https://forge.autodesk.com/), click the “SIGN IN” button to create or use an existing account. If you create a new account, be sure to click the link in the verification email that will be sent to you.
 
 ![](/_media/forge/dev_portal_home.png)
-
-## Activate subscription
-
-Before using any of the paid APIs, like **Model Derivative**, you need to activate your trial. On the top-right, you'll see your name. Click to expand the menu and go to **My Subscription**. On the page that opens, click on **START FREE TRIAL**. That's it.
-
-![](_media/account/activate_sub.png)
 
 ## Create an app
 
