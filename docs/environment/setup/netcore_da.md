@@ -6,9 +6,10 @@ Go to menu **File** >> **New** >> **Project**. Select **C#** language and **Web*
 
 !> If the project type or .NET Core 3.0 are not available, please review [Tools](environment/tools/netcore) section.
 
-Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk.Forge** and install `Autodesk.Forge`. This will be used to upload input and output results to [OSS buckets](https://forge.autodesk.com/en/docs/data/v2/developers_guide/basics/).
-
-Repeat the last step at **Manage NuGet Packages**: search and install `Autodesk.Forge.DesignAutomation` and `Microsoft.AspNetCore.Mvc.NewtonsoftJson` to handle JSON data. 
+Install the Autodesk Forge NuGet package: right-click on the project (**Solution Explorer**), select **Manage NuGet Package**, then on **Browse** search for **Autodesk.Forge** and install `Autodesk.Forge`. This will be used to upload input and output results to [OSS buckets](https://forge.autodesk.com/en/docs/data/v2/developers_guide/basics/). Please also install version 3.* of the following packages:
+* `Autodesk.Forge.DesignAutomation`
+* `Microsoft.AspNetCore.Mvc.NewtonsoftJson`
+* `Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson`
 
 ![](_media/netcore/create_project.gif) 
 
