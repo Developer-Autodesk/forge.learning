@@ -8,7 +8,7 @@
 
 ソリューションを右クリックし、**Add** >> **New Project** を選択します。**Windows Desktop**、次に **Class Library** を選択し、最後に `UpdateDWGParam` という名前を付けます。次に、プロジェクトを右クリックし、**Manage NuGet Packages...** に移動します。**Browse** で **AutoCAD.NET** を検索して `AutoCAD.NET.Core` をインストールします(`AutoCAD.NET.Model` もインストールされます)。次に、`Newtonsoft.Json` (JSON 形式の入力データを解析するために使用される)を検索してインストールします。
 
-> .NET Framework 4.7 を選択してください。リストに表示されない場合は、[Dev Pack](https://dotnet.microsoft.com/download/dotnet-framework/net47) をインストールしてください。
+> .NET Framework 4.7 を選択してください。リストに表示されない場合は、[開発者パック(Developer Pack)](https://dotnet.microsoft.com/download/dotnet-framework/net47) をインストールしてください。
 
 ![](_media/designautomation/autocad/new_project.gif)
 
@@ -20,13 +20,13 @@
 
 ## Commands.cs
 
-これは、AutoCAD で実行されるメイン コードです。次の内容を `Commands.cs` にコピーします。このクラスには、同じ名前のメソッドとして定義された 1 つのカスタム AutoCAD コマンド `UpdateParam` が含まれています。このコマンドは、**アクティビティ**(このチュートリアルの次の手順)で指定されるように、Design Automation エンジンによって呼び出されます。
+これは、AutoCAD で実行されるメイン コードです。次の内容を `Commands.cs` にコピーします。このクラスには、同じ名前のメソッドとして定義された 1 つのカスタム AutoCAD コマンド `UpdateParam` が含まれています。このコマンドは、**Activity** (このチュートリアルの次の手順)で指定されるように、Design Automation エンジンによって呼び出されます。
 
 [Commands.cs](_snippets/modifymodels/engines/autocad/Commands.cs ':include :type=code csharp')
 
 ## PackageContents.xml
 
-`UpdateDWGParam.bundle` という名前のフォルダを作成し、その中に `PackageContents.xml` という名前のファイルを作成し、次の内容をそのファイルにコピーします。詳細については、「[PackageContents.xml フォーマットのリファレンス](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html)」を参照してください。このファイルは、Design Automation の実行時に呼び出される新しい AutoCAD カスタム コマンド `UpdateParam` を定義します。
+`UpdateDWGParam.bundle` という名前のフォルダを作成し、その中に `PackageContents.xml` という名前のファイルを作成し、次の内容をそのファイルにコピーします。詳細については、「[PackageContents.xml 形式リファレンス](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html)」を参照してください。このファイルは、Design Automation の実行時に呼び出される新しい AutoCAD カスタム コマンド `UpdateParam` を定義します。
 
 [PackageContents.xml](_snippets/modifymodels/engines/autocad/PackageContents.xml ':include :type=code xml')
 

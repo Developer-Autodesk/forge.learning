@@ -1,4 +1,4 @@
-# アプリ バンドル(Node Js)を作成するためのコード
+# AppBundle (Node Js)を作成するためのコード
 
 
 `route/` フォルダ内で `DesignAutomation.js` ファイルを作成します。このファイルに、すべてのエンドポイントを書き込みます。
@@ -9,9 +9,9 @@
 
 [routes/DesignAutomation.js](_snippets/modifymodels/node/routes/DesignAutomation.1.js ':include :type=code javascript')
 
-**2\.アプリ バンドル**
+**2\.AppBundle**
 
-アクティビティを作成する前に、プラグインを使用してアプリ バンドルを定義し、適切なエンジンを選択する必要があります。Utils クラスの後に次のエンドポイントをコピーして貼り付けます。
+Activity を作成する前に、プラグインを使用して AppBundle を定義し、適切なエンジンを選択する必要があります。Utils クラスの後に次のエンドポイントをコピーして貼り付けます。
 
 [routes/DesignAutomation.js](_snippets/modifymodels/node/routes/DesignAutomation.2.js ':include :type=code javascript')
 
@@ -19,4 +19,4 @@
 
 ![](_media/designautomation/list_engines.png)
 
-次の作業:[アクティビティを定義する](/ja-JP/designautomation/activity/)
+次の作業:[Activity を定義する](/ja-JP/designautomation/activity/)

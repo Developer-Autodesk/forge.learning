@@ -10,7 +10,7 @@
 
 ## OAuth.php
 
-Forge に対してアクセス トークンを実際に要求する `/sever/oauth.php` ファイルを作成します。このファイルは、このチュートリアルの他の部分で再利用されます。
+Forge に対してアクセス トークンを実際にリクエストする `/sever/oauth.php` ファイルを作成します。このファイルは、このチュートリアルの他の部分で再利用されます。
 
 [oauth.php](_snippets/viewmodels/php/oauth.php ':include :type=code php')
 

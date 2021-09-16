@@ -4,7 +4,7 @@
 
 ![](_media/tutorials/run_sample_dashboard.gif)
 
-> このチュートリアルでは、「[モデルを表示する](/ja-JP/tutorials/viewmodels.md)」や「[BIM 360 および Fusion のモデルを表示する](/ja-JP/tutorials/viewhubmodels.md)」のチュートリアルのように、ビューアとアプリが必要です。ビューアは、ファイルがホストされている場所に関係なく同じです。
+> このチュートリアルでは、「[モデルを表示する](/ja-JP/tutorials/viewmodels.md)」や「[BIM 360 および Fusion のモデルを表示する](/ja-JP/tutorials/viewhubmodels.md)」のチュートリアルのように、ビューアを持つアプリが必要です。ビューアは、ファイルがホストされている場所に関係なく同じです。
 
 コーディングを開始する準備はできましたか?
 

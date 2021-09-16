@@ -2,7 +2,7 @@
 
 マシンにフォルダを作成します。スペースや特殊文字は使用しないでください。このチュートリアルでは、**forgesample** を使用してみましょう。
 
-**Visual Code** を開き、**File** メニューに移動し、**Open**(MacOS)または **Open Folder**(Windows)を選択して、新しく作成されたフォルダを選択します。
+**Visual Studio Code** を開き、**File** メニューに移動し、**Open**(MacOS)または **Open Folder**(Windows)を選択して、新しく作成されたフォルダを選択します。
 
 ターミナルが必要なため、**View** メニュー >> **Integrated Terminal** の順に選択します。下部にウィンドウが表示されます。次のコマンドを入力して、手順に従います。
 
@@ -52,7 +52,7 @@ composer require vlucas/phpdotenv
 
 [index.php](_snippets/viewmodels/php/index.php ':include :type=code php')
 
-このファイルは、API 要求をルーティングします。
+このファイルは、API リクエストをルーティングします。
 
 
 ## .htaccess
@@ -64,9 +64,9 @@ composer require vlucas/phpdotenv
 
 ## .env
 
-!> 環境変数として **ID とシークレット**を定義し、プロジェクトが承認済みの要求に対してそれらを使用できるようにすることが重要です。
+!> 環境変数として **ID と Secret** を定義し、プロジェクトが承認済みのリクエストに対してそれらを使用できるようにすることが重要です。
 
-環境変数を設定するには、**.env** という名前のファイルを **/server/** フォルダに作成し、次のように forge クライアント ID とクライアント シークレットを .env に追加します。
+環境変数を設定するには、**.env** という名前のファイルを **/server/** フォルダに作成し、次のように Forge Client ID と Client Secret を .env に追加します。
 
     FORGE_CLIENT_ID="<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>"
     FORGE_CLIENT_SECRET="<<YOUR CLIENT SECRET FROM DEVELOPER PORTAL>>"

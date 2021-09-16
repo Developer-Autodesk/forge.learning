@@ -1,6 +1,6 @@
 # Azure App Service を使用した Node.js Forge アプリ
 
-ここでは、[Azure Web ポータル](https://azure.microsoft.com/en-us/features/azure-portal/)および [Git](https://git-scm.com/) を使用して Web アプリとして Node.js のサンプル Forge アプリを Azure App Service に配置する手順について説明します。
+ここでは、[Azure Web ポータル](https://azure.microsoft.com/en-us/features/azure-portal/)および [Git](https://git-scm.com/) を使用して Web アプリとして Node.js のサンプル Forge アプリを Azure App Service にデプロイする手順について説明します。
 
 このチュートリアルでは、[前の章](/ja-JP/tutorials/viewhubmodels)で説明した ViewHubModels サンプルを使用します。[Github リポジトリ](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/nodejs)から完全なサンプルを取得することができます。同じ手順を、**モデルの表示**チュートリアル コードでも使用できます。
 
@@ -44,23 +44,23 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 az webapp create --name <nameofyourapp> --plan myAppServicePlan --resource-group myResourceGroup
 ```
 
-# アプリを配置する
+# アプリをデプロイする
 
-このチュートリアルでは、```Local Git``` を使用してコードを配置します。これは、Web ポータルと CLI を使用して実行できます。
+このチュートリアルでは、```Local Git``` を使用してコードをデプロイします。これは、Web ポータルと CLI を使用して実行できます。
 
-**1\.Web ポータルを使用して配置する**
+**1\.Web ポータルを使用してデプロイする**
 
-- 配置設定をセットアップするには、```Deployment Center``` に移動します。![](_media/deployment/azure/deployment_settings_1.png)
+- デプロイ設定をセットアップするには、```Deployment Center``` に移動します。![](_media/deployment/azure/deployment_settings_1.png)
 
 - ビルド サーバを選択します。![](_media/deployment/azure/deployment_settings_kudu.png)
 
-- 配置ソースを ```Local Git``` に設定します。![](_media/deployment/azure/deployment_settings_localgit_1.png)
+- デプロイ ソースを ```Local Git``` に設定します。![](_media/deployment/azure/deployment_settings_localgit_1.png)
 
-- 右側のハイライト表示されたボタンをクリックして Azure CLI を開き、```az webapp deployment user set --user-name $username --password $password``` を実行して配置資格情報を構成し、結果の Git URL を記録します。![](_media/deployment/azure/deployment_settings_azure.png)
+- 右側のハイライト表示されたボタンをクリックして Azure CLI を開き、```az webapp deployment user set --user-name $username --password $password``` を実行してデプロイ資格情報(credentials)を構成し、結果の Git URL を記録します。![](_media/deployment/azure/deployment_settings_azure.png)
 
-- Forge アプリの資格情報(```FORGE_CLIENT_ID``` と ```FORGE_CLIENT_SECRET```)とコールバック URL (次のパターン ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```)を使用して、環境変数をセットアップします。![](_media/deployment/azure/portalAppSettings.png)
+- Forge アプリの資格情報(credentials)(```FORGE_CLIENT_ID``` と ```FORGE_CLIENT_SECRET```)とコールバック URL (次のパターン ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```)を使用して、環境変数をセットアップします。![](_media/deployment/azure/portalAppSettings.png)
 
-**2\.CLI を使用して配置する**
+**2\.CLI を使用してデプロイする**
 
 ``` bash
 # Set the account-level deployment credentials
@@ -88,7 +88,7 @@ git push azure master # use 'git push azure <nameofyourbranch>:master' if you wo
 
 完了しました!アプリの URL を開いて、アプリが動作していることを確認します。
 
-**3\.その他の展開オプション** - [Visual Code](https://azure.microsoft.com/en-us/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)/[Visual Studio](../node) - [VSTS](https://docs.microsoft.com/en-us/labs/devops/deployazurefunctionswithvsts/) - [Github](https://blogs.msdn.microsoft.com/benjaminperkins/2017/05/10/deploy-github-source-code-repositories-to-an-azure-app-service/) - [BitBucket](https://confluence.atlassian.com/bitbucket/deploy-to-microsoft-azure-900820699.html) - [FTP](https://docs.microsoft.com/en-us/azure/app-service/deploy-ftp)
+**3\.その他の展開オプション** - [Visual Studio Code](https://azure.microsoft.com/en-us/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)/[Visual Studio](../node) - [VSTS](https://docs.microsoft.com/en-us/labs/devops/deployazurefunctionswithvsts/) - [Github](https://blogs.msdn.microsoft.com/benjaminperkins/2017/05/10/deploy-github-source-code-repositories-to-an-azure-app-service/) - [BitBucket](https://confluence.atlassian.com/bitbucket/deploy-to-microsoft-azure-900820699.html) - [FTP](https://docs.microsoft.com/en-us/azure/app-service/deploy-ftp)
 
 # Screencast のデモ
 
@@ -97,7 +97,7 @@ Azure ポータルと CLI での上記の手順を示す、この Screencast を
 [viewNodejs](https://www.youtube.com/embed/h_b_te0Iza0 ':include :type=iframe width=100% height=400px')
 
 # その他の資料
-- 配置後の自動化と [Azure パイプライン](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/javascript?view=vsts)のテスト
+- デプロイ後の自動化と [Azure パイプライン](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/javascript?view=vsts)のテスト
 - [Application Insights](https://azure.microsoft.com/en-us/services/monitor/)、[Cost Management](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview)、[Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/18) および[その他の Azure クラウド ツールと機能](https://azure.microsoft.com/en-us/services/)をお試しください
 - [リソース グループ](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)、[サービス プラン](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)、[Azure テンプレート](https://azure.microsoft.com/en-us/resources/templates/)、[ステージング環境](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots)とは何ですか?
 - [Node.js と Azure を使用してクラウドネイティブ アプリケーションをビルドする](https://azure.microsoft.com/en-us/resources/building-cloud-native-applications-with-node-js-and-azure/en-us/)

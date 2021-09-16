@@ -1,4 +1,4 @@
-# 作業項目を実行する(Node.js)
+# WorkItem を実行する(Node.js)
 
 次の api は、`DesignAutomation` js ファイルの最後の行 `module.exports = router;` の前に追加する必要があります。
 
@@ -10,13 +10,13 @@
 
 **2\.OnCallback**
 
-作業項目が完了すると、Design Automation はアプリケーションをコールバックします(ngrok 転送 URL を使用)。この関数がこれを処理し、クライアントに通知をプッシュします(socketIO を使用)。
+WorkItem が完了すると、Design Automation はアプリケーションをコールバックします(ngrok Forwarding URL を使用)。この関数がこれを処理し、クライアントに通知をプッシュします(socketIO を使用)。
 
 [routes/DesignAutomation.js](_snippets/modifymodels/node/routes/DesignAutomation.5.js ':include :type=code javascript')
 
 **3\.ClearAccount**
 
-最後に、テストを支援するために、この api はアカウントからすべての AppBundle とアクティビティを削除します。
+最後に、テストを支援するために、この api はアカウントからすべての AppBundle と Activity を削除します。
 
 [routes/DesignAutomation.js](_snippets/modifymodels/node/routes/DesignAutomation.6.js ':include :type=code javascript')
 

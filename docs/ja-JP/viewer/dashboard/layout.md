@@ -1,12 +1,12 @@
 # レイアウトを調整する
 
-チュートリアルのこの手順では、アプリの基本的なレイアウトを使用しますが、グラフに列が追加されます。
+チュートリアルのこの手順では、アプリの基本的なレイアウトを使用しますが、グラフ用の列が追加されます。
 
 `/js/` の下に新しい `Dashboard` フォルダを作成して、新しいファイルを配置してみましょう。
 
 ## Dashboard.js
 
-このコードはページ レイアウトを調整し、**ビューア**を監視して、モデルの日付がロードされたらチャートをロードします。このコードでは [JavaScript クラス](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)が使用されます。
+このコードはページ レイアウトを調整し、**ビューア**を監視して、モデル データがロードされたらチャートをロードします。このコードでは [JavaScript クラス](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)が使用されます。
 
 `/js/dashboard/` フォルダ内に、次の内容を含む新しい **Dashboard.js** ファイルを作成します。
 

@@ -8,7 +8,7 @@
 
 ソリューションを右クリックし、**Add** >> **New Project** を選択します。**Windows Desktop**、次に **Class Library** を選択し、最後に `UpdateRVTParam` という名前を付けます。 
 
-> .NET Framework 4.8 を選択してください。リストに表示されない場合は、[Dev Pack](https://dotnet.microsoft.com/download/dotnet-framework/net47) をインストールしてください。
+> .NET Framework 4.8 を選択してください。リストに表示されない場合は、[開発者パック(Developer Pack)](https://dotnet.microsoft.com/download/dotnet-framework/net47) をインストールしてください。
 
 **References** を右クリックし、次に `RevitAPI.dll` (既定では _C:\Program Files\Autodesk\Revit 201x_ folder にあります) の **Add Reference** および **Browse** をクリックします。次に、この **RevitAPI** リファレンスを右クリックし、**Properties** に移動し、**Copy Local** を **False** に設定します。
 
@@ -32,7 +32,7 @@
 
 ## PackageContents.xml
 
-`UpdateRVTParam.bundle` という名前のフォルダを作成し、その中に `PackageContents.xml` という名前のファイルを作成し、次の内容をそのファイルにコピーします。詳細については、「[PackageContents.xml フォーマットのリファレンス](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html)」を参照してください。このファイルは、`.addin` プラグインをロードするよう Revit に指示します。
+`UpdateRVTParam.bundle` という名前のフォルダを作成し、その中に `PackageContents.xml` という名前のファイルを作成し、次の内容をそのファイルにコピーします。詳細については、「[PackageContents.xml 形式リファレンス](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html)」を参照してください。このファイルは、`.addin` プラグインをロードするよう Revit に指示します。
 
 [PackageContents.xml](_snippets/modifymodels/engines/revit/PackageContents.xml ':include :type=code xml')
 

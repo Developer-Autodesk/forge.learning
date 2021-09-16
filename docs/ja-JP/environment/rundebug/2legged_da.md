@@ -4,7 +4,7 @@
 
 ## サンプルを使用する
 
-右上にある **Configure** をクリックして AppBundle とアクティビティを定義します。この操作は一度だけ行う必要があります。左側のパネルで新しい`width` と `height` を指定し、`input file` を選択して `Start workitem` をクリックします。右側のパネルに結果が表示されます。
+右上にある **Configure** をクリックして AppBundle と Activity を定義します。この操作は一度だけ行う必要があります。左側のパネルで新しい`width` と `height` を指定し、`input file` を選択して `Start workitem` をクリックします。右側のパネルに結果が表示されます。
 
 [サンプル ファイルはこちら](https://github.com/Developer-Autodesk/learn.forge.designautomation/tree/master/sample%20files)にあります。
 
@@ -20,9 +20,9 @@
 
 **ngrok** が実行されていて、期限が切れていないことを確認します。環境変数で ngrok アドレスが正しく指定されていることを確認します。
 
-**2\.作業項目は実行されるが、予期した結果にならない**
+**2\.WorkItem は実行されるが、予期した結果にならない**
 
-**Clear Account** ボタンを使用することを検討してください。これを試用すると、アカウント上のすべての AppBundles とアクティビティが削除されます。削除後、これれらを再度定義します。
+**Clear Account** ボタンを使用することを検討してください。これを試用すると、アカウント上のすべての AppBundle と Activity が削除されます。削除後、これれらを再度定義します。
 
 **3\.Configuration フォームに AppBundle が表示されない**
 

@@ -14,7 +14,7 @@
 
 ソリューションを右クリックし、**Add** >> **New Project** を選択します。**Inventor** テンプレートを検索し、次に **Plugin project** を検索して、最後に `UpdateIPTParam` という名前を付けます。プロジェクトを右クリックし、**Manage NuGet Packages...** に移動します。**Browse** で `Newtonsoft.Json` を選択して更新します(このパッケージは既にソリューション内にありますが、ない場合は、インストールします)。
 
-> .NET Framework 4.7 を選択してください。リストに表示されない場合は、[Dev Pack](https://dotnet.microsoft.com/download/dotnet-framework/net47) をインストールしてください。
+> .NET Framework 4.7 を選択してください。リストに表示されない場合は、[開発者パック(Developer Pack)](https://dotnet.microsoft.com/download/dotnet-framework/net47) をインストールしてください。
 
 ![](_media/designautomation/inventor/new_project.gif)
 

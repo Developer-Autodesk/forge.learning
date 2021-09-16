@@ -10,7 +10,7 @@ Design Automation の場合、自動化できない UI やプロンプトがな�
 
 ソリューションを右クリックし、**Add** >> **New Project** を選択します。**Windows Desktop**、次に **Class Library** を選択し、最後に `UpdateMAXParam` という名前を付けます。次に、Autodesk.Max.Dll で管理されるアセンブリ(3ds Max .NET API コア モジュール)を参照する必要があります。このモジュールは 3dsmax.exe フォルダにあります。参照時には、「Copy Local」フラグをオフにしてください。.NET API のサポートに使用されるその他のモジュールがいくつかあります(「[3ds Max .NET SDK](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_3ds_max__net_sdk_html)」を参照)。ただし、このチュートリアルでは Autodesk.Max.dll のみを使用します。次に、`Newtonsoft.Json` (JSON 形式の入力データを解析するために使用される)を検索してインストールします。
 
-> .NET Framework 4.7 を選択してください。リストに表示されない場合は、[Dev Pack](https://dotnet.microsoft.com/download/dotnet-framework/net47) をインストールしてください。
+> .NET Framework 4.7 を選択してください。リストに表示されない場合は、[開発者パック(Developer Pack)](https://dotnet.microsoft.com/download/dotnet-framework/net47) をインストールしてください。
 
 ![](_media/designautomation/max/new_project.gif)
 
@@ -28,7 +28,7 @@ Design Automation の場合、自動化できない UI やプロンプトがな�
 
 ## PackageContents.xml
 
-`UpdateMAXParam.bundle` という名前のフォルダを作成し、このフォルダ内に `PackageContents.xml` という名前のファイルを追加します。XML セクションで以下にリストされているコンテンツを PackageContents.xml ファイルにコピーします。詳細については、「[PackageContents.xml フォーマットのリファレンス](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html)」を参照してください。3ds Max プラグインのパッケージに関する 3ds Max 固有の情報の詳細については、「[パッケージ プラグイン](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_html)」を参照してください
+`UpdateMAXParam.bundle` という名前のフォルダを作成し、このフォルダ内に `PackageContents.xml` という名前のファイルを追加します。XML セクションで以下にリストされているコンテンツを PackageContents.xml ファイルにコピーします。詳細については、「[PackageContents.xml 形式リファレンス](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html)」を参照してください。3ds Max プラグインのパッケージに関する 3ds Max 固有の情報の詳細については、「[パッケージ プラグイン](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_html)」を参照してください
 
 このファイルは、ロードするモジュールを 3ds Max に指示します(この場合は、作成している .NET API プラグイン アセンブリですが、MAXScript、Python、C++ プラグインを含めることもできます)。 プラグインはこの機能を介してロードされるため、自動化ジョブをトリガするための指示に注意すれば十分です。3ds Max でコードを正しくロードするには、ProductCode と UpgradeCode の両方に対して一意の ID が必要です。詳細については、上記のドキュメントを参照してください。
 

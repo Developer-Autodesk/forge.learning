@@ -2,7 +2,7 @@
 
 マシンにフォルダを作成します。スペースや特殊文字は使用しないでください。このチュートリアルでは、**forgesample** を使用してみましょう。
 
-[Visual Code](https://code.visualstudio.com/download) を開き、**File** メニューに移動し、**Open**(MacOS)または **Open Folder**(Windows)を選択して、新しく作成されたフォルダを選択します。 
+[Visual Studio Code](https://code.visualstudio.com/download) を開き、**File** メニューに移動し、**Open**(MacOS)または **Open Folder**(Windows)を選択して、新しく作成されたフォルダを選択します。 
 
 ターミナルが必要なため、**View** メニュー >> **Terminal** の順に選択します。下部にウィンドウが表示されます。次のコマンドを入力して手順に従うと、**エントリ ポイント**を除く既定の入力候補を安全に受け入れることができます。エントリ ポイントには、**start.js** (ほとんどの Forge サンプルで使用されます)を使用します。
 
@@ -10,7 +10,7 @@
 npm init
 ```
 
-これで、**package.json** ファイルが作成され、プロジェクトで使用するパッケージが定義されます。[詳細はこちら](https://docs.npmjs.com/files/package.json)。
+これで、プロジェクトで使用するパッケージ定義用の **package.json** ファイルが作成されます。[詳細はこちら](https://docs.npmjs.com/files/package.json)。
 
 ## パッケージをインストールする
 
@@ -51,23 +51,23 @@ npm install socket.io --save
 
 このファイルは、Visual Studio Code にプロジェクトの実行方法を指定します。**Run** メニュー >> **Add Configuration...** の順に選択し、上部に表示される **Select Environmen** ウィンドウで **Node.js** を選択します。作成された **/.vscode/launch.json** ファイルに、次のように入力します。
 
-!> 指定されたスペースに **Forge クライアント ID とシークレット**を入力する必要があります。
+!> 指定されたスペースに **Forge の Client ID と Secret** を入力する必要があります。
 
 [launch.json](_snippets/modifymodels/node/launch.json ':include :type=code json')
 
-> 後でプロジェクトをオンラインで配置できるように、**ID とシークレット**を環境変数として定義することが重要です。詳細については、後で「**配置**」を参照してください。
+> 後でプロジェクトをオンラインでデプロイできるように、**ID と Secret** を環境変数として定義することが重要です。詳細については、後で「**デプロイ**」を参照してください。
 
 ## start.js
 
 このファイルは、**express** サーバを起動します。ルート フォルダで、次の内容を含む `start.js` ファイルを作成します。
 
-!> 配置によっては、**Heroku** のように、ファイル名の大文字と小文字が区別されることがあります。このチュートリアルでは、小文字を使用しましょう。
+!> デプロイによっては、**Heroku** のように、ファイル名の大文字と小文字が区別されることがあります。このチュートリアルでは、小文字を使用しましょう。
 
 [start.js](_snippets/modifymodels/node/start.js ':include :type=code javascript')
 
 ## server.js
 
-このファイルは、静的ファイル(`html` など)を提供して、API 要求をルーティングします。ルート フォルダで、次の内容を含む、`server.js` という名前のファイルを作成します。
+このファイルは、静的ファイル(`html` など)を提供して、API リクエストをルーティングします。ルート フォルダで、次の内容を含む、`server.js` という名前のファイルを作成します。
 
 [server.js](_snippets/modifymodels/node/server.js ':include :type=code javascript')
 
@@ -87,7 +87,7 @@ npm install socket.io --save
 
 ## routes/common/oauth.js
 
-`routes` フォルダ内に `common` サブフォルダを作成し、Forge に対してアクセス トークンを実際に要求する `routes/common/oauth.js` ファイルを準備します。このファイルは、このチュートリアルの他の部分で再利用されます。
+`routes` フォルダ内に `common` サブフォルダを作成し、Forge に対してアクセス トークンを実際にリクエストする `routes/common/oauth.js` ファイルを準備します。このファイルは、このチュートリアルの他の部分で再利用されます。
 
 [routes/common/oauth.js](_snippets/modifymodels/node/routes/common/oauth.js ':include :type=code javascript')
 
@@ -95,6 +95,6 @@ npm install socket.io --save
 
 ![](_media/nodejs/vs_code_project_da.PNG) 
 
-> **package-lock.json** は **npm** によって作成されましたが、問題はありません。
+> **package-lock.json** が **npm** によって作成されましたが、問題はありません。
 
 次の作業:[基本アプリの UI](/ja-JP/designautomation/html/README.md)

@@ -2,13 +2,13 @@
 
 > .NET Core は、Windows 以外および Visual Studio 以外の環境でも実行できます。[このチュートリアルの MacOS 版](https://github.com/augustogoncalves/dotnetcoreheroku)を確認してください。プラグインをコンパイルするには、引き続き Windows OS が必要です。
 
-**File** メニュー >> **New** >> **Project** の順に選択します。**C#** 言語および **Web** プロジェクト タイプを選択し、最後に **ASP.NET Core Web Application** を選択します。次に、プロジェクトに **forgeSample** という名前を付けます。次のダイアログで、**Empty** を選択します。**ASP.NET Core 3.0** が選択されていることを確認してください。
+**File** メニュー >> **New** >> **Project** の順に選択します。**C#** 言語および **Web** プロジェクト タイプを選択し、最後に **ASP.NET Core Web アプリ**を選択します。次に、プロジェクトに **forgeSample** という名前を付けます。次のダイアログで、**Empty** を選択します。**ASP.NET Core 3.0** が選択されていることを確認してください。
 
-!> プロジェクトのタイプまたは .NET Core 3.0 が使用できない場合は、[Tools](/ja-JP/environment/tools/netcore) セクションを確認してください。
+!> プロジェクトのタイプまたは .NET Core 3.0 が使用できない場合は、「[ツール](/ja-JP/environment/tools/netcore)」セクションを確認してください。
 
 Autodesk Forge NuGet パッケージをインストールする: プロジェクト(**Solution Explorer**)を右クリックし、**Manage NuGet Package** を選択し、**Browse** で **Autodesk Forge** を検索して、`Autodesk.Forge` をインストールします。
 
-「**NuGet パッケージを管理する**」の最後の手順を繰り返す: JSON データを処理するには、`Microsoft.AspNetCore.Mvc.NewtonsoftJson` を検索してインストールします。 
+「**NuGet パッケージの管理**」の最後の手順を繰り返す: JSON データを処理するには、`Microsoft.AspNetCore.Mvc.NewtonsoftJson` を検索してインストールします。 
 
 ![](_media/netcore/create_project.gif)
 
@@ -23,7 +23,7 @@ Autodesk Forge NuGet パッケージをインストールする: プロジェク
 
 ![](_media/netcore/env_vars.png)
 
-**Startup.cs** を開き、次のネームスペースを追加します。
+**Startup.cs** を開き、次の名前空間を追加します。
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;

@@ -1,4 +1,4 @@
-# アプリ バンドルを作成するためのコード(.NET Core)
+# AppBundle を作成するためのコード(.NET Core)
 
 ## DesignAutomationController.cs
 
@@ -40,4 +40,4 @@ app.UseEndpoints(routes =>
 
 ![](_media/designautomation/list_engines.png)
 
-次の作業:[アクティビティを定義する](/ja-JP/designautomation/activity/)
+次の作業:[Activity を定義する](/ja-JP/designautomation/activity/)

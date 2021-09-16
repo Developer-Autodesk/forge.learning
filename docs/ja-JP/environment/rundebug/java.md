@@ -16,4 +16,4 @@ Tomcat サーバが実行されていないことを確認し、**Run** メニ�
 
 ブラウザを開き、`http://localhost:3000` に移動します。
 
-次の作業:[ビューアの拡張機能](/ja-JP/tutorials/extensions)
+次の作業:[ビューアのエクステンション](/ja-JP/tutorials/extensions)

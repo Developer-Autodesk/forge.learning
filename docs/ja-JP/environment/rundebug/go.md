@@ -10,7 +10,7 @@
 
 ## デバッグする
 
-Visual Code の場合、**View** メニューの **Integrated Terminal** で入力して、Go 言語のデバッガである [Delve](https://github.com/derekparker/delve) をインストールします。
+Visual Studio Code の場合、**View** メニューの **Integrated Terminal** で入力して、Go 言語のデバッガである [Delve](https://github.com/derekparker/delve) をインストールします。
 
 ```bash
 go get -u github.com/derekparker/delve/cmd/dlv
@@ -18,7 +18,7 @@ go get -u github.com/derekparker/delve/cmd/dlv
 
 `delve` がインストールされたら、[F5]キーを押すか、**Debug** メニュー >> **Start debugging** の順に選択します。 
 
-!> デバッグの場合は、**\[F5]**キーを押す前に、Visual Code で `main.go` ファイルが開いていることを確認してください。このファイルが開いていない場合は、エラーが発生する可能性があります(「[トラブルシューティング](#troubleshooting)」を参照)。
+!> デバッグの場合は、**\[F5]**キーを押す前に、Visual Studio Code で `main.go` ファイルが開いていることを確認してください。このファイルが開いていない場合は、エラーが発生する可能性があります(「[トラブルシューティング](#troubleshooting)」を参照)。
 
 これで、デバッグ用の設定が含まれる、ワークスペース用に作成された launch.json ファイルが表示されるようになりました。既定では、次のような単一の設定が含まれています。
 
@@ -65,7 +65,7 @@ go get -u github.com/derekparker/delve/cmd/dlv
     This makes more sense when you will have apps generating several 
     executables (g.e. daemon and client).
 
-場合によっては、`could not launch process: exec "lldb-server"` のようなエラーが表示されることがあります。OSX で開発していること、および `command line developer tools` が欠落していることを確認してください。この問題を解決するには、次の手順に従います。1\.新しいターミナルを開きます(Visual Code Integrated Terminal は使用しないでください)。 2.xcode-select --install を実行します。3.プロンプトが表示されたら、Install をクリックします。![](_media/go/osx_setup_tools.png) 
+場合によっては、`could not launch process: exec "lldb-server"` のようなエラーが表示されることがあります。OSX で開発していること、および `command line developer tools` が欠落していることを確認してください。この問題を解決するには、次の手順に従います。1\.新しいターミナルを開きます(Visual Studio Code Integrated Terminal は使用しないでください)。 2.xcode-select --install を実行します。3.プロンプトが表示されたら、Install をクリックします。![](_media/go/osx_setup_tools.png) 
 
 
 ## アドバンスト設定
@@ -80,4 +80,4 @@ go get -u github.com/derekparker/delve/cmd/dlv
 
 
 
-次の作業:[ビューアの拡張機能](/ja-JP/tutorials/extensions)
+次の作業:[ビューアのエクステンション](/ja-JP/tutorials/extensions)

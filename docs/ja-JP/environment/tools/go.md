@@ -20,7 +20,7 @@ set GOPATH=C:\GOPROJECTS
 
 > このチュートリアルでは、すべての既定のインストール オプションを使用します。
 
-次に、Visual Code パッケージのために Go をインストールします。インストールすると、GoLang がサポートされます。- Visual Code 拡張マネージャ(左側、下部のアイコン)に移動します - `go` と入力し、***lukehoben*** によって作成された `Go` プラグインを選択します。
+次に、Visual Studio Code パッケージのために Go をインストールします。インストールすると、GoLang がサポートされます。- Visual Studio Code 拡張マネージャ(左側、下部のアイコン)に移動します - `go` と入力し、***lukehoben*** によって作成された `Go` プラグインを選択します。
 
 ![](_media/go/install_go_extension.gif) 
 

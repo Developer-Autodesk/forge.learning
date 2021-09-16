@@ -2,7 +2,7 @@
 
 マシンにフォルダを作成します。スペースや特殊文字は使用しないでください。このチュートリアルでは、**forgesample** を使用してみましょう。
 
-**Visual Code** を開き、**File** メニューに移動し、**Open**(MacOS)または **Open Folder**(Windows)を選択して、新しく作成されたフォルダを選択します。 
+**Visual Studio Code** を開き、**File** メニューに移動し、**Open**(MacOS)または **Open Folder**(Windows)を選択して、新しく作成されたフォルダを選択します。 
 
 ターミナルが必要なため、**View** メニュー >> **Integrated Terminal** の順に選択します。下部にウィンドウが表示されます。次のコマンドを入力して、手順に従います。他の Forge サンプルとの整合性を保つため、**エントリ ポイント**を入力するよう求められたら、**start.js** を使用します。
 
@@ -10,7 +10,7 @@
 npm init
 ```
 
-これで、**package.json** ファイルが作成され、プロジェクトで使用するパッケージが定義されます。[詳細はこちら](https://docs.npmjs.com/files/package.json)。
+これで、プロジェクトで使用するパッケージ定義用の **package.json** ファイルが作成されます。[詳細はこちら](https://docs.npmjs.com/files/package.json)。
 
 ## パッケージをインストールする
 
@@ -42,27 +42,27 @@ npm install forge-apis --save
 
 ![](_media/nodejs/vs_code_explorer.png) 
 
-> **package-lock.json** は **npm** によって作成されましたが、問題はありません。
+> **package-lock.json** が **npm** によって作成されましたが、問題はありません。
 
 ## launch.json
 
 このファイルは、Visual Studio Code にプロジェクトの実行方法を指定します。**Debug** メニュー >> **Add Configuration...** に移動し、上部に表示される **Select Environmen** ウィンドウで、**Node.js** を選択します。作成された **/.vscode/launch.json** ファイルに、次のように入力します。
 
-!> 指定されたスペースに **Forge クライアント ID とシークレット**を入力する必要があります。
+!> 指定されたスペースに **Forge の Client ID と Secret** を入力する必要があります。
 
 [launch.json](_snippets/viewmodels/node/launch.json ':include :type=code json')
 
-> 後でプロジェクトをオンラインで配置できるように、**ID とシークレット**を環境変数として定義することが重要です。詳細については、後で「**配置**」を参照してください。
+> 後でプロジェクトをオンラインでデプロイできるように、**ID と Secret** を環境変数として定義することが重要です。詳細については、後で「**デプロイ**」を参照してください。
 
 ## start.js
 
 ルート フォルダで、次の内容を含む `start.js` ファイルを作成します。
 
-!> 配置によっては、**Heroku** のように、ファイル名の大文字と小文字が区別されることがあります。このチュートリアルでは、小文字を使用しましょう。
+!> デプロイによっては、**Heroku** のように、ファイル名の大文字と小文字が区別されることがあります。このチュートリアルでは、小文字を使用しましょう。
 
 [start.js](_snippets/viewmodels/node/start.js ':include :type=code javascript')
 
-このファイルは、**Express** サーバを起動し、静的ファイル(`html` など)を提供して、API 要求をルーティングします。
+このファイルは、**Express** サーバを起動し、静的ファイル(`html` など)を提供して、API リクエストをルーティングします。
 
 ## config.js
 

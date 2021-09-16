@@ -2,9 +2,9 @@
 
 このセクションでは、前のセクションの**基本スケルトン **を使用しますが、**MyAwesomeExtension** の名前を **ModelSummaryExtension** に変更してみましょう。 
 
-## 拡張機能を作成する
+## エクステンションを作成する
 
-拡張機能はそれぞれ個別の JavaScript ファイルである必要があるため、UI フォルダ **/js/modelsummaryextension.js** 内にファイルを作成し、次の内容をコピーします(名前が異なる以外は基本スケルトンと同じです)。 
+エクステンションはそれぞれ個別の JavaScript ファイルである必要があるため、UI フォルダ **/js/modelsummaryextension.js** 内にファイルを作成し、次の内容をコピーします(名前が異なる以外は基本スケルトンと同じです)。 
 
 [js/modelsummaryextension.js](_snippets/extensions/js/modelsummaryextension.1.js ':include :type=code javascript')
 
@@ -14,9 +14,9 @@
 
 [css/main.css](_snippets/extensions/css/main.3.css ':include :type=code css')
 
-## 拡張機能をロードする
+## エクステンションをロードする
 
-最後に、**基本スケルトン**と同じコードを使用して、[拡張子をロード](/ja-JP/viewer/extensions/skeleton?id=loading-the-extension)します(もちろん、名前を調整します)。参考のために、次に、必要な 2 つの変更を示します。**index.html** に `<script>` を含めて、ビューアを作成するときに拡張機能をインクルードします。
+最後に、**基本スケルトン**と同じコードを使用して、[エクステンションをロード](/ja-JP/viewer/extensions/skeleton?id=loading-the-extension)します(もちろん、名前を調整します)。参考のために、次に、必要な 2 つの変更を示します。**index.html** に `<script>` を含めて、ビューアを作成するときにエクステンションをインクルードします。
 
 ```html
 <script src="/js/modelsummaryextension.js"></script>
@@ -26,19 +26,19 @@
 viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['ModelSummaryExtension'] });
 ```
 
-> `extensions` が配列になっていて、複数の拡張機能をロードできることに注目してください。たとえば、以前に選択したサンプルとこの拡張機能をロードするには、代わりに `['HandleSelectionExtension', 'ModelSummaryExtension']` を使用します。便利です。
+> `extensions` が配列になっていて、複数のエクステンションをロードできることに注目してください。たとえば、以前に選択したサンプルとこのエクステンションをロードするには、代わりに `['HandleSelectionExtension', 'ModelSummaryExtension']` を使用します。便利です。
 
-この時点で、拡張機能はツールバー アイコンと一緒にロードされますが、何も実行しません。
+この時点で、エクステンションはツールバー アイコンと一緒にロードされますが、何も実行しません。
 
 ## リーフ ノードを列挙する
 
-ビューアには、カテゴリ(ファミリやパーツの定義など)を含むモデルのすべての要素が含まれているため、リーフ ノード、つまりモデル上の実際のインスタンスを列挙する必要があります。次の `getAllLeafComponents()` 関数を拡張機能クラスに追加する必要があります。これは、[こちらのブログ投稿](https://forge.autodesk.com/blog/enumerating-leaf-nodes-viewer)に基づいています。 
+ビューアには、カテゴリ(ファミリやパーツの定義など)を含むモデルのすべての要素が含まれているため、リーフ ノード、つまりモデル上の実際のインスタンスを列挙する必要があります。次の `getAllLeafComponents()` 関数をエクステンション クラスに追加する必要があります。これは、[こちらのブログ投稿](https://forge.autodesk.com/blog/enumerating-leaf-nodes-viewer)に基づいています。 
 
 [js/modelsummaryextension.js](_snippets/extensions/js/modelsummaryextension.2.js ':include :type=code javascript')
 
 ## ドッキング パネル
 
-拡張機能はビューアの[プロパティ パネル](https://forge.autodesk.com/en/docs/viewer/v7/reference/UI/PropertyPanel/)に結果を表示します。内容を拡張機能 **.js** ファイル(ファイル内の、他の関数の外部の任意の場所)にコピーします。
+エクステンションはビューアの[プロパティ パネル](https://forge.autodesk.com/en/docs/viewer/v7/reference/UI/PropertyPanel/)に結果を表示します。内容をエクステンション **.js** ファイル(ファイル内の、他の関数の外部の任意の場所)にコピーします。
 
 [js/modelsummaryextension.js](_snippets/extensions/js/modelsummaryextension.3.js ':include :type=code javascript')
 
@@ -48,17 +48,17 @@ viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer')
 
 !> 以下のコードでは、モデルに適用されるプロパティ名に合わせて `filteredProps` を調整する**必要があります**。たとえば、**マテリアル**はほぼすべてのモデルに存在するため、`const filteredProps = ['Material'];` を試すことができます。
 
-次の内容を、拡張機能ボタンの `onClick` 関数内の拡張機能 **.js ** ファイルにコピーします。
+次の内容を、エクステンション ボタンの `onClick` 関数内のエクステンション **.js ** ファイルにコピーします。
 
 [js/modelsummaryextension.js](_snippets/extensions/js/modelsummaryextension.4.js ':include :type=code javascript')
 
 ## まとめ
 
-この時点で、拡張機能はロードされ、ツールバー ボタンが表示されます。ボタンをクリックすると、パネルが表示されます。次のビデオでは、この動作を示します。
+この時点で、エクステンションがロードされ、ツールバー ボタンが表示されます。ボタンをクリックすると、パネルが表示されます。次の動画では、この動作を示します。
 
 ![](_media/javascript/js_dockingpanel.gif)
 
-> 前述のように、モデルに適した **filteredProps** を定義する必要があります。上記のビデオでは、両方のモデルで機能する `['Material', 'Design Status', 'Type Name'];` を使用しました。
+> 前述のように、モデルに適した **filteredProps** を定義する必要があります。上記の動画では、両方のモデルで機能する `['Material', 'Design Status', 'Type Name'];` を使用しました。
 
 主な学習ポイント:
 

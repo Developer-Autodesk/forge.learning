@@ -14,7 +14,7 @@
 
 [jsTree](https://www.jstree.com/) をサポートする予定なので、**GET /api/forge/oss/buckets** エンドポイントは `id` querystring パラメータを処理する必要があります。`id` が `#` に設定されている場合はすべてのバケットを返すか、`id=bucketKey` として渡された特定の bucketKey 内のすべてのオブジェクトを返します。アップロード エンドポイントは、[multer](https://github.com/expressjs/multer) モジュールを使用してファイルのアップロードを処理します。ファイルはサーバ(**/uploads/** フォルダなど)に保存され、後で Forge にアップロードすることができます。
 
-このルータのミドルウェアとして `routes/common/oauth.js` からの認証ヘルパーを再利用する方法に注意してください。
+この Router のミドルウェアとして `routes/common/oauth.js` からの認証ヘルパーを再利用する方法に注意してください。
 
 !> クライアント(ブラウザ)から Autodesk Forge に直接ファイルをアップロードするには、クライアントに**書き込み許可**アクセス トークンを付与する必要がありますが、これは**安全ではありません**。
 

@@ -10,7 +10,7 @@ git push heroku master
 
 ローカル開発と本稼働用のキーとシークレットを用意するためのベスト プラクティスです。そのため、Forge Developer Portal でアプリにアクセスして、[新しいアプリを作成します](/ja-JP/account/?id=create-an-app)。たとえば、**forge sample production** などです。 
 
-[Heroku Dashboard](https://dashboard.heroku.com/) にサイン インします。ここにアプリがリストされます。**Settings** に移動し、次のビデオに示すように、**環境設定変数**を作成します。
+[Heroku Dashboard](https://dashboard.heroku.com/) にサイン インします。ここにアプリがリストされます。**Settings** に移動し、次の動画に示すように、**環境設定変数**を作成します。
 
 ![](_media/deployment/heroku/env_vars.gif) 
 
@@ -18,7 +18,7 @@ git push heroku master
 
 準備が完了しました!アプリは、次のような Heroku アドレスでライブ状態にする必要があります。**YourAppName.herokuapp.com**。
 
-## 変更を配置する
+## 変更をデプロイする
 
 プロジェクトの新しいバージョンがある場合は、必要に応じてログインし、`commit` と `push` のみをライブ状態にします。
 
