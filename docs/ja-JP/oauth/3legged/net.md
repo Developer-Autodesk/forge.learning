@@ -1,4 +1,4 @@
-# 承認する(.NET Framework)
+# 認可する(.NET Framework)
 
 基本的な *OAuth* 実装には 1 つのファイルが必要です。
 

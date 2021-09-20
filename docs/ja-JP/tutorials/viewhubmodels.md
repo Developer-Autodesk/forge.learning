@@ -7,7 +7,7 @@
 モデルを表示するには、次の手順を実行する必要があります。
 
 1. [サーバを作成する](/ja-JP/environment/setup/3legged) << 開発者が初めて作業する場合は、ここから開始
-2. [承認する](/ja-JP/oauth/3legged/)
+2. [認可する](/ja-JP/oauth/3legged/)
 3. [ハブとプロジェクトを一覧表示する](/ja-JP/datamanagement/hubs/readme)
 4. [ユーザ情報](/ja-JP/oauth/user/readme)
 5. [ビューアに表示する](/ja-JP/viewer/3legged/readme)

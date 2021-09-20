@@ -10,7 +10,7 @@
   - [ビューアに表示する](/ja-JP/viewer/2legged/)
 - [BIM 360 と Fusion のモデルを表示する](/ja-JP/tutorials/viewhubmodels.md)
   - [サーバを作成する](/ja-JP/environment/setup/3legged)
-  - [承認する](/ja-JP/oauth/3legged/)
+  - [認可する](/ja-JP/oauth/3legged/)
   - [ハブとプロジェクトを一覧表示する](/ja-JP/datamanagement/hubs/readme.md)
   - [ユーザ情報](/ja-JP/oauth/user/readme.md)
   - [ビューアに表示する](/ja-JP/viewer/3legged/readme.md)
