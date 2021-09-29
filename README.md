@@ -135,10 +135,10 @@ docs/
         ...
 ```
 
-3. Use the _update-locale-links_ script to prefix links with the corresponding language code;
-for example, the following command will go through all files under _docs/zh-CN_, and replace
-links like `[Viewer](viewer/2legged/)` (note that Docsify considers this to be an _absolute_
-path!) with `[Viewer](/zh-CN/viewer/2legged/)`:
+3. Use the _update-locale-links_ script to prefix all links in the markdown with the corresponding
+language code; for example, the following command will go through all files under _docs/zh-CN_,
+and replace links like `[Viewer](viewer/2legged/)` (note that Docsify considers this to be an
+_absolute_ path!) with `[Viewer](/zh-CN/viewer/2legged/)`:
 
 ```bash
 # from within the project's root folder
