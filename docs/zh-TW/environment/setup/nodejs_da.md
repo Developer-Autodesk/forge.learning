@@ -1,6 +1,6 @@
 # 建立新專案 (Node.js)
 
-在您的電腦上建立資料夾，請勿使用空格並避免使用特殊字元。在本自學課程中，讓我們使用 **forgesample**。
+在您的電腦上建立資料夾，請勿使用空格並避免使用特殊字元。在本自學課程中，讓我們使用 **forgesample** 作為資料夾名稱。
 
 開啟 [Visual Code](https://code.visualstudio.com/download)，移往功能表 **File**，並選取 **Open** (MacOS) 或 **Open Folder** (Windows)，然後選取新建立的資料夾。 
 
@@ -49,19 +49,19 @@ npm install socket.io --save
 
 ## launch.json
 
-此檔案用於向 Visual Studio Code 指示我們應如何執行專案。移往功能表 **Run** >> **Add Configuration...**，然後在顯示於頂部的 **Select Environment** 視窗中選擇 **Node.js**。在建立的 **/.vscode/launch.json** 檔案中輸入以下內容：
+此檔案用來告訴 Visual Studio Code 如何執行我們的 node.js 專案。移往功能表 **Run** >> **Add Configuration...**，然後在顯示於頂部的 **Select Environment** 視窗中選擇 **Node.js**。在建立的 **/.vscode/launch.json** 檔案中輸入以下內容：
 
 !> 請注意，您需要在指定的空白處輸入 **Forge Client ID & Secret**。
 
 [launch.json](_snippets/modifymodels/node/launch.json ':include :type=code json')
 
-> 將 **ID & Secret** 定義為環境變數很重要，這樣我們的專案稍後就可以在線上部署。稍後可在 **Deployment** 中瞭解更多相關資訊。
+> 將 **ID & Secret** 定義為環境變數很重要，這樣我們的專案稍後就可以在線上部署。稍後可在**「部署」**章節中瞭解更多相關資訊。
 
 ## start.js
 
 此檔案用於啟動 **Express **伺服器。在根資料夾中建立 `start.js` 檔案，其中包含：
 
-!> 某些部署的檔案名稱區分大小寫，例如 **Heroku**。在本自學課程中，讓我們使用小寫。
+!> 有些部署方式的檔案命名方式是有區分大小寫，例如 **Heroku**。所以，在本自學課程中，讓我們在檔名的部分一律使用小寫進行命名。
 
 [start.js](_snippets/modifymodels/node/start.js ':include :type=code javascript')
 
@@ -87,7 +87,7 @@ npm install socket.io --save
 
 ## routes/common/oauth.js
 
-現在，請在 `routes` 資料夾中建立 `common` 子資料夾，然後準備一個會實際向 Forge 請求存取記號的 `routes/common/oauth.js` 檔案。這將會重複用於本自學課程的其他部分。
+現在，請在 `routes` 資料夾中建立 `common` 子資料夾，然後準備一個會實際向 Forge 請求 access Token 的 `routes/common/oauth.js` 檔案。這將會重複用於本自學課程的其他部分。
 
 [routes/common/oauth.js](_snippets/modifymodels/node/routes/common/oauth.js ':include :type=code javascript')
 
@@ -95,6 +95,6 @@ npm install socket.io --save
 
 ![](_media/nodejs/vs_code_project_da.PNG) 
 
-> **package-lock.json **是透過 **npm** 所建立，不用擔心
+> **package-lock.json **是因執行上面的 **npm** 命令所產生，請不用擔心。
 
-接下來：[基本應用程式使用者介面](/zh-TW/designautomation/html/README.md)
+下一步：[基本應用程式使用者介面](/zh-TW/designautomation/html/README.md)

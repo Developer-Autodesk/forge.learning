@@ -18,11 +18,11 @@
 ![](_media/go/vs_code_explorer.png) 
 
 
-## 設置認證
+## 設定認證
 
-將 ID 和密碼定義為環境變數很重要，這樣專案就可以將其用於授權請求。
+將您的 Client ID 和 Secret 定義為環境變數很重要，這樣專案就可以將其用於授權請求。
 
-若要設置環境變數，請遵循以下步驟，具體取決於您的作業系統。    
+若要設定環境變數，請遵循以下步驟，具體取決於您的作業系統。    
 ***Mac OSX/Linux (終端機)***
 
 ```bash
@@ -39,13 +39,13 @@ set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
 
 ## main.go
 
-將以下內容寫入 `main.go` (先前在 Rood 資料夾中建立)：
+將以下內容寫入 `main.go` (先前在根目錄建立的)：
 
 [main.go](_snippets/viewmodels/go/main.go ':include :type=code go')
 
-此檔案的用途是設置 Forge 認證並啟動伺服器。    
+此檔案的用途是設定 Forge 開發憑證 (您的 Client ID 和 Secret) 並啟動伺服器。    
 請注意匯入 `forgesample/server`，就您的情況而言，它應該與您的資料夾相符，因為您將使用專案中的伺服器檔案。  
-另請注意我們如何取得 ID 和密碼以設置伺服器，如果找不到其中一項，則會失敗。
+另請注意我們如何取得您的 Client ID 和 Secret 以設定伺服器，如果找不到其中一項，則會失敗。
 
 ## server.go
 
@@ -55,15 +55,15 @@ set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
 
 此檔案用於準備伺服器，提供靜態檔案 (例如 `html`、`js`) 以及路由 API 請求。
 
-請注意，Go 方法依賴 [forge-api-go-client](https://github.com/apprentice3d/forge-api-go-client)，若要使用該資源庫，應透過呼叫終端機來實現：
+請注意，這個 GO 的自學章節是依賴於 [forge-api-go-client](https://github.com/apprentice3d/forge-api-go-client)，若要使用該程式庫，請在終端機裡輸入下面命令進行安裝：
 
 ```bash
 	go get -u github.com/apprentice3d/forge-api-go-client
 ```
 
-Go 將其複製到 `$GOPATH/src/github.com/apprentice3d/forge-api-go-client`，以便可用於此項以及您未來在 Go 中撰寫的所有專案。
+Go 將其複製到 `$GOPATH/src/github.com/apprentice3d/forge-api-go-client`，以套用於本專案或往後您其他的 Go 專案。
 
-該資源庫旨在處理請求具有適當工作範圍的記號。因此，我們具有 `ForgeService` 結構：
+該程式庫旨在處理請求具有適當工作範圍的 token。這就是為什麼我們要宣告 `ForgeService` 結構體：
 
 ```go
 // ForgeServices holds reference to all services required in this server
@@ -74,7 +74,7 @@ type ForgeServices struct {
 }
 
 ```
-包含我們將使用的所有 Forge API 用戶端，且每個用戶端均已在同一檔案中使用 Forge 認證初始化：
+這包含了所有我們會使用到的 Forge API 實體。我們將在這一個檔案裡將它們都初始化完成：
 
 ```go
 ...
@@ -95,4 +95,4 @@ func StartServer(port, clientID, clientSecret string) {
 ![](_media/go/vs_code_project.png) 
 
 
-接下來：[驗證](/zh-TW/oauth/2legged/)
+下一步：[驗證](/zh-TW/oauth/2legged/)

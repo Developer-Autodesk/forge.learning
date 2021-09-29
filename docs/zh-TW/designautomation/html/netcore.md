@@ -22,4 +22,4 @@
 
 ![](_media/net/start_debug.png) 
 
-接下來：[準備外掛程式](/zh-TW/designautomation/appbundle/)
+下一步：[準備外掛程式](/zh-TW/designautomation/appbundle/)

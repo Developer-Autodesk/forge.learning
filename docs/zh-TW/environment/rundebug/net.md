@@ -6,4 +6,4 @@ Visual Studio 應會辨識並列出電腦上的所有瀏覽器，以供您啟動
 
 ![](_media/net/start_debug.png) 
 
-接下來：[Viewer 延伸](/zh-TW/tutorials/extensions)
+下一步：[Viewer 擴充功能](/zh-TW/tutorials/extensions)

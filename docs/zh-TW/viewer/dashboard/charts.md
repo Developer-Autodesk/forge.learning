@@ -1,8 +1,8 @@
 # 加入圖表
 
-有許多資源庫可用來建立圖表，就此範例而言，讓我們使用 [Chart.js](https://www.chartjs.org/)，因為它很簡單卻好用，而且視覺效果很好。
+有許多程式庫可用來建立圖表，就此範例而言，讓我們使用 [Chart.js](https://www.chartjs.org/)，因為它很簡單卻好用，而且視覺效果很好。
 
-在 **index.html** 中，為 [Chart.js CDN](https://cdnjs.com/libraries/Chart.js) 資源庫參考加入下方的 `<script>` 和 `<link>` 樣式表。這應放在 `<head>` 內 
+在 **index.html** 中，為 [Chart.js CDN](https://cdnjs.com/libraries/Chart.js) 程式庫參考加入下方的 `<script>` 和 `<link>` 樣式表。這應放在 `<head>` 內 
 
 ```html
 <!--Chart JS  packages-->
@@ -48,6 +48,6 @@ new PieChart('Material')
 
 當選取的性質不可用時，程式碼將在瀏覽器主控台中輸出所有可用的性質清單。 
 
-> 進行網頁開發與除錯時，必須用到瀏覽器主控台。進一步瞭解如何將其用於 [Chrome](https://developers.google.com/web/tools/chrome-devtools/console/)、[Edge](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console)、[Firefox](https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console) 與 [Safari](https://developer.apple.com/safari/tools/)。
+> 進行網頁開發與除錯時，必須用到瀏覽器主控台。進一步瞭解如何在 [Chrome](https://developers.google.com/web/tools/chrome-devtools/console/)、[Edge](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console)、[Firefox](https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console) 與 [Safari](https://developer.apple.com/safari/tools/) 中使用主控台。
 
-接下來：[部署](/zh-TW/deployment/)
+下一步：[部署](/zh-TW/deployment/)

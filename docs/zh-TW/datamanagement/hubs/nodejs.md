@@ -6,7 +6,7 @@
 
 [routes/datamanagement.js](_snippets/viewhubmodels/node/routes/datamanagement.1.js ':include :type=code javascript')
 
-上述程序從使用者介面樹中接收請求。`id` 參數指出正在展開的節點：`#` 表示根節點，因此會列出中樞。之後，它包含資源的 `href`，因此當展開一個 `hub` 時，端點應傳回中樞的專案。上述程式碼呼叫不同的 `get` 函式。若要完成此作業，另請將以下內容複製到檔案：
+上述程序從使用者介面樹中接收請求。`id` 參數指出正在展開的節點：`#` 表示根節點，因此會列出中樞。之後，它包含資源的 `href`，因此當展開一個 `hub` 時，endpoint 應傳回中樞的專案。上述程式碼呼叫不同的 `get` 函式。若要完成此作業，另請將以下內容複製到檔案：
 
 [routes/datamanagement.js](_snippets/viewhubmodels/node/routes/datamanagement.2.js ':include :type=code javascript')
 
@@ -14,4 +14,4 @@
 
 請注意如何重複使用此處 `routes/common/oauth.js` 中的驗證協助程式。
 
-接下來：[使用者資訊](/zh-TW/oauth/user/readme)
+下一步：[使用者資訊](/zh-TW/oauth/user/readme)

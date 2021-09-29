@@ -8,7 +8,7 @@
 
 在解決方案上按一下右鍵，選取 **Add** >> **New Project**。選取 **Windows Desktop**，然後選取 **Class Library**，最後將其命名為 `UpdateRVTParam`。 
 
-> 請選取 .NET Framework 4.8。如果未列示，[請安裝開發套件](https://dotnet.microsoft.com/download/dotnet-framework/net47)。
+> 請選取 .NET Framework 4.8。如果未條列，[請安裝開發套件](https://dotnet.microsoft.com/download/dotnet-framework/net47)。
 
 在 **References** 上按一下右鍵，然後按一下 **Add Reference** 和 **Browse** 以尋找 `RevitAPI.dll` (依預設，位於 _C:\Program Files\Autodesk\Revit 201x_ 資料夾下)。然後，在此 **RevitAPI** 參考上按一下右鍵，移往 **Properties**，然後將 **Copy Local** 設定為 **False**。
 
@@ -70,4 +70,4 @@ del /F "$(ProjectDir)..\forgesample\wwwroot\bundles\UpdateRVTParam.zip"
 
 !> 如果建置輸出展示的已複製項目超過 **2 個資料夾、5 個檔案**，請返回並確保 **RevitAPI** 參考已設定為 **Copy Local**:**False**。您可能需要從 `UpdateRVTParam.bundle/Contents/` 資料夾中移除所有 DLL
 
-接下來：[上傳外掛程式](/zh-TW/designautomation/appbundle/common)
+下一步：[上傳外掛程式](/zh-TW/designautomation/appbundle/common)

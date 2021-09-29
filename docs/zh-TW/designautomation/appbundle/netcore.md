@@ -2,11 +2,11 @@
 
 ## DesignAutomationController.cs
 
-在 **Controllers** 資料夾下，建立含有以下內容的 `DesignAutomationController.cs` 檔案。這只是類別，我們稍後將定義端點，但請注意結尾處的 `DesignAutomationHub`，這可讓我們透過 [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-3.1) 將通知推送至用戶端。
+在 **Controllers** 資料夾下，建立含有以下內容的 `DesignAutomationController.cs` 檔案。這只是類別，我們稍後將定義 endpoint，但請注意結尾處的 `DesignAutomationHub`，這可讓我們透過 [SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-3.1) 將通知推送至用戶端。
 
 [DesignAutomationController.cs](_snippets/modifymodels/netcore/DesignAutomationController.1.cs ':include :type=code csharp')
 
-現在，我們將幾個端點加入此類別中。以下方法必須在 `DesignAutomationController` 類別內進行複製。
+現在，我們將幾個 endpoint 加入此類別中。以下方法必須在 `DesignAutomationController` 類別內進行複製。
 
 **1\.GetLocalBundles**
 
@@ -16,7 +16,7 @@
 
 **2\.GetAvailableEngines**
 
-若要定義組合，我們還需要引擎，因此，此端點將傳回所有可用引擎的清單。
+若要定義組合，我們還需要引擎，因此，此 endpoint 將傳回所有可用引擎的清單。
 
 [DesignAutomationController.cs](_snippets/modifymodels/netcore/DesignAutomationController.3.cs ':include :type=code csharp')
 
@@ -40,4 +40,4 @@ app.UseEndpoints(routes =>
 
 ![](_media/designautomation/list_engines.png)
 
-接下來：[定義活動](/zh-TW/designautomation/activity/)
+下一步：[定義 Activity](/zh-TW/designautomation/activity/)

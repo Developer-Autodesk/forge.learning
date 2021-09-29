@@ -1,10 +1,10 @@
 # Amazon Web Services (AWS)
 
-首先，建立並啟用您的 [AWS 帳戶](https://aws.amazon.com/)。
+首先，建立並啟用您的 [AWS 帳號](https://aws.amazon.com/)。
 
-## 必備條件
+## 事前准备
 
-AWS Toolkit for Visual Studio 是在 Microsoft Windows 上執行的 Microsoft Visual Studio 的延伸，可讓開發人員更輕鬆地使用 Amazon Web Services 開發、除錯和部署 .NET 應用程式。藉由 AWS Toolkit for Visual Studio，您將能夠在建置 AWS 應用程式時更快地開始並提高工作效率。
+AWS Toolkit for Visual Studio 是在 Microsoft Windows 上執行的 Microsoft Visual Studio 的擴充功能，可讓開發人員更輕鬆地使用 Amazon Web Services 開發、除錯和部署 .NET 應用程式。藉由 AWS Toolkit for Visual Studio，您將能夠在建置 AWS 應用程式時更快地開始並提高工作效率。
 
 - [安裝 AWS Toolkit for Visual Studio](https://aws.amazon.com/visualstudio/)
 

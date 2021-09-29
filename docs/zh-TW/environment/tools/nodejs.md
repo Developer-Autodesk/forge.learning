@@ -1,4 +1,4 @@
-# 工具 (Node.js)
+# 開發工具及環境準備 (Node.js)
 
 安裝 [Node.js](http://nodejs.org) 引擎以執行程式碼。安裝 [NPM](https://www.npmjs.com/get-npm) 相依性管理員以安裝套件。
 
@@ -6,4 +6,4 @@
 
 > 在本自學課程中，將全部使用預設安裝選項。
 
-接下來：[驗證](/zh-TW/oauth/)
+下一步：[驗證](/zh-TW/oauth/)

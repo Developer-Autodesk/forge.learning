@@ -32,9 +32,9 @@ Eclipse 將在 IDE 中執行一個本端頁面以向您展示 Hello World!，或
 若要確保正在執行的是 index.jsp，請移往 **src/main/webapp/index.jsp**，並將文字從 Hello World! 變更為 Hello Forge!
 
 ## 變更預設主機 URL
-在上述步驟中，Java 伺服器已規劃為從 `/forgesample` 提供檔案，因此預設主機 URL 為 http://localhost:3000/forgesample/。在建置 HTTP 端點的步驟中，連接 URL 將對映至 http://localhost:3000/api/forge/oauth/token、http://localhost:3000/api/forge/oss/buckets 等格式，預設主機 URL 將需要更新為 http://localhost:3000。
+在上述步驟中，Java 伺服器已設定為從 `/forgesample` 提供檔案，因此預設主機 URL 為 http://localhost:3000/forgesample/。在建置 HTTP endpoint 的步驟中，連接 URL 將對映至 http://localhost:3000/api/forge/oauth/token、http://localhost:3000/api/forge/oss/buckets 等格式，預設主機 URL 將需要更新為 http://localhost:3000。
 
-因此，讓我們將 Eclipse Web 模組中的路徑設定為無以進行修正，這樣便能在 URL 中沒有任何路徑元件的情況下存取專案 (即 ROOT)。找到 Tomcat 伺服器頁面，按一下頁面左下角的 **Modules** 頁籤。在 **Web Modules** 清單中，選取 forgesample。接著，按一下 __Edit__。在彈出對話方塊中，將路徑變更為僅「/」。按一下 OK 以儲存更新。
+因此，讓我們將 Eclipse Web 模組中的路徑設定為無以進行修正，這樣便能在 URL 中沒有任何路徑元件的情況下存取專案 (即 ROOT)。找到 Tomcat 伺服器頁面，按一下頁面左下角的 **Modules** 頁籤。在 **Web Modules** 清單中，選取 forgesample。下一步，按一下 __Edit__。在彈出對話方塊中，將路徑變更為僅「/」。按一下 OK 以儲存更新。
 
 ![](_media/java/eclipse_webmodules_path.gif)
 
@@ -47,7 +47,7 @@ Eclipse 將在 IDE 中執行一個本端頁面以向您展示 Hello World!，或
 
 一切已就緒，伺服器現已成功執行。:)
 
-## 設置 Pom.xml
+## 設定 Pom.xml
 
 開啟 `pom.xml` 檔案 (透過**專案總管**)，複製並貼上下方的內容。將 \[groupId] 變更為指示您的角色的字串，例如 **com.mycompany**。
 
@@ -60,11 +60,11 @@ Maven 3.0 及更高版本已棄用 LATEST 和 RELEASE 中繼版本 ([請參閱�
     </dependency>
   ```
 
-!> 注意：編寫此自學課程時，會採用 Tomcat 9.0 或 8.5。如果使用 Tomcat 10 及更高版本，則 javax.* 套件已更名為 jakarta.* 套件。以下答案提供了 Tomcat 10+、Tomcat 9-、JEE 9+ 和 JEE 8- 的適當 pom.xml 宣告範例：[Tomcat 將 servlet 轉換為 javax.servlet.Servlet，而不是jakarta.servlet.http.HttpServlet](https://stackoverflow.com/questions/65703840/tomcat-casting-servlets-to-javax-servlet-servlet-instead-of-jakarta-servlet-http/65704617#65704617) 
+!> 注意：本自學課程是以 Tomcat 8.5 或 9.0 為背景編寫，如您是使用 Tomcat 10 或更新的版本，那請注意，在該版本裡的 javax.* 套件已被重新命名為 jakarta.* 套件，請參考下面網址裡的解答修改您的 pom.xml，該網址裡有針對 Tomcat 10+、Tomcat 9-、JEE 9+ 和 JEE 8- 等版本提供相關的設定範例：[Tomcat 將 servlet 轉換為 javax.servlet.Servlet，而不是jakarta.servlet.http.HttpServlet](https://stackoverflow.com/questions/65703840/tomcat-casting-servlets-to-javax-servlet-servlet-instead-of-jakarta-servlet-http/65704617#65704617) 
 
 [pom.xml](_snippets/viewmodels/java/pom.xml ':include :type=code xml')
 
-新錯誤將會在 Markers 中快顯，我們需要更新 Maven 專案以解決先前加入的所有新相依性。在專案上按一下右鍵，然後按一下 **Maven** >> **Update Project**。
+這時在您的 Markers 會跳出一個新錯誤，我們需要更新 Maven 專案以解決先前加入的所有新相依性。在專案上按一下右鍵，然後按一下 **Maven** >> **Update Project**。
 
 ![](_media/java/Eclipse_maven_error.png) 
 
@@ -86,12 +86,12 @@ Maven 3.0 及更高版本已棄用 LATEST 和 RELEASE 中繼版本 ([請參閱�
 
 [config.java](_snippets/viewmodels/java/config.java ':include :type=code java')
 
-> 將 **ID & Secret** 定義為環境變數很重要，這樣我們的專案稍後就可以在線上部署。稍後可在 **Deployment** 中瞭解更多相關資訊。
+> 將 **ID & Secret** 定義為環境變數很重要，這樣我們的專案稍後就可以在線上部署。稍後可在**「部署」**章節中瞭解更多相關資訊。
 
-最後，我們看到有 2 種關於範圍的定義。這些範圍為記號提供了使用 Forge Web Services 不同服務的適當權限。本自學課程僅專門介紹 Viewer 的使用，我們將僅需要「viewables:read」範圍。
+最後，我們看到有 2 種關於範圍的定義。這些範圍為 Token 提供了使用 Forge Web Services 不同服務的適當權限。本自學課程僅專門介紹 Viewer 的使用，我們將僅需要「viewables:read」範圍。
 
 專案已準備就緒！此時，您的專案應具有以下結構：
 
  ![](_media/java/Eclipse_config_class.png)
 
-接下來：[驗證](/zh-TW/oauth/2legged/)
+下一步：[驗證](/zh-TW/oauth/2legged/)

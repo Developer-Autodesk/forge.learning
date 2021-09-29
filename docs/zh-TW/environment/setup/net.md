@@ -1,16 +1,16 @@
 # 建立新專案 (.NET Framework)
 
-移往 **File** 功能表 >> **New** >> **Project**。選取 **C#** 語言和 **Web** 專案類型，最後選取 **ASP.NET Web Application (.NET Framework)**。接下來，讓我們將其命名為 **forgeSample**，並確定已選取 **.NET Framework 4.7.2**。在下一個對話方塊中，選取 **Empty**，然後勾選 **Web API**。
+移往 **File** 功能表 >> **New** >> **Project**。選取 **C#** 語言和 **Web** 專案類型，最後選取 **ASP.NET Web Application (.NET Framework)**。下一步，讓我們將其命名為 **forgeSample**，並確定已選取 **.NET Framework 4.7.2**。在下一個對話方塊中，選取 **Empty**，然後勾選 **Web API**。
 
-!> 如果專案類型或 .NET Framework 4.7.2 不可用，請檢閱[工具](/zh-TW/environment/tools/net)一節。
+!> 如果找不到上述的檔案類型或 .NET fromework 4.7.2，請參閱[「開發工具及環境準備」](/zh-TW/environment/tools/net)章節。
 
-安裝 Autodesk Forge NuGet 套件：在專案 (**Solution Explorer**) 上按一下右鍵，選取 **Manage NuGet Package**，在 **Browse** 上搜尋 **Autodesk Forge**，然後安裝我們的 **forgeSample**。 
+安裝 Autodesk Forge NuGet 套件：在專案 (**Solution Explorer**) 上按一下右鍵，選取 **Manage NuGet Package**，在 **Browse** 上搜尋 **Autodesk Forge**，然後將其安裝到我們的 **forgeSample** 專案。 
 
 ![](_media/net/create_project_webapi.gif) 
 
 ## Web.Config
 
-在 **Web.Config** 檔案中，加入 Forge Client ID & Secret 項目 (您建立應用程式時已取得)。依預設，該檔案中的 `<configuration>` 之後、`<system.web>` 之前應已有 `<appSettings></appSettings>`，請調整為如下所示的樣子：
+在 **Web.Config** 檔案中，輸入您在「學前準備」取得的 Forge Client ID 和 Secret。在預設情況下，Web.Config 檔案裡面應會有一組 `<appSettings></appSettings>`。它的位置大概會在 `<configuration>` 標簽之後，`<system.web>` 標簽之前。請試著依下面內容修改，並將您的 Forge Client ID 和 Secret 取代在 Value 字串裡：
 
 ```xml
 ....

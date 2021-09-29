@@ -4,7 +4,7 @@
 
 > 您可以[下載組合 ZIP](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateIPTParam.zip) 至 `bundles/` (Node.js) 或 `/forgeSample/wwwroot/bundles` (.NET Core) 資料夾中，並[略過本節](/zh-TW/designautomation/appbundle/common.md)
 
-## 必備條件
+## 事前准备
 
 - **Design Automation for Inventor** 樣板：移往 Visual Studio 市場，從[此連結](https://marketplace.visualstudio.com/items?itemName=Autodesk.DesignAutomation)下載並開啟它，然後遵循步驟進行安裝。
 
@@ -14,7 +14,7 @@
 
 在解決方案上按一下右鍵，選取 **Add** >> **New Project**。搜尋 **Inventor** 樣板，然後搜尋 **Plugin project**，最後將其命名為 `UpdateIPTParam`。在專案上按一下右鍵，移往 **Manage NuGet Packages...**，可以在 **Browse** 下選取 `Newtonsoft.Json` 並更新 (此套件已在解決方案中，若非如此，則進行安裝)
 
-> 請選取 .NET Framework 4.7。如果未列示，[請安裝開發套件](https://dotnet.microsoft.com/download/dotnet-framework/net47)。
+> 請選取 .NET Framework 4.7。如果未條列，[請安裝開發套件](https://dotnet.microsoft.com/download/dotnet-framework/net47)。
 
 ![](_media/designautomation/inventor/new_project.gif)
 
@@ -45,4 +45,4 @@ del /F "$(ProjectDir)..\forgesample\wwwroot\bundles\UpdateIPTParam.zip"
 
 ![](_media/designautomation/inventor/build_output.png)
 
-接下來：[上傳外掛程式](/zh-TW/designautomation/appbundle/common)
+下一步：[上傳外掛程式](/zh-TW/designautomation/appbundle/common)

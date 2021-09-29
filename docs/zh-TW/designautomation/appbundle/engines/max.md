@@ -10,7 +10,7 @@
 
 在解決方案上按一下右鍵，選取 **Add** >> **New Project**。選取 **Windows Desktop**，然後選取 **Class Library**，最後將其命名為 `UpdateMAXParam`。然後，您將需要參考 Autodesk.Max.Dll 管理的組合 (3ds Max .NET API 核心模組)。此模組位於 3dsmax.exe 資料夾中，參考時，請務必關閉「Copy Local」旗標。還有一些其他模組用於 .NET API 支援 (請參閱 [3ds Max .NET SDK ](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_3ds_max__net_sdk_html))，但在此自學課程中我們將僅使用 Autodesk.Max.dll。然後，搜尋並安裝 `Newtonsoft.Json` (用於剖析 JSON 格式的輸入資料)。
 
-> 請選取 .NET Framework 4.7。如果未列示，[請安裝開發套件](https://dotnet.microsoft.com/download/dotnet-framework/net47)。
+> 請選取 .NET Framework 4.7。如果未條列，[請安裝開發套件](https://dotnet.microsoft.com/download/dotnet-framework/net47)。
 
 ![](_media/designautomation/max/new_project.gif)
 
@@ -22,13 +22,13 @@
 
 ## Commands.cs
 
-這是將與 3ds Max 一起執行的主程式碼。將以下內容複製到 `Command.cs` 中。有三個類別用於進行 Design Automation 處理。第一個是 `InputParams`，將用於與 JSON 輸入資料進行連接。接下來是 `ParameterChanger` 類別，用於迭代場景，並尋找所有推開窗 (但可以是由類別 ID 識別的任何物件類型)。最後一個類別是 `RuntimeExecute`，用於取得輸入並推動自動化。另請注意，有專用記錄會將資訊輸出至 Design Automation 主控台。請參閱 LogTrace 函式。請注意，`ILogSys` 3ds Max 管理類別將用於此函數，而且需要與指示的 `LogEntry` API 一起使用的旗標，才能在 Design Automation 主控台中展示輸出。 
+這是將與 3ds Max 一起執行的主程式碼。將以下內容複製到 `Command.cs` 中。有三個類別用於進行 Design Automation 處理。第一個是 `InputParams`，將用於與 JSON 輸入資料進行連接。接下來是 `ParameterChanger` 類別，用於迭代場景，並尋找所有推開窗 (但可以是由類別 ID 識別的任何 object 類型)。最後一個類別是 `RuntimeExecute`，用於取得輸入並推動自動化。另請注意，有專用記錄會將資訊輸出至 Design Automation 主控台。請參閱 LogTrace 函式。請注意，`ILogSys` 3ds Max 管理類別將用於此函數，而且需要與指示的 `LogEntry` API 一起使用的旗標，才能在 Design Automation 主控台中展示輸出。 
 
 [Commands.cs](_snippets/modifymodels/engines/max/Commands.cs ':include :type=code csharp')
 
 ## PackageContents.xml
 
-建立名為 `UpdateMAXParam.bundle` 的資料夾，並在此資料夾內加入名為 `PackageContents.xml` 的檔案。將 XML 區段中列示的內容複製到 PackageContents.xml 檔案中。如需瞭解更多資訊，請參閱[〈PackageContents.xml 格式參考〉](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html)。若要取得有關封裝 3ds Max 外掛程式的更多 3ds Max 特定資訊，請參閱[〈封裝外掛程式〉](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_html)
+建立名為 `UpdateMAXParam.bundle` 的資料夾，並在此資料夾內加入名為 `PackageContents.xml` 的檔案。將 XML 區段中條列的內容複製到 PackageContents.xml 檔案中。如需瞭解更多資訊，請參閱[〈PackageContents.xml 格式參考〉](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html)。若要取得有關封裝 3ds Max 外掛程式的更多 3ds Max 特定資訊，請參閱[〈封裝外掛程式〉](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_html)
 
 此檔案會告知 3ds Max 要載入的模組 (在此範例中即為我們正在建立的 .NET API 外掛程式組合，但也可以包括 MAXScript、Python 和/或 C++ 外掛程式)。 由於外掛程式是透過此功能載入的，因此您只需要關注指令觸發自動化工作即可。請注意，需要有 ProductCode 和 UpgradeCode 的唯一 ID，3ds Max 才能正確載入程式碼。請參閱上述文件以取得詳細資料。
 
@@ -77,4 +77,4 @@ UpdateParam()
 ```
 稍後在此自學課程中，您將看到這些相同的指令會傳送至 3ds Max Design Automation 引擎。
 
-接下來：[上傳外掛程式](/zh-TW/designautomation/appbundle/common)
+下一步：[上傳外掛程式](/zh-TW/designautomation/appbundle/common)

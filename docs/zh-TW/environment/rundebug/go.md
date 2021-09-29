@@ -20,7 +20,7 @@ go get -u github.com/derekparker/delve/cmd/dlv
 
 !> 若要進行除錯，請在按 **F5** 之前，確定 `main.go` 檔案已在 Visual Code 中開啟，否則您可能會看到錯誤 (請參閱[疑難排解](#troubleshooting))
 
-現在，您將看到一個為您工作區建立的 launch.json 檔案，其中將包含偵錯所用的規劃。依預設，會有如下所示的單一規劃：
+現在，您將看到一個為您工作區建立的 launch.json 檔案，其中將包含除錯所用的規劃。依預設，會有如下所示的單一規劃：
 
 ```javascript
 {
@@ -48,7 +48,7 @@ go get -u github.com/derekparker/delve/cmd/dlv
 
 此處沒有要變更的內容，因此請儲存，這樣就設定好了。
 
-設置中斷點，然後在 `Code debug viewlet` (F5) 中按綠色的 `Start Debugging` 按鈕開始除錯。
+設定中斷點，然後在 `Code debug viewlet` (F5) 中按綠色的 `Start Debugging` 按鈕開始除錯。
 
 移往 **Debug** 功能表，然後選取 **Start debugging**。「Debug Console」頁籤應會出現在底部，如下所示：
 
@@ -76,8 +76,8 @@ go get -u github.com/derekparker/delve/cmd/dlv
 - [LDB 的方式](http://blog.ralch.com/tutorial/golang-debug-with-lldb/) \- 適用於使用 LLDB 對 golang 應用程式進行除錯；
 
 
-對於不喜歡進行任何設置的人而言，有 [Goland](https://www.jetbrains.com/go/) 包含了所有需要的視覺工具，使用 JetBrains 產品的人應該會覺得它用起來很熟悉。
+對於不喜歡進行任何設定的人而言，有 [Goland](https://www.jetbrains.com/go/) 包含了所有需要的視覺工具，使用 JetBrains 產品的人應該會覺得它用起來很熟悉。
 
 
 
-接下來：[Viewer 延伸](/zh-TW/tutorials/extensions)
+下一步：[Viewer 擴充功能](/zh-TW/tutorials/extensions)

@@ -8,7 +8,7 @@
 
 在解決方案上按一下右鍵，選取 **Add** >> **New Project**。選取 **Windows Desktop**，然後選取 **Class Library**，最後將其命名為 `UpdateDWGParam`。然後，在專案上按一下右鍵，移往 **Manage NuGet Packages...**，可以在 **Browse** 下搜尋 **AutoCAD.NET** 並安裝 `AutoCAD.NET.Core` (一併安裝 `AutoCAD.NET.Model`)。然後，搜尋並安裝 `Newtonsoft.Json` (用於剖析 JSON 格式的輸入資料)。
 
-> 請選取 .NET Framework 4.7。如果未列示，[請安裝開發套件](https://dotnet.microsoft.com/download/dotnet-framework/net47)。
+> 請選取 .NET Framework 4.7。如果未條列，[請安裝開發套件](https://dotnet.microsoft.com/download/dotnet-framework/net47)。
 
 ![](_media/designautomation/autocad/new_project.gif)
 
@@ -20,7 +20,7 @@
 
 ## Commands.cs
 
-這是將與 AutoCAD 一起執行的主程式碼。將以下內容複製到 `Commands.cs` 中。該類別包含一個自訂 AutoCAD 指令 `UpdateParam`，已定義為具有相同名稱的方法。此指令由 Design Automation 引擎呼叫，將在**「活動」**(本自學課程的下一步) 中指定
+這是將與 AutoCAD 一起執行的主程式碼。將以下內容複製到 `Commands.cs` 中。該類別包含一個自訂 AutoCAD 指令 `UpdateParam`，已定義為具有相同名稱的方法。此指令由 Design Automation 引擎呼叫，將在**「Activity」**(本自學課程的下一步) 中指定
 
 [Commands.cs](_snippets/modifymodels/engines/autocad/Commands.cs ':include :type=code csharp')
 
@@ -56,4 +56,4 @@ del /F "$(ProjectDir)..\forgesample\wwwroot\bundles\UpdateDWGParam.zip"
 
 ![](_media/designautomation/autocad/build_output.png)
 
-接下來：[上傳外掛程式](/zh-TW/designautomation/appbundle/common)
+下一步：[上傳外掛程式](/zh-TW/designautomation/appbundle/common)

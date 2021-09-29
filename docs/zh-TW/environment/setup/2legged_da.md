@@ -1,10 +1,10 @@
 # 建立伺服器
 
-您的用戶端 ID 與密碼應受到保護並保持機密性，因為您的所有檔案都將繫結至您的帳戶。對於網頁應用程式，請將其保留在伺服器上。本節將示範如何準備建立本端開發伺服器。
+您的 Client ID 和 Secret 應受到保護並保持其機密性，因您的所有檔案都與您的開發者帳號繫結在一起，所以在進行網頁應用程式開發時，請確保 Client ID 和 Secret 只存在於您的伺服器上，並未對外曝露。本章節將示範如何建立本地開發用途的伺服器。
 
-有關必要的軟體，請檢閱[「工具」](/zh-TW/environment/tools/)一節。
+有關必要的軟體，請檢閱[「開發工具及環境準備」](/zh-TW/environment/tools/)章節。
 
-### 必備條件
+### 事前准备
 
 **ngrok**
 
@@ -14,8 +14,8 @@
 
 ![](/_media/designautomation/ngrok.gif)
 
-> 如果在非 Windows (例如 MacOS) 上執行，請改為開啟 **Terminal** 並遵循相同的步驟，但需要以 `./` 為字首。
+> 如果在非 Windows (例如 MacOS) 上執行，請改為開啟 **Terminal** 並遵循相同的步驟，但需要以 `./` 為前綴。
 
 !> **警告**：`ngrok` 會在您的 localhost 伺服器使用時將其公開到網路。請務必在測試完成後將其關閉。請勿在開發環境以外使用此工具
 
-設置專案，然後選擇您的語言：[Node.js](/zh-TW/environment/setup/nodejs_da) | [.NET Core](/zh-TW/environment/setup/netcore_da)
+設定專案，然後選擇您的語言：[Node.js](/zh-TW/environment/setup/nodejs_da) | [.NET Core](/zh-TW/environment/setup/netcore_da)

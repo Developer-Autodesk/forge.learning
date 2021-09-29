@@ -2,11 +2,11 @@
 
 這將引導您完成透過 [Azure Web 入口網站](https://azure.microsoft.com/en-us/features/azure-portal/)和 [Git](https://git-scm.com/) 將 Node.js 範例 Forge 應用程式作為網頁應用程式部署到 Azure App Service 的步驟。
 
-在本自學課程中，我們將使用 ViewHubModels 範例，如[上一章](/zh-TW/tutorials/viewhubmodels)所述。您可以從[我們的 Github 存放庫](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/nodejs)擷取完整範例。相同的步驟應該也適用於**「檢視模型」**自學課程程式碼。
+在本自學課程中，我們將使用 ViewHubModels 範例，如[上一章](/zh-TW/tutorials/viewhubmodels)所述。您可以從[我們的 Github 儲存庫](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/nodejs)擷取完整範例。相同的步驟應該也適用於**「檢視模型」**自學課程程式碼。
 
-開始之前，[請先登入或註冊](https://signup.azure.com/) [Microsoft Azure Computing Platform & Services](https://azure.microsoft.com/) 並建立[試用帳戶](https://azure.microsoft.com/en-us/free/?cdn=disable)，其中包括 $200 點數，可免費使用 12 個月
+開始之前，[請先登入或註冊](https://signup.azure.com/) [Microsoft Azure Computing Platform & Services](https://azure.microsoft.com/) 並建立[試用帳號](https://azure.microsoft.com/en-us/free/?cdn=disable)，其中包括 $200 點數，可免費使用 12 個月
 
-## 必備條件
+## 事前准备
 
 大多數步驟可透過 Web 入口網站完成，但需要 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
@@ -50,15 +50,15 @@ az webapp create --name <nameofyourapp> --plan myAppServicePlan --resource-group
 
 **1\.使用 Web 入口網站進行部署**
 
-- 導覽至 ```Deployment Center``` 以設置部署設定 ![](_media/deployment/azure/deployment_settings_1.png)
+- 導覽至 ```Deployment Center``` 以設定部署設定 ![](_media/deployment/azure/deployment_settings_1.png)
 
 - 選擇您的建置伺服器 ![](_media/deployment/azure/deployment_settings_kudu.png)
 
 - 將部署來源設定為 ```Local Git``` ![](_media/deployment/azure/deployment_settings_localgit_1.png)
 
-- 按一下右上方的亮顯按鈕以開啟 Azure CLI，執行 ```az webapp deployment user set --user-name $username --password $password``` 以規劃部署認證並記錄產生的 Git URL ![](_media/deployment/azure/deployment_settings_azure.png)
+- 按一下右上方的亮顯按鈕以開啟 Azure CLI，執行 ```az webapp deployment user set --user-name $username --password $password``` 以設定部署認證並記錄產生的 Git URL ![](_media/deployment/azure/deployment_settings_azure.png)
 
-- 使用您的 Forge 應用程式認證 (```FORGE_CLIENT_ID``` 和 ```FORGE_CLIENT_SECRET```) 和回呼 URL (遵循樣式 ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```) 設置環境變數 ![](_media/deployment/azure/portalAppSettings.png)
+- 使用您的 Forge 應用程式認證 (```FORGE_CLIENT_ID``` 和 ```FORGE_CLIENT_SECRET```) 和回呼 URL (callback URL) (遵循樣式 ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```) 設定環境變數 ![](_media/deployment/azure/portalAppSettings.png)
 
 **2\.使用 CLI 部署**
 
@@ -73,7 +73,7 @@ echo $(az webapp deployment source config-local-git --name <nameofyourapp> --res
 az webapp config appsettings set -g MyResourceGroup -n <nameofyourapp> --settings FORGE_CLIENT_ID=<yourForgeAppClientID> FORGE_CLIENT_SECRET=<yourForgeAppSecret> FORGE_CLIENT_SECRET=<yourForgeAppSecret> FORGE_CALLBACK_URL=<yourCallbackURL>
 ```
 
-- 使用 [Git CLI ](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)或您最愛的 Git 用戶端將本端存放庫推送到 Azure 網頁應用程式
+- 使用 [Git CLI ](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)或您最愛的 Git 用戶端將本端 Github 儲存庫推送到 Azure 網頁應用程式
 
 ```bash
 # Add the Azure remote to your local Git respository and push your code

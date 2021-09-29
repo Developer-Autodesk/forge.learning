@@ -1,6 +1,6 @@
 # 執行和除錯 (PHP)
 
-請確定 Visual Code 中已安裝 **PHP Server** 與 **PHP Debug** 延伸，如未安裝，請先查看[**工具**](/zh-TW/environment/tools/php)一節。
+請確定 Visual Code 中已安裝 **PHP Server** 與 **PHP Debug** 擴充功能，如未安裝，請先查看[**「開發工具及環境準備」**](/zh-TW/environment/tools/php)章節。
 
 ## 啟動/停止伺服器
 
@@ -22,7 +22,7 @@
         "port": 9000
     },
 ```
-您可以先選取原始碼中的一行再按 F9 來設定中斷點，然後才開始使用此規劃來偵錯。
+您可以先選取原始碼中的一行再按 F9 來設定中斷點，然後才開始使用此規劃來除錯。
 
 如果您現在點擊特定網頁，VS Code 就會在您原始碼中所指定的中斷點中斷。然後，您便能在左側窗格取得變數、呼叫堆疊等相關資訊。
 
@@ -30,4 +30,4 @@
 ![](_media/php/vs_code_debug.gif) 
 
 
-接下來：[Viewer 延伸](/zh-TW/tutorials/extensions)
+下一步：[Viewer 擴充功能](/zh-TW/tutorials/extensions)

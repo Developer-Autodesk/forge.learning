@@ -1,6 +1,6 @@
-首先，建立並啟用您的 [Heroku 帳戶](https://www.heroku.com/)。
+首先，建立並啟用您的 [Heroku 帳號](https://www.heroku.com/)。
 
-## 必備條件
+## 事前准备
 
 Heroku 將使用 Git (常用版本控制系統) 管理應用程式部署。透過 Heroku 指令行介面 (CLI)，可以直接從終端機輕鬆地建立和管理 Heroku 應用程式。這是使用 Heroku 的重要部分。
 

@@ -4,11 +4,11 @@ Design Automation 正如 Autodesk App Store 一樣使用 .bundle，這意味著�
 
 在本節中，我們將建立用於更新 `width` 和 `height` 參數的基本外掛程式，並儲存產生的檔案。還有支援檔案 (`PackageContents.xml`) 和放置這些檔案的資料夾結構。最後，建立一個可以上傳至 Design Automation 的 .ZIP 檔案。
 
-### 必備條件
+### 事前准备
 
 - **7zip**：用於建立包含組合檔案的 .ZIP，請[從此處](https://www.7-zip.org/)進行安裝。本自學課程假設 **7zip** 安裝在預設資料夾中：_C:\\Program Files\\7-Zip\\7z.exe_。
 
-### 其他必備條件 
+### 其他事前准备 
 
 在下一個階段作業中，您可以使用建置前外掛程式。或者，如果您決定建置它，您將需要：
 

@@ -2,9 +2,9 @@
 
 > .NET Core 亦可在非 Windows 與非 Visual Studio 環境執行，請查看[此專為 MacOS 而設的另一項自學課程](https://github.com/augustogoncalves/dotnetcoreheroku)。若要編譯外掛程式，仍需使用 Windows 作業系統。
 
-移往 **File** 功能表 >> **New** >> **Project**。選取 **C#** 語言和 **Web** 專案類型，最後選取 **ASP.NETCore Web Application**。接下來，讓我們將其命名為 **forgeSample**。在下一個對話方塊中，選取 **Empty**。請確定已選取 **ASP.NET Core 3.0**。
+移往 **File** 功能表 >> **New** >> **Project**。選取 **C#** 語言和 **Web** 專案類型，最後選取 **ASP.NETCore Web Application**。下一步，讓我們將其命名為 **forgeSample**。在下一個對話方塊中，選取 **Empty**。請確定已選取 **ASP.NET Core 3.0**。
 
-!> 如果專案類型或 .NET Core 3.0 不可用，請檢閱[工具](/zh-TW/environment/tools/netcore)一節。
+!> 如果找不到上述的檔案類型或 .NET Core 3.0，請參閱[「開發工具及環境準備」](/zh-TW/environment/tools/netcore)章節。
 
 安裝 Autodesk Forge NuGet 套件：在專案 (**Solution Explorer**) 上按一下右鍵，選取 **Manage NuGet Package**，在 **Browse** 搜尋 **Autodesk.Forge**，然後安裝 `Autodesk.Forge`。
 
@@ -15,11 +15,11 @@
 在專案上按一下右鍵，移往 **Properties**，然後在 **Debug** 頁籤下查看 **Environment Variables** 區段。`ASPNETCORE_ENVIRONMENT` 應已定義，因此請加入：
 
 - `ASPNETCORE_URLS`：使用 `http://localhost:3000`
-- `FORGE_CLIENT_ID`：在此處使用您的 ID
-- `FORGE_CLIENT_SECRET`：在此處使用您的密碼
+- `FORGE_CLIENT_ID`：在此處使用您的 Client ID
+- `FORGE_CLIENT_SECRET`：在此處使用您的 Client Secret
 - `FORGE_CALLBACK_URL`：就此範例而言，請使用 `http://localhost:3000/api/forge/callback/oauth`
 
-如果要在偵錯時自動在瀏覽器中啟動應用程式，則還可以勾選 **Launch browser**，然後指定 **App URL**。將 **App URL** 欄位調整為 `http://localhost:3000`。最後，由於我們是要在本端執行應用程式但不設定受信任的認證，請取消勾選 **Enable SSL** 選項。您的設定看起來如下所示。
+如果要在除錯時自動在瀏覽器中啟動應用程式，則還可以勾選 **Launch browser**，然後指定 **App URL**。將 **App URL** 欄位調整為 `http://localhost:3000`。最後，由於我們是要在本端執行應用程式但不設定受信任的認證，請取消勾選 **Enable SSL** 選項。您的設定看起來如下所示。
 
 ![](_media/netcore/env_vars.png)
 

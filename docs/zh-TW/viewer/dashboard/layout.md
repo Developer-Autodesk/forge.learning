@@ -25,4 +25,4 @@
 
 [css/main.css](_snippets/dashboard/css/main.css ':include :type=code css')
 
-接下來：[面板基礎知識](/zh-TW/viewer/dashboard/panelbasics)
+下一步：[面板基礎知識](/zh-TW/viewer/dashboard/panelbasics)

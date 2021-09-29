@@ -16,4 +16,4 @@
 
 開啟您的瀏覽器，然後移往 `http://localhost:3000`
 
-接下來：[Viewer 延伸](/zh-TW/tutorials/extensions)
+下一步：[Viewer 擴充功能](/zh-TW/tutorials/extensions)

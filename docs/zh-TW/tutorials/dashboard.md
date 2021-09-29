@@ -8,4 +8,4 @@
 
 準備好開始撰寫程式碼了嗎？
 
-接下來：[調整配置](/zh-TW/viewer/dashboard/layout.md)
+下一步：[調整配置](/zh-TW/viewer/dashboard/layout.md)

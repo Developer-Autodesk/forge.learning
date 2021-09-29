@@ -2,9 +2,9 @@
 
 本節使用上一節的**基本骨架**，但讓我們將 **MyAwesomeExtension** 更名為 **ModelSummaryExtension**。 
 
-## 建立延伸
+## 建立擴充功能
 
-由於每個延伸都應為一個獨立的 JavaScript 檔案，因此請在 UI 資料夾中建立檔案 (**/js/modelsummaryextension.js**)，然後複製以下內容 (除了名稱不同外，其他內容皆與基本骨架相同)： 
+由於每個擴充功能都應為一個獨立的 JavaScript 檔案，因此請在 UI 資料夾中建立檔案 (**/js/modelsummaryextension.js**)，然後複製以下內容 (除了名稱不同外，其他內容皆與基本骨架相同)： 
 
 [js/modelsummaryextension.js](_snippets/extensions/js/modelsummaryextension.1.js ':include :type=code javascript')
 
@@ -14,9 +14,9 @@
 
 [css/main.css](_snippets/extensions/css/main.3.css ':include :type=code css')
 
-## 載入延伸
+## 載入擴充功能
 
-最後，使用與**基本骨架**相同的程式碼[載入延伸](/zh-TW/viewer/extensions/skeleton?id=loading-the-extension) (當然，要調整名稱)。提醒您，以下是您需做的 2 處變更：在 **index.html** 中加上 `<script>`，還有在建立 Viewer 時加上延伸：
+最後，使用與**基本骨架**相同的程式碼[載入擴充功能](/zh-TW/viewer/extensions/skeleton?id=loading-the-extension) (當然，要調整名稱)。提醒您，以下是您需做的 2 處變更：在 **index.html** 中加上 `<script>`，還有在建立 Viewer 時加上擴充功能：
 
 ```html
 <script src="/js/modelsummaryextension.js"></script>
@@ -26,19 +26,19 @@
 viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['ModelSummaryExtension'] });
 ```
 
-> 請注意 `extensions` 的陣列形式，換句話說，您可以在其中載入多個延伸！例如，若要載入先前的選取範例和這個範例，直接改用 `['HandleSelectionExtension', 'ModelSummaryExtension']` 即可！很酷，對吧？
+> 請注意 `extensions` 的陣列形式，換句話說，您可以在其中載入多個擴充功能！例如，若要載入先前的選取範例和這個範例，直接改用 `['HandleSelectionExtension', 'ModelSummaryExtension']` 即可！很酷，對吧？
 
-此時應會載入該延伸並顯示工具列圖示，但什麼都不會執行。
+此時應會載入該擴充功能並顯示工具列圖示，但什麼都不會執行。
 
 ## 列舉零件節點
 
-Viewer 會包含模型中的所有元素，包括品類 (例如族群或零件定義) 在內，所以我們需要列舉零件節點 (即模型中的實際例證)。我們的延伸類別中應加入以下 `getAllLeafComponents()` 函式。這基於[此部落格文章](https://forge.autodesk.com/blog/enumerating-leaf-nodes-viewer)。 
+Viewer 會包含模型中的所有元素，包括品類 (例如族群或零件定義) 在內，所以我們需要列舉零件節點 (即模型中的實際例證)。我們的擴充功能類別中應加入以下 `getAllLeafComponents()` 函式。這基於[此部落格文章](https://forge.autodesk.com/blog/enumerating-leaf-nodes-viewer)。 
 
 [js/modelsummaryextension.js](_snippets/extensions/js/modelsummaryextension.2.js ':include :type=code javascript')
 
 ## 停靠面板
 
-該延伸將在 Viewer 的[性質面板](https://forge.autodesk.com/en/docs/viewer/v7/reference/UI/PropertyPanel/)上展示結果。將以下內容複製到延伸 **.js** 檔案中 (檔案中其他函式之外的任意位置)。
+該擴充功能將在 Viewer 的[性質面板](https://forge.autodesk.com/en/docs/viewer/v7/reference/UI/PropertyPanel/)上展示結果。將以下內容複製到擴充功能 **.js** 檔案中 (檔案中其他函式之外的任意位置)。
 
 [js/modelsummaryextension.js](_snippets/extensions/js/modelsummaryextension.3.js ':include :type=code javascript')
 
@@ -48,13 +48,13 @@ Viewer 會包含模型中的所有元素，包括品類 (例如族群或零件�
 
 !> 在下方的程式碼中，您**必須**將 `filteredProps` 調整為您模型適用的性質名稱。例如，由於幾乎所有模型都有 **Material**，因此您可以用 `const filteredProps = ['Material'];` 試試
 
-將以下內容複製到延伸 **.js** 檔案中延伸按鈕的 `onClick` 函式內：
+將以下內容複製到擴充功能 **.js** 檔案中擴充功能按鈕的 `onClick` 函式內：
 
 [js/modelsummaryextension.js](_snippets/extensions/js/modelsummaryextension.4.js ':include :type=code javascript')
 
 ## 結論
 
-此時應會載入延伸並展示工具列按鈕。按一下按鈕，應會顯示面板。以下影片展示了其行為。
+此時應會載入擴充功能並展示工具列按鈕。按一下按鈕，應會顯示面板。以下影片展示了其行為。
 
 ![](_media/javascript/js_dockingpanel.gif)
 
@@ -70,4 +70,4 @@ Viewer 會包含模型中的所有元素，包括品類 (例如族群或零件�
 
 - **.forEach()** 會對整個集合進行疊代運算，這是 JavaScript 功能，[瞭解更多](https://www.w3schools.com/jsref/jsref_forEach.asp)
 
-接下來：[範例](/zh-TW/viewer/extensions/examples)
+下一步：[範例](/zh-TW/viewer/extensions/examples)

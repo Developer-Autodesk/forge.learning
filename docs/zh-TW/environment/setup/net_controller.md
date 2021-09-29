@@ -4,7 +4,7 @@
 
 ![](_media/net/new_controller.png)
 
-接下來，選取 **Web API 2 Controller - Empty**。 
+下一步，選取 **Web API 2 Controller - Empty**。 
 
 ![](_media/net/new_controller_type.png) 
 

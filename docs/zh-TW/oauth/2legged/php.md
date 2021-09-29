@@ -4,14 +4,14 @@
 
 ## OAuthToken.php
 
-建立 `/server/oauthtoken.php` 檔案。此檔案將負責回應端點並傳回存取記號。 
+建立 `/server/oauthtoken.php` 檔案。此檔案將負責回應 endpoint 並傳回 access token。 
 
 [oauthtoken.php](_snippets/viewmodels/php/oauthtoken.php ':include :type=code php')
 
 ## OAuth.php
 
-現在，請建立會實際向 Forge 請求存取記號的 `/sever/oauth.php` 檔案。這將會重複用在本自學課程的其他部分。
+現在，請建立會實際向 Forge 請求 access token 的 `/sever/oauth.php` 檔案。這將會重複用在本自學課程的其他部分。
 
 [oauth.php](_snippets/viewmodels/php/oauth.php ':include :type=code php')
 
-接下來：[將檔案上傳到 OSS](/zh-TW/datamanagement/oss/)
+下一步：[將檔案上傳到 OSS](/zh-TW/datamanagement/oss/)

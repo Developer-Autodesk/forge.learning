@@ -2,11 +2,11 @@
 
 這將引導您完成透過 [Visual Studio 2017](https://visualstudio.microsoft.com/vs/) 將 .NET 範例 Forge 應用程式作為網頁應用程式部署到 Azure App Service 的步驟。
 
-在本自學課程中，我們將使用 ViewHubModels 範例，如[上一章](/zh-TW/tutorials/viewhubmodels)所述。您可以從[我們的 Github 存放庫](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/net)擷取完整範例。相同的步驟應該也適用於**「檢視模型」**自學課程程式碼。
+在本自學課程中，我們將使用 ViewHubModels 範例，如[上一章](/zh-TW/tutorials/viewhubmodels)所述。您可以從[我們的 Github 儲存庫](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/net)擷取完整範例。相同的步驟應該也適用於**「檢視模型」**自學課程程式碼。
 
-開始之前，[請先登入或註冊](https://signup.azure.com/) [Microsoft Azure Computing Platform & Services](https://azure.microsoft.com/) 並建立[試用帳戶](https://azure.microsoft.com/en-us/free/?cdn=disable)，其中包括 $200 點數，可免費使用 12 個月
+開始之前，[請先登入或註冊](https://signup.azure.com/) [Microsoft Azure Computing Platform & Services](https://azure.microsoft.com/) 並建立[試用帳號](https://azure.microsoft.com/en-us/free/?cdn=disable)，其中包括 $200 點數，可免費使用 12 個月
 
-## 必備條件
+## 事前准备
 
 本自學課程需要 [Visual Studio 2017](https://visualstudio.microsoft.com/vs/)。
 
@@ -14,13 +14,13 @@
 
 - 在 Visual Studio 中開啟範例專案。在專案上按一下右鍵，或選取 ```Build > Publish``` 以開始發佈至 ```Azure App Service``` ![](_media/deployment/azure/create_web_app_net.png)
 
-- 登入或建立 Azure 免費帳戶 ![](_media/deployment/azure/create_web_app_net_2.png) ![](_media/deployment/azure/create_web_app_net_3.png)
+- 登入或建立 Azure 免費帳號 ![](_media/deployment/azure/create_web_app_net_2.png) ![](_media/deployment/azure/create_web_app_net_3.png)
 
-- 請相應地設定 ```Name``` 和 ```Plan```，請注意，```Name``` 必須是全域唯一的，並且應該與之前在回呼 URL 中指定的名稱相符 - 這將進入您的應用程式的 URL。按一下 ```Create``` 以開始部署 ![](_media/deployment/azure/create_web_app_net_4.png)
+- 請相應地設定 ```Name``` 和 ```Plan```，請注意，```Name``` 必須是全域唯一的，並且應該與之前在回呼 URL (callback URL) 中指定的名稱相符 - 這將進入您的應用程式的 URL。按一下 ```Create``` 以開始部署 ![](_media/deployment/azure/create_web_app_net_4.png)
 
 - 檢查建置輸出以取得部署詳細資料。請注意，已自動建立新紀要，以便今後可以直接將解決方案部署到此應用程式，而無需再次執行這些步驟 ![](_media/deployment/azure/net_app_published_result.png)
 
-- 使用您的 Forge 應用程式認證 (```FORGE_CLIENT_ID``` 和 ```FORGE_CLIENT_SECRET```) 和回呼 URL (遵循樣式 ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```) 設置環境變數 ![](_media/deployment/azure/vsAppSettings.png)
+- 使用您的 Forge 應用程式認證 (```FORGE_CLIENT_ID``` 和 ```FORGE_CLIENT_SECRET```) 和回呼 URL (callback URL) (遵循樣式 ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```) 設定環境變數 ![](_media/deployment/azure/vsAppSettings.png)
 
 完成！按一下 ```Site URL``` 以查看作用中的應用程式
 
@@ -29,7 +29,7 @@
 - 您也可以在瀏覽器中的 Azure 入口網站上建立應用程式。只需在瀏覽器中建立應用程式時從 ```Marketplace``` 中選擇 ```API App```，然後在 Visual Studio 中發佈或建立 ```Deployment Profile``` 時選取 ```Existing App```
 
   ![](_media/deployment/azure/app_dashboard.png)
-- 建立 ```API App``` 後，便可以從本端 Git 存放庫進行部署 - 請參閱[此處](/zh-TW/deployment/azure/node)以取得詳細資料
+- 建立 ```API App``` 後，便可以從本端 Git 儲存庫進行部署 - 請參閱[此處](/zh-TW/deployment/azure/node)以取得詳細資料
 
 ### 其他部署選項
 - [Visual Code](https://azure.microsoft.com/en-us/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)/[Visual Studio](../node)

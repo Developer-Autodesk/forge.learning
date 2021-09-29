@@ -1,5 +1,5 @@
-[.NET Core 設置](/zh-TW/viewer/netcore.md ':include :type=markdown')
+[.NET Core 設定](/zh-TW/viewer/netcore.md ':include :type=markdown')
 
 ![](_media/netcore/project_all_files.png)
 
-接下來：[Viewer (用戶端)](/zh-TW/viewer/2legged/ui)
+下一步：[Viewer (用戶端)](/zh-TW/viewer/2legged/ui)

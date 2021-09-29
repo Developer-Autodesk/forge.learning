@@ -6,4 +6,4 @@ Visual Studio 應會列出系統中所有可用的瀏覽器，供您挑選其中
 
 ![](_media/net/start_debug.png)
 
-接下來：[部署](/zh-TW/deployment/)
+下一步：[部署](/zh-TW/deployment/)

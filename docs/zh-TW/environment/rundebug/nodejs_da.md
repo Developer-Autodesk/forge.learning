@@ -6,4 +6,4 @@
 
 開啟您的瀏覽器，然後移往 [http://localhost:3000](http://localhost:3000)。
 
-接下來：[部署](/zh-TW/deployment/)
+下一步：[部署](/zh-TW/deployment/)

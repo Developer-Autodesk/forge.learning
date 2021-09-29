@@ -1,6 +1,6 @@
 # 建立新專案 (PHP)
 
-在您的電腦上建立資料夾，請勿使用空格並避免使用特殊字元。在本自學課程中，讓我們使用 **forgesample**。
+在您的電腦上建立資料夾，請勿使用空格並避免使用特殊字元。在本自學課程中，讓我們使用 **forgesample** 作為資料夾名稱。
 
 開啟 **Visual Code**，移往功能表 **File**，並選取 **Open** (MacOS) 或 **Open Folder** (Windows)，然後選取新建立的資料夾。
 
@@ -25,7 +25,7 @@ composer require klein/klein
 composer require vlucas/phpdotenv
 ```
 
-> 該資源庫也將儲存在 **composer.json** 檔案中。
+> 上列安裝的程式庫將被記錄在 **composer.json** 檔案裡。
 
 現在，您的資料夾應包含 **vendor** 資料夾，並且 **composer.json** 應如下所示：
 
@@ -48,7 +48,7 @@ composer require vlucas/phpdotenv
 
 現在，在**根**資料夾下，建立名為 `index.php` 的檔案。
 
-!> 注意：開發應用程式時，您需要先建立端點實作 (例如 AccessToken/DataManagement/ModelDerivative)，然後依此檔案建立路由，但在介紹過程中，為了便於瞭解，我們將首先介紹此檔案：
+!> 注意：開發應用程式時，您需要先建立 endpoint 實作 (例如 AccessToken/DataManagement/ModelDerivative)，然後依此檔案建立路由，但在介紹過程中，為了便於瞭解，我們將首先介紹此檔案：
 
 [index.php](_snippets/viewmodels/php/index.php ':include :type=code php')
 
@@ -56,7 +56,7 @@ composer require vlucas/phpdotenv
 
 
 ## .htaccess
-此檔案用於對 Apache 執行 URL 重寫，我們將導向以下 URL：1\.將首頁重新導向至 **/www/index.html** 2.將 js 和 css 檔案重新導向至資料夾 **www** 3.重新導向任何以 **index.php** 為字首的 API 呼叫
+此檔案用於對 Apache 執行 URL Rewrite，我們將導向以下 URL：1\.將首頁重新導向至 **/www/index.html** 2.將 js 和 css 檔案重新導向至資料夾 **www** 3.重新導向任何以 **index.php** 為前綴的 API 呼叫
 
 如需更多詳細資料，請查看 [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html)。
 
@@ -66,7 +66,7 @@ composer require vlucas/phpdotenv
 
 !> 將 **ID & Secret** 定義為環境變數很重要，這樣專案就可以將其用於授權請求。
 
-若要設置環境變數，請在 **/server/** 資料夾下建立名為 **.env** 的檔案，並將 Forge 用戶端 ID 和用戶端密碼加入 .env，如下所示：
+若要設定環境變數，請在 **/server/** 資料夾下建立名為 **.env** 的檔案，並將 Forge client ID 和 client secret 加入 .env，如下所示：
 
     FORGE_CLIENT_ID="<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>"
     FORGE_CLIENT_SECRET="<<YOUR CLIENT SECRET FROM DEVELOPER PORTAL>>"
@@ -91,7 +91,7 @@ composer require vlucas/phpdotenv
 
 執行 PHP 伺服器時，這些變數的值將用於連接至我們需要的其他 Autodesk Forge 服務。
 
-最後，我們看到有 2 種關於範圍的定義。這些範圍為記號提供了使用 Forge Web Services 不同服務的適當權限。本自學課程僅專門介紹 Viewer 的使用，我們將僅需要「viewables:read」範圍。
+最後，我們看到有 2 種關於範圍的定義。這些範圍為 Token 提供了使用 Forge Web Services 不同服務的適當權限。本自學課程僅專門介紹 Viewer 的使用，我們將僅需要「viewables:read」範圍。
 
 
 
@@ -101,4 +101,4 @@ composer require vlucas/phpdotenv
 
 > **composer.lock **是透過 Composer 安裝所建立，不用擔心
 
-接下來：[驗證](/zh-TW/oauth/2legged/)
+下一步：[驗證](/zh-TW/oauth/2legged/)

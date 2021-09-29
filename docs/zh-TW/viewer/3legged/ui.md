@@ -4,9 +4,9 @@
 
 ## index.html
 
-這是您應用程式的進入點。就此範例而言，我們將使用 [jQuery](https://jquery.com) 進行 [DOM](https://www.w3schools.com/js/js_htmldom.asp) 操控、使用 [Bootstrap](https://getbootstrap.com/) 進行樣式設定，並使用 [jsTree](https://www.jstree.com) 列出儲體與物件。所有這些資源庫皆來自 [CDN](https://cdnjs.com/) ([內容遞送網路](https://en.wikipedia.org/wiki/Content_delivery_network))。
+這是您應用程式的進入點。就此範例而言，我們將使用 [jQuery](https://jquery.com) 進行 [DOM](https://www.w3schools.com/js/js_htmldom.asp) 操控、使用 [Bootstrap](https://getbootstrap.com/) 進行樣式設定，並使用 [jsTree](https://www.jstree.com) 列出 buckets 與 object。所有這些程式庫皆來自 [CDN](https://cdnjs.com/) ([內容遞送網路](https://en.wikipedia.org/wiki/Content_delivery_network))。
 
-當然，還有 Autodesk Forge Viewer 資源庫：viewer3d.min.js、three.min.js 和 style.min.css。
+當然，還有 Autodesk Forge Viewer 程式庫：viewer3d.min.js、three.min.js 和 style.min.css。
 
 建立含有以下內容的 **index.html** 檔案：
 
@@ -66,4 +66,4 @@ CSS 是一種描述 HTML 文件所用樣式的語言。若要瞭解更多，請�
 
 全都設定好了嗎？該執行應用程式看看了！
 
-接下來：[執行您的應用程式](/zh-TW/environment/rundebug/3legged)
+下一步：[執行您的應用程式](/zh-TW/environment/rundebug/3legged)
