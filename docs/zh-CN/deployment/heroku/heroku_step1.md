@@ -1,6 +1,6 @@
 首先，创建并激活 [Heroku 帐户](https://www.heroku.com/)。
 
-## 先决条件
+## 前提条件
 
 Heroku 使用 Git（常用的版本控制系统）管理应用程序部署。Heroku 命令行界面 (CLI) 使您可以轻松地直接从终端创建和管理 Heroku 应用程序。这是使用 Heroku 的重要组成部分。
 

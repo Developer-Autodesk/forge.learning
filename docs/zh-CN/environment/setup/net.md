@@ -10,7 +10,7 @@
 
 ## Web.Config
 
-在 **Web.Config** 文件中，添加 Forge 客户端 ID 和密钥条目（在创建应用程序时获取）。默认情况下，在 `<configuration>` 之后和 `<system.web>` 之前应该有 `<appSettings></appSettings>`，调整如下：
+在 **Web.Config** 文件中，添加 Forge Client ID 和 Secret 条目（在创建应用程序时获取）。默认情况下，在 `<configuration>` 之后和 `<system.web>` 之前应该有 `<appSettings></appSettings>`，调整如下：
 
 ```xml
 ....

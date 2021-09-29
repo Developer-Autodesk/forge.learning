@@ -1,8 +1,8 @@
 # 添加图表
 
-有许多库可用于创建图表，在本示例中，我们使用 [Chart.js](https://www.chartjs.org/)，它非常简单，还易于使用，并且具有出色的视觉效果。
+有许多代码库可用于创建图表，在本示例中，我们使用 [Chart.js](https://www.chartjs.org/)，它非常简单，还易于使用，并且具有出色的视觉效果。
 
-在 **index.html** 中，针对 [Chart.js CDN](https://cdnjs.com/libraries/Chart.js) 库参考添加以下 `<script>` 和 `<link>` 样式表。此内容应位于 `<head>` 内 
+在 **index.html** 中，针对 [Chart.js CDN](https://cdnjs.com/libraries/Chart.js) 代码库参考添加以下 `<script>` 和 `<link>` 样式表。此内容应位于 `<head>` 内 
 
 ```html
 <!--Chart JS  packages-->

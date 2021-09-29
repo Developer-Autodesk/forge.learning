@@ -1,4 +1,4 @@
-# 列出中心和项目 (Node.js)
+# 列出帐户中心和项目 (Node.js)
 
 ## routes/datamanagement.js
 
@@ -6,7 +6,7 @@
 
 [routes/datamanagement.js](_snippets/viewhubmodels/node/routes/datamanagement.1.js ':include :type=code javascript')
 
-上述代码接收来自 UI 树的请求。`id` 参数指示正在展开的节点：`#` 表示根节点，因此列出中心。之后，它包含资源的 `href`，因此在展开一个 `hub` 时，端点应返回该中心的项目。上述代码调用不同的 `get` 函数。要完成此操作，还要将以下内容复制到文件：
+上述代码接收来自 UI 树的请求。`id` 参数指示正在展开的节点：`#` 表示根节点，因此列出帐户中心。之后，它包含资源的 `href`，因此在展开一个 `hub` 时，endpoint 应返回该帐户中心的项目。上述代码调用不同的 `get` 函数。要完成此操作，还要将以下内容复制到文件：
 
 [routes/datamanagement.js](_snippets/viewhubmodels/node/routes/datamanagement.2.js ':include :type=code javascript')
 

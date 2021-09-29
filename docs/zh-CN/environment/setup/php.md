@@ -48,7 +48,7 @@ composer require vlucas/phpdotenv
 
 现在，在**根**文件夹下，创建一个名为 `index.php` 的文件。
 
-!> 注意：在开发应用程序时，需要先创建端点实现（如 AccessToken/DataManagement/ModelDerivative），然后通过此文件创建路由，但作为简介，为了清楚地说明，我们将首先介绍此文件：
+!> 注意：在开发应用程序时，需要先创建 endpoint 实现（如 AccessToken/DataManagement/ModelDerivative），然后通过此文件创建路由，但作为简介，为了清楚地说明，我们将首先介绍此文件：
 
 [index.php](_snippets/viewmodels/php/index.php ':include :type=code php')
 
@@ -64,9 +64,9 @@ composer require vlucas/phpdotenv
 
 ## .env
 
-!> 请务必将 **ID 和密钥**定义为环境变量，以便我们的项目可以将其用于授权请求。
+!> 请务必将 **ID 和 Secret** 定义为环境变量，以便我们的项目可以将其用于授权请求。
 
-要设置环境变量，请在 **/server/** 文件夹下创建一个名为 **.env** 的文件，然后将 Forge 客户端 ID 和客户端密钥添加到 .env，如下所示：
+要设置环境变量，请在 **/server/** 文件夹下创建一个名为 **.env** 的文件，然后将 Forge Client ID 和 Client Secret 添加到 .env，如下所示：
 
     FORGE_CLIENT_ID="<<YOUR CLIENT ID FROM DEVELOPER PORTAL>>"
     FORGE_CLIENT_SECRET="<<YOUR CLIENT SECRET FROM DEVELOPER PORTAL>>"
@@ -91,7 +91,7 @@ composer require vlucas/phpdotenv
 
 在运行 PHP 服务器时，将使用这些变量的值连接到我们需要的不同 Autodesk Forge 服务。
 
-最后，我们看到有 2 个有关范围的定义。这些范围为代币提供适当权限，以使用 Forge Web 服务的不同服务。本教程专门介绍 Viewer 的使用，我们只需要“viewables:read”范围。
+最后，我们看到有 2 个有关范围的定义。这些范围为 token 提供适当权限，以使用 Forge Web 服务的不同服务。本教程专门介绍 Viewer 的使用，我们只需要“viewables:read”范围。
 
 
 

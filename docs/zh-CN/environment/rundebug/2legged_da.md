@@ -4,13 +4,13 @@
 
 ## 使用示例
 
-单击右上角的 **Configure** 以定义应用程序包和活动。只需执行一次。在左侧面板上指定新的 `width` 和 `height`，选择 `input file`，然后单击 `Start workitem`。右侧面板应显示结果。
+单击右上角的 **Configure** 以定义 AppBundle 和 Activity。只需执行一次。在左侧面板上指定新的 `width` 和 `height`，选择 `input file`，然后单击 `Start workitem`。右侧面板应显示结果。
 
 您可以[在此处查找示例文件](https://github.com/Developer-Autodesk/learn.forge.designautomation/tree/master/sample%20files)。
 
-!> 如果插件代码发生变化，则需要上传新的应用程序包并更新版本（例如，从 v1 更新到 v2）。每次上传新的应用程序包时，此示例都将创建新版本。
+!> 如果插件代码发生变化，则需要上传新的 AppBundle 并更新版本（例如，从 v1 更新到 v2）。每次上传新的 AppBundle 时，此示例都将创建新版本。
 
-> 输入和输出文件都保存在 OSS 存储段中，您可以参考[查看模型](/zh-CN/tutorials/viewmodels)教程来查看它们。
+> 输入和输出文件都保存在 OSS bucket 中，您可以参考[查看模型](/zh-CN/tutorials/viewmodels)教程来查看它们。
 
 ![](_media/tutorials/run_sample_modifymodels.gif)
 
@@ -20,11 +20,11 @@
 
 确保 **ngrok** 正在运行且未过期。确保在环境变量中正确指定了 ngrok 地址。
 
-**2. 执行工作项后，结果不符合预期**
+**2. 执行 Workitem 后，结果不符合预期**
 
-请考虑使用 **Clear Account** 按钮。这将删除您帐户中的所有应用程序包和活动。然后再次定义它们。
+请考虑使用 **Clear Account** 按钮。这将删除您帐户中的所有 AppBundle 和 Activity。然后再次定义它们。
 
-**3. 在配置表单中看不到我的应用程序包**
+**3. 在配置表单中看不到我的 AppBundle**
 
 构建相应的插件后，ZIP 包将复制到 `wwwroot/bundles`。确保已正确定义 `Post-build` 事件并在构建后执行此事件。
 

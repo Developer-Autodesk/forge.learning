@@ -8,6 +8,6 @@
 
 [OAuthController.cs](_snippets/viewhubmodels/net/OAuthController.cs ':include :type=code csharp')
 
-此代码将在会话中存储内部和公共**访问代币**以及**刷新代币**和**到期时间**。当它到期时，它将使用刷新代币请求 2 个新的访问代币（内部和公共）。请注意它如何包含 2 个类：`OAuthController` 和 `Credentials`，其中第一个类公开端点，第二个类处理访问代币（包括刷新代币）。
+此代码将在会话中存储内部和公共**访问 token** 以及**刷新 token** 和**到期时间**。当它到期时，它将使用刷新 token 请求 2 个新的访问 token（内部和公共）。请注意它如何包含 2 个类：`OAuthController` 和 `Credentials`，其中第一个类公开 endpoint，第二个类处理访问 token（包括刷新 token）。
 
-下一步：[列出中心和项目](/zh-CN/datamanagement/hubs/readme)
+下一步：[列出帐户中心和项目](/zh-CN/datamanagement/hubs/readme)

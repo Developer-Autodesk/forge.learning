@@ -2,7 +2,7 @@
 
 首先，创建并激活您的 [AWS 帐户](https://aws.amazon.com/)。
 
-## 先决条件
+## 前提条件
 
 AWS Toolkit for Visual Studio 是在 Microsoft Windows 上运行的 Microsoft Visual Studio 的扩展，它使开发人员可以更轻松地使用 Amazon Web Services 开发、调试和部署 .NET 应用程序。借助 AWS Toolkit for Visual Studio，您将能够在构建 AWS 应用程序时更快速、更高效地开始。
 

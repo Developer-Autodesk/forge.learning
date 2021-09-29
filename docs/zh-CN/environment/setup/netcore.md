@@ -16,7 +16,7 @@
 
 - `ASPNETCORE_URLS`：使用 `http://localhost:3000`
 - `FORGE_CLIENT_ID`：此处使用您的 ID
-- `FORGE_CLIENT_SECRET`：此处使用您的密钥
+- `FORGE_CLIENT_SECRET`：此处使用您的 Secret
 - `FORGE_CALLBACK_URL`：在此示例中，使用 `http://localhost:3000/api/forge/callback/oauth`
 
 如果要在调试时在浏览器中自动启动应用程序，还可以选中 **Launch browser** 并指定 **App URL**。将 **App URL** 字段调整为 `http://localhost:3000`。最后，由于我们在本地运行应用程序，无需设置受信任的证书，因此取消选中 **Enable SSL** 选项。设置应如下所示。

@@ -2,11 +2,11 @@
 
 本教程将为您介绍使用 [Azure Web 门户](https://azure.microsoft.com/en-us/features/azure-portal/)和 [Git](https://git-scm.com/) 将 Node.js 示例 Forge 应用程序作为 Web 应用程序部署到 Azure App Service 的步骤。
 
-在本教程中，我们将使用 ViewHubModels 示例，如[前面的章节](/zh-CN/tutorials/viewhubmodels)所述。您可以从 [Github 存储库](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/nodejs)中检索完整的示例。同样的步骤也适用于**查看模型**教程规范。
+在本教程中，我们将使用 ViewHubModels 示例，如[前面的章节](/zh-CN/tutorials/viewhubmodels)所述。您可以从 [Github 样例库](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/nodejs)中检索完整的示例。同样的步骤也适用于**查看模型**教程规范。
 
 在开始之前，请[登录或注册](https://signup.azure.com/) [Microsoft Azure 计算平台和服务](https://azure.microsoft.com/)，并创建[试用帐户](https://azure.microsoft.com/en-us/free/?cdn=disable)，它包含 200 美元积分，可免费使用 12 个月
 
-## 先决条件
+## 前提条件
 
 大多数步骤都可以通过 Web 门户完成，但需要 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
@@ -56,9 +56,9 @@ az webapp create --name <nameofyourapp> --plan myAppServicePlan --resource-group
 
 - 将部署源设置为 ```Local Git``` ![](_media/deployment/azure/deployment_settings_localgit_1.png)
 
-- 单击右上角亮显的按钮以打开 Azure CLI，运行 ```az webapp deployment user set --user-name $username --password $password``` 以配置部署凭据并记录生成的 Git url ![](_media/deployment/azure/deployment_settings_azure.png)
+- 单击右上角亮显的按钮以打开 Azure CLI，运行 ```az webapp deployment user set --user-name $username --password $password``` 以配置部署 Credentials 并记录生成的 Git url ![](_media/deployment/azure/deployment_settings_azure.png)
 
-- 使用 Forge 应用程序凭据（```FORGE_CLIENT_ID``` 和 ```FORGE_CLIENT_SECRET```）和回调 URL（模式为 ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```）设置环境变量 ![](_media/deployment/azure/portalAppSettings.png)
+- 使用 Forge 应用程序 Credentials（```FORGE_CLIENT_ID``` 和 ```FORGE_CLIENT_SECRET```）和回调 URL（模式为 ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```）设置环境变量 ![](_media/deployment/azure/portalAppSettings.png)
 
 **2. 使用 CLI 部署**
 
@@ -73,7 +73,7 @@ echo $(az webapp deployment source config-local-git --name <nameofyourapp> --res
 az webapp config appsettings set -g MyResourceGroup -n <nameofyourapp> --settings FORGE_CLIENT_ID=<yourForgeAppClientID> FORGE_CLIENT_SECRET=<yourForgeAppSecret> FORGE_CLIENT_SECRET=<yourForgeAppSecret> FORGE_CALLBACK_URL=<yourCallbackURL>
 ```
 
-- 使用 [Git CLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line) 或您喜欢的 Git 客户端将本地存储库推送到 Azure Web 应用程序
+- 使用 [Git CLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line) 或您喜欢的 Git 客户端将本地样例库推送到 Azure Web 应用程序
 
 ```bash
 # Add the Azure remote to your local Git respository and push your code

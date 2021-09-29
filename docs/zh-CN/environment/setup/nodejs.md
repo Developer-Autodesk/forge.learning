@@ -67,7 +67,7 @@ npm install forge-apis --save
 
 此文件向 Visual Studio Code 指示应如何运行项目。转到菜单 **Run** >> **Add Configuration...**，然后在顶部显示的 **Select Environment** 窗口中，选择 **Node.js**。在创建的 **/.vscode/launch.json** 文件中，输入以下内容：
 
-!> 请注意，您需要在指示位置输入您的 **Forge 客户端 ID 和密钥**。
+!> 请注意，您需要在指示位置输入您的 **Forge Client ID 和 Secret**。
 
 ```json
 {
@@ -91,7 +91,7 @@ npm install forge-apis --save
 }
 ```
 
-> 请务必将 **ID 和密钥**定义为环境变量，以便日后可以在线部署项目。稍后将在**部署**中详细介绍此内容。
+> 请务必将 **ID 和 Secret** 定义为环境变量，以便日后可以在线部署项目。稍后将在**部署**中详细介绍此内容。
 
 ## start.js
 
@@ -156,7 +156,7 @@ module.exports = {
 
 我们在此定义 ENV 变量。在运行 Express 服务器时，将使用这些变量的值连接到我们需要的不同 Autodesk Forge 服务。
 
-最后，我们看到有 2 个范围定义。内部范围为访问代币提供适当权限，以使用 Forge Web 服务（服务器端）的不同服务。本教程专门介绍 Viewer 的使用，对于 public，我们只需要“viewables:read”范围。
+最后，我们看到有 2 个范围定义。内部范围为访问 token 提供适当权限，以使用 Forge Web 服务（服务器端）的不同服务。本教程专门介绍 Viewer 的使用，对于 public，我们只需要“viewables:read”范围。
 
 项目已准备就绪！此时，项目应如下所示：
 

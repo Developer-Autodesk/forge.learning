@@ -51,11 +51,11 @@ npm install socket.io --save
 
 此文件向 Visual Studio Code 指示应如何运行项目。转到菜单 **Run** >> **Add Configuration...**，然后在顶部显示的 **Select Environment** 窗口中，选择 **Node.js**。在创建的 **/.vscode/launch.json** 文件中，输入以下内容：
 
-!> 请注意，您需要在指示位置输入您的 **Forge 客户端 ID 和密钥**。
+!> 请注意，您需要在指示位置输入您的 **Forge Client ID 和 Secret**。
 
 [launch.json](_snippets/modifymodels/node/launch.json ':include :type=code json')
 
-> 请务必将 **ID 和密钥**定义为环境变量，以便日后可以在线部署项目。稍后将在**部署**中详细介绍此内容。
+> 请务必将 **ID 和 Secret** 定义为环境变量，以便日后可以在线部署项目。稍后将在**部署**中详细介绍此内容。
 
 ## start.js
 
@@ -87,7 +87,7 @@ npm install socket.io --save
 
 ## routes/common/oauth.js
 
-现在，在 `routes` 文件夹中创建一个 `common` 子文件夹，并准备一个 `routes/common/oauth.js` 文件，用于实际从 Forge 请求访问代币。本教程的其他部分将会重用此文件。
+现在，在 `routes` 文件夹中创建一个 `common` 子文件夹，并准备一个 `routes/common/oauth.js` 文件，用于实际从 Forge 请求访问 token。本教程的其他部分将会重用此文件。
 
 [routes/common/oauth.js](_snippets/modifymodels/node/routes/common/oauth.js ':include :type=code javascript')
 

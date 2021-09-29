@@ -1,6 +1,6 @@
 # 转换模型 (.NET Core)
 
-要转换文件，我们只需要一个端点。
+要转换文件，我们只需要一个 endpoint。
 
 ## ModelDerivativeController.cs
 

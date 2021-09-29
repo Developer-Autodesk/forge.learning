@@ -32,7 +32,7 @@ Eclipse 将在 IDE 中运行一个本地页面，其中显示“Hello World!”�
 要确保运行的是您的 index.jsp，请转到 **src/main/webapp/index.jsp**，然后将文本从“Hello World!”更改为“Hello Forge!”
 
 ## 更改默认主机 URL
-执行完上述步骤后，我们的 Java 服务器配置为从 `/forgesample` 提供文件，因此默认主机 URL 为 http://localhost:3000/forgesample/。在构建 HTTP 端点的步骤中，连接 URL 将被映射为如下格式：http://localhost:3000/api/forge/oauth/token、http://localhost:3000/api/forge/oss/buckets，默认主机 URL 需要更新为 http://localhost:3000。
+执行完上述步骤后，我们的 Java 服务器配置为从 `/forgesample` 提供文件，因此默认主机 URL 为 http://localhost:3000/forgesample/。在构建 HTTP endpoint 的步骤中，连接 URL 将被映射为如下格式：http://localhost:3000/api/forge/oauth/token、http://localhost:3000/api/forge/oss/buckets，默认主机 URL 需要更新为 http://localhost:3000。
 
 因此，我们通过在 Eclipse Web 模块中将路径设置为空路径来解决问题，这样就可以在 URL 中不包含任何路径组成部分的情况下访问项目（即 ROOT）。找到 Tomcat 服务器页面，单击页面左下角的 **Modules** 选项卡。在 **Web Modules** 列表中，选择“forgesample”。接下来，单击 __Edit__。在弹出对话框中，将路径更改为“/”。单击“OK”并保存更新。
 
@@ -86,9 +86,9 @@ Markers 中将弹出新错误，我们需要更新 Maven 项目以处理之前�
 
 [config.java](_snippets/viewmodels/java/config.java ':include :type=code java')
 
-> 请务必将 **ID 和密钥**定义为环境变量，以便日后可以在线部署项目。稍后将在**部署**中详细介绍此内容。
+> 请务必将 **ID 和 Secret** 定义为环境变量，以便日后可以在线部署项目。稍后将在**部署**中详细介绍此内容。
 
-最后，我们看到有 2 个有关范围的定义。这些范围为代币提供适当权限，以使用 Forge Web 服务的不同服务。本教程专门介绍 Viewer 的使用，我们只需要“viewables:read”范围。
+最后，我们看到有 2 个有关范围的定义。这些范围为 token 提供适当权限，以使用 Forge Web 服务的不同服务。本教程专门介绍 Viewer 的使用，我们只需要“viewables:read”范围。
 
 项目已准备就绪！此时，项目应如下所示：
 

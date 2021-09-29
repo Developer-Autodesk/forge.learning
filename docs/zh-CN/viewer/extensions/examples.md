@@ -2,7 +2,7 @@
 
 我们为 Viewer 构建了自包含的扩展，可轻松重用这些扩展，并且可在以下位置找到它们：
 
-- [GitHub 存储库](https://github.com/Autodesk-Forge/forge-extensions)
+- [GitHub 样例库](https://github.com/Autodesk-Forge/forge-extensions)
 - [演示链接](https://forge-extensions.autodesk.io/)
 
 以下是基于此框架方法的另外几个扩展示例：
@@ -17,6 +17,6 @@
 
 **.NET**
 
-- [自定义属性](https://forge.autodesk.com/blog/custom-properties-viewer-net-lambda-dynamodb)：将自定义属性存储在数据库 (AWS DynamoDB) 中，并使用 .NET WebAPI 代码通过 REST 端点提供这些属性。 
+- [自定义属性](https://forge.autodesk.com/blog/custom-properties-viewer-net-lambda-dynamodb)：将自定义属性存储在数据库 (AWS DynamoDB) 中，并使用 .NET WebAPI 代码通过 REST endpoint 提供这些属性。 
 
 下一步：[部署](/zh-CN/deployment/)

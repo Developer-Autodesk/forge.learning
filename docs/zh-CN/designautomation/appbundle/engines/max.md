@@ -22,7 +22,7 @@
 
 ## Commands.cs
 
-这是将与 3ds Max 一起运行的主要代码。将以下内容复制到 `Command.cs`。有三个类可用于进行 Design Automation 处理。第一个是 `InputParams` 类，用于与 JSON 输入数据交互。第二个是 `ParameterChanger` 类，用于迭代场景，并查找所有平开窗（但可以是类 ID 标识的任何对象类型）。第三个是 `RuntimeExecute` 类，用于获取输入并驱动自动化。另请注意，有一个专门的日志记录，可将信息输出到 Design Automation 控制台。请参见 LogTrace 函数。请注意，`ILogSys` 3ds Max 托管类用于此操作，并且与所指示的 `LogEntry` API 一起使用的标志对于在 Design Automation 控制台中显示输出是必需的。 
+这是将与 3ds Max 一起运行的主要代码。将以下内容复制到 `Command.cs`。有三个类可用于进行 Design Automation 处理。第一个是 `InputParams` 类，用于与 JSON 输入数据交互。第二个是 `ParameterChanger` 类，用于迭代场景，并查找所有平开窗（但可以是类 ID 标识的任何 object 类型）。第三个是 `RuntimeExecute` 类，用于获取输入并驱动自动化。另请注意，有一个专门的日志记录，可将信息输出到 Design Automation 控制台。请参见 LogTrace 函数。请注意，`ILogSys` 3ds Max 托管类用于此操作，并且与所指示的 `LogEntry` API 一起使用的标志对于在 Design Automation 控制台中显示输出是必需的。 
 
 [Commands.cs](_snippets/modifymodels/engines/max/Commands.cs ':include :type=code csharp')
 
@@ -40,7 +40,7 @@
 
 ## 生成后事件
 
-> 对于 Node.js，需要调整应用程序包 ZIP 输出文件夹。
+> 对于 Node.js，需要调整 AppBundle ZIP 输出文件夹。
 
 现在，我们需要压缩 .bundle 文件夹。在项目上单击鼠标右键，选择 **Properties**，然后打开 **Build Events**，并将以下内容复制到 **Post-build event command line** 字段中，如下图所示。
 

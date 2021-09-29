@@ -18,9 +18,9 @@
 ![](_media/go/vs_code_explorer.png) 
 
 
-## 设置凭据
+## 设置 Credentials
 
-请务必将 ID 和密钥定义为环境变量，以便我们的项目可以将其用于授权请求。
+请务必将 ID 和 Secret 定义为环境变量，以便我们的项目可以将其用于授权请求。
 
 要设置环境变量，请按照以下步骤操作，具体取决于您的操作系统。    
 ***Mac OSX/Linux（终端）***
@@ -43,9 +43,9 @@ set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
 
 [main.go](_snippets/viewmodels/go/main.go ':include :type=code go')
 
-此文件的用途是设置 Forge 凭据并启动服务器。    
+此文件的用途是设置 Forge Credentials 并启动服务器。    
 请注意导入 `forgesample/server` 部分，在您的情况下，它应该与您的文件夹匹配，因为您将使用项目中的服务器文件。  
-另请注意我们如何获取 ID 和密钥来设置服务器，如果找不到其中之一，则会失败。
+另请注意我们如何获取 ID 和 Secret 来设置服务器，如果找不到其中之一，则会失败。
 
 ## server.go
 
@@ -55,7 +55,7 @@ set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
 
 此文件用于准备服务器，提供静态文件（例如 `html`、`js`），并路由 API 请求。
 
-请注意，Go 方法依赖于 [forge-api-go-client](https://github.com/apprentice3d/forge-api-go-client)，要使用该库，您应该通过在终端中调用来获取它：
+请注意，Go 方法依赖于 [forge-api-go-client](https://github.com/apprentice3d/forge-api-go-client)，要使用该代码库，您应该通过在终端中调用来获取它：
 
 ```bash
 	go get -u github.com/apprentice3d/forge-api-go-client
@@ -63,7 +63,7 @@ set FORGE_CLIENT_SECRET=<<YOUR CLIENT SECRET>>
 
 Go 会将其复制到 `$GOPATH/src/github.com/apprentice3d/forge-api-go-client`，以便可用于此内容以及在 Go 中编写的所有未来项目。
 
-该库旨在处理为其任务请求具有适当范围的代币。因此，我们拥有 `ForgeService` 结构：
+该代码库旨在处理为其任务请求具有适当范围的 token。因此，我们拥有 `ForgeService` 结构：
 
 ```go
 // ForgeServices holds reference to all services required in this server
@@ -74,7 +74,7 @@ type ForgeServices struct {
 }
 
 ```
-它包含我们将使用的所有 Forge API 客户端，并且每个客户端都使用同一文件中的 Forge 凭据进行初始化：
+它包含我们将使用的所有 Forge API 客户端，并且每个客户端都使用同一文件中的 Forge Credentials 进行初始化：
 
 ```go
 ...

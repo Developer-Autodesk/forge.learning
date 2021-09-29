@@ -4,9 +4,9 @@
 
 ## Index.html
 
-这是应用程序的入口点。在此示例中，我们将使用 [jQuery](https://jquery.com) 来操纵 [DOM](https://www.w3schools.com/js/js_htmldom.asp)，使用 [Bootstrap](https://getbootstrap.com/) 进行样式设置，并使用 [jsTree](https://www.jstree.com) 列出存储段和对象。所有这些库都来自 [CDN](https://cdnjs.com/)（[内容分发网络](https://en.wikipedia.org/wiki/Content_delivery_network)）。
+这是应用程序的入口点。在此示例中，我们将使用 [jQuery](https://jquery.com) 来操纵 [DOM](https://www.w3schools.com/js/js_htmldom.asp)，使用 [Bootstrap](https://getbootstrap.com/) 进行样式设置，并使用 [jsTree](https://www.jstree.com) 列出 bucket 和 object。所有这些代码库都来自 [CDN](https://cdnjs.com/)（[内容分发网络](https://en.wikipedia.org/wiki/Content_delivery_network)）。
 
-当然还有 Autodesk Forge Viewer 库：viewer3d.min.js、three.min.js 和 style.min.css。
+当然还有 Autodesk Forge Viewer 代码库：viewer3d.min.js、three.min.js 和 style.min.css。
 
 创建一个包含以下内容的 **index.html** 文件：
 
@@ -20,7 +20,7 @@
 
 [index.html](_snippets/viewhubmodels/common/index.v6.html ':include :type=code html')
 
-#### \** 迁移手册 \*\*
+#### \** 移植指南 \*\*
 
 请访问 [Forge 网站](https://forge.autodesk.com/en/docs/viewer/v7/change_history/changelog_v7/migration_guide_v6_to_v7/)，获取面向一直在使用 v6（或更早版本）并将升级到 v7 的开发人员的完整手册。
 
@@ -34,7 +34,7 @@ CSS 是描述 HTML 文档样式的语言。有关更多信息，请访问 [W3Sch
 
 ## ForgeTree.js
 
-此文件将处理列出**中心**、**项目**、******文件夹**、**项**和**版本**的树视图。在 `js` 文件夹下，创建一个包含以下内容的 **ForgeTree.js** 文件：
+此文件将处理列出**帐户中心**、**项目**、******文件夹**、**项**和**版本**的树视图。在 `js` 文件夹下，创建一个包含以下内容的 **ForgeTree.js** 文件：
 
 [ForgeTree.js](_snippets/viewhubmodels/common/ForgeTree.js ':include :type=code javascript')
 
@@ -56,9 +56,9 @@ CSS 是描述 HTML 文档样式的语言。有关更多信息，请访问 [W3Sch
 
 [ForgeViewer.js](_snippets/viewhubmodels/common/ForgeViewer.v6.js ':include :type=code javascript')
 
-#### \** 迁移手册 \*\*
+#### \** 移植指南 \*\*
 
-请访问 [Forge 迁移手册](https://forge.autodesk.com/en/docs/viewer/v7/change_history/changelog_v7/migration_guide_v6_to_v7/)，获取面向一直在使用 v6（或更早版本）并将升级到 v7 的开发人员的完整文档。
+请访问 [Forge 移植指南](https://forge.autodesk.com/en/docs/viewer/v7/change_history/changelog_v7/migration_guide_v6_to_v7/)，获取面向一直在使用 v6（或更早版本）并将升级到 v7 的开发人员的完整文档。
 
 <!-- tabs:end -->
 

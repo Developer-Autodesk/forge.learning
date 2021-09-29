@@ -4,11 +4,11 @@ Design Automation 像 Autodesk App Store 一样使用 .bundle，这意味着您�
 
 在本部分中，我们将创建一个基本插件，该插件将更新 `width` 和 `height` 参数并保存生成的文件。此外，还创建支持文件 (`PackageContents.xml`) 和用于放置这些文件的文件夹结构。最后，创建 .ZIP 文件，准备上传到 Design Automation。
 
-### 先决条件
+### 前提条件
 
 - **7zip**：用于创建包含包文件的 .ZIP，请[从此处](https://www.7-zip.org/)安装。本教程假定 **7zip** 安装在默认文件夹中：_C:\\Program Files\\7-Zip\\7z.exe_。
 
-### 其他先决条件 
+### 其他前提条件 
 
 在下一会话中，您可以使用预构建插件。或者，如果您决定构建插件，您将需要：
 

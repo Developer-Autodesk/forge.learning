@@ -4,7 +4,7 @@
 
 > 您可以[下载包 ZIP 文件](https://github.com/Autodesk-Forge/learn.forge.designautomation/raw/master/forgesample/wwwroot/bundles/UpdateIPTParam.zip)到 `bundles/` (Node.js) 或 `/forgeSample/wwwroot/bundles` (.NET Core) 文件夹，并[跳过此部分](/zh-CN/designautomation/appbundle/common.md)
 
-## 先决条件
+## 前提条件
 
 - **Design Automation for Inventor** 模板：转到 Visual Studio Market Place，从[此链接](https://marketplace.visualstudio.com/items?itemName=Autodesk.DesignAutomation)下载并打开它，然后按照步骤进行安装。
 
@@ -26,7 +26,7 @@
 
 ## 生成后事件
 
-> 对于 Node.js，需要调整应用程序包 ZIP 输出文件夹。
+> 对于 Node.js，需要调整 AppBundle ZIP 输出文件夹。
 
 现在，我们需要压缩 .bundle 文件夹。在项目上单击鼠标右键，选择 **Properties**，然后打开 **Build Events**，并将以下内容复制到 **Post-build event command line** 字段中，如下图所示。
 

@@ -2,7 +2,7 @@
 
 Viewer 包含模型中的大量数据，但我们需要根据面板进行过滤和调整。以下类对此有所帮助。
 
-有多种方法来组织数据（例如[数组](https://www.w3schools.com/js/js_arrays.asp)），在本示例中，我们使用 JavaScript 对象（作为哈希表）。实际上，它类似于以下内容：
+有多种方法来组织数据（例如[数组](https://www.w3schools.com/js/js_arrays.asp)），在本示例中，我们使用 JavaScript object（作为哈希表）。实际上，它类似于以下内容：
 
 ```javascript
 var data = {};

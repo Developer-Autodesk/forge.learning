@@ -1,4 +1,4 @@
-# 上传应用程序包
+# 上传 AppBundle
 
 现在 ZIP 包已准备就绪，让我们上传到 Design Automation。
 

@@ -48,7 +48,7 @@
 
 ## 生成后事件
 
-> 对于 Node.js，需要调整应用程序包 ZIP 输出文件夹。
+> 对于 Node.js，需要调整 AppBundle ZIP 输出文件夹。
 
 现在，我们需要压缩 .bundle 文件夹。在项目上单击鼠标右键，选择 **Properties**，然后打开 **Build Events**，并将以下内容复制到 **Post-build event command line** 字段中，如下图所示。
 

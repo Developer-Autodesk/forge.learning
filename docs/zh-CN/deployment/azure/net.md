@@ -2,11 +2,11 @@
 
 本教程将为您介绍使用 [Visual Studio 2017](https://visualstudio.microsoft.com/vs/) 将 .NET 示例 Forge 应用程序作为 Web 应用程序部署到 Azure App Service 的步骤。
 
-在本教程中，我们将使用 ViewHubModels 示例，如[前面的章节](/zh-CN/tutorials/viewhubmodels)所述。您可以从 [Github 存储库](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/net)中检索完整的示例。同样的步骤也适用于**查看模型**教程规范。
+在本教程中，我们将使用 ViewHubModels 示例，如[前面的章节](/zh-CN/tutorials/viewhubmodels)所述。您可以从 [Github 样例库](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/net)中检索完整的示例。同样的步骤也适用于**查看模型**教程规范。
 
 在开始之前，请[登录或注册](https://signup.azure.com/) [Microsoft Azure 计算平台和服务](https://azure.microsoft.com/)，并创建[试用帐户](https://azure.microsoft.com/en-us/free/?cdn=disable)，它包含 200 美元积分，可免费使用 12 个月
 
-## 先决条件
+## 前提条件
 
 本教程需要使用 [Visual Studio 2017](https://visualstudio.microsoft.com/vs/)。
 
@@ -20,7 +20,7 @@
 
 - 检查生成输出，了解部署详细信息。请注意，已自动创建一个新配置文件，以便您将来可以将解决方案直接部署到此应用程序，而无需再次执行这些步骤 ![](_media/deployment/azure/net_app_published_result.png)
 
-- 使用 Forge 应用程序凭据（```FORGE_CLIENT_ID``` 和 ```FORGE_CLIENT_SECRET```）和回调 URL（模式为 ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```）设置环境变量 ![](_media/deployment/azure/vsAppSettings.png)
+- 使用 Forge 应用程序 Credentials（```FORGE_CLIENT_ID``` 和 ```FORGE_CLIENT_SECRET```）和回调 URL（模式为 ```http://<nameofyourapp>.azurewebsites.net/api/forge/callback/oauth```）设置环境变量 ![](_media/deployment/azure/vsAppSettings.png)
 
 完成！单击 ```Site URL``` 以查看应用程序的运行情况
 
@@ -29,7 +29,7 @@
 - 您也可以通过浏览器在 Azure 门户上创建应用程序。在浏览器中创建应用程序时，只需从 ```Marketplace``` 中选择 ```API App```，在 Visual Studio 中发布或创建 ```Deployment Profile``` 时，选择 ```Existing App```
 
   ![](_media/deployment/azure/app_dashboard.png)
-- 创建 ```API App``` 后，您可以从本地 Git 存储库部署。有关详细信息，请参见[此处](/zh-CN/deployment/azure/node)
+- 创建 ```API App``` 后，您可以从本地 Git 样例库部署。有关详细信息，请参见[此处](/zh-CN/deployment/azure/node)
 
 ### 其他部署选项
 - [Visual Code](https://azure.microsoft.com/en-us/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)/[Visual Studio](../node)

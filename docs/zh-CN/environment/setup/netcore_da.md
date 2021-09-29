@@ -6,7 +6,7 @@
 
 !> 如果项目类型或 .NET Core 3.0 不可用，请查看[工具](/zh-CN/environment/tools/netcore)部分。
 
-安装 Autodesk Forge NuGet 软件包：在项目上单击鼠标右键 (**Solution Explorer**)，选择 **Manage NuGet Package**，然后在 **Browse** 中搜索 **Autodesk.Forge** 并安装 `Autodesk.Forge`。这将用于将输入和输出结果上传到 [OSS 存储段](https://forge.autodesk.com/en/docs/data/v2/developers_guide/basics/)。
+安装 Autodesk Forge NuGet 软件包：在项目上单击鼠标右键 (**Solution Explorer**)，选择 **Manage NuGet Package**，然后在 **Browse** 中搜索 **Autodesk.Forge** 并安装 `Autodesk.Forge`。这将用于将输入和输出结果上传到 [OSS bucket](https://forge.autodesk.com/en/docs/data/v2/developers_guide/basics/)。
 
 重复 **Manage NuGet Packages** 中最后一步：搜索并安装 `Autodesk.Forge.DesignAutomation` 和 `Microsoft.AspNetCore.Mvc.NewtonsoftJson` 以处理 JSON 数据。 
 
@@ -16,7 +16,7 @@
 
 - `ASPNETCORE_URLS`：使用 `http://localhost:3000`
 - `FORGE_CLIENT_ID`：此处使用您的 ID
-- `FORGE_CLIENT_SECRET`：此处使用您的密钥
+- `FORGE_CLIENT_SECRET`：此处使用您的 Secret
 - `FORGE_WEBHOOK_URL`：使用上一步中的 **ngrok** 转发 URL
 
 您还可以选中 **Launch browser** 并指定 **App URL**。最后，由于这是在本地运行，因此取消选中 **Enable SSL** 选项。它应如下所示。
@@ -31,7 +31,7 @@ using Autodesk.Forge.Core;
 using Autodesk.Forge.DesignAutomation;
 ```
 
-然后，将 **Program.cs** `Main()` 方法内容替换为以下内容。这将告知应用程序从上面定义的环境变量加载 Forge 客户端 ID 和密钥。
+然后，将 **Program.cs** `Main()` 方法内容替换为以下内容。这将告知应用程序从上面定义的环境变量加载 Forge Client ID 和 Secret。
 
 ```csharp
 CreateHostBuilder(args).ConfigureAppConfiguration(builder =>
@@ -74,7 +74,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 创建 **Controllers** 文件夹，该文件夹将托管 WebAPI 控制器。
 
-我们需要 `access token` 以在 OSS 存储段中读写输入和输出文件。在 **Controllers** 文件夹下，创建一个包含以下内容的 `OAuthController.cs` 文件：
+我们需要 `access token` 以在 OSS bucket 中读写输入和输出文件。在 **Controllers** 文件夹下，创建一个包含以下内容的 `OAuthController.cs` 文件：
 
 [OAuthController.cs](_snippets/modifymodels/netcore/OAuthController.cs ':include :type=code csharp')
 

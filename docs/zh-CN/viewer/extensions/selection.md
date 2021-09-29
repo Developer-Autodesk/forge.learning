@@ -14,7 +14,7 @@
 
 [css/main.css](_snippets/extensions/css/main.2.css ':include :type=code css')
 
-> 您可以使用您自己的图像，也可以使用库中的图像，在本例中，我们使用 PNG 格式的 [Font Awesome](https://fontawesome.com/) 图标。
+> 您可以使用您自己的图像，也可以使用代码库中的图像，在本例中，我们使用 PNG 格式的 [Font Awesome](https://fontawesome.com/) 图标。
 
 ## 加载扩展
 
@@ -54,7 +54,7 @@ viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer')
 
 ## 总结
 
-此时，扩展应该已加载并显示工具栏按钮。选择一个或多个对象并单击按钮，确认要隔离的元素。以下视频演示了该行为。
+此时，扩展应该已加载并显示工具栏按钮。选择一个或多个 object 并单击按钮，确认要隔离的元素。以下视频演示了该行为。
 
 ![](_media/javascript/js_isolate.gif)
 
