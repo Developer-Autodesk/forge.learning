@@ -6,7 +6,7 @@
 
 !> 如果找不到上述的檔案類型或 .NET Core 3.0，請參閱[「開發工具及環境準備」](/zh-TW/environment/tools/netcore)章節。
 
-安裝 Autodesk Forge NuGet 套件：在專案 (**Solution Explorer**) 上按一下右鍵，選取 **Manage NuGet Package**，在 **Browse** 搜尋 **Autodesk.Forge**，然後安裝 `Autodesk.Forge`。這會用來將輸入與輸出結果上傳至 [OSS buckets](https://forge.autodesk.com/en/docs/data/v2/developers_guide/basics/)。
+安裝 Autodesk Forge NuGet 套件：在專案 (**Solution Explorer**) 上按一下右鍵，選取 **Manage NuGet Package**，在 **Browse** 搜尋 **Autodesk.Forge**，然後安裝 `Autodesk.Forge`。這會用來將輸入與輸出結果上傳至 [OSS bucket](https://forge.autodesk.com/en/docs/data/v2/developers_guide/basics/)。
 
 重複 **Manage NuGet Packages** 的最後一個步驟：搜尋並安裝 `Autodesk.Forge.DesignAutomation` 和 `Microsoft.AspNetCore.Mvc.NewtonsoftJson` 以處理 JSON 資料。 
 
@@ -31,7 +31,7 @@ using Autodesk.Forge.Core;
 using Autodesk.Forge.DesignAutomation;
 ```
 
-接著，將 **Program.cs** 的 `Main()` 方法內容取代為以下程式碼。這會告訴我們的應用程式從上方所定義的環境變數載入 Forge Client ID 和 Secret。
+接著，將 **Program.cs** 的 `Main()` 方法內容取代為以下程式碼。這會告訴我們的應用程式從上方所定義的環境變數載入您的 Forge Client ID 和 Secret。
 
 ```csharp
 CreateHostBuilder(args).ConfigureAppConfiguration(builder =>
@@ -74,7 +74,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 建立 **Controllers** 資料夾，該資料夾將用來裝載 WebAPI 控制器。
 
-我們需要有 `access token`，才能對 OSS buckets 讀取及寫入輸入檔案和輸出檔案。在 **Controllers** 資料夾下，建立含有以下內容的 `OAuthController.cs` 檔案：
+我們需要有 `access token`，才能對 OSS bucket 讀取及寫入輸入檔案和輸出檔案。在 **Controllers** 資料夾下，建立含有以下內容的 `OAuthController.cs` 檔案：
 
 [OAuthController.cs](_snippets/modifymodels/netcore/OAuthController.cs ':include :type=code csharp')
 

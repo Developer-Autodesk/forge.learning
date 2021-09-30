@@ -2,9 +2,9 @@
 
 在本節中，我們需要 3 個功能：
 
-1. 建立 buckets
-2. 條列 buckets 和 objects (檔案)
-3. 上傳 objects (檔案)
+1. 建立 bucket
+2. 條列 bucket 和 object (檔案)
+3. 上傳 object (檔案)
 
 ## routes/oss.js
 
@@ -12,7 +12,7 @@
 
 [routes/oss.js](_snippets/viewmodels/node/routes/oss.js ':include :type=code javascript')
 
-由於我們計劃支援 [jsTree](https://www.jstree.com/)，因此 **GET /api/forge/oss/buckets** endpoint 需要處理 `id` 查詢字串參數，當 `id` 設定為 `#` 時傳回所有 buckets，或在 `id=bucketKey` 時傳回傳遞的指定 bucketKey 中的所有 objects。上傳 endpoint 將使用 [multer](https://github.com/expressjs/multer) 模組處理檔案上傳。它會將檔案儲存在我們的伺服器上 (例如，位於 **/uploads/** 資料夾)，以便稍後可以將其上傳至 Forge。
+由於我們計劃支援 [jsTree](https://www.jstree.com/)，因此 **GET /api/forge/oss/buckets** endpoint 需要處理 `id` 查詢字串參數，當 `id` 設定為 `#` 時傳回所有 bucket，或在 `id=bucketKey` 時傳回傳遞的指定 bucketKey 中的所有 object。上傳 endpoint 將使用 [multer](https://github.com/expressjs/multer) 模組處理檔案上傳。它會將檔案儲存在我們的伺服器上 (例如，位於 **/uploads/** 資料夾)，以便稍後可以將其上傳至 Forge。
 
 請注意如何將 `routes/common/oauth.js` 中的驗證協助程式作為此路由器的中介軟體重複使用。
 

@@ -4,7 +4,7 @@
 
 1. 建立 bucket
 2. 條列 bucket 和 object (檔案)
-3. 上傳 objects (檔案)
+3. 上傳 object (檔案)
 
 我們將在 2 個檔案中對此進行結構化：
 

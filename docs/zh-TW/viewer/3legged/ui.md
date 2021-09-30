@@ -4,7 +4,7 @@
 
 ## index.html
 
-這是您應用程式的進入點。就此範例而言，我們將使用 [jQuery](https://jquery.com) 進行 [DOM](https://www.w3schools.com/js/js_htmldom.asp) 操控、使用 [Bootstrap](https://getbootstrap.com/) 進行樣式設定，並使用 [jsTree](https://www.jstree.com) 列出 buckets 與 object。所有這些程式庫皆來自 [CDN](https://cdnjs.com/) ([內容遞送網路](https://en.wikipedia.org/wiki/Content_delivery_network))。
+這是您應用程式的進入點。就此範例而言，我們將使用 [jQuery](https://jquery.com) 進行 [DOM](https://www.w3schools.com/js/js_htmldom.asp) 操控、使用 [Bootstrap](https://getbootstrap.com/) 進行樣式設定，並使用 [jsTree](https://www.jstree.com) 列出 bucket 與 object。所有這些程式庫皆來自 [CDN](https://cdnjs.com/) ([內容遞送網路](https://en.wikipedia.org/wiki/Content_delivery_network))。
 
 當然，還有 Autodesk Forge Viewer 程式庫：viewer3d.min.js、three.min.js 和 style.min.css。
 

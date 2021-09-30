@@ -64,7 +64,7 @@ composer require vlucas/phpdotenv
 
 ## .env
 
-!> 將 **ID & Secret** 定義為環境變數很重要，這樣專案就可以將其用於授權請求。
+!> 將您的 **Client ID 和 Secret** 定義為環境變數很重要，這樣專案就可以將其用於授權請求。
 
 若要設定環境變數，請在 **/server/** 資料夾下建立名為 **.env** 的檔案，並將 Forge client ID 和 client secret 加入 .env，如下所示：
 

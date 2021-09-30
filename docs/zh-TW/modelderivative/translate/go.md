@@ -1,6 +1,6 @@
 # 轉換模型 (Go)
 
-若要轉換檔案，我們只需要一個 endpoint。
+若要模型轉檔，我們只需要一個 endpoint。
 
 ## modelderivative.go
 

@@ -2,7 +2,7 @@
 
 下載並安裝 [Go distribution](https://golang.org/doc/install) 以執行程式碼。 
 
-請確保您已設定 [$GOPATH](https://github.com/golang/go/wiki/GOPATH) 環境變數，這是首次使用時必要的操作。若為 OSX 和 Linux 作業系統，您可以在使用者家目錄底下的 /go/ 資料夾：
+請確保您已設定 [$GOPATH](https://github.com/golang/go/wiki/GOPATH) 環境變數，這是首次使用時必要的操作。若為 OSX 和 Linux 作業系統，您可以在使用者家目錄底下的 `/go/` 資料夾：
 
 ```bash
 // MacOS & Linux

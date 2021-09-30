@@ -10,7 +10,7 @@
 
 !> 如果外掛程式碼有所變更，則您需要上傳新的 AppBundle 並增加版本 (例如從 v1 變更為 v2)。此範例將在每次上傳新的 AppBundle 時建立新版本。
 
-> 輸入檔案和輸出檔案均儲存在 OSS buckets 中，您可以使用[檢視模型](/zh-TW/tutorials/viewmodels)自學課程加以檢視。
+> 輸入檔案和輸出檔案均儲存在 OSS bucket 中，您可以使用[檢視模型](/zh-TW/tutorials/viewmodels)自學課程加以檢視。
 
 ![](_media/tutorials/run_sample_modifymodels.gif)
 

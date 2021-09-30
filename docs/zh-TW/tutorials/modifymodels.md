@@ -1,8 +1,8 @@
 # 修改模型
 
-本自學課程將引導您建立一個網頁應用程式，該應用程式可上傳輸入檔案，變更其 `width` 與`height` 參數，然後儲存輸出檔案。其使用者介面可讓您定義 AppBundle 與 activity（作為初始規劃）以及執行 workitem 來產生輸出結果。 
+本自學課程將引導您建立一個網頁應用程式，該應用程式可上傳輸入檔案，變更其 `width` 與`height` 參數，然後儲存輸出檔案。其使用者介面可讓您定義 AppBundle 與 activity (作為初始規劃) 以及執行 workitem 來產生輸出結果。 
 
-> 輸入檔案和輸出檔案均儲存在 OSS buckets 中，您可以使用[檢視模型](/zh-TW/tutorials/viewmodels)自學課程加以檢視。
+> 輸入檔案和輸出檔案均儲存在 OSS bucket 中，您可以使用[檢視模型](/zh-TW/tutorials/viewmodels)自學課程加以檢視。
 
 ![](_media/tutorials/run_sample_modifymodels.gif)
 

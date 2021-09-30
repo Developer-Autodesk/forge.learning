@@ -10,7 +10,7 @@
 
 ## routes/common/oauth.js
 
-現在，請在 `routes` 資料夾中建立 `common` 子資料夾，然後準備一個會實際向 Forge 請求 access Token 的 `routes/common/oauth.js` 檔案。這將會重複用於本自學課程的其他部分。
+現在，請在 `routes` 資料夾中建立 `common` 子資料夾，然後準備一個會實際向 Forge 請求 access token 的 `routes/common/oauth.js` 檔案。這將會重複用於本自學課程的其他部分。
 
 [routes/common/oauth.js](_snippets/viewmodels/node/routes/common/oauth.js ':include :type=code javascript')
 

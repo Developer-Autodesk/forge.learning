@@ -29,7 +29,7 @@
 <script src="js/Dashboard/PanelPieChart.js"></script>
 ```
 
-您的管控面板現已準備就緒，可以執行了！啟動瀏覽器，移往 `http://localhost3000`，然後選取模型。
+您的管控面板現已準備就緒，可以執行了！啟動瀏覽器，移往 `http://localhost:3000`，然後選取模型。
 
 # 疑難排解
 

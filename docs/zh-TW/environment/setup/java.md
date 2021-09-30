@@ -60,7 +60,7 @@ Maven 3.0 及更高版本已棄用 LATEST 和 RELEASE 中繼版本 ([請參閱�
     </dependency>
   ```
 
-!> 注意：本自學課程是以 Tomcat 8.5 或 9.0 為背景編寫，如您是使用 Tomcat 10 或更新的版本，那請注意，在該版本裡的 javax.* 套件已被重新命名為 jakarta.* 套件，請參考下面網址裡的解答修改您的 pom.xml，該網址裡有針對 Tomcat 10+、Tomcat 9-、JEE 9+ 和 JEE 8- 等版本提供相關的設定範例：[Tomcat 將 servlet 轉換為 javax.servlet.Servlet，而不是jakarta.servlet.http.HttpServlet](https://stackoverflow.com/questions/65703840/tomcat-casting-servlets-to-javax-servlet-servlet-instead-of-jakarta-servlet-http/65704617#65704617) 
+!> 注意：本自學課程是以 Tomcat 8.5 或 9.0 為背景編寫，如您是使用 Tomcat 10 或更新的版本，那請注意，在該版本裡的 javax.* 套件已被重新命名為 jakarta.* 套件，請參考下面網址裡的解答修改您的 pom.xml，該網址裡有針對 Tomcat 10+、Tomcat 9-、JEE 9+ 和 JEE 8- 等版本提供相關的設定範例：[Tomcat 將 servlet 轉換為 javax.servlet.Servlet，而不是 jakarta.servlet.http.HttpServlet](https://stackoverflow.com/questions/65703840/tomcat-casting-servlets-to-javax-servlet-servlet-instead-of-jakarta-servlet-http/65704617#65704617) 
 
 [pom.xml](_snippets/viewmodels/java/pom.xml ':include :type=code xml')
 
@@ -86,7 +86,7 @@ Maven 3.0 及更高版本已棄用 LATEST 和 RELEASE 中繼版本 ([請參閱�
 
 [config.java](_snippets/viewmodels/java/config.java ':include :type=code java')
 
-> 將 **ID & Secret** 定義為環境變數很重要，這樣我們的專案稍後就可以在線上部署。稍後可在**「部署」**章節中瞭解更多相關資訊。
+> 將您的 **Client ID 和 Secret** 定義為環境變數很重要，這樣我們的專案稍後就可以在線上部署。稍後可在**「部署」**章節中瞭解更多相關資訊。
 
 最後，我們看到有 2 種關於範圍的定義。這些範圍為 Token 提供了使用 Forge Web Services 不同服務的適當權限。本自學課程僅專門介紹 Viewer 的使用，我們將僅需要「viewables:read」範圍。
 

@@ -51,11 +51,11 @@ npm install socket.io --save
 
 此檔案用來告訴 Visual Studio Code 如何執行我們的 node.js 專案。移往功能表 **Run** >> **Add Configuration...**，然後在顯示於頂部的 **Select Environment** 視窗中選擇 **Node.js**。在建立的 **/.vscode/launch.json** 檔案中輸入以下內容：
 
-!> 請注意，您需要在指定的空白處輸入 **Forge Client ID & Secret**。
+!> 請注意，您需要在指定的空白處輸入您的 **Forge Client ID 和 Secret**。
 
 [launch.json](_snippets/modifymodels/node/launch.json ':include :type=code json')
 
-> 將 **ID & Secret** 定義為環境變數很重要，這樣我們的專案稍後就可以在線上部署。稍後可在**「部署」**章節中瞭解更多相關資訊。
+> 將您的 **Client ID 和 Secret** 定義為環境變數很重要，這樣我們的專案稍後就可以在線上部署。稍後可在**「部署」**章節中瞭解更多相關資訊。
 
 ## start.js
 
@@ -87,7 +87,7 @@ npm install socket.io --save
 
 ## routes/common/oauth.js
 
-現在，請在 `routes` 資料夾中建立 `common` 子資料夾，然後準備一個會實際向 Forge 請求 access Token 的 `routes/common/oauth.js` 檔案。這將會重複用於本自學課程的其他部分。
+現在，請在 `routes` 資料夾中建立 `common` 子資料夾，然後準備一個會實際向 Forge 請求 access token 的 `routes/common/oauth.js` 檔案。這將會重複用於本自學課程的其他部分。
 
 [routes/common/oauth.js](_snippets/modifymodels/node/routes/common/oauth.js ':include :type=code javascript')
 
