@@ -29,7 +29,7 @@
 <script src="js/Dashboard/PanelPieChart.js"></script>
 ```
 
-您的面板现在可以运行了！启动浏览器，访问 `http://localhost3000`，然后选择模型。
+您的面板现在可以运行了！启动浏览器，访问 `http://localhost:3000`，然后选择模型。
 
 # 疑难解答
 
@@ -48,6 +48,6 @@ new PieChart('Material')
 
 如果选定的属性不可用，则代码将在浏览器控制台上输出所有可用属性的列表。 
 
-> 浏览器控制台对于 Web 开发和调试至关重要。详细了解如何将其用于 [Chrome](https://developers.google.com/web/tools/chrome-devtools/console/)、[Edge](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console)、[Firefox](https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console) 和 [Safari](https://developer.apple.com/safari/tools/)。
+> 浏览器控制台对于 Web 开发和调试至关重要。详细了解如何在 [Chrome](https://developers.google.com/web/tools/chrome-devtools/console/)、[Edge](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console)、[Firefox](https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console) 和 [Safari](https://developer.apple.com/safari/tools/) 中使用控制台。
 
 下一步：[部署](/zh-CN/deployment/)

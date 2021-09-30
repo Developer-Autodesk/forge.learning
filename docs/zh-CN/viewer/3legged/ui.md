@@ -34,7 +34,7 @@ CSS 是描述 HTML 文档样式的语言。有关更多信息，请访问 [W3Sch
 
 ## ForgeTree.js
 
-此文件将处理列出**帐户中心**、**项目**、******文件夹**、**项**和**版本**的树视图。在 `js` 文件夹下，创建一个包含以下内容的 **ForgeTree.js** 文件：
+此文件将处理列出**帐户中心**、**项目**、**项目**、**文件夹**、**项**和**版本**的树视图。在 `js` 文件夹下，创建一个包含以下内容的 **ForgeTree.js** 文件：
 
 [ForgeTree.js](_snippets/viewhubmodels/common/ForgeTree.js ':include :type=code javascript')
 

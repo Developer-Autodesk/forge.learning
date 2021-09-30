@@ -4,7 +4,7 @@
 
 ![](_media/datamanagement/entities_and_domains.png)
 
-要导航和访问 BIM 360 Team、Fusion Team、BIM 360 Docs、A360 Personal 和 OSS 数据，您需要熟悉以下术语：
+要浏览和访问 BIM 360 Team、Fusion Team、BIM 360 Docs、A360 Personal 和 OSS 数据，您需要熟悉以下术语：
 
 - `hubs`：BIM 360 Team 帐户中心、Fusion Team 帐户中心、BIM 360 Docs 帐户或 A360 Personal 帐户中心
 - `projects`：BIM 360 Team、Fusion Team、BIM 360 Docs 或 A360 Personal 项目
