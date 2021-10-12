@@ -6,7 +6,7 @@ The .NET engine is a built-in feature on Windows machines.
 
 Any flavor of [Visual Studio](https://visualstudio.microsoft.com/vs/), this tutorial uses the **Community** edition. [Download the installer](https://visualstudio.microsoft.com/vs/) and follow the steps, make sure to select **ASP.NET and web development** and **.NET desktop development** (required for **Modify your models** tutorial).
 
-!> For a better experience, DO NOT use Visual code on this tutorial.
+!> For a better experience, DO NOT use Visual Studio Code on this tutorial.
 
 ![](_media/net/workloads_2019.png)
 

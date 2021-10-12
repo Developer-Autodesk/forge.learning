@@ -2,7 +2,7 @@
 
 Create a folder on your machine, do not use spaces and avoid special chars. For this tutorial, let's use **forgesample**.
 
-Open **Visual Code**, then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder.
+Open **Visual Studio Code**, then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder.
 
 Now we need the terminal, go to menu **View** >> **Integrated Terminal**. A window should appear on the bottom. Type the following command and follow the steps.
 

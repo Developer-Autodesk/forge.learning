@@ -6,7 +6,7 @@ The .NET engine is a built-in feature on Windows machines, .NET Core is installe
 
 Any flavor of [Visual Studio](https://visualstudio.microsoft.com/vs/), this tutorial uses the **Community** edition. [Download the installer](https://visualstudio.microsoft.com/vs/) and follow the steps, make sure to select **ASP.NET and web development** and **.NET desktop development** (required for **Modify your models** tutorial).
 
-!> For a better experience, DO NOT use Visual code on this tutorial.
+!> For a better experience, DO NOT use Visual Studio Code on this tutorial.
 
 ![](_media/net/workloads_2019.png)
 
@@ -23,9 +23,9 @@ For a better experience, use the 2019 version. If you must use older versions al
 
 > Make sure the [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download) is installed.
 
-## Visual Code (MacOS/Linux)
+## Visual Studio Code (MacOS/Linux)
 
-As an alternative solution, you may use [Visual Code](https://code.visualstudio.com/). This requires the **C#** extension. Remember to install [.NET Core 3.0 SDK and Runtime](https://dotnet.microsoft.com/download). 
+As an alternative solution, you may use [Visual Studio Code](https://code.visualstudio.com/). This requires the **C#** extension. Remember to install [.NET Core 3.0 SDK and Runtime](https://dotnet.microsoft.com/download). 
 
 > Visual Studio (for Windows) is required to compile plugins for **Modify your models** tutorial.
 

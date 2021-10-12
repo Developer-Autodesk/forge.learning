@@ -16,17 +16,17 @@ Now we need an IDE to write the code. There are many options, this tutorial will
 
 > For this tutorial, use all default install options.
 
-Finally, install the extensions of **PHP Server** and **PHP Debug** for Visual Code, 
-- Go to Visual Code extension manager (left side, bottom icon)
+Finally, install the extensions of **PHP Server** and **PHP Debug** for Visual Studio Code, 
+- Go to Visual Studio Code extension manager (left side, bottom icon)
 - Type `PHP` and select/install `PHP Debug` & `PHP Server` plugin.
 
 ![](_media/php/vs_code_extension.png) 
 
 - **PHP Server** extension can help host/serve current workspace (or subfolder) with PHP easily.
-> If you have mulitple PHP versions installed, you can specify the location of your PHP executable by override the **phpserver.phpPath** in Visual Code **User Settings**. If empty, the extension will use the PHP executable which appears in the $PATH environment variable
+> If you have mulitple PHP versions installed, you can specify the location of your PHP executable by override the **phpserver.phpPath** in Visual Studio Code **User Settings**. If empty, the extension will use the PHP executable which appears in the $PATH environment variable
  
 
-- **PHP Debug** extension is a debug adapter between Visual Code and XDebug. 
+- **PHP Debug** extension is a debug adapter between Visual Studio Code and XDebug. 
 > **PHP Debug** extension requires to configure with XDebug to make it work, please check the details at PHP Debug extension or a good [blog post about configuration](https://blogs.msdn.microsoft.com/nicktrog/2016/02/11/configuring-visual-studio-code-for-php-development/), and here is the brief steps:
 > 1. install PHP & xDebug as shown above.
 > 2. update your php.ini file with the following settings, make sure that zend_extension points to the correct location.
