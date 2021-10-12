@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# This script is used to update links in localized Markdown files.
+# See _README.md > I18n_ for more information.
+
+if [ -z $1 ]; then \
+    echo "Usage:"
+    echo "  $0 <locale>"
+    echo "Examples"
+    echo "  $0 zh-CN"
+    exit 1
+fi
+
+locale=$1
+input_files=$(find docs/$locale -name '*.md')
+for f in $input_files; do \
+    sed -E "s:\(/?(account|datamanagement|deployment|designautomation|environment|help|modelderivative|oauth|tutorials|viewer|\?id=)([^)]*)\):(/$locale/\1\2):g" $f > $f.bak
+    mv $f.bak $f
+done
