@@ -2,7 +2,7 @@
 
 Inside `$GOPATH` create a `/src` folder for source code, do not use spaces and avoid special chars. Then a subfolder for this this tutorial: **forgesample**. The final result should be **$GOPATH/src/forgesample**.
 
-Open **Visual Code**, then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder. 
+Open **Visual Studio Code**, then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder. 
 
 
 ## Files and Folders

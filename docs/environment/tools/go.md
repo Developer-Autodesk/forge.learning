@@ -21,8 +21,8 @@ Now we need an IDE to write the code. There are many options, this tutorial will
 
 > For this tutorial, use all default install options.
 
-Next, install Go for Visual Code package which once installed gives support to GoLang.
-    - Go to Visual Code extension manager (left side, bottom icon)
+Next, install Go for Visual Studio Code package which once installed gives support to GoLang.
+    - Go to Visual Studio Code extension manager (left side, bottom icon)
     - Type `go` and select `Go` plugin made by ***lukehoben***.
 
 ![](_media/go/install_go_extension.gif) 

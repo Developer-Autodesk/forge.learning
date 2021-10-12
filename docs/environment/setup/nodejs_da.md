@@ -2,7 +2,7 @@
 
 Create a folder on your machine, do not use spaces and avoid special chars. For this tutorial, let's use **forgesample**.
 
-Open [Visual Code](https://code.visualstudio.com/download), then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder. 
+Open [Visual Studio Code](https://code.visualstudio.com/download), then go to menu **File** and select **Open** (MacOS) or **Open Folder** (Windows) and select the newly created folder. 
 
 Now we need the terminal, go to menu **View** >> **Terminal**. A window should appear on the bottom. Type the following command and follow the steps, you can safely accept the default suggestion, except **entry point:**, use **start.js** (which is used on most of Forge samples).
 

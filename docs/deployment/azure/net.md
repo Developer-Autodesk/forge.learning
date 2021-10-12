@@ -38,7 +38,7 @@ Done! Click on the ```Site URL``` to see the app in action
 - Once we have the ```API App``` created, you can deploy from a local Git repo - see [here](deployment/azure/node) for details
 
 ### Other Deployment Options
-- [Visual Code](https://azure.microsoft.com/en-us/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)/[Visual Studio](../node)
+- [Visual Studio Code](https://azure.microsoft.com/en-us/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)/[Visual Studio](../node)
 - [VSTS](https://docs.microsoft.com/en-us/labs/devops/deployazurefunctionswithvsts/)
 - [Github](https://blogs.msdn.microsoft.com/benjaminperkins/2017/05/10/deploy-github-source-code-repositories-to-an-azure-app-service/)
 - [BitBucket](https://confluence.atlassian.com/bitbucket/deploy-to-microsoft-azure-900820699.html)

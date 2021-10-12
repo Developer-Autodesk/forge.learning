@@ -11,7 +11,7 @@ Open your browser and go to `http://localhost:3000` to check the app.
 
 ## Debug
 
-For Visual Code, install [Delve](https://github.com/derekparker/delve), the golang debugger, by typing in on the **Integrated Terminal** (under menu **View**):
+For Visual Studio Code, install [Delve](https://github.com/derekparker/delve), the golang debugger, by typing in on the **Integrated Terminal** (under menu **View**):
 
 ```bash
 go get -u github.com/derekparker/delve/cmd/dlv
@@ -19,7 +19,7 @@ go get -u github.com/derekparker/delve/cmd/dlv
 
 Once `delve` is installed, you can either press F5 or go to menu **Debug** >> **Start debugging**. 
 
-!> For debug, make sure the `main.go` file is open on Visual Code before pessing **F5**, otherwise you may see an error (see [Troubleshooting](#troubleshooting))
+!> For debug, make sure the `main.go` file is open on Visual Studio Code before pessing **F5**, otherwise you may see an error (see [Troubleshooting](#troubleshooting))
 
 You will now see a launch.json file created for your workspace, which will contain the configurations for debugging. By default, there would be a single configuration as below:
 
@@ -67,7 +67,7 @@ If by any chance, you receive an error like `Can not debug non-main package`, do
     executables (g.e. daemon and client).
 
 If by any chance, you receive an error like `could not launch process: exec "lldb-server"`, then for sure you are developing on OSX and you are missing the `command line developer tools`. To fix this, just follow these steps:
-    1. Open a new Terminal (do not use Visual Code Integrated Terminal)
+    1. Open a new Terminal (do not use Visual Studio Code Integrated Terminal)
     2. Run xcode-select --install
     3. When prompted, click on Install
 ![](_media/go/osx_setup_tools.png) 

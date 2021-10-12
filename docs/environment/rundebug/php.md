@@ -1,6 +1,6 @@
 # Running & Debugging (PHP)
 
-Make sure **PHP Server** & **PHP Debug** extensions are installed in Visual Code, if not, please check the [**Tools**](environment/tools/php) section first.
+Make sure **PHP Server** & **PHP Debug** extensions are installed in Visual Studio Code, if not, please check the [**Tools**](environment/tools/php) section first.
 
 ## Start/Stop server
 

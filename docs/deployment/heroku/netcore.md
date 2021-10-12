@@ -4,7 +4,7 @@
 
 Let's use Github template for Visual Studio: https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-> If using Visual Code, consider adding `.vscode` (that's the folder of your `launch.json` with environment variables).
+> If using Visual Studio Code, consider adding `.vscode` (that's the folder of your `launch.json` with environment variables).
 
 [step2](/deployment/heroku/heroku_step2.md ':include :type=markdown')
 

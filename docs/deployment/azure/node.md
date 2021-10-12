@@ -94,7 +94,7 @@ The app dashboard should look like:
 Done! Open the app url to see our app in action.
 
 **3. Other Deployment Options**
-- [Visual Code](https://azure.microsoft.com/en-us/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)/[Visual Studio](../node)
+- [Visual Studio Code](https://azure.microsoft.com/en-us/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)/[Visual Studio](../node)
 - [VSTS](https://docs.microsoft.com/en-us/labs/devops/deployazurefunctionswithvsts/)
 - [Github](https://blogs.msdn.microsoft.com/benjaminperkins/2017/05/10/deploy-github-source-code-repositories-to-an-azure-app-service/)
 - [BitBucket](https://confluence.atlassian.com/bitbucket/deploy-to-microsoft-azure-900820699.html)
