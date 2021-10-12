@@ -1,6 +1,6 @@
 # 运行和调试 (PHP)
 
-确保 Visual Code 中安装了 **PHP 服务器**和 **PHP 调试**扩展，如果未安装，请先查看[**工具**](/zh-CN/environment/tools/php)部分。
+确保 Visual Studio Code 中安装了 **PHP 服务器**和 **PHP 调试**扩展，如果未安装，请先查看[**工具**](/zh-CN/environment/tools/php)部分。
 
 ## 启动/停止服务器
 

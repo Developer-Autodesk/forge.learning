@@ -20,7 +20,7 @@ set GOPATH=C:\GOPROJECTS
 
 > 在本教程中，使用所有默认安装选项。
 
-接下来，安装 Go for Visual Code 软件包，该软件包安装后即可支持 GoLang。- 转到 Visual Code 扩展管理器（左侧底部图标）- 键入 `go`，然后选择 ***luchoben*** 制作的 `Go` 插件。
+接下来，安装 Go for Visual Studio Code 软件包，该软件包安装后即可支持 GoLang。- 转到 Visual Studio Code 扩展管理器（左侧底部图标）- 键入 `go`，然后选择 ***luchoben*** 制作的 `Go` 插件。
 
 ![](_media/go/install_go_extension.gif) 
 

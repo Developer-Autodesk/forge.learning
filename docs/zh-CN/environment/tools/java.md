@@ -2,7 +2,7 @@
 
 安装 [Java SE 开发工具包](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)以运行代码。 
 
-安装 [Apache Tomcat](https://tomcat.apache.org/download-90.cgi) 以启动服务器。编写本教程时，采用的是 Tomcat 9.0 或 8.5。如果使用 Tomcat 10 及更高版本，则 javax.* 软件包重命名为 jakata.* 软件包。以下答案提供了适用于 Tomcat 10+、Tomcat 9-、JEE 9+ 和 JEE 8- 的正确 pom.xml 声明示例：[Tomcat casting servlets to javax.servlet.Servlet instead of jakarta.servlet.http.HttpServlet](https://stackoverflow.com/questions/65703840/tomcat-casting-servlets-to-javax-servlet-servlet-instead-of-jakarta-servlet-http/65704617#65704617) 
+安装 [Apache Tomcat](https://tomcat.apache.org/download-90.cgi) 以启动服务器。编写本教程时，采用的是 Tomcat 9.0 或 8.5。如果使用 Tomcat 10 及更高版本，则 javax.* 软件包重命名为 jakata.* 软件包。以下答案提供了适用于 Tomcat 10+、Tomcat 9-、JEE 9+ 和 JEE 8- 的正确 pom.xml 声明示例：[Tomcat 将 servlet 转换为 javax.servlet.Servlet 而不是 jakarta.servlet.http.HttpServlet](https://stackoverflow.com/questions/65703840/tomcat-casting-servlets-to-javax-servlet-servlet-instead-of-jakarta-servlet-http/65704617#65704617) 
 
 > 有关如何设置 Tomcat 服务器的详尽教程，请参见[此处](https://crunchify.com/step-by-step-guide-to-setup-and-install-apache-tomcat-server-in-eclipse-development-environment-ide/)。本教程使用的是 Tomcat 版本 8，但它也适用于所有较新版本。 
 

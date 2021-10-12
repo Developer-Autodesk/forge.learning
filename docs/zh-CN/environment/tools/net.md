@@ -6,7 +6,7 @@
 
 可以使用任何版本的 [Visual Studio](https://visualstudio.microsoft.com/vs/)，目前本教程使用 **Community** 版本。[下载安装程序](https://visualstudio.microsoft.com/vs/)并按照步骤操作，确保选择 **ASP.NET and web development** 和 **.NET desktop development**（**修改模型**教程需要）。
 
-!> 为了获得更好的体验，请勿在本教程中使用 Visual Code。
+!> 为了获得更好的体验，请勿在本教程中使用 Visual Studio Code。
 
 ![](_media/net/workloads_2019.png)
 

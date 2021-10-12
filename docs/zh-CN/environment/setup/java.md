@@ -60,7 +60,7 @@ Maven 3.0 及更高版本已弃用 LATEST 和 RELEASE metaversion（[请参见�
     </dependency>
   ```
 
-!> 注意：编写本教程时，采用的是 Tomcat 9.0 或 8.5。如果使用 Tomcat 10 及更高版本，则 javax.* 软件包重命名为 jakata.* 软件包。以下答案提供了适用于 Tomcat 10+、Tomcat 9-、JEE 9+ 和 JEE 8- 的正确 pom.xml 声明示例：[Tomcat casting servlets to javax.servlet.Servlet instead of jakarta.servlet.http.HttpServlet](https://stackoverflow.com/questions/65703840/tomcat-casting-servlets-to-javax-servlet-servlet-instead-of-jakarta-servlet-http/65704617#65704617) 
+!> 注意：编写本教程时，采用的是 Tomcat 9.0 或 8.5。如果使用 Tomcat 10 及更高版本，则 javax.* 软件包重命名为 jakata.* 软件包。以下答案提供了适用于 Tomcat 10+、Tomcat 9-、JEE 9+ 和 JEE 8- 的正确 pom.xml 声明示例：[Tomcat 将 servlet 转换为 javax.servlet.Servlet 而不是 jakarta.servlet.http.HttpServlet](https://stackoverflow.com/questions/65703840/tomcat-casting-servlets-to-javax-servlet-servlet-instead-of-jakarta-servlet-http/65704617#65704617) 
 
 [pom.xml](_snippets/viewmodels/java/pom.xml ':include :type=code xml')
 

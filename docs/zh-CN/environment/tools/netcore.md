@@ -6,7 +6,7 @@
 
 可以使用任何版本的 [Visual Studio](https://visualstudio.microsoft.com/vs/)，目前本教程使用 **Community** 版本。[下载安装程序](https://visualstudio.microsoft.com/vs/)并按照步骤操作，确保选择 **ASP.NET and web development** 和 **.NET desktop development**（**修改模型**教程需要）。
 
-!> 为了获得更好的体验，请勿在本教程中使用 Visual Code。
+!> 为了获得更好的体验，请勿在本教程中使用 Visual Studio Code。
 
 ![](_media/net/workloads_2019.png)
 
@@ -23,9 +23,9 @@
 
 > 确保已安装 [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download)。
 
-## Visual Code (MacOS/Linux)
+## Visual Studio Code (MacOS/Linux)
 
-另一种解决方案是，您可以使用 [Visual Code](https://code.visualstudio.com/)。这需要 **C#** 扩展。请记得安装 [.NET Core 3.0 SDK 和运行时](https://dotnet.microsoft.com/download)。 
+另一种解决方案是，您可以使用 [Visual Studio Code](https://code.visualstudio.com/)。这需要 **C#** 扩展。请记得安装 [.NET Core 3.0 SDK 和运行时](https://dotnet.microsoft.com/download)。 
 
 > 需要 Visual Studio（适用于 Windows）来编译**修改模型**教程的插件。
 

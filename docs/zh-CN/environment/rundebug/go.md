@@ -10,7 +10,7 @@
 
 ## 调试
 
-对于 Visual Code，通过在 **View** 菜单下的 **Integrated Terminal** 上键入以下命令，安装 [Delve](https://github.com/derekparker/delve)（golang 调试器）：
+对于 Visual Studio Code，通过在 **View** 菜单下的 **Integrated Terminal** 上键入以下命令，安装 [Delve](https://github.com/derekparker/delve)（golang 调试器）：
 
 ```bash
 go get -u github.com/derekparker/delve/cmd/dlv
@@ -18,7 +18,7 @@ go get -u github.com/derekparker/delve/cmd/dlv
 
 安装 `delve` 后，可以按 F5 或转到菜单 **Debug** >> **Start debugging**。 
 
-!> 要进行调试，请确保在按 **F5** 之前在 Visual Code 中打开 `main.go` 文件，否则可能会出现错误（请参见[疑难解答](#troubleshooting)）
+!> 要进行调试，请确保在按 **F5** 之前在 Visual Studio Code 中打开 `main.go` 文件，否则可能会出现错误（请参见[疑难解答](#troubleshooting)）
 
 现在，您将看到为工作空间创建了 launch.json 文件，其中包含用于调试的配置。默认情况下，将有如下所示的单个配置：
 
@@ -65,7 +65,7 @@ go get -u github.com/derekparker/delve/cmd/dlv
     This makes more sense when you will have apps generating several 
     executables (g.e. daemon and client).
 
-如果您偶然遇到类似 `could not launch process: exec "lldb-server"` 的错误，那么您一定是在 OSX 上开发并且缺少 `command line developer tools`。要解决此问题，只需按照以下步骤操作：1. 打开新终端（不使用 Visual Code Integrated Terminal） 2. 运行 xcode-select --install 3. 出现提示时，单击“Install”![](_media/go/osx_setup_tools.png) 
+如果您偶然遇到类似 `could not launch process: exec "lldb-server"` 的错误，那么您一定是在 OSX 上开发并且缺少 `command line developer tools`。要解决此问题，只需按照以下步骤操作：1. 打开新终端（不使用 Visual Studio Code Integrated Terminal） 2. 运行 xcode-select --install 3. 出现提示时，单击“Install”![](_media/go/osx_setup_tools.png) 
 
 
 ## 高级设置

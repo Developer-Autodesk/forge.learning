@@ -4,7 +4,7 @@
 
 **文档**
 
- - [开发人员门户](https://forge.autodesk.com/)是 Forge 上的“可信数据源”！
+ - [开发人员门户](https://forge.autodesk.com/)是 Forge 官方的资料来源！
 
 **示例**
 

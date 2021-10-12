@@ -4,7 +4,7 @@
 
 我们使用 Visual Studio 的 GitHub 模板：https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-> 如果使用 Visual Code，请考虑添加 `.vscode`（即包含环境变量的 `launch.json` 的文件夹）。
+> 如果使用 Visual Studio Code，请考虑添加 `.vscode`（即包含环境变量的 `launch.json` 的文件夹）。
 
 [步骤 2](/zh-CN/deployment/heroku/heroku_step2.md ':include :type=markdown')
 

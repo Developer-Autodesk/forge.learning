@@ -2,7 +2,7 @@
 
 在 `$GOPATH` 内，为源代码创建一个 `/src` 文件夹，不要使用空格并避免使用特殊字符。然后，为本教程创建一个子文件夹：**forgesample**。最终结果应为 **$GOPATH/src/forgesample**。
 
-打开 **Visual Code**，然后转到 **File** 菜单，选择 **Open** (MacOS) 或 **Open Folder** (Windows)，并选择新创建的文件夹。 
+打开 **Visual Studio Code**，然后转到 **File** 菜单，选择 **Open** (MacOS) 或 **Open Folder** (Windows)，并选择新创建的文件夹。 
 
 
 ## 文件和文件夹

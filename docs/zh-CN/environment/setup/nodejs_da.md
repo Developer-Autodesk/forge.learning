@@ -2,7 +2,7 @@
 
 在计算机上创建一个文件夹，不要使用空格并避免使用特殊字符。在本教程中，我们使用 **forgesample**。
 
-打开 [Visual Code](https://code.visualstudio.com/download)，然后转到 **File** 菜单，选择 **Open** (MacOS) 或 **Open Folder** (Windows)，并选择新创建的文件夹。 
+打开 [Visual Studio Code](https://code.visualstudio.com/download)，然后转到 **File** 菜单，选择 **Open** (MacOS) 或 **Open Folder** (Windows)，并选择新创建的文件夹。 
 
 现在，我们需要使用终端，转到菜单 **View** >> **Terminal**。底部应显示一个窗口。键入以下命令并按照步骤操作，您可以放心地接受默认建议，但 **entry point:** 除外，请使用大多数 Forge 示例中使用的 **start.js**。
 

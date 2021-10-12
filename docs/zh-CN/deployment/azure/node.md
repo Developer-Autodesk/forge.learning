@@ -88,7 +88,7 @@ git push azure master # use 'git push azure <nameofyourbranch>:master' if you wo
 
 完成！打开应用程序 URL 以查看应用程序的运行情况。
 
-**3. 其他部署选项** - [Visual Code](https://azure.microsoft.com/en-us/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)/[Visual Studio](../node) - [VSTS](https://docs.microsoft.com/en-us/labs/devops/deployazurefunctionswithvsts/) - [Github](https://blogs.msdn.microsoft.com/benjaminperkins/2017/05/10/deploy-github-source-code-repositories-to-an-azure-app-service/) - [BitBucket](https://confluence.atlassian.com/bitbucket/deploy-to-microsoft-azure-900820699.html) - [FTP](https://docs.microsoft.com/en-us/azure/app-service/deploy-ftp)
+**3. 其他部署选项** - [Visual Studio Code](https://azure.microsoft.com/en-us/blog/visual-studio-code-and-azure-app-service-a-perfect-fit/)/[Visual Studio](../node) - [VSTS](https://docs.microsoft.com/en-us/labs/devops/deployazurefunctionswithvsts/) - [Github](https://blogs.msdn.microsoft.com/benjaminperkins/2017/05/10/deploy-github-source-code-repositories-to-an-azure-app-service/) - [BitBucket](https://confluence.atlassian.com/bitbucket/deploy-to-microsoft-azure-900820699.html) - [FTP](https://docs.microsoft.com/en-us/azure/app-service/deploy-ftp)
 
 # 演示截屏视频
 
