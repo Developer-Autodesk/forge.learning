@@ -1,6 +1,6 @@
 # 執行和除錯 (PHP)
 
-請確定 Visual Code 中已安裝 **PHP Server** 與 **PHP Debug** 擴充功能，如未安裝，請先查看[**「開發工具及環境準備」**](/zh-TW/environment/tools/php)章節。
+請確定 Visual Studio Code 中已安裝 **PHP Server** 與 **PHP Debug** 擴充功能，如未安裝，請先查看[**「開發工具及環境準備」**](/zh-TW/environment/tools/php)章節。
 
 ## 啟動/停止伺服器
 

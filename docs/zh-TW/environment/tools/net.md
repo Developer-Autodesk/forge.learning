@@ -6,7 +6,7 @@
 
 [Visual Studio](https://visualstudio.microsoft.com/vs/) 的任何產品版本均可，本自學課程使用的是 **Community** 版本。[下載安裝程式](https://visualstudio.microsoft.com/vs/)並遵循以下步驟，確保選取 **ASP.NET and web development** 和 **.NET desktop development** (在**「修改模型」**自學課程中需要)。
 
-!> 為了獲得更佳的學習體驗，請不要在本自學課程中使用 Visual Code。
+!> 為了獲得更佳的學習體驗，請不要在本自學課程中使用 Visual Studio Code。
 
 ![](_media/net/workloads_2019.png)
 

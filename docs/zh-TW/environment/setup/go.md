@@ -1,8 +1,8 @@
 # 建立新專案 (Go)
 
-在 `$GOPATH` 內建立 `/src` 資料夾作為原始碼，請勿使用空格並避免使用特殊字元。然後，建立本自學課程的子資料夾：**forgesample**。最終結果應為 **$GOPATH/src/forgesample**。
+在 `$GOPATH` 內建立 `/src` 資料夾用來放置專案原始碼，請勿使用空格並避免使用特殊字元。然後，建立本自學課程的子資料夾：**forgesample**。最終結果應為 **$GOPATH/src/forgesample**。
 
-開啟 **Visual Code**，移往功能表 **File**，並選取 **Open** (MacOS) 或 **Open Folder** (Windows)，然後選取新建立的資料夾。 
+開啟 **Visual Studio Code**，移往功能表 **File**，並選取 **Open** (MacOS) 或 **Open Folder** (Windows)，然後選取新建立的資料夾。 
 
 
 ## 檔案和資料夾

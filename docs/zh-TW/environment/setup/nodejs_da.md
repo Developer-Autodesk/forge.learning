@@ -2,7 +2,7 @@
 
 在您的電腦上建立資料夾，請勿使用空格並避免使用特殊字元。在本自學課程中，讓我們使用 **forgesample** 作為資料夾名稱。
 
-開啟 [Visual Code](https://code.visualstudio.com/download)，移往功能表 **File**，並選取 **Open** (MacOS) 或 **Open Folder** (Windows)，然後選取新建立的資料夾。 
+開啟 [Visual Studio Code](https://code.visualstudio.com/download)，移往功能表 **File**，並選取 **Open** (MacOS) 或 **Open Folder** (Windows)，然後選取新建立的資料夾。 
 
 現在，我們需要終端機，請移往功能表 **View** >> **Terminal**。視窗應顯示在底部。輸入下列指令並遵循這些步驟，您可以安全地接受預設建議 (**entry point:** 除外)，使用 **start.js** (用於大多數 Forge 範例)。
 

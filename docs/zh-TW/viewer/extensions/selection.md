@@ -64,7 +64,7 @@ viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer')
 
 - **.getSelection()** 會從模型傳回 **dbId** 的陣列以及 **.clearSelection()**
 - **.getProperties()** 是個非同步方法，會透過回呼傳回所指定 dbld 的所有性質；此方法在 Viewer 中很常用，[進一步瞭解回呼](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
-- **.isolate()** 方法會使所有其他元素變透明 (「重像」)
+- **.isolate()** 方法會使所有其他元素變透明 ("ghosted")
 
 其他學習重點：
 

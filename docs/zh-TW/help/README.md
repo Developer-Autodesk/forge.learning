@@ -4,7 +4,7 @@
 
 **文件**
 
- - [Developer Portal](https://forge.autodesk.com/) 是關於 Forge 的「真相來源」！
+ - [Developer Portal](https://forge.autodesk.com/) 是 Forge 的官方資料來源！
 
 **範例**
 

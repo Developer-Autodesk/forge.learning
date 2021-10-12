@@ -20,7 +20,7 @@ set GOPATH=C:\GOPROJECTS
 
 > 在本自學課程中，將全部使用預設安裝選項。
 
-接下來，安裝 Go for Visual Code 套件，安裝完成後，即可支援 GoLang。- 前往 Visual Code 擴充功能管理員 (左下方的圖示) - 輸入 `go`，然後選取由 ***lukehoben*** 提供的 `Go` 外掛程式。
+接下來，安裝 Go for Visual Studio Code 套件，安裝完成後，即可支援 GoLang。- 前往 Visual Studio Code 擴充功能管理員 (左下方的圖示) - 輸入 `go`，然後選取由 ***lukehoben*** 提供的 `Go` 外掛程式。
 
 ![](_media/go/install_go_extension.gif) 
 

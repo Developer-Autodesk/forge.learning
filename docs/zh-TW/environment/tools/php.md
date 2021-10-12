@@ -16,12 +16,12 @@
 
 > 在本自學課程中，將全部使用預設安裝選項。
 
-最後，安裝 Visual Studio Code 的 **PHP Server** 和 **PHP Debug** 擴充功能 - 前往 Visual Code 擴充功能管理員 (左下方的圖示) - 輸入 `PHP` 並選取、安裝 `PHP Debug` 和 `PHP Server` 擴充功能。
+最後，安裝 Visual Studio Code 的 **PHP Server** 和 **PHP Debug** 擴充功能 - 前往 Visual Studio Code 擴充功能管理員 (左下方的圖示) - 輸入 `PHP` 並選取、安裝 `PHP Debug` 和 `PHP Server` 擴充功能。
 
 ![](_media/php/vs_code_extension.png) 
 
 - **PHP Server** 擴充功能可用來協助托管您目前的工作區 (或子資料夾) 作為 PHP 的伺服器目錄。
-> 如果安裝了多個 PHP 版本，則可以透過取代 Visual Code **User Settings** 中的 **phpserver.phpPath** 來指定 PHP 可執行檔的位置。如該變數為空值，該擴充功能將使用環境變數 $PATH 裡設定的 PHP 執行檔
+> 如果安裝了多個 PHP 版本，則可以透過取代 Visual Studio Code **User Settings** 中的 **phpserver.phpPath** 來指定 PHP 可執行檔的位置。如該變數為空值，該擴充功能將使用環境變數 $PATH 裡設定的 PHP 執行檔
  
 
 - **PHP Debug** 擴充功能是用來串接 Visual Studio Code 除錯器和 XDebug 的工具。 

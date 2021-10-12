@@ -6,7 +6,7 @@
 
 [Visual Studio](https://visualstudio.microsoft.com/vs/) 的任何產品版本均可，本自學課程使用的是 **Community** 版本。[下載安裝程式](https://visualstudio.microsoft.com/vs/)並遵循以下步驟，確保選取 **ASP.NET and web development** 和 **.NET desktop development** (在**「修改模型」**自學課程中需要)。
 
-!> 為了獲得更佳的學習體驗，請不要在本自學課程中使用 Visual Code。
+!> 為了獲得更佳的學習體驗，請不要在本自學課程中使用 Visual Studio Code。
 
 ![](_media/net/workloads_2019.png)
 
@@ -23,9 +23,9 @@
 
 > 確保已安裝 [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download)。
 
-## Visual Code (MacOS/Linux)
+## Visual Studio Code (MacOS/Linux)
 
-您可以使用 [Visual Code](https://code.visualstudio.com/) 作為替代解決方案。這需要 **C#** 擴充功能。請務必安裝 [.NET Core 3.0 SDK 和 Runtime](https://dotnet.microsoft.com/download)。 
+您可以使用 [Visual Studio Code](https://code.visualstudio.com/) 作為替代解決方案。這需要 **C#** 擴充功能。請務必安裝 [.NET Core 3.0 SDK 和 Runtime](https://dotnet.microsoft.com/download)。 
 
 > 在**「修改模型」**自學課程中編譯外掛程式需要 Visual Studio (適用於 Windows)。
 
