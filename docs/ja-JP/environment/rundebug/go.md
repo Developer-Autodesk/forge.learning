@@ -1,6 +1,6 @@
 # 実行とデバッグ(Go)
 
-サーバを起動するには、**View** メニュー > **Integrated Terminal** の順に選択して、Visual Code Integrated Terminal を開きます。統合ターミナルは、プロジェクトのルートで開きます。次のコマンドを実行します。
+サーバを起動するには、**View** メニュー > **Integrated Terminal** の順に選択して、Visual Studio Code Integrated Terminal を開きます。統合ターミナルは、プロジェクトのルートで開きます。次のコマンドを実行します。
 
 ```bash
     go run main.go

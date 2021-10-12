@@ -4,7 +4,7 @@
 
 **ドキュメント**
 
- - [開発者ポータル](https://forge.autodesk.com/)は Forge の「真の情報源」です。
+ - [開発者ポータル](https://forge.autodesk.com/)は、Forge の公式リソースです。
 
 **サンプル**
 
