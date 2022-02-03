@@ -1,0 +1,47 @@
+# Локальный запуск и проверка кода
+
+Теперь, когда ваше приложение готово, пора его запустить. В этом разделе мы протестируем и проверим приложение на возможные ошибки (через debugging).
+
+## Использование примера
+
+В правом верхнем углу нажмите на **Configure**, чтобы определить AppBundle и Activity - это нужно сделать только один раз. Укажите новые параметры `width` и `height` на панели слева, выберите `input file` и нажмите `Start workitem`. Панель справа отобразит результаты.
+
+Вы найдете файлы примера [здесь](https://github.com/Developer-Autodesk/learn.forge.designautomation/tree/master/sample%20files).
+
+!> Если код плагина изменится, вам необходимо загрузить новый AppBundle и повысить версию (например, с v1 до v2). В этом примере новая версия будет создаваться каждый раз при загрузке нового AppBundle.
+
+> Both input and output files are saved in OSS Buckets, you can use [View Models](/ru-RU/tutorials/viewmodels) tutorial to view them. И входные (англ. input), и выходные (англ. output) файлы сохраняются в бакетах OSS, вы можете использовать руководство [Визуализация моделей](/ru-RU/tutorials/viewmodels), чтобы просмотреть их.
+
+![](_media/tutorials/run_sample_modifymodels.gif)
+
+## Устранение проблем
+
+**1. На панели результатов отображается не вся информация**
+
+Убедитесь, что **ngrok** запущен, и срок его действия не истек. Убедитесь, что адрес ngrok правильно указан в переменной среды.
+
+**2. Workitem выполнен, но результат не соответствует ожиданиям**
+
+Попробуйте воспользоваться кнопкой **Clear Account**. Это удалит все AppBundles и Activitiesя в вашей учетной записи, затем вам нужно определить их снова.
+
+**3. Не видите свой AppBundle в форме конфигурации**
+
+Пакеты ZIP копируются в `wwwroot/bundles` после сборки (англ. Build) соответствующего плагина. Убедитесь, что событие `Post-build` правильно определено и выполняется после сборки.
+
+**4. Обеспечение загрузки правильной DLL (Dynamic-link library)**
+
+Простой способ убедиться в том, что в Design Automation была загружена правильная DLL (рус. динамически подключаемая библиотека), - это проверить ее дату. [Ответ на StackOverflow] (https://stackoverflow.com/a/1600990) показывает, как получить дату компоновщика (англ. Linker) (т.е. когда DDL была скомпилирована). При этом вы можете показать ее в начале вашего кода. Обратите внимание, что даты указаны в часовом поясе сервера.
+
+> Плагин написан на `C#` независимо от языка сервера.
+  
+```csharp
+LogTrace("DLL {0} compiled on {1}",
+    System.IO.Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location),
+    GetLinkerTime(System.Reflection.Assembly.GetExecutingAssembly()));
+```
+
+Готовы? Давайте запускать!
+
+Выберите язык: [Node.js](/ru-RU/environment/rundebug/nodejs_da) | [.NET Core](/ru-RU/environment/rundebug/netcore)
+
+[Эта страница на английском языке](https://learnforge.autodesk.io/#/environment/rundebug/2legged_da).
