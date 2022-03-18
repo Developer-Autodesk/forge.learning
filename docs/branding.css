@@ -1,0 +1,361 @@
+@font-face {
+    font-family: Artifakt Element;
+    font-style: normal;
+    font-weight: 100;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Hair.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Hair.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Hair.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Hair.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Hair.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: italic;
+    font-weight: 100;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Hair%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Hair%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Hair%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Hair%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Hair%20Italic.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: normal;
+    font-weight: 200;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Thin.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Thin.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Thin.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Thin.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Thin.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: italic;
+    font-weight: 200;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Thin%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Thin%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Thin%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Thin%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Thin%20Italic.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: normal;
+    font-weight: 300;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Light.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Light.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Light.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Light.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Light.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: italic;
+    font-weight: 300;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Light%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Light%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Light%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Light%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Light%20Italic.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: italic;
+    font-weight: 400;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Italic.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: normal;
+    font-weight: 500;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Book.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Book.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Book.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Book.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Book.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: italic;
+    font-weight: 500;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Book%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Book%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Book%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Book%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Book%20Italic.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: normal;
+    font-weight: 600;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Medium.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Medium.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Medium.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Medium.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Medium.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: italic;
+    font-weight: 600;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Medium%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Medium%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Medium%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Medium%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Medium%20Italic.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: normal;
+    font-weight: 700;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: italic;
+    font-weight: 700;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold%20Italic.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: normal;
+    font-weight: 800;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Black.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Black.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Black.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Black.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Black.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: italic;
+    font-weight: 800;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Black%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Black%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Black%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Black%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Black%20Italic.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: normal;
+    font-weight: 900;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Heavy.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Heavy.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Heavy.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Heavy.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Heavy.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element;
+    font-style: italic;
+    font-weight: 900;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Heavy%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Heavy%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Heavy%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Heavy%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Heavy%20Italic.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: normal;
+    font-weight: 100;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Hair.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Hair.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Hair.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Hair.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Hair.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: italic;
+    font-weight: 100;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Hair%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Hair%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Hair%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Hair%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Hair%20Italic.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: normal;
+    font-weight: 200;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Thin.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Thin.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Thin.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Thin.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Thin.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: italic;
+    font-weight: 200;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Thin%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Thin%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Thin%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Thin%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Thin%20Italic.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: normal;
+    font-weight: 300;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Light.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Light.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Light.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Light.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Light.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: italic;
+    font-weight: 300;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Light%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Light%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Light%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Light%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Light%20Italic.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Regular.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Regular.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Regular.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Regular.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Regular.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: italic;
+    font-weight: 400;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Italic.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: normal;
+    font-weight: 500;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Book.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Book.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Book.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Book.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Book.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: italic;
+    font-weight: 500;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Book%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Book%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Book%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Book%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Book%20Italic.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: normal;
+    font-weight: 600;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Medium.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Medium.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Medium.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Medium.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Medium.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: italic;
+    font-weight: 600;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Medium%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Medium%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Medium%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Medium%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Medium%20Italic.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: normal;
+    font-weight: 700;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Bold.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Bold.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Bold.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Bold.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Bold.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: italic;
+    font-weight: 700;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Bold%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Bold%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Bold%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Bold%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Bold%20Italic.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: normal;
+    font-weight: 800;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: italic;
+    font-weight: 800;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black%20Italic.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: normal;
+    font-weight: 900;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Heavy.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Heavy.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Heavy.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Heavy.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Heavy.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend;
+    font-style: italic;
+    font-weight: 900;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Heavy%20Italic.eot#iefix);
+    src: local("0"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Heavy%20Italic.woff2) format("woff2"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Heavy%20Italic.woff) format("woff"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Heavy%20Italic.ttf) format("truetype"),url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Heavy%20Italic.svg#Artifakt%20Legend) format("svg")
+}
+
+/* Docsify overrides */
+
+body {
+    font-family: "Artifakt Element";
+    --theme-color: #e82;
+}
+
+.app-nav, .sidebar, .content {
+    top: 64px;
+    padding-top: 0;
+}
+
+.markdown-section a {
+    color: var(--theme-color);
+    font-weight: 600;
+}
+
+/* Custom navbar styles */
+
+#navbar {
+    position: fixed;
+    width: 100vw;
+    height: 64px;
+    color: #333;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 3;
+}
+
+#navbar .logo {
+    padding: 16px 0;
+    margin: 0 12px 0 0;
+}
+
+#navbar .logo img {
+    height: 19px;
+}
+
+#navbar a {
+    font-size: 14px;
+    padding: 24px 14px;
+    line-height: 1.2;
+    cursor: pointer;
+    color: #333;
+    text-decoration: none;
+    transition: color .4s;
+    transition-timing-function: cubic-bezier(.175,.885,.32,1.275);
+}
+
+#navbar a:hover {
+    color: var(--theme-color);
+}
+
+#navbar .signin {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 24px 1.2em;
+    line-height: 1.2;
+    cursor: pointer;
+    color: #fff!important;
+    background-color: var(--theme-color);
+    text-decoration: none;
+    transition: padding .4s,background-color .4s;
+    transition-timing-function: cubic-bezier(.175,.885,.32,1.275);
+}
