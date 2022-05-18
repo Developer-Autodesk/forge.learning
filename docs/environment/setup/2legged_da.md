@@ -10,7 +10,7 @@ Please review [Tools](environment/tools/) section for required software.
 
 When Design Automation finishes modifying your model, it notifies back. As your machine is not exposed on the web, the [ngrok](https://ngrok.com/) tool create a temporary address to receive notifications. This tool is only required locally. 
 
-After download, unzip it. Open the Windows **Command Line Prompt** (CMD) and navigate to the folder. Then run `ngrok http 3000 -host-header="localhost:3000"`. Copy the **forwarding** URL value (in the form of `http://1ab2c3d4.ngrok.com`)
+After download, unzip it. Open the Windows **Command Line Prompt** (CMD) and navigate to the folder. Then run `ngrok http 3000 --host-header="localhost:3000"`. Copy the **forwarding** URL value (in the form of `http://1ab2c3d4.ngrok.com`)
 
 ![](/_media/designautomation/ngrok.gif)
 
