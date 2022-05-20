@@ -25,15 +25,29 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 
 .collapsible-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex: 0.9;
+    flex: 1;
+    margin-left: 40px;
+    
 }
 
+.collapsible-nav>.nav-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0.6;
+    margin-top: -8px !important;
+}
+
+.collapsible-nav>.nav-right {
+    flex: 0.2;
+}
 #navbar>.nav-left>button {
     border: none;
     font-size: 26px;
@@ -41,7 +55,7 @@
     display: none;
 }
 
-.collapsible-nav>a {
+.collapsible-nav>.nav-center>a {
     text-decoration: none;
     color: #606770;
 }
@@ -156,7 +170,7 @@ code {
 
 
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     #navbar {
         flex-direction: column !important;
         justify-content: left !important;
@@ -171,14 +185,22 @@ code {
     #navbar>.nav-left>button {
         display: block;
         margin-right: 18px;
+    }
+
+    #navbar>.nav-left>button:hover {
+        background-color: #F5F5F5;
         cursor: pointer;
     }
 
-    .collapsible-nav {
+    .nav-center{
+        margin-left: -34px;
+    }
+
+    .collapsible-nav>.nav-center{
         display: none;
     }
 
-    .collapsible-nav,
+    .collapsible-nav>.nav-center,
     a,
     .dropdown {
         padding-top: 16px;
