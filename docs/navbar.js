@@ -1,4 +1,4 @@
-const mediaQuery = window.matchMedia('(min-width: 768px)');
+const mediaQuery = window.matchMedia('(min-width: 1300px)');
 
 function Nav() {
     var btn = document.getElementById("navbtn");
