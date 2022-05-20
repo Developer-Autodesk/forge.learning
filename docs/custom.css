@@ -110,7 +110,23 @@
 
 .active>a {
     color: #5D3FD3 !important;
-    font-weight: 800 !important;
+}
+li::before {
+    display: none !important;
+}
+
+ul>li>a{
+    color: #606770 !important;
+    font-size: 14px !important;
+}
+
+ul>li>a:hover{
+    text-decoration: none !important;
+}
+
+
+.section-link:hover {
+    text-decoration: none !important;
 }
 
 code {
@@ -121,6 +137,21 @@ code {
     font-size: var(--ifm-code-font-size);
     padding: var(--ifm-code-padding-vertical) var(--ifm-code-padding-horizontal);
     color: #606770 !important;
+}
+
+.markdown-section>h1 {
+    font-family: ArtifaktLegend, sans-serif;
+    font-size: clamp(1.5rem, 1.29rem + .926vw, 2.125rem);
+    font-weight: 800;
+}
+
+.anchor {
+    text-decoration: none !important;
+    color: #000 !important;
+}
+
+.sidebar-toggle-button {
+    color: #5D3FD3 !important;
 }
 
 
