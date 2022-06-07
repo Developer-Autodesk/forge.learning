@@ -274,7 +274,8 @@ li::before {
 }
 
 ul>li>a {
-    color: #606770 !important;
+    color: #3F3F3F !important;
+    font-size: 16px !important;
 }
 
 ul>li>a:hover {
