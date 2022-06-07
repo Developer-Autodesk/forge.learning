@@ -1,3 +1,41 @@
+@font-face {
+    font-family: Artifakt Element;
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.eot#iefix);
+    src: local("0"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.woff2) format("woff2"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.woff) format("woff"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.ttf) format("truetype"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Element h3;
+    font-style: normal;
+    font-weight: 700;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.eot#iefix);
+    src: local("0"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.woff2) format("woff2"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.woff) format("woff"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.ttf) format("truetype"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend h2;
+    font-size: clamp(1.3125rem, 1.21rem + 0.463vw, 1.625rem);
+    font-style: normal;
+    font-weight: 800;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.eot#iefix);
+    src: local("0"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.woff2) format("woff2"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.woff) format("woff"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.ttf) format("truetype"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.svg#Artifakt%20Legend) format("svg")
+}
+
+@font-face {
+    font-family: Artifakt Legend h1;
+    font-style: normal;
+    font-size: clamp(1.5rem, 1.29rem + 0.926vw, 2.125rem);
+    font-weight: 800;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.eot#iefix);
+    src: local("0"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.woff2) format("woff2"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.woff) format("woff"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.ttf) format("truetype"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.svg#Artifakt%20Legend) format("svg")
+}
+
+body {
+    font-family: Artifakt Element;
+}
+
 /* Top Navigation Bar */
 
 .app-nav {
@@ -165,13 +203,17 @@ body {
     word-wrap: break-word;
 }
 
-.markdown-section ul li a, .markdown-section ol li a, .content p a {
+.markdown-section ul li a,
+.markdown-section ol li a,
+.content p a {
     color: #5D3FD3 !important;
     text-decoration: none !important;
     font-weight: normal !important;
 }
 
-.markdown-section ul li a:hover, .markdown-section ol li a:hover, .content p a:hover {
+.markdown-section ul li a:hover,
+.markdown-section ol li a:hover,
+.content p a:hover {
     color: #5D3FD3 !important;
     text-decoration: underline !important;
     font-weight: normal !important;
@@ -188,19 +230,28 @@ code {
     color: #606770 !important;
 }
 
-.markdown-section>h1 {
-    font-family: ArtifaktLegend, sans-serif;
-    font-size: clamp(1.5rem, 1.29rem + .926vw, 2.125rem);
-    font-weight: 800;
-}
-
 h1>a>span,
 h2>a>span {
-    color: #000 !important;
+    color: #000;
 }
 
 .anchor {
     text-decoration: none !important;
+}
+
+h1 .anchor span {
+    color: black;
+    font-family: Artifakt Legend h1;
+}
+
+h2 .anchor span {
+    color: black;
+    font-family: Artifakt Legend h2;
+}
+
+h3 .anchor span {
+    color: black;
+    font-family: Artifakt Element h3;
 }
 
 .markdown-section blockquote {
@@ -224,7 +275,6 @@ li::before {
 
 ul>li>a {
     color: #606770 !important;
-    font-size: 17px !important;
 }
 
 ul>li>a:hover {
