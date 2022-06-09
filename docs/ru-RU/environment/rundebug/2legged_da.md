@@ -10,7 +10,7 @@
 
 !> Если код плагина изменится, вам необходимо загрузить новый AppBundle и повысить версию (например, с v1 до v2). В этом примере новая версия будет создаваться каждый раз при загрузке нового AppBundle.
 
-> Both input and output files are saved in OSS Buckets, you can use [View Models](/ru-RU/tutorials/viewmodels) tutorial to view them. И входные (англ. input), и выходные (англ. output) файлы сохраняются в бакетах OSS, вы можете использовать руководство [Визуализация моделей](/ru-RU/tutorials/viewmodels), чтобы просмотреть их.
+> И входные (англ. input), и выходные (англ. output) файлы сохраняются в бакетах OSS, вы можете использовать руководство [Визуализация моделей](/ru-RU/tutorials/viewmodels), чтобы просмотреть их.
 
 ![](_media/tutorials/run_sample_modifymodels.gif)
 

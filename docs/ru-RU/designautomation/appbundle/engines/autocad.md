@@ -138,7 +138,7 @@ namespace UpdateDWGParam
 
 ## PackageContents.xml
 
-Создайте папку с названием `UpdateDWGParam.bundle` и, внутри этой папки, файл с названием `PackageContents.xml`, затем скопируйте туда код ниже. Узнайте больше [PackageContents.xml Format Reference](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html). Этот файл определяет новую пользовательскую команду AutoCAD `UpdateParam`, которая будет вызываться при работе Design Automation. 
+Создайте папку с названием `UpdateDWGParam.bundle` и, внутри этой папки, файл с названием `PackageContents.xml`, затем скопируйте туда код ниже. Узнайте больше [PackageContents.xml Format Reference](http://docs.autodesk.com/ACD/2014/ENU/index.html?url=files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0.htm,topicNumber=d30e484183). Этот файл определяет новую пользовательскую команду AutoCAD `UpdateParam`, которая будет вызываться при работе Design Automation. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

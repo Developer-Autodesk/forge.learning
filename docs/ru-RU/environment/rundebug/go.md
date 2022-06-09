@@ -77,7 +77,7 @@ go get -u github.com/derekparker/delve/cmd/dlv
 Если вас интересует только отладка терминала (хардкорная отладка), ознакомьтесь с этими руководствами:
 
 - [Way of GDB](https://golang.org/doc/gdb) - для отладки приложений golang с использованием GDB;
-- [Way of LLDB](http://blog.ralch.com/tutorial/golang-debug-with-lldb/) - для отладки приложений golang с использованием LLDB;
+- [Way of LLDB](https://ribrdb.github.io/lldb) - для отладки приложений golang с использованием LLDB;
 
 
 Для тех, кто не любит ничего настраивать, есть [Goland](https://www.jetbrains.com/go/), который включает все необходимые визуальные инструменты и, скорее всего, знаком тем, кто использует продукты JetBrains.
