@@ -1,5 +1,5 @@
 @font-face {
-    font-family: Artifakt Element;
+    font-family: 'Artifakt Element';
     font-style: normal;
     font-weight: 400;
     src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.eot#iefix);
@@ -14,26 +14,21 @@
     src: local("0"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.woff2) format("woff2"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.woff) format("woff"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.ttf) format("truetype"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.svg#Artifakt%20Element) format("svg")
 }
 
-@font-face {
+/* @font-face {
     font-family: Artifakt Legend h2;
     font-size: clamp(1.3125rem, 1.21rem + 0.463vw, 1.625rem);
     font-style: normal;
     font-weight: 800;
     src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.eot#iefix);
     src: local("0"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.woff2) format("woff2"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.woff) format("woff"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.ttf) format("truetype"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.svg#Artifakt%20Legend) format("svg")
-}
+} */
 
 @font-face {
-    font-family: Artifakt Legend h1;
+    font-family: 'Artifakt Legend';
     font-style: normal;
-    font-size: clamp(1.5rem, 1.29rem + 0.926vw, 2.125rem);
     font-weight: 800;
     src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.eot#iefix);
     src: local("0"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.woff2) format("woff2"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.woff) format("woff"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.ttf) format("truetype"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.svg#Artifakt%20Legend) format("svg")
-}
-
-body {
-    font-family: Artifakt Element;
 }
 
 /* Top Navigation Bar */
@@ -164,6 +159,14 @@ body {
 .markdown-section>pre,
 .markdown-section>ul {
     margin-bottom: var(--ifm-leading);
+    font-family: 'Artifakt Element';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0;
+    font-variant-numeric: proportional-nums;
+    color: #000000;
 }
 
 p {
@@ -230,29 +233,33 @@ code {
     color: #606770 !important;
 }
 
-h1>a>span,
-h2>a>span {
-    color: #000;
-}
 
 .anchor {
     text-decoration: none !important;
 }
 
-h1 .anchor span {
-    color: black;
-    font-family: Artifakt Legend h1;
+h1>.anchor>span {
+    width: 299.75px;
+    height: 58px;
+    font-family: 'Artifakt Legend';
+    font-size: 24px;
+    line-height: 1.2;
+    color: #000000;
+    letter-spacing: 0;
+    font-variant-numeric: proportional-nums;
 }
 
-h2 .anchor span {
-    color: black;
-    font-family: Artifakt Legend h2;
+h2>.anchor>span {
+    width: 299.75px;
+    height: 50px;
+    font-family: 'Artifakt Legend';
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    letter-spacing: 0;
+    font-variant-numeric: proportional-nums;
 }
 
-h3 .anchor span {
-    color: black;
-    font-family: Artifakt Element h3;
-}
 
 .markdown-section blockquote {
     border-left: 4px solid var(--theme-color, #5D3FD3);
