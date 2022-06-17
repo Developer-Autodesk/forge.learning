@@ -281,8 +281,14 @@ li::before {
 }
 
 ul>li>a {
-    color: #3F3F3F !important;
-    font-size: 16px !important;
+    font-family: 'Artifakt Element';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0;
+    font-variant-numeric: proportional-nums;
+    color: #000000 !important;
 }
 
 ul>li>a:hover {
@@ -298,9 +304,202 @@ ul>li>a:hover {
     background-color: #5D3FD3 !important;
 }
 
-
-
 /* Media Queries */
+
+@media only screen and (min-width: 360px) {
+
+    h1>.anchor>span {
+        width: 299.75px;
+        height: 58px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+    h2>.anchor>span {
+        width: 299.75px;
+        height: 50px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 21px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+}
+
+
+@media only screen and (min-width: 414px) {
+
+    h1>.anchor>span {
+        width: 299.75px;
+        height: 60px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 25px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+
+    h1>.anchor>span {
+        width: 299.75px;
+        height: 68px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 28px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+    h2>.anchor>span {
+        width: 299.75px;
+        height: 56px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 23px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+
+    h1>.anchor>span {
+        width: 299.75px;
+        height: 72px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 30px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+    h2>.anchor>span {
+        width: 299.75px;
+        height: 58px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+}
+
+@media only screen and (min-width: 1366px) {
+
+    h1>.anchor>span {
+        width: 299.75px;
+        height: 80px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 33px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+    h2>.anchor>span {
+        width: 299.75px;
+        height: 62px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 26px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+}
+
+@media only screen and (min-width: 1440px) {
+    h1>.anchor>span {
+        width: 299.75px;
+        height: 82px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 34px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+    h2>.anchor>span {
+        width: 299.75px;
+        height: 62px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 26px;
+        line-height: 120%;
+        color: #000000;
+        opacity: 0.2;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+}
+
+
 @media (max-width: 1300px) {
     #navbar {
         flex-direction: column !important;
