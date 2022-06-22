@@ -32,7 +32,7 @@ This is the main code that will run with Revit. Copy the following content into 
 
 ## PackageContents.xml
 
-Create a folder named `UpdateRVTParam.bundle` and, inside, a file named `PackageContents.xml`, then copy the following content to it. Learn more at the [PackageContents.xml Format Reference](http://docs.autodesk.com/ACD/2014/ENU/index.html?url=files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0.htm,topicNumber=d30e484183). This file tells Revit to load our `.addin` plugin.
+Create a folder named `UpdateRVTParam.bundle` and, inside, a file named `PackageContents.xml`, then copy the following content to it. Learn more at the [PackageContents.xml Format Reference](https://help.autodesk.com/view/ACD/2023/ENU/?guid=GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0). This file tells Revit to load our `.addin` plugin.
 
 [PackageContents.xml](_snippets/modifymodels/engines/revit/PackageContents.xml ':include :type=code xml')
 

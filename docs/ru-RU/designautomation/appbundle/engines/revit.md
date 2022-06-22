@@ -129,7 +129,7 @@ namespace Autodesk.Forge.Sample.DesignAutomation.Revit
 
 ## PackageContents.xml
 
-Создайте папку с названием `UpdateRVTParam.bundle` и, внутри этой папки, файл с названием `PackageContents.xml`,  затем скопируйте туда код ниже. Узнайте больше: [PackageContents.xml Format Reference](http://docs.autodesk.com/ACD/2014/ENU/index.html?url=files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0.htm,topicNumber=d30e484183). Этот файл сообщит Revit, что нужно загрузить наш плагин `.addin`.
+Создайте папку с названием `UpdateRVTParam.bundle` и, внутри этой папки, файл с названием `PackageContents.xml`,  затем скопируйте туда код ниже. Узнайте больше: [PackageContents.xml Format Reference](https://help.autodesk.com/view/ACD/2023/ENU/?guid=GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0). Этот файл сообщит Revit, что нужно загрузить наш плагин `.addin`.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

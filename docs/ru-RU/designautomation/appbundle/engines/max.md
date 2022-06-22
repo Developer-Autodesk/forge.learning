@@ -184,7 +184,7 @@ namespace Autodesk.Forge.Sample.DesignAutomation.Max
 
 ## PackageContents.xml
 
-Создайте папку с названием `UpdateMAXParam.bundle` и, внутри этой папки, файл с названием `PackageContents.xml`, затем скопируйте туда код ниже. Узнайте больше: [PackageContents.xml Format Reference](http://docs.autodesk.com/ACD/2014/ENU/index.html?url=files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0.htm,topicNumber=d30e484183). Больше информации об упаковке ваших плагинов 3ds Max здесь [Packaging Plugins](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_html).
+Создайте папку с названием `UpdateMAXParam.bundle` и, внутри этой папки, файл с названием `PackageContents.xml`, затем скопируйте туда код ниже. Узнайте больше: [PackageContents.xml Format Reference](https://help.autodesk.com/view/ACD/2023/ENU/?guid=GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0). Больше информации об упаковке ваших плагинов 3ds Max здесь [Packaging Plugins](http://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_writing_plug_ins_packaging_plugins_html).
 
 Этот файл сообщит 3ds Max о модулях, которые нужно загрузить (в данном случае создаваемая нами сборка плагина .NET API, но также может включать плагины MAXScripts, Python и/или C ++). Поскольку плагин загружается с помощью этой функции, вам нужно помнить об инструкциях, чтобы запустить вашу работу по автоматизации. Обратите внимание, что для правильной загрузки кода 3ds Max требуется уникальный ID для ProductCode и UpgradeCode. Подробности в документации выше.
 
