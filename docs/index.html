@@ -22,74 +22,8 @@
 </head>
 
 <body>
-  <div id="navbar" class="navbar navbar-expand-sm bg-light">
-    <div class="nav-left">
-      <button id="navbtn" class="navbar-toggler" type="button" onclick="Nav()" data-toggle="collapse"
-        data-target="#collapsibleNavbar">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-      </button>
-      <a class="logo" href="https://forge.autodesk.com" title="Autodesk Forge" aria-label="Autodesk Forge">
-        <img src="autodesk-logo-primary-rgb-black.svg" alt="Autodesk Forge">
-      </a>
-    </div>
-    <div class="collapsible-nav" id="collapsible-nav">
-      <div class="nav-center" id="nav-center">
-        <a href="https://forge.autodesk.com/platform-vision">Platform Vision</a>
-        <div class="dropdown">
-          <button class="dropbtn">Solutions
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="https://forge.autodesk.com/developer/idea/viewer-app">Online Viewer</a>
-            <a href="https://forge.autodesk.com/developer/idea/recap-app">Photo to 3D</a>
-            <a href="https://forge.autodesk.com/acc-cover-page">Autodesk Construction Cloud</a>
-            <a href="https://forge.autodesk.com/api/bim-360-cover-page/">BIM 360</a>
-            <a href="https://forge.autodesk.com/data-exchange-cover-page">Data Exchange (NEW)</a>
-            <a href="https://forge.autodesk.com/api/data-management-cover-page/">Data Management</a>
-            <a href="https://forge.autodesk.com/data-visualization-cover-page">Data Visualization</a>
-            <a href="https://forge.autodesk.com/api/design-automation-cover-page/">Design Automation</a>
-            <a href="https://forge.autodesk.com/fusion-data-cover-page">Fusion Data (New)</a>
-            <a href="https://forge.autodesk.com/api/model-derivative-cover-page/">Model Derivative</a>
-            <a href="https://forge.autodesk.com/api/reality-capture-cover-page/">Reality Capture</a>
-            <a href="https://forge.autodesk.com/api/token-flex-cover-page/">Token Flex</a>
-            <a href="https://forge.autodesk.com/api/viewer-cover-page/">Viewer</a>
-            <a href="https://forge.autodesk.com/api/webhooks-cover-page/">Webhooks</a>
-          </div>
-        </div>
-        <a href="/#">Getting Started</a>
-        <a href="https://forge.autodesk.com/developer/documentation">Documentation</a>
-        <div class="dropdown">
-          <button class="dropbtn">Community
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="https://forge.autodesk.com/customers">Success Stories</a>
-            <a href="https://forge.autodesk.com/solution-showcase">Solution Showcase</a>
-            <a href="https://forge.autodesk.com/blog">Blog</a>
-            <a href="https://forge.autodesk.com/systemsintegrators">System Integrators</a>
-            <a href="https://forge.autodesk.com/partnerships">Partnerships</a>
-            <a href="https://forge.autodesk.com/events">All Events</a>
-            <a href="https://forge.autodesk.com/forge-data-days">Forge Data Days</a>
-            <a href="https://forge.autodesk.com/accelerator-program">Accelerator</a>
-            <a href="https://forge.autodesk.com/accelerator-program">Lighting Talks</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn">Support
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="https://health.autodesk.com/">API Status</a>
-            <a href="https://forge.autodesk.com/en/support/get-help">Get Help</a>
-            <a href="https://forge.autodesk.com/FAQ">FAQ</a>
-          </div>
-        </div>
-        <a href="https://forge.autodesk.com/pricing">Pricing</a>
-      </div>
-      <div class="nav-right"></div>
-    </div>
-
-  </div>
+  <div id="app-navbar"></div>
+  <script src="https://developer.static.autodesk.com/forgeunified/releases/current/adskf.common.entry.js" data-resolve-menu-url="https://forge.autodesk.com"></script>
   <div id="app">Loading ...</div>
   <script>
     window.$docsify = {
