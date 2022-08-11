@@ -23,7 +23,6 @@
 
 <body>
   <div id="app-navbar"></div>
-  <script src="https://developer.static.autodesk.com/forgeunified/releases/current/adskf.common.entry.js" data-resolve-menu-url="https://forge.autodesk.com"></script>
   <div id="app">Loading ...</div>
   <script>
     window.$docsify = {
@@ -42,7 +41,7 @@
       maxLevel: 4,
       subMaxLevel: 3,
       name: '',
-      nameLink: 'http://developer.autodesk.com',
+      nameLink: 'http://forge.autodesk.com',
       search: {
         paths: 'auto',
       },
@@ -66,6 +65,20 @@
         }
       ]
     }
+
+    // adjust navbar links
+    const observerNavBar = new MutationObserver((mutationList, observer) => {
+      mutationList.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          console.log(node.href);
+          if (node.href !== undefined)
+            node.href = node.href.replace(window.location.host, 'forge.autodesk.com')
+        });
+      });
+    });
+    observerNavBar.observe(document.querySelector("#app-navbar"), {
+      childList: true, attributes: true, subtree: true
+    });
   </script>
   <script src="//unpkg.com/docsify@4.6.7/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify@4.6.7/lib/plugins/ga.min.js"></script>
@@ -82,7 +95,8 @@
   <!--<script src="libs/disqus.js"></script>-->
   <script src="//unpkg.com/docsify-tabs@1"></script>
   <script src="//unpkg.com/docsify-copy-code@2"></script>
-  <script src="navbar.js"></script>
+  <script src="https://developer.static.autodesk.com/forgeunified/releases/current/adskf.common.entry.js"
+    data-resolve-menu-url="https://forge.autodesk.com" data-resolve-footer-url="https://forge.autodesk.com"></script>
 </body>
 
 </html>
