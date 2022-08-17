@@ -18,7 +18,15 @@
 
 .app-nav {
     position: fixed;
-    top: 40px;
+    top: 39px;
+    background-color: #FFFFFF;
+    width: 100%;
+}
+
+#app-navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 }
 
 .app-nav>ul>li>.active {
@@ -39,11 +47,26 @@
     background-color: #F5F5F5;
 }*/
 
+#app-footer{
+    margin-top: 50px;
+    width: 100vw;
+    position: relative;
+    left: calc(-50vw + 50%);
+}
+
 .nav-left {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
+}
+
+.adskf__footer  {
+    background-color: #FFFFFF !important;
+    border-bottom: 0px !important
+}
+.adskf__footer-legal{
+    background-color: #FFFFFF !important;
 }
 
 .collapsible-nav {

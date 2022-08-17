@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Autodesk Forge</title>
+  <title>Getting Started with Forge | Autodesk Forge</title>
   <link rel="icon" href="_media/favicon.ico">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="keywords" content="Autodesk, Forge, 3D web, WebGL">
@@ -61,24 +61,14 @@
               return html
                 + '\n\n----\n'
                 + email
+                + '<div id="app-footer"></div>'
             })
         }
       ]
     }
 
     // adjust navbar links
-    const observerNavBar = new MutationObserver((mutationList, observer) => {
-      mutationList.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          console.log(node.href);
-          if (node.href !== undefined)
-            node.href = node.href.replace(window.location.host, 'forge.autodesk.com')
-        });
-      });
-    });
-    observerNavBar.observe(document.querySelector("#app-navbar"), {
-      childList: true, attributes: true, subtree: true
-    });
+
   </script>
   <script src="//unpkg.com/docsify@4.6.7/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify@4.6.7/lib/plugins/ga.min.js"></script>
