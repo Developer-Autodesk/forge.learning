@@ -123,11 +123,6 @@
     margin: 0;
 }
 
-#navbar a:hover,
-.dropdown:hover .dropbtn {
-    background-color: #F5F5F5;
-}
-
 .dropdown-content {
     display: none;
     position: absolute;
