@@ -33,18 +33,16 @@ router.post('/forge/callback/designautomation', async /*OnCallback*/ (req, res) 
         const bucketKey = Utils.NickName.toLowerCase() + '-designautomation';
         if (bodyJson.status === 'success') {
             try {
-                // generate a signed URL to download the result file and send to the client
-                const signedUrl = await objectsApi.createSignedResource(
-                    bucketKey,
-                    req.query.outputFileName, {
-                    minutesExpiration: 10,
-                    singleUse: false
-                }, {
-                    access: 'read'
-                },
-                    req.oauth_client, req.oauth_token
-                );
-                socketIO.to(req.query.id).emit('downloadResult', signedUrl.body.signedUrl);
+                //Complete the upload to S3
+                await objectsApi.completeS3Upload(bucketKey, req.query.outputFileName,
+                    { uploadKey: req.query.uploadKey },
+                    { useAcceleration: false, minutesExpiration: 2 },
+                    req.oauth_client, req.oauth_token);
+                //create a S3 presigned URL and send to client
+                let response = await objectsApi.getS3DownloadURL(bucketKey, req.query.outputFileName,
+                    { useAcceleration: false, minutesExpiration: 15 },
+                    req.oauth_client, req.oauth_token);
+                socketIO.to(req.query.id).emit('downloadResult', response.body.url);
             } catch (ex) {
                 console.error(ex);
                 socketIO.to(req.query.id).emit('onComplete', 'Failed to create presigned URL for outputFile.\nYour outputFile is available in your OSS bucket.');
