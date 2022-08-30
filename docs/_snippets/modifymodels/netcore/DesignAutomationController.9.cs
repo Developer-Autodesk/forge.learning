@@ -11,18 +11,37 @@ public async Task<IActionResult> OnCallback(string id, string outputFileName, [F
         JObject bodyJson = JObject.Parse((string)body.ToString());
         await _hubContext.Clients.Client(id).SendAsync("onComplete", bodyJson.ToString());
 
-        var client = new RestClient(bodyJson["reportUrl"].Value<string>());
-        var request = new RestRequest(string.Empty);
+        using (var httpClient = new HttpClient())
+        {
+            byte[] bs = await httpClient.GetByteArrayAsync(bodyJson["reportUrl"].Value<string>());
+            string report = System.Text.Encoding.Default.GetString(bs);
+            await _hubContext.Clients.Client(id).SendAsync("onComplete", report);
+        }
 
-        byte[] bs = client.DownloadData(request);
-        string report = System.Text.Encoding.Default.GetString(bs);
-        await _hubContext.Clients.Client(id).SendAsync("onComplete", report);
+        // OAuth token
+        dynamic oauth = await OAuthController.GetInternalAsync();
 
         ObjectsApi objectsApi = new ObjectsApi();
-        dynamic signedUrl = await objectsApi.CreateSignedResourceAsyncWithHttpInfo(NickName.ToLower() + "-designautomation", outputFileName, new PostBucketsSigned(10), "read");
-        await _hubContext.Clients.Client(id).SendAsync("downloadResult", (string)(signedUrl.Data.signedUrl));
+        objectsApi.Configuration.AccessToken = oauth.access_token;
+
+        //finalize upload in the callback.
+        ApiResponse<dynamic> res = await objectsApi.completeS3UploadAsyncWithHttpInfo(NickName.ToLower() + "-designautomation", outputFileName, S3UploadPayload, new Dictionary<string, object> {
+        { "minutesExpiration", 2.0 },
+        { "useCdn", true }
+        });
+        HttpErrorHandler(res, $"Failed to complete S3 posting");
+
+        res = await objectsApi.getS3DownloadURLAsyncWithHttpInfo(NickName.ToLower() + "-designautomation", outputFileName, new Dictionary<string, object> {
+        { "minutesExpiration", 15.0 },
+        { "useCdn", true }
+        });
+        await _hubContext.Clients.Client(id).SendAsync("downloadResult", (string)(res.Data.url));
+        Console.WriteLine("Congrats!");
     }
-    catch (Exception e) { }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
 
     // ALWAYS return ok (200)
     return Ok();

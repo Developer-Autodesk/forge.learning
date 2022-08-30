@@ -1,3 +1,80 @@
+public static bool HttpErrorHandler(ApiResponse<dynamic> response, string msg = "", bool bThrowException = true)
+{
+    if (response.StatusCode < 200 || response.StatusCode >= 300)
+    {
+        if (bThrowException)
+            throw new Exception(msg + " (HTTP " + response.StatusCode + ")");
+        return (true);
+    }
+    return (false);
+}
+
+private async static Task<string> PrepareInputUrl(string bucketKey, string objectKey, dynamic oauth, string fileSavePath)
+{
+
+    try
+    {
+        ObjectsApi objectsAPI = new ObjectsApi();
+        objectsAPI.Configuration.AccessToken = oauth.access_token;
+        ApiResponse<dynamic> response = await objectsAPI.getS3UploadURLAsyncWithHttpInfo(bucketKey, objectKey,
+            new Dictionary<string, object> {
+            { "minutesExpiration", 60.0 },
+            { "useCdn", true }
+            });
+        HttpErrorHandler(response, $"Failed to get S3 upload url");
+        // save the file on the server                
+        using (var stream = new FileStream(fileSavePath, FileMode.Open))
+        {
+            HttpClient httpClient = new HttpClient();
+            StreamContent streamContent = new StreamContent(stream);
+            HttpResponseMessage res = await httpClient.PutAsync(response.Data["urls"][0], streamContent);
+            res.EnsureSuccessStatusCode();
+            var postCompleteS3UploadBody = new PostCompleteS3UploadPayload(response.Data.uploadKey, (int)stream.Length);
+            response = await objectsAPI.completeS3UploadAsyncWithHttpInfo(bucketKey, objectKey, postCompleteS3UploadBody);
+            HttpErrorHandler(response, $"Failed to complete S3 upload");
+            Console.WriteLine($"Completed Posting to {response.Data.location}");
+        }
+        response = await objectsAPI.getS3DownloadURLAsyncWithHttpInfo(bucketKey, objectKey, new Dictionary<string, object> {
+            { "minutesExpiration", 60.0 },
+            { "useCdn", true }
+        });
+        HttpErrorHandler(response, $"Failed to get S3 download url");
+        return response.Data.url;
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Exception when preparing input url:{ex.Message}");
+        throw;
+    }
+}
+
+private static async Task<string> PrepareOutputUrl(string bucketKey, string objectKey, dynamic oauth)
+{
+
+    try
+    {
+        ObjectsApi objectsAPI = new ObjectsApi();
+        objectsAPI.Configuration.AccessToken = oauth.access_token;
+
+        ApiResponse<dynamic> response = await objectsAPI.getS3UploadURLAsyncWithHttpInfo(bucketKey, objectKey,
+                new Dictionary<string, object> {
+            { "minutesExpiration", 60.0 },/*Kept large value intentionally*/
+            { "useCdn", true } /*to get cloudfront url*/
+                });
+        HttpErrorHandler(response, $"Failed to get S3 upload url");
+        //We need s3 upload payload to finalize the upload
+        PostCompleteS3UploadPayload payload = new PostCompleteS3UploadPayload(response.Data.uploadKey, null);
+        S3UploadPayload = payload;
+        string url = response.Data["urls"][0];
+        return (url);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Failed to prepare output argument :{ex.Message}");
+        throw;
+    }
+}
+
 /// <summary>
 /// Start a new workitem
 /// </summary>
@@ -32,22 +109,19 @@ public async Task<IActionResult> StartWorkitem([FromForm]StartWorkitemInput inpu
     catch { }; // in case bucket already exists
     // 2. upload inputFile
     string inputFileNameOSS = string.Format("{0}_input_{1}", DateTime.Now.ToString("yyyyMMddhhmmss"), Path.GetFileName(input.inputFile.FileName)); // avoid overriding
-    ObjectsApi objects = new ObjectsApi();
-    objects.Configuration.AccessToken = oauth.access_token;
-    using (StreamReader streamReader = new StreamReader(fileSavePath))
-        await objects.UploadObjectAsync(bucketKey, inputFileNameOSS, (int)streamReader.BaseStream.Length, streamReader.BaseStream, "application/octet-stream");
-    System.IO.File.Delete(fileSavePath);// delete server copy
+    string inputUrl = await PrepareInputUrl(bucketKey, inputFileNameOSS, oauth, fileSavePath);
+    if (System.IO.File.Exists(fileSavePath))
+    {
+        System.IO.File.Delete(fileSavePath);
+    }
 
     // prepare workitem arguments
     // 1. input file
     XrefTreeArgument inputFileArgument = new XrefTreeArgument()
     {
-        Url = string.Format("https://developer.api.autodesk.com/oss/v2/buckets/{0}/objects/{1}", bucketKey, inputFileNameOSS),
-        Headers = new Dictionary<string, string>()
-            {
-                { "Authorization", "Bearer " + oauth.access_token }
-            }
+        Url = inputUrl
     };
+
     // 2. input json
     dynamic inputJson = new JObject();
     inputJson.Width = widthParam;
@@ -58,14 +132,11 @@ public async Task<IActionResult> StartWorkitem([FromForm]StartWorkitemInput inpu
     };
     // 3. output file
     string outputFileNameOSS = string.Format("{0}_output_{1}", DateTime.Now.ToString("yyyyMMddhhmmss"), Path.GetFileName(input.inputFile.FileName)); // avoid overriding
+    string outputUrl = await PrepareOutputUrl(bucketKey, outputFileNameOSS, oauth);
     XrefTreeArgument outputFileArgument = new XrefTreeArgument()
     {
-        Url = string.Format("https://developer.api.autodesk.com/oss/v2/buckets/{0}/objects/{1}", bucketKey, outputFileNameOSS),
-        Verb = Verb.Put,
-        Headers = new Dictionary<string, string>()
-            {
-                {"Authorization", "Bearer " + oauth.access_token }
-            }
+        Url = outputUrl,
+        Verb = Verb.Put  
     };
 
     // prepare & submit workitem
