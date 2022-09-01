@@ -3,13 +3,17 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Autodesk Forge</title>
+  <title>Getting Started with Forge | Autodesk Forge</title>
   <link rel="icon" href="_media/favicon.ico">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="keywords" content="Autodesk, Forge, 3D web, WebGL">
-  <meta name="description" content="Learn the basics of authentication, data management, file translation, and model rendering, with our quickstart guides.">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="description"
+    content="Learn the basics of authentication, data management, file translation, and model rendering, with our quickstart guides.">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify@4.6.7/lib/themes/vue.css" title="vue">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="custom.css">
   <style>
     nav.app-nav li ul {
       min-width: 100px;
@@ -18,6 +22,7 @@
 </head>
 
 <body>
+  <div id="app-navbar"></div>
   <div id="app">Loading ...</div>
   <script>
     window.$docsify = {
@@ -30,12 +35,13 @@
         '/ja-JP/.*_sidebar.md': '/ja-JP/_sidebar.md',
         '/zh-CN/.*_sidebar.md': '/zh-CN/_sidebar.md',
         '/zh-TW/.*_sidebar.md': '/zh-TW/_sidebar.md',
+        '/ru-RU/.*_sidebar.md': '/ru-RU/_sidebar.md',
         '/.*/_sidebar.md': '/_sidebar.md'
       },
       maxLevel: 4,
       subMaxLevel: 3,
-      name: 'Autodesk Forge',
-      nameLink: 'http://developer.autodesk.com',
+      name: '',
+      nameLink: 'http://forge.autodesk.com',
       search: {
         paths: 'auto',
       },
@@ -50,15 +56,22 @@
       plugins: [
         function (hook, vm) {
           window.DocsifyCopyCodePlugin.init(),
-          hook.beforeEach(function (html) {
-            var email = 'Questions on this tutorial? [Ask on Stackoverflow](https://stackoverflow.com/questions/ask?tags=[autodesk-forge]) or [email us](mailto:forge.help@autodesk.com?subject=About tutorial page /' + vm.route.file + ')\n'
-            return html
-              + '\n\n----\n'
-              + email
-          })
+            hook.beforeEach(function (html) {
+              var email = 'Questions on this tutorial? [Ask on Stackoverflow](https://stackoverflow.com/questions/ask?tags=[autodesk-forge]) or [email us](mailto:forge.help@autodesk.com?subject=About tutorial page /' + vm.route.file + ')\n'
+              return html
+                + '\n\n----\n'
+                + email
+            }),
+            hook.ready(function () {
+              var footer = document.getElementById('main').parentNode.appendChild(document.createElement('div'))
+              footer.id = "app-footer";
+            });
         }
       ]
     }
+
+    // adjust navbar links
+
   </script>
   <script src="//unpkg.com/docsify@4.6.7/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify@4.6.7/lib/plugins/ga.min.js"></script>
@@ -75,6 +88,8 @@
   <!--<script src="libs/disqus.js"></script>-->
   <script src="//unpkg.com/docsify-tabs@1"></script>
   <script src="//unpkg.com/docsify-copy-code@2"></script>
+  <script src="https://developer.static.autodesk.com/forgeunified/releases/current/adskf.common.entry.js"
+    data-resolve-menu-url="https://forge.autodesk.com" data-resolve-footer-url="https://forge.autodesk.com"></script>
 </body>
 
 </html>

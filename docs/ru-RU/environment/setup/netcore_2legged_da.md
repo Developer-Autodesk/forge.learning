@@ -1,0 +1,28 @@
+# Настройка сервера
+
+Ваши Forge Client ID & Secret должны быть защищены и оставаться конфиденциальными, т.к. все ваши файлы будут привязаны к вашему аккаунту Forge. Для веб-приложения – сохраните Client ID и Client Secret на своем сервере. В этом разделе показано, как настроить локальный сервер для разработки.
+
+### Требования
+
+**1. Visual Studio**
+
+Visual Studio 2017 или более поздняя версия, см. информацию [по ссылке](https://visualstudio.microsoft.com/vs/).
+
+**2. AutoCAD, Inventor или Revit**
+
+Чтобы разработать, протестировать и отладить плагин для Design Automation: [AutoCAD](https://www.autodesk.com/products/autocad/overview) | [Inventor](https://www.autodesk.com/products/inventor/overview) | [Revit](https://www.autodesk.com/products/revit/overview).
+
+**3. ngrok**
+
+Когда Design Automation закончит обработку вашей модели, он пришлет уведомление об этом. В связи с тем, что ваш ПК не размещен в вебе (локальная разработка), технология [ngrok](https://ngrok.com/) позволит создать временный адрес для получения уведомлений. Этот инструмент необходим только для локальной разработки.
+
+После загрузки разархивируйте его. Откройте  **Командную Строку** (CMD) Windows и найдите папку. Затем запустите `ngrok http 3000 -host-header="localhost:3000"`. Скопируйте значение  **forwarding**  URL (в виде `http://1ab2c3d4.ngrok.com`)
+
+![](/_media/designautomation/ngrok.gif)
+
+> Если вы работаете не с Windows (например, MacOS), октройте **Terminal** и повторите эти же шаги.
+
+!> **Предупреждение**: `ngrok` предоставляет доступ к вашему серверу localhost в Интернете. Обязательно выключите его, когда закончите тестирование, не используйте эту внешнюю среду разработки!
+
+Далее: [Настройка проекта](/ru-RU/environment/setup/netcore_da)
+

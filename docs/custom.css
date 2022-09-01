@@ -1,0 +1,616 @@
+@font-face {
+    font-family: 'Artifakt Element';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.eot#iefix);
+    src: local("0"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.woff2) format("woff2"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.woff) format("woff"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.ttf) format("truetype"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.svg#Artifakt%20Element) format("svg")
+}
+
+@font-face {
+    font-family: 'Artifakt Legend';
+    font-style: normal;
+    font-weight: 800;
+    src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.eot#iefix);
+    src: local("0"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.woff2) format("woff2"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.woff) format("woff"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.ttf) format("truetype"), url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Legend%20Black.svg#Artifakt%20Legend) format("svg")
+}
+
+/* Top Navigation Bar */
+
+.app-nav {
+    position: fixed;
+    top: 39px;
+    background-color: #FFFFFF;
+    width: 100%;
+}
+
+#app-navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.app-nav>ul>li>.active {
+    border-bottom: 2px solid #5D3FD3;
+}
+
+/*#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    flex: 0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #F5F5F5;
+}*/
+
+#app-footer{
+    margin-top: 50px;
+    width: 100vw;
+    position: relative;
+    left: calc(-50vw + 50%);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.adskf__footer  {
+    background-color: #FFFFFF !important;
+    border-bottom: 0px !important
+}
+.adskf__footer-legal{
+    background-color: #FFFFFF !important;
+}
+
+.collapsible-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    margin-left: 40px;
+
+}
+
+.collapsible-nav>.nav-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0.6;
+    margin-top: -8px !important;
+}
+
+.collapsible-nav>.nav-right {
+    flex: 0.2;
+}
+
+#navbar>.nav-left>button {
+    border: none;
+    font-size: 26px;
+    background-color: #F5F5F5;
+    display: none;
+}
+
+.collapsible-nav>.nav-center>a {
+    text-decoration: none;
+    color: #606770;
+}
+
+#navbar>.nav-left>a>img {
+    width: 180px;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+    /* background-color: red; */
+
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: #606770;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Content */
+
+.markdown-section {
+    margin-top: 30px;
+}
+
+.markdown-section>p,
+.markdown-section>pre,
+.markdown-section>ul {
+    margin-bottom: var(--ifm-leading);
+    font-family: 'Artifakt Element';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0;
+    font-variant-numeric: proportional-nums;
+    color: #000000;
+}
+
+p {
+    margin: 0 0 var(--ifm-paragraph-margin-bottom);
+}
+
+*,
+.loadingRing_RJI3 div {
+    box-sizing: border-box;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.markdown-section {
+    --ifm-h1-vertical-rhythm-top: 3;
+    --ifm-h2-vertical-rhythm-top: 2;
+    --ifm-h3-vertical-rhythm-top: 1.5;
+    --ifm-heading-vertical-rhythm-top: 1.25;
+    --ifm-h1-vertical-rhythm-bottom: 1.25;
+    --ifm-heading-vertical-rhythm-bottom: 1;
+}
+
+.row .col {
+    --ifm-col-width: 100%;
+    flex: 1 0;
+    margin-left: 0;
+}
+
+.markdown-section li,
+body {
+    word-wrap: break-word;
+}
+
+.markdown-section ul li a,
+.markdown-section ol li a,
+.content p a {
+    color: #5D3FD3 !important;
+    text-decoration: none !important;
+    font-weight: normal !important;
+}
+
+.markdown-section ul li a:hover,
+.markdown-section ol li a:hover,
+.content p a:hover {
+    color: #5D3FD3 !important;
+    text-decoration: underline !important;
+    font-weight: normal !important;
+}
+
+
+code {
+    background-color: var(--ifm-code-background);
+    border: 0.1rem solid rgba(0, 0, 0, .1);
+    border-radius: var(--ifm-code-border-radius);
+    font-family: var(--ifm-font-family-monospace);
+    font-size: var(--ifm-code-font-size);
+    padding: var(--ifm-code-padding-vertical) var(--ifm-code-padding-horizontal);
+    color: #606770 !important;
+}
+
+
+.anchor {
+    text-decoration: none !important;
+}
+
+h1>.anchor>span {
+    width: 299.75px;
+    height: 58px;
+    font-family: 'Artifakt Legend';
+    font-size: 24px;
+    line-height: 1.2;
+    color: #000000;
+    letter-spacing: 0;
+    font-variant-numeric: proportional-nums;
+}
+
+h2>.anchor>span {
+    width: 299.75px;
+    height: 50px;
+    font-family: 'Artifakt Legend';
+    font-size: 21px;
+    line-height: 120%;
+    color: #000000;
+    letter-spacing: 0;
+    font-variant-numeric: proportional-nums;
+}
+
+h3>.anchor>span {
+    width: 299.75px;
+    height: 46px;
+    font-family: 'Artifakt Element';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 125%;
+    color: #000000;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+
+.markdown-section blockquote {
+    border-left: 4px solid var(--theme-color, #5D3FD3);
+}
+
+/* Sidebar links */
+
+.sidebar {
+    margin-top: 100px;
+}
+
+.active>a {
+    color: #5D3FD3 !important;
+    font-weight: normal !important;
+}
+
+li::before {
+    display: none !important;
+}
+
+ul>li>a {
+    font-family: 'Artifakt Element';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0;
+    font-variant-numeric: proportional-nums;
+    color: #000000 !important;
+}
+
+ul>li>a:hover {
+    text-decoration: none !important;
+}
+
+
+.section-link:hover {
+    text-decoration: none !important;
+}
+
+.sidebar-toggle-button>span {
+    background-color: #5D3FD3 !important;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 360px) {
+
+    h1>.anchor>span {
+        width: 299.75px;
+        height: 58px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+    h2>.anchor>span {
+        width: 299.75px;
+        height: 50px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 21px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+}
+
+
+@media only screen and (min-width: 414px) {
+
+    h1>.anchor>span {
+        width: 299.75px;
+        height: 60px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 25px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+
+    h1>.anchor>span {
+        width: 299.75px;
+        height: 68px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 28px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+    h2>.anchor>span {
+        width: 299.75px;
+        height: 56px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 23px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+    h3>.anchor>span {
+        width: 299.75px;
+        height: 48px;
+        font-family: 'Artifakt Element';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 125%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+
+    h1>.anchor>span {
+        width: 299.75px;
+        height: 72px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 30px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+    h2>.anchor>span {
+        width: 299.75px;
+        height: 58px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+    h3>.anchor>span {
+        width: 299.75px;
+        height: 50px;
+        font-family: 'Artifakt Element';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 125%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+}
+
+@media only screen and (min-width: 1366px) {
+
+    h1>.anchor>span {
+        width: 299.75px;
+        height: 80px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 33px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+    h2>.anchor>span {
+        width: 299.75px;
+        height: 62px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 26px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+}
+
+@media only screen and (min-width: 1440px) {
+    h1>.anchor>span {
+        width: 299.75px;
+        height: 82px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 34px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+    h2>.anchor>span {
+        width: 299.75px;
+        height: 62px;
+        font-family: 'Artifakt Legend';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 26px;
+        line-height: 120%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+    h3>.anchor>span {
+        width: 299.75px;
+        height: 52px;
+        font-family: 'Artifakt Element';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 21px;
+        line-height: 125%;
+        color: #000000;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+
+}
+
+
+@media (max-width: 1300px) {
+    #navbar {
+        flex-direction: column !important;
+        justify-content: left !important;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    #navbar>.nav-left>.logo {
+        margin-top: -14px;
+    }
+
+    #navbar>.nav-left>button {
+        display: block;
+        margin-right: 18px;
+    }
+
+    #navbar>.nav-left>button:hover {
+        background-color: #F5F5F5;
+        cursor: pointer;
+    }
+
+    .nav-center {
+        margin-left: -34px;
+    }
+
+    .collapsible-nav>.nav-center {
+        display: none;
+    }
+
+    .collapsible-nav>.nav-center,
+    a,
+    .dropdown {
+        padding-top: 16px;
+    }
+
+    .dropdown {
+        margin-left: -7px;
+    }
+
+    .app-nav {
+        position: fixed;
+        top: 60px;
+    }
+
+    .markdown-section {
+        margin-top: 50px;
+    }
+
+
+    .collapsible-nav>.nav-center {
+        flex: 1;
+    }
+}

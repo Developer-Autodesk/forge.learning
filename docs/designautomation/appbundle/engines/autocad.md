@@ -26,7 +26,7 @@ This is the main code that will run with AutoCAD. Copy the following content int
 
 ## PackageContents.xml
 
-Create a folder named `UpdateDWGParam.bundle` and, inside, a file named `PackageContents.xml`, then copy the following content to it. Learn more at the [PackageContents.xml Format Reference](https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-Customization/files/GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0-htm.html). This file defines the new AutoCAD custom command `UpdateParam` that will be called when Design Automation executes.
+Create a folder named `UpdateDWGParam.bundle` and, inside, a file named `PackageContents.xml`, then copy the following content to it. Learn more at the [PackageContents.xml Format Reference](https://help.autodesk.com/view/ACD/2023/ENU/?guid=GUID-BC76355D-682B-46ED-B9B7-66C95EEF2BD0). This file defines the new AutoCAD custom command `UpdateParam` that will be called when Design Automation executes.
 
 [PackageContents.xml](_snippets/modifymodels/engines/autocad/PackageContents.xml ':include :type=code xml')
 

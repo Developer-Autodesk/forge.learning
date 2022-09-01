@@ -78,7 +78,7 @@ If by any chance, you receive an error like `could not launch process: exec "lld
 If you are interested in a terminal only debugging (hardcore debugging), have a look at following tutorials:
 
 - the [way of GDB](https://golang.org/doc/gdb) - for debbuging golang applications using GDB;
-- the [way of LLDB](http://blog.ralch.com/tutorial/golang-debug-with-lldb/) - for debbuging golang applications using LLDB;
+- the [way of LLDB](https://ribrdb.github.io/lldb) - for debbuging golang applications using LLDB;
 
 
 For those that don't like setup anything, there is [Goland](https://www.jetbrains.com/go/) that includes all needed visual tools and should be familiar to those using JetBrains products.
