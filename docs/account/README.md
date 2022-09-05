@@ -1,6 +1,6 @@
 # Autodesk Account
 
-Your Autodesk Forge account is your main identity.
+Your Autodesk Forge account is your main identity. 
 
 ## Creating your Forge account
 
@@ -10,13 +10,19 @@ Go to [Forge Developer Portal](https://forge.autodesk.com/), click the “SIGN I
 
 ## Create an app
 
-On the top-right, you'll see your name. Click to expand the menu and go to **My Apps**. Click the “CREATE APP” button.
+On the top-right, you'll see your name. Click to expand the menu and go to **My Apps**. Click the “Create application” button.
+
+![Create application button](/_media/forge/my-apps.png)
+
+![Create Application Dialog](/_media/forge/create-app.png)
 
 Select APIs you are going to use (you can safely select all for now). Enter your application name and description, then enter a callback URL: `http://localhost:3000/api/forge/callback/oauth` (this tutorial will not use this callback, but that's the URL used on other Autodesk Forge samples)
 
+![API Selection](/_media/forge/api-selection.png)
+
 Once you set up an application, you will see a Client ID and Client Secret in your newly created app page. You will need these in all other OAuth flows and, by extension, to complete every other tutorial on this site!
 
-![](_media/account/create_app.gif)
+![Appliaction Overview](/_media/forge/app-overview.png)
 
 !> **DO NOT** share your Client Secret, this should be kept confidential.
 
