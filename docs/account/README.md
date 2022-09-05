@@ -22,7 +22,7 @@ Select APIs you are going to use (you can safely select all for now). Enter your
 
 Once you set up an application, you will see a Client ID and Client Secret in your newly created app page. You will need these in all other OAuth flows and, by extension, to complete every other tutorial on this site!
 
-![Appliaction Overview](/_media/forge/app-overview.png)
+![Application Overview](/_media/forge/app-overview.png)
 
 !> **DO NOT** share your Client Secret, this should be kept confidential.
 
