@@ -18,15 +18,17 @@ Click the **Create application** button.
 
 ![Create application button](/_media/forge/03-app-list.png)
 
-Enter your application name, and click the `Create` button.
+Enter your application name, and click the **Create** button.
 
 ![Create Application Dialog](/_media/forge/04-create-app.png)
 
-Your application is now ready. Let's store your Client ID and Client Secret credentials as we will need these soon!
+Your application is now ready. Let's store your **Client ID** and **Client Secret** credentials as we will need these soon!
+
+!> **DO NOT** share your Client Secret as it should be kept confidential.
 
 ![Ready Application](/_media/forge/the-app-overview.png)
 
-Finally, set the Callback URL under General Settings to `http://localhost:3000/api/forge/callback/oauth`(this tutorial will not use this callback, but that's the URL used on other Autodesk Forge samples), and select the APIs you are going to use (you can safely select all for now).
+Finally, set the **Callback URL** under **General Settings** to `http://localhost:3000/api/forge/callback/oauth`(this tutorial will not use this callback, but that's the URL used on other Autodesk Forge samples), and select the APIs you are going to use (you can safely select all for now).
 
 ![API Selection](/_media/forge/old-tutorials-callback2.png)
 
@@ -34,11 +36,9 @@ Finally, update the application by clicking on the **Save changes** button, and 
 
 ![Save Chnages Button](/_media/forge/save-changes.png)
 
-Once your application(s) is created, you will be able to view them on the **Applications** section of your account.
+Once your application is created, you will be able to view it in the **Applications** section of your account.
 
 ![Your Apps](/_media/forge/apps-arrangement.png)
-
-!> **DO NOT** share your Client Secret, this should be kept confidential.
 
 You are now good to go!
 
